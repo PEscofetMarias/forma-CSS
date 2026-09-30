@@ -5,21 +5,24 @@
 .dropdown {
   width: fit-content;
   position: relative;
+  summary {
+    margin: 0;
+  }
   ul {
     display: block;
     position: absolute;
     top: calc(100% + 0.15rem);
-    @include m.panel-background;
+    @include m.panel-elevation-2;
     @include m.initialize-fading;
     padding: 0;
     margin: 0;
     list-style: none;
-    border-radius: calc(var(#{$css-var-prefix}border-radius-button) * 0.75);
+    border-radius: calc($border-radius-button * 0.75);
     z-index: 999;
     overflow: hidden;
     min-width: 100%;
     width: fit-content;
-    font-family: var(#{$css-var-prefix}font-family-headings);
+    font-family: $font-family-headings;
   }
   &.dropdown-align-right {
     ul {
@@ -42,21 +45,21 @@
     left: 0;
     cursor: auto;
   }
-  //// adding a nav tag invalidates the list styling
-  &:not(:has(nav)) {
+  //// adding a nav on div tag invalidates the list styling
+  &:not(:has(nav, div)) {
     li {
       a {
         font-size: 0.8rem;
         display: block;
         font-weight: normal;
-        color: var(#{$css-var-prefix}color-text);
-        border-bottom: 1px solid var(#{$css-var-prefix}color-border-panel);
-        padding: calc(var(#{$css-var-prefix}gutter) * 0.5);
+        color: $color-text;
+        border-bottom: 1px solid $color-gray-highlight;
+        padding: calc($gutter * 0.5);
         text-wrap: nowrap;
         transition: none;
         &:hover {
-          background: var(#{$css-var-prefix}color-gray-highlight);
-          color: contrast-color(var(#{$css-var-prefix}color-gray-highlight));
+          background: $color-gray-highlight;
+          color: contrast-color($color-gray-highlight);
         }
       }
       &:last-of-type a {
@@ -109,20 +112,20 @@
       display: block;
       width: 100%;
       height: 1px;
-      background: contrast-color(var(#{$css-var-prefix}color-primary));
+      background: contrast-color($color-primary);
       position: relative;
-      transition: transform var(#{$css-var-prefix}transition-fast) ease-in-out;
+      transition: transform $transition-fast ease-in-out;
       &::after,
       &::before {
         content: "";
         display: block;
         width: 100%;
         height: 1px;
-        background: contrast-color(var(#{$css-var-prefix}color-primary));
+        background: contrast-color($color-primary);
         position: absolute;
         transition:
-          transform var(#{$css-var-prefix}transition-fast) ease-in-out,
-          top var(#{$css-var-prefix}transition-fast) ease-in-out;
+          transform $transition-fast ease-in-out,
+          top $transition-fast ease-in-out;
       }
       &::before {
         top: -6px;
@@ -136,7 +139,7 @@
   ul {
     padding: 0;
     margin: 0;
-    border-radius: var(#{$css-var-prefix}border-radius-panel);
+    border-radius: $border-radius-panel;
     li {
       margin: 1rem;
       text-wrap: nowrap;
@@ -172,16 +175,15 @@
     padding: 0;
     margin: 0;
     min-width: 100%;
-    font-family: var(#{$css-var-prefix}font-family-headings);
+    font-family: $font-family-headings;
   }
   input {
     position: relative;
     height: 100%;
-    border-radius: var(#{$css-var-prefix}border-radius-panel) 0 0
-      var(#{$css-var-prefix}border-radius-panel);
-    font-size: var(#{$css-var-prefix}font-size);
-    @include m.panel-background;
-    padding: 0 var(#{$css-var-prefix}gutter);
+    border-radius: $border-radius-panel 0 0 $border-radius-panel;
+    font-size: $font-size;
+    @include m.panel-elevation-2;
+    padding: 0 $gutter;
   }
   &[open] {
     form {
@@ -193,7 +195,7 @@
     .btn {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
-      box-shadow: var(#{$css-var-prefix}elevation-2);
+      box-shadow: $elevation-2;
     }
   }
 }

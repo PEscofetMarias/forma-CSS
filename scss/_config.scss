@@ -1,6 +1,35 @@
 @use "sass:map";
 
 $css-var-prefix: --forma-;
+$color-contrast: #{$css-var-prefix}color-contrast;
+
+$font-family: var(#{$css-var-prefix}font-family);
+$font-family-headings: var(#{$css-var-prefix}font-family-headings);
+$font-weight: var(#{$css-var-prefix}font-weight);
+$line-height: var(#{$css-var-prefix}line-height);
+
+$color-primary: var(#{$css-var-prefix}color-primary);
+$color-secondary: var(#{$css-var-prefix}color-secondary);
+$color-text: var(#{$css-var-prefix}color-text);
+$color-background: var(#{$css-var-prefix}color-background);
+$color-backdrop: var(#{$css-var-prefix}color-backdrop);
+$color-panel: var(#{$css-var-prefix}color-panel);
+$color-border-panel: var(#{$css-var-prefix}color-border-panel);
+$color-gray-highlight: var(#{$css-var-prefix}color-gray-highlight);
+
+$font-size: var(#{$css-var-prefix}font-size);
+$gutter: var(#{$css-var-prefix}gutter);
+$transition-slow: var(#{$css-var-prefix}transition-slow);
+$transition-fast: var(#{$css-var-prefix}transition-fast);
+$border-radius-panel: var(#{$css-var-prefix}border-radius-panel);
+$border-radius-button: var(#{$css-var-prefix}border-radius-button);
+
+$filter-backdrop: var(#{$css-var-prefix}filter-backdrop);
+$filter-panel: var(#{$css-var-prefix}filter-panel);
+
+$elevation-1: var(#{$css-var-prefix}elevation-1);
+$elevation-2: var(#{$css-var-prefix}elevation-2);
+$elevation-3: var(#{$css-var-prefix}elevation-3);
 
 $breakpoints: (
   sm: (
@@ -30,7 +59,7 @@ $breakpoints: (
   ),
 );
 
-$spaces: 0.5, 1, 2, 4, 6, 8;
+$spaces: 0, 0.5, 1, 2, 4, 6, 8;
 $spacing-name: (
   mt: margin-top,
   mb: margin-bottom,
@@ -76,7 +105,7 @@ $text-sizes: (
     line-height: 130%,
     margin: 0.5em 0,
   ),
-  "p.smaller": (
+  "p.smaller, small": (
     size: 0.75em,
   ),
   "p.lead": (

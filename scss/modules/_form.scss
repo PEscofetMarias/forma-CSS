@@ -1,0 +1,26 @@
+@use "../config" as *;
+@use "mixins" as m;
+
+label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: calc($gutter * 0.75);
+  gap: calc($gutter * 0.5);
+  &:has([type="checkbox"]),
+  &:has([type="radio"]) {
+    flex-direction: row;
+  }
+}
+input {
+  border-radius: $border-radius-button;
+  font-size: $font-size;
+  border: 2px solid $color-gray-highlight;
+  padding: calc($gutter * 0.5);
+  background: rgb(from $color-panel r g b / 0.4);
+  transition: all $transition-fast ease-in-out;
+  &:focus {
+    outline: 0;
+    @include m.panel-elevation-2;
+    border-width: 2px;
+  }
+}

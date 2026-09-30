@@ -36,12 +36,12 @@
   -webkit-tap-highlight-color: transparent; // 4
   -webkit-text-size-adjust: 100%; // 5
   text-size-adjust: 100%; // 5
-  background-color: var(#{$css-var-prefix}color-background);
-  color: var(#{$css-var-prefix}color-text);
-  font-weight: var(#{$css-var-prefix}font-weight);
-  font-size: var(#{$css-var-prefix}font-size);
-  line-height: var(#{$css-var-prefix}line-height); // 1
-  font-family: var(#{$css-var-prefix}font-family);
+  background-color: $color-background;
+  color: $color-text;
+  font-weight: $font-weight;
+  font-size: $font-size;
+  line-height: $line-height; // 1
+  font-family: $font-family;
   text-underline-offset: var(#{$css-var-prefix}text-underline-offset);
   text-rendering: optimizeLegibility;
   overflow-wrap: break-word; // 2
@@ -55,7 +55,7 @@ body {
 }
 
 dialog {
-  color: var(#{$css-var-prefix}color-text);
+  color: $color-text;
 }
 
 summary:first-of-type {

@@ -3,16 +3,16 @@
 
 .toast {
   position: fixed;
-  color: var(#{$css-var-prefix}color-text);
-  top: var(#{$css-var-prefix}gutter);
-  right: var(#{$css-var-prefix}gutter);
+  color: $color-text;
+  top: $gutter;
+  right: $gutter;
   left: auto;
   margin: 0;
-  padding: var(#{$css-var-prefix}gutter);
-  border-radius: var(#{$css-var-prefix}border-radius-panel);
+  padding: $gutter;
+  border-radius: $border-radius-panel;
   width: 30vw;
   z-index: 9999;
-  @include m.panel-background;
+  @include m.panel-elevation-3;
   @include m.initialize-fading;
 
   @include m.media(xxl, down) {

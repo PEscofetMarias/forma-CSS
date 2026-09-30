@@ -9,11 +9,11 @@
     bottom: 100%;
     left: 50%;
     transform: translate(-50%, 0);
-    font-family: var(#{$css-var-prefix}font-family-headings);
-    background-color: var(#{$css-var-prefix}color-text);
-    color: contrast-color(var(#{$css-var-prefix}color-text));
+    font-family: $font-family-headings;
+    background-color: $color-text;
+    color: contrast-color($color-text);
     padding: 0.5rem;
-    border-radius: calc(var(#{$css-var-prefix}border-radius-button) * 0.5);
+    border-radius: calc($border-radius-button * 0.5);
     font-size: 0.8rem;
     font-weight: normal;
     white-space: normal;
@@ -22,11 +22,11 @@
     overflow-wrap: break-word;
     line-height: 120%;
     z-index: 10;
-    box-shadow: var(#{$css-var-prefix}elevation-1);
+    box-shadow: $elevation-1;
 
     opacity: 0;
     visibility: hidden;
-    transition: all var(#{$css-var-prefix}transition-fast) ease-in-out;
+    transition: all $transition-fast ease-in-out;
     pointer-events: none;
   }
   &::before {
@@ -37,11 +37,11 @@
     transform: translate(-50%, 0);
 
     border: 6px solid transparent;
-    border-top-color: var(#{$css-var-prefix}color-text);
+    border-top-color: $color-text;
 
     opacity: 0;
     visibility: hidden;
-    transition: all var(#{$css-var-prefix}transition-fast) ease-in-out;
+    transition: all $transition-fast ease-in-out;
     pointer-events: none;
   }
   &:hover,

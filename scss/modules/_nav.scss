@@ -3,7 +3,7 @@
 @use "buttons";
 
 .nav-item {
-  color: var(#{$css-var-prefix}color-text);
-  font-size: calc(var(#{$css-var-prefix}font-size) * 1.25);
+  color: $color-text;
+  font-size: calc($font-size * 1.25);
   font-weight: normal;
 }

@@ -2,8 +2,12 @@
 @use "mixins" as m;
 
 article {
-  padding: calc(var(#{$css-var-prefix}gutter) * 0.5);
-  border-radius: var(#{$css-var-prefix}border-radius-panel);
-  @include m.panel-background;
-  box-shadow: var(#{$css-var-prefix}elevation-1);
+  padding: calc($gutter * 0.5);
+  border-radius: $border-radius-panel;
+  @include m.panel-elevation-2;
+  backdrop-filter: none;
+  box-shadow: $elevation-1;
+  .btn.btn-contrast {
+    #{$color-contrast}: contrast-color($color-panel);
+  }
 }
