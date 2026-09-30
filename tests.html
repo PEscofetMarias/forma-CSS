@@ -1,0 +1,399 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="./web/css/styles.css" as="style"
+            onload="this.onload=null;this.rel='stylesheet'">
+        <style>
+            :root {
+                interpolate-size: allow-keywords;
+                --forma-elevation-1: 0 0 .25rem rgba(0,0,0,.1);
+                --forma-elevation-2: 0 0 .75rem rgba(0,0,0,.3);
+                --forma-font-family-headings: Arial, Helvetica, sans-serif;
+                --forma-font-family: 'Times New Roman', Times, serif;
+                --forma-font-size: 16px;
+                --forma-line-height: 1rem;
+                --forma-border-radius-button: 1rem;
+                --forma-color-primary: #a00861;
+                --forma-color-secondary: #fe5353;
+                --forma-color-text: #3e3e3e;
+                --forma-color-background: #eeeeee;
+                --forma-color-panel: rgb(from white r g b / .5);
+                --forma-color-backdrop: rgb(from white r g b / .4);
+                --forma-color-gray-highlight:#e2e2e2;
+                --forma-gutter: 1rem;
+                --forma-transition-fast: .2s;
+                --forma-transition-slow: .5s;
+                --forma-filter-panel: blur(10px) saturate(180%);
+                --forma-filter-backdrop: blur(5px);
+                --forma-color-border-panel: white;
+                --forma-border-radius-panel: 1.5rem;
+            }
+            
+            
+            
+            
+            
+            
+            
+
+            details .content {
+                opacity: 0;
+                height: 0;
+                overflow: hidden;
+                transition: 
+                    opacity .5s ease-in-out,
+                    height .5s ease-in-out,
+                    content-visibility .5s allow-discrete;
+            }
+            
+
+            details[open] .content{
+                opacity: 1;
+                height: auto;
+                @starting-style {
+                    opacity: 0;
+                    height: 0;
+                }
+            }
+            
+        </style>
+    </head>
+    <body>
+        <header class="fluid flex-row align-center">
+            <a class="btn btn-lg btn-round" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                </svg>
+            </a>
+            <details class="menu-burger dropdown">
+                <summary class="btn btn-lg btn-round"><i><span></span></i></summary>
+                <nav>
+                    <ul>
+                        <li><a class="nav-item" href="#">Start</a></li>
+                        <li><a class="nav-item" href="#">About us</a></li>
+                        <li><a class="nav-item" href="#">Bookings</a></li>
+                        <li><a class="nav-item" href="#">Contact</a></li>
+                        <li><a href="#" class="btn btn-sm">Menu button</a></li>
+                    </ul>
+                </nav>  
+            </details>
+            <hr />
+        </header>
+        
+        <main>
+            <section>
+                <h1>Forma-CSS</h1>
+                <h3>An amazing SASS design system with 0% Java Script</h3>
+            </section>
+            <section class="flex-row">
+                <button class="btn" data-text="Open a modal window! That's a huge large tooltip." popovertarget="my-popover-dialog">Open Popover-dialog</button>
+                <dialog class="modal-window" popover="manual" id="my-popover-dialog">
+                    <p>This dialog was opened using the Popover API.<br>
+                        This case is more convenient because it adds the dismiss functionality by clicking outside.</p>
+                    <button class="btn" popovertarget="my-popover-dialog" popovertargetaction="hide">Close</button>
+                </dialog>
+
+                <button class="btn" popovertarget="my-toast">Open toast alert</button>
+                <div id="my-toast" popover="manual" class="toast">
+                    <p>This toast was opened using Invoker Commands and stays open.</p>
+                    <button class="btn" commandfor="my-toast" command="hide-popover">Dismiss</button>
+                </div>
+                
+            </section>
+            <hr />
+
+            <section>
+                <div class="accordion">
+                    <details name="accordion1" open>
+                        <summary><span></span>Details</summary>
+                        <div class="content">
+                            <p>Something small enough to escape casual notice.</p>
+                        </div>
+                    </details>
+                    <details name="accordion1">
+                        <summary><span></span>Details 2</summary>
+                        <div class="content">
+                            <p>Something small enough to escape casual notice 2.</p>
+                        </div>
+                    </details>
+                </div>
+            </section>
+            
+
+            <hr />
+
+
+            <section>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam accumsan nunc at viverra suscipit. Morbi elementum non
+                arcu a viverra. Fusce auctor ornare augue ut egestas. Pellentesque nec velit augue. Aenean ac bibendum lacus. Aenean
+                fringilla nec metus sed suscipit. Nam pretium ullamcorper dolor nec dignissim. Donec posuere magna a ligula ultricies,
+                vitae placerat risus mattis. Aliquam venenatis justo convallis mattis sodales. Morbi eu nunc ac turpis fringilla
+                tincidunt nec non nunc.</p>
+                <p>Lorem ipsum dolor sit amet, <strong data-text="That's a tooltip!!">adipiscing elit</strong>. Aliquam accumsan nunc at viverra suscipit. Morbi elementum
+                non
+                arcu a viverra. Fusce auctor ornare augue ut egestas. Pellentesque nec velit augue. Aenean ac bibendum lacus. Aenean
+                fringilla nec metus sed suscipit. Nam pretium ullamcorper dolor nec dignissim. Donec posuere magna a ligula
+                ultricies,
+                vitae placerat risus mattis. Aliquam venenatis justo convallis mattis sodales. Morbi eu nunc ac turpis fringilla
+                tincidunt nec non nunc.</p>
+                <p class="smaller">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam accumsan nunc at viverra suscipit. Morbi elementum non
+                arcu a viverra. Fusce auctor ornare augue ut egestas. Pellentesque nec velit augue. Aenean ac bibendum lacus. Aenean
+                fringilla nec metus sed suscipit. Nam pretium ullamcorper dolor nec dignissim. Donec posuere magna a ligula ultricies,
+                vitae placerat risus mattis. Aliquam venenatis justo convallis mattis sodales. Morbi eu nunc ac turpis fringilla
+                tincidunt nec non nunc.
+</p>
+                <hr />
+            </section>
+
+            <section class="flex-row align-center">
+                dropdowns
+                <details class="dropdown">
+                    <summary class="btn btn-lg btn-secondary">
+                        Drop down
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down"
+                            viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+                        </svg>
+                    </summary>
+                    <ul>
+                        <li><a href="#">Option 1</a></li>
+                        <li><a href="#">Option 2</a></li>
+                        <li><a href="#">Option 3</a></li>
+                        <li><a href="#">Option 4</a></li>
+                    </ul>
+                </details>
+                <details class="dropdown dropup">
+                    <summary class="btn">
+                        Drop up
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-up"
+                            viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z" />
+                        </svg>
+                    </summary>
+                    <ul>
+                        <li><a href="#">Option 1</a></li>
+                        <li><a href="#">An extrem large option</a></li>
+                        <li><a href="#">Option 3</a></li>
+                        <li><a href="#">Option 4</a></li>
+                    </ul>
+                </details>
+                <details class="dropdown dropdown-align-right">
+                    <summary class="btn">
+                        Drop down
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down"
+                            viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+                        </svg>
+                    </summary>
+                    <ul>
+                        <li><a href="#">Option 1</a></li>
+                        <li><a href="#">An extrem large option</a></li>
+                        <li><a href="#">Option 3</a></li>
+                        <li><a href="#">Option 4</a></li>
+                    </ul>
+                </details>
+                <details class="dropdown dropup dropdown-align-right">
+                    <summary class="btn btn-round">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
+                        </svg>
+                    </summary>
+                    <ul>
+                        <li><a href="#">Option 1</a></li>
+                        <li><a href="#">An extrem large option</a></li>
+                        <li><a href="#">Option 3</a></li>
+                        <li><a href="#">Option 4</a></li>
+                    </ul>
+                </details>
+            </section>
+
+            <hr />
+
+            <section class="flex-row align-center">
+                <a class="btn" href="#">Button standard</a>
+                <a class="btn btn-outline" href="#">Button standard</a>
+                <a class="btn btn-secondary" href="#">Button standard</a>
+                <a class="btn btn-outline-secondary" href="#">Button standard</a>
+                <a class="btn btn-sm" href="#">Button small</a>
+                <a class="btn btn-sm btn-outline" href="#">Button small</a>
+                <a class="btn btn-sm btn-secondary" href="#">Button small</a>
+                <a class="btn btn-sm btn-outline-secondary" href="#">Button small</a>
+            </section>
+            <section class="flex-row align-center mt-1">
+                <a class="btn" href="#">Button standard</a>
+                <a class="btn" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
+                    </svg>
+                    Icon button</a>
+                <a class="btn" href="#">
+                    Icon button
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
+                    </svg>
+                    </a>
+                <a class="btn btn-sm" href="#">
+                    Button small</a>
+                <a class="btn btn-sm" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
+                    </svg>
+                    Icon button small
+                </a>
+            </section>
+            <section class="flex-row align-center mt-1">
+                Large buttons
+                <a class="btn btn-lg" href="#">Button large</a>
+                <a class="btn btn-lg" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
+                    </svg>
+                    Icon button</a>
+                
+            </section>
+            <section class="flex-row align-center mt-1">
+                Round buttons
+                <a class="btn btn-lg btn-round" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
+                    </svg>
+                    </a>
+                <a class="btn btn-round" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
+                    </svg>
+                </a>
+                <a class="btn btn-sm btn-round" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
+                    </svg>
+                </a>
+                <a class="btn btn-lg btn-round btn-secondary" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
+                    </svg>
+                </a>
+                <a class="btn btn-round btn-secondary" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
+                    </svg>
+                </a>
+                <a class="btn btn-sm btn-round btn-secondary" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
+                    </svg>
+                </a>
+            
+            </section>
+            <section class="flex-row align-center mt-2 mb-2">
+                Button group
+                <div class="btn-group">
+                    <a href="#" class="btn">Element 1</a>
+                    <a href="#" class="btn">Element longer</a>
+                    <button class="btn">Element 3</button>
+                    <details class="dropdown">
+                        <summary class="btn">
+                            Drop down
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down"
+                                viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+                            </svg>
+                        </summary>
+                        <ul>
+                            <li><a href="#">Option 1</a></li>
+                            <li><a href="#">Option 2</a></li>
+                            <li><a href="#">Option 3</a></li>
+                            <li><a href="#">Option 4</a></li>
+                        </ul>
+                    </details>
+                    <a href="#" class="btn">Element 4</a>
+                    <details class="dropdown">
+                        <summary class="btn">
+                            Drop down
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down"
+                                viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+                            </svg>
+                        </summary>
+                        <ul>
+                            <li><a href="#">Option 1</a></li>
+                            <li><a href="#">Option 2</a></li>
+                            <li><a href="#">Option 3</a></li>
+                            <li><a href="#">Option 4</a></li>
+                        </ul>
+                    </details>
+                </div>
+            </section>
+            <section class="flex-row mt-2 mb-2">
+                Button group vertical
+                <div class="btn-group-vertical">
+                    <a href="#" class="btn">Element 1</a>
+                    <a href="#" class="btn">Element longer</a>
+                    <a href="#" class="btn">Element 3</a>
+                    <a href="#" class="btn">Element 4</a>
+                    <details class="dropdown">
+                        <summary class="btn">
+                            Drop down
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down"
+                                viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+                            </svg>
+                        </summary>
+                        <ul>
+                            <li><a href="#">Option 1</a></li>
+                            <li><a href="#">Option 2</a></li>
+                            <li><a href="#">Option 3</a></li>
+                            <li><a href="#">Option 4</a></li>
+                        </ul>
+                    </details>
+                </div>
+            </section>
+            <hr />
+            <aside class="flex-row mt-1">
+                <article>
+                    <h4>Article name</h4>
+                    <p>Short description</p>
+                    <a href="#" class="btn btn-sm">CTA button</a>
+                </article>
+                <article>
+                    <h4>Article name</h4>
+                    <p>Short description</p>
+                    <a href="#" class="btn btn-sm">CTA button</a>
+
+                </article>
+            </aside>
+            
+
+        </main>
+        
+    </body>
+</html>

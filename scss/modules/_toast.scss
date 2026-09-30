@@ -1,0 +1,27 @@
+@use "../config" as *;
+@use "mixins" as m;
+
+.toast {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  left: auto;
+  margin: 0;
+  border: 1px solid black;
+  padding: var(#{$css-var-prefix}gutter);
+  border-radius: var(#{$css-var-prefix}border-radius-panel);
+  width: 30vw;
+  z-index: 9999;
+  @include m.panel-background;
+  @include m.initialize-fading;
+
+  @include m.media(xxl, down) {
+    width: 40vw;
+  }
+  @include m.media(lg, down) {
+    width: 60vw;
+  }
+  @include m.media(md, down) {
+    width: 80vw;
+  }
+}

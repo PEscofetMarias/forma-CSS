@@ -1,0 +1,60 @@
+@use "../config" as *;
+@use "mixins" as m;
+
+[data-text] {
+  position: relative;
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-family: var(#{$css-var-prefix}font-family-headings);
+    background-color: var(#{$css-var-prefix}color-text);
+    color: contrast-color(var(#{$css-var-prefix}color-text));
+    padding: 0.5rem;
+    border-radius: calc(var(#{$css-var-prefix}border-radius-button) * 0.5);
+    font-size: 0.8rem;
+    font-weight: normal;
+    white-space: normal;
+    max-width: 12rem;
+    width: max-content;
+    overflow-wrap: break-word;
+    line-height: 120%;
+    z-index: 10;
+    box-shadow: var(#{$css-var-prefix}elevation-1);
+
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(#{$css-var-prefix}transition-fast) ease-in-out;
+    pointer-events: none;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: calc(100% - 0.55rem);
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    border: 6px solid transparent;
+    border-top-color: var(#{$css-var-prefix}color-text);
+
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(#{$css-var-prefix}transition-fast) ease-in-out;
+    pointer-events: none;
+  }
+  &:hover,
+  &:focus {
+    &::after {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, -0.35rem);
+    }
+    &::before {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, -0.35rem);
+    }
+  }
+}

@@ -1,0 +1,88 @@
+@use "sass:map";
+
+$css-var-prefix: --forma-;
+
+$breakpoints: (
+  sm: (
+    breakpoint: 600px,
+    viewport: 540px,
+    root-font-size: 85%,
+  ),
+  md: (
+    breakpoint: 768px,
+    viewport: 720px,
+    root-font-size: 95%,
+  ),
+  lg: (
+    breakpoint: 1024px,
+    viewport: 960px,
+    root-font-size: 100%,
+  ),
+  xl: (
+    breakpoint: 1450px,
+    viewport: 1200px,
+    root-font-size: 105%,
+  ),
+  xxl: (
+    breakpoint: 1536px,
+    viewport: 1400px,
+    root-font-size: 115%,
+  ),
+);
+
+$spaces: 0.5, 1, 2, 4, 6, 8;
+$spacing-name: (
+  mt: margin-top,
+  mb: margin-bottom,
+  ml: margin-left,
+  mr: margin-right,
+  pt: padding-top,
+  pb: padding-bottom,
+  pl: padding-left,
+  pr: padding-right,
+);
+$text-sizes: (
+  "h1, .heading-1": (
+    size: 7rem,
+    line-height: 90%,
+    letter-spacing: -4%,
+    margin: 0.5em 0,
+  ),
+  "h2, .heading-2": (
+    size: 5rem,
+    line-height: 90%,
+    letter-spacing: -4%,
+    margin: 0.5em 0,
+  ),
+  "h3, .heading-3": (
+    size: 4rem,
+    line-height: 100%,
+    letter-spacing: -4%,
+    margin: 1rem 0,
+  ),
+  "h4, .heading-4": (
+    size: 3rem,
+    line-height: 100%,
+    letter-spacing: -4%,
+    margin: 0.5rem 0,
+  ),
+  "h5, .heading-5": (
+    size: 2rem,
+    line-height: 100%,
+    margin: 0.5rem 0,
+  ),
+  p: (
+    size: 1rem,
+    line-height: 130%,
+    margin: 0.5em 0,
+  ),
+  "p.smaller": (
+    size: 0.75em,
+  ),
+  "p.lead": (
+    size: 1.5em,
+  ),
+  "hr": (
+    margin: 1rem 0,
+  ),
+);

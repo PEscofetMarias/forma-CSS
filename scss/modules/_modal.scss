@@ -1,0 +1,16 @@
+@use "../config" as *;
+@use "mixins" as m;
+
+.modal-window {
+  padding: var(#{$css-var-prefix}gutter);
+  border-radius: var(#{$css-var-prefix}border-radius-panel);
+  @include m.panel-background;
+  @include m.initialize-fading;
+  transition: opacity var(#{$css-var-prefix}transition-slow) ease-in-out;
+  &::backdrop {
+    background: var(#{$css-var-prefix}color-backdrop);
+    backdrop-filter: var(#{$css-var-prefix}filter-backdrop);
+    @include m.initialize-fading;
+    transition: opacity var(#{$css-var-prefix}transition-slow) ease-in-out;
+  }
+}

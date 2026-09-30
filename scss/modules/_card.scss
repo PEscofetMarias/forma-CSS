@@ -1,0 +1,9 @@
+@use "../config" as *;
+@use "mixins" as m;
+
+article {
+  padding: calc(var(#{$css-var-prefix}gutter) * 0.5);
+  border-radius: var(#{$css-var-prefix}border-radius-panel);
+  @include m.panel-background;
+  box-shadow: var(#{$css-var-prefix}elevation-1);
+}

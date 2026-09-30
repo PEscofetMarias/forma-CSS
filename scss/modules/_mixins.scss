@@ -1,0 +1,45 @@
+@use "sass:map";
+@use "../config" as *;
+
+@mixin media($breakpoint-key, $direction: up) {
+  $bp: map.get($breakpoints, $breakpoint-key, breakpoint);
+
+  @if $bp {
+    @if $direction == up {
+      @media (min-width: $bp) {
+        @content;
+      }
+    } @else if $direction == down {
+      // Restem 0.02px per evitar solapaments exactes amb el min-width
+      @media (max-width: ($bp - 0.02px)) {
+        @content;
+      }
+    } @else {
+      @warn "Direcció desconeguda '#{$direction}'. Utilitza 'up' o 'down'.";
+    }
+  } @else {
+    @warn "El breakpoint '#{$breakpoint-key}' no existeix.";
+  }
+}
+
+@mixin panel-background {
+  background: var(#{$css-var-prefix}color-panel);
+  backdrop-filter: var(#{$css-var-prefix}filter-panel);
+  border: 1px solid var(#{$css-var-prefix}color-border-panel);
+
+  box-shadow: var(#{$css-var-prefix}elevation-2);
+}
+
+@mixin initialize-fading {
+  opacity: 0;
+  transition:
+    opacity var(#{$css-var-prefix}transition-fast) ease-in-out,
+    content-visibility var(#{$css-var-prefix}transition-fast) allow-discrete;
+  &:popover-open,
+  &:popover-open::backdrop {
+    opacity: 1;
+    @starting-style {
+      opacity: 0;
+    }
+  }
+}

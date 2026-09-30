@@ -1,0 +1,184 @@
+@use "../config" as *;
+
+$color-primary-hover: hsl(
+  from var(#{$css-var-prefix}color-primary) h s calc(l * 0.8)
+);
+$color-secondary-hover: hsl(
+  from var(#{$css-var-prefix}color-secondary) h s calc(l * 0.8)
+);
+$color-primary-active: hsl(
+  from var(#{$css-var-prefix}color-primary) h s calc(l * 0.6)
+);
+$color-secondary-active: hsl(
+  from var(#{$css-var-prefix}color-secondary) h s calc(l * 0.6)
+);
+
+.btn {
+  cursor: hand;
+  font-size: var(#{$css-var-prefix}font-size);
+  line-height: var(#{$css-var-prefix}font-size);
+  font-family: var(#{$css-var-prefix}font-family-headings);
+  font-weight: normal;
+  padding: calc(var(#{$css-var-prefix}gutter) * 0.5)
+    calc(var(#{$css-var-prefix}gutter) * 0.75);
+  border-radius: var(#{$css-var-prefix}border-radius-button);
+  border: 1px solid var(#{$css-var-prefix}color-primary);
+  background: var(#{$css-var-prefix}color-primary);
+  color: contrast-color(var(#{$css-var-prefix}color-primary));
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  gap: calc(var(#{$css-var-prefix}gutter) * 0.5);
+  &:hover {
+    background: $color-primary-hover;
+    color: contrast-color($color-primary-hover);
+    border-color: $color-primary-hover;
+  }
+  &:active {
+    background: $color-primary-active;
+    border-color: $color-primary-active;
+  }
+  transition: all var(#{$css-var-prefix}transition-fast) ease-in-out;
+
+  &.btn-secondary {
+    background: var(#{$css-var-prefix}color-secondary);
+    border-color: var(#{$css-var-prefix}color-secondary);
+    color: contrast-color(var(#{$css-var-prefix}color-secondary));
+    &:hover {
+      background: $color-secondary-hover;
+      border-color: $color-secondary-hover;
+      color: contrast-color($color-secondary-hover);
+    }
+    &:active {
+      background: $color-secondary-active;
+      border-color: $color-secondary-active;
+    }
+  }
+
+  &.btn-outline {
+    background: transparent;
+    color: var(#{$css-var-prefix}color-primary);
+    &:hover {
+      background: $color-primary-hover;
+      border-color: $color-primary-hover;
+      color: contrast-color($color-primary-hover);
+    }
+    &:active {
+      background: $color-primary-active;
+      border-color: $color-primary-active;
+    }
+  }
+
+  &.btn-outline-secondary {
+    background: transparent;
+    color: var(#{$css-var-prefix}color-secondary);
+    border-color: var(#{$css-var-prefix}color-secondary);
+    &:hover {
+      background: $color-secondary-hover;
+      border-color: $color-secondary-hover;
+      color: contrast-color($color-secondary-hover);
+    }
+    &:active {
+      background: $color-secondary-active;
+      border-color: $color-secondary-active;
+    }
+  }
+  &.btn-round {
+    border-radius: 50%;
+    padding: calc(var(#{$css-var-prefix}gutter) * 0.5);
+  }
+  &.btn-sm {
+    font-size: calc(var(#{$css-var-prefix}font-size) * 0.75);
+    padding: calc(var(#{$css-var-prefix}gutter) * 0.35)
+      calc(var(#{$css-var-prefix}gutter) * 0.75);
+    gap: calc(var(#{$css-var-prefix}gutter) * 0.4);
+    svg,
+    i {
+      height: calc(var(#{$css-var-prefix}font-size) * 0.75);
+      width: auto;
+    }
+    &.btn-round {
+      padding: calc(var(#{$css-var-prefix}gutter) * 0.35);
+    }
+  }
+
+  &.btn-lg {
+    font-size: calc(var(#{$css-var-prefix}font-size) * 1.25);
+    padding: calc(var(#{$css-var-prefix}gutter) * 0.75)
+      calc(var(#{$css-var-prefix}gutter) * 1.25);
+    gap: calc(var(#{$css-var-prefix}gutter) * 0.75);
+    svg,
+    i {
+      height: calc(var(#{$css-var-prefix}font-size) * 1.25);
+      width: auto;
+    }
+    &.btn-round {
+      padding: calc(var(#{$css-var-prefix}gutter) * 0.75);
+    }
+  }
+}
+
+a {
+  color: var(#{$css-var-prefix}color-primary);
+  text-decoration: none;
+  font-weight: bold;
+  transition: all var(#{$css-var-prefix}transition-fast) ease-in-out;
+  &:hover {
+    color: $color-primary-hover;
+  }
+}
+
+.btn-group {
+  display: flex;
+  gap: 1px;
+  .btn,
+  summary {
+    border-radius: 0;
+  }
+  .btn,
+  .dropdown {
+    &:first-child {
+      &:not(summary),
+      summary {
+        border-radius: var(#{$css-var-prefix}border-radius-button) 0 0
+          var(#{$css-var-prefix}border-radius-button);
+      }
+    }
+    &:last-child {
+      &:not(summary),
+      summary {
+        border-radius: 0 var(#{$css-var-prefix}border-radius-button)
+          var(#{$css-var-prefix}border-radius-button) 0;
+      }
+    }
+  }
+}
+.btn-group-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  .btn,
+  .dropdown {
+    border-radius: 0;
+    width: 100%;
+  }
+  .btn,
+  .dropdown,
+  .dropup {
+    &:first-child {
+      &:not(summary),
+      summary {
+        border-radius: var(#{$css-var-prefix}border-radius-button)
+          var(#{$css-var-prefix}border-radius-button) 0 0;
+      }
+    }
+    &:last-child {
+      &:not(summary),
+      summary {
+        border-radius: 0 0 var(#{$css-var-prefix}border-radius-button)
+          var(#{$css-var-prefix}border-radius-button);
+      }
+    }
+  }
+}

@@ -1,0 +1,103 @@
+@use "sass:map";
+@use "../config" as *;
+@use "mixins" as m;
+
+:root {
+  @include m.media(md, down) {
+    font-size: map.get($breakpoints, sm, root-font-size);
+  }
+  @include m.media(md, up) {
+    margin: 0 auto;
+    font-size: map.get($breakpoints, md, root-font-size);
+  }
+  @include m.media(lg, up) {
+    font-size: map.get($breakpoints, lg, root-font-size);
+  }
+  @include m.media(xl, up) {
+    font-size: map.get($breakpoints, xl, root-font-size);
+  }
+  @include m.media(xxl, up) {
+    font-size: map.get($breakpoints, xxl, root-font-size);
+  }
+}
+
+header,
+main,
+footer {
+  &:not(.fluid) {
+    @include m.media(md, down) {
+      margin: 0 calc(var(#{$css-var-prefix}gutter) * 0.5);
+    }
+    @include m.media(md, up) {
+      margin: 0 auto;
+      max-width: map.get($breakpoints, md, viewport);
+    }
+    @include m.media(lg, up) {
+      max-width: map.get($breakpoints, lg, viewport);
+    }
+    @include m.media(xl, up) {
+      max-width: map.get($breakpoints, xl, viewport);
+    }
+    @include m.media(xxl, up) {
+      max-width: map.get($breakpoints, xxl, viewport);
+    }
+  }
+  &.fluid {
+    margin: 0;
+    padding: 0 calc(var(#{$css-var-prefix}gutter) * 0.5);
+  }
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(#{$css-var-prefix}color-text);
+  width: 100%;
+}
+section {
+  //display: flex;
+  //flex-direction: column;
+}
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  gap: calc(var(#{$css-var-prefix}gutter) * 0.5);
+  flex-wrap: wrap;
+}
+.align-center {
+  align-items: center;
+}
+
+@each $selector, $props in $text-sizes {
+  #{$selector} {
+    @if map.get($props, size) {
+      font-size: map.get($props, size);
+    }
+    @if map.get($props, line-height) {
+      line-height: map.get($props, line-height);
+    }
+    @if map.get($props, letter-spacing) {
+      letter-spacing: map.get($props, letter-spacing);
+    }
+    @if map.get($props, margin) {
+      margin: map.get($props, margin);
+    }
+  }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(#{$css-var-prefix}font-family-headings);
+}
+
+$e: 1;
+@each $space in $spaces {
+  @each $name, $value in $spacing-name {
+    .#{$name}-#{$e} {
+      #{$value}: calc(var(#{$css-var-prefix}gutter) * #{$space});
+    }
+  }
+  $e: $e + 1;
+}
