@@ -3,11 +3,11 @@
 
 .toast {
   position: fixed;
-  top: 1rem;
-  right: 1rem;
+  color: var(#{$css-var-prefix}color-text);
+  top: var(#{$css-var-prefix}gutter);
+  right: var(#{$css-var-prefix}gutter);
   left: auto;
   margin: 0;
-  border: 1px solid black;
   padding: var(#{$css-var-prefix}gutter);
   border-radius: var(#{$css-var-prefix}border-radius-panel);
   width: 30vw;

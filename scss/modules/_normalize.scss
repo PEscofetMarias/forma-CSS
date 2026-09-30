@@ -54,6 +54,10 @@ body {
   margin: 0; // 1
 }
 
+dialog {
+  color: var(#{$css-var-prefix}color-text);
+}
+
 summary:first-of-type {
   list-style-type: none;
   display: flex;
