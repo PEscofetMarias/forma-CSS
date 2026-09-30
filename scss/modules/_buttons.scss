@@ -30,6 +30,7 @@ $color-secondary-active: hsl(
   display: flex;
   align-items: center;
   gap: calc(var(#{$css-var-prefix}gutter) * 0.5);
+  justify-content: space-between;
   &:hover {
     background: $color-primary-hover;
     color: contrast-color($color-primary-hover);
@@ -39,7 +40,9 @@ $color-secondary-active: hsl(
     background: $color-primary-active;
     border-color: $color-primary-active;
   }
-  transition: all var(#{$css-var-prefix}transition-fast) ease-in-out;
+  transition:
+    background var(#{$css-var-prefix}transition-fast) ease-in-out,
+    color var(#{$css-var-prefix}transition-fast) ease-in-out;
 
   &.btn-secondary {
     background: var(#{$css-var-prefix}color-secondary);
@@ -154,10 +157,6 @@ a {
   .dropdown {
     border-radius: 0;
     width: 100%;
-  }
-  summary svg,
-  summary i {
-    margin-left: auto;
   }
   .btn:first-child:not(summary),
   .dropdown:first-child summary {
