@@ -72,8 +72,32 @@
     bottom: calc(100% + 0.15rem);
   }
 }
+.dropright {
+  ul {
+    top: 0;
+    left: calc(100% + 0.15rem);
+  }
+  &.dropup {
+    ul {
+      bottom: 0;
+      top: auto;
+    }
+  }
+}
+.dropleft {
+  ul {
+    top: 0;
+    right: calc(100% + 0.15rem);
+  }
+  &.dropup {
+    ul {
+      bottom: 0;
+      top: auto;
+    }
+  }
+}
 
-.menu-burger {
+.burger-menu {
   summary {
     i {
       aspect-ratio: 1;

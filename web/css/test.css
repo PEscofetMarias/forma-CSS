@@ -403,10 +403,6 @@ h6 {
     padding-right: calc(var(--forma-gutter)*8)
 }
 
-button,
-.dropdown summary,
-.dropup summary,
-.menu-burger summary,
 .btn {
     cursor: hand;
     font-size: var(--forma-font-size);
@@ -427,188 +423,104 @@ button,
     gap: calc(var(--forma-gutter)*.5)
 }
 
-button:hover,
-.dropdown summary:hover,
-.dropup summary:hover,
-.menu-burger summary:hover,
 .btn:hover {
     background: hsl(from var(--forma-color-primary) h s calc(l * 0.8));
     color: contrast-color(hsl(from var(--forma-color-primary) h s calc(l * 0.8)));
     border-color: hsl(from var(--forma-color-primary) h s calc(l * 0.8))
 }
 
-button:active,
-.dropdown summary:active,
-.dropup summary:active,
-.menu-burger summary:active,
 .btn:active {
     background: hsl(from var(--forma-color-primary) h s calc(l * 0.6));
     border-color: hsl(from var(--forma-color-primary) h s calc(l * 0.6))
 }
 
-button,
-.dropdown summary,
-.dropup summary,
-.menu-burger summary,
 .btn {
     transition: all var(--forma-transition-fast) ease-in-out
 }
 
-button.btn-secondary,
-.dropdown summary.btn-secondary,
-.dropup summary.btn-secondary,
-.menu-burger summary.btn-secondary,
 .btn.btn-secondary {
     background: var(--forma-color-secondary);
     border-color: var(--forma-color-secondary);
     color: contrast-color(var(--forma-color-secondary))
 }
 
-button.btn-secondary:hover,
-.dropdown summary.btn-secondary:hover,
-.dropup summary.btn-secondary:hover,
-.menu-burger summary.btn-secondary:hover,
 .btn.btn-secondary:hover {
     background: hsl(from var(--forma-color-secondary) h s calc(l * 0.8));
     border-color: hsl(from var(--forma-color-secondary) h s calc(l * 0.8));
     color: contrast-color(hsl(from var(--forma-color-secondary) h s calc(l * 0.8)))
 }
 
-button.btn-secondary:active,
-.dropdown summary.btn-secondary:active,
-.dropup summary.btn-secondary:active,
-.menu-burger summary.btn-secondary:active,
 .btn.btn-secondary:active {
     background: hsl(from var(--forma-color-secondary) h s calc(l * 0.6));
     border-color: hsl(from var(--forma-color-secondary) h s calc(l * 0.6))
 }
 
-button.btn-outline,
-.dropdown summary.btn-outline,
-.dropup summary.btn-outline,
-.menu-burger summary.btn-outline,
 .btn.btn-outline {
     background: rgba(0, 0, 0, 0);
     color: var(--forma-color-primary)
 }
 
-button.btn-outline:hover,
-.dropdown summary.btn-outline:hover,
-.dropup summary.btn-outline:hover,
-.menu-burger summary.btn-outline:hover,
 .btn.btn-outline:hover {
     background: hsl(from var(--forma-color-primary) h s calc(l * 0.8));
     border-color: hsl(from var(--forma-color-primary) h s calc(l * 0.8));
     color: contrast-color(hsl(from var(--forma-color-primary) h s calc(l * 0.8)))
 }
 
-button.btn-outline:active,
-.dropdown summary.btn-outline:active,
-.dropup summary.btn-outline:active,
-.menu-burger summary.btn-outline:active,
 .btn.btn-outline:active {
     background: hsl(from var(--forma-color-primary) h s calc(l * 0.6));
     border-color: hsl(from var(--forma-color-primary) h s calc(l * 0.6))
 }
 
-button.btn-outline-secondary,
-.dropdown summary.btn-outline-secondary,
-.dropup summary.btn-outline-secondary,
-.menu-burger summary.btn-outline-secondary,
 .btn.btn-outline-secondary {
     background: rgba(0, 0, 0, 0);
     color: var(--forma-color-secondary);
     border-color: var(--forma-color-secondary)
 }
 
-button.btn-outline-secondary:hover,
-.dropdown summary.btn-outline-secondary:hover,
-.dropup summary.btn-outline-secondary:hover,
-.menu-burger summary.btn-outline-secondary:hover,
 .btn.btn-outline-secondary:hover {
     background: hsl(from var(--forma-color-secondary) h s calc(l * 0.8));
     border-color: hsl(from var(--forma-color-secondary) h s calc(l * 0.8));
     color: contrast-color(hsl(from var(--forma-color-secondary) h s calc(l * 0.8)))
 }
 
-button.btn-outline-secondary:active,
-.dropdown summary.btn-outline-secondary:active,
-.dropup summary.btn-outline-secondary:active,
-.menu-burger summary.btn-outline-secondary:active,
 .btn.btn-outline-secondary:active {
     background: hsl(from var(--forma-color-secondary) h s calc(l * 0.6));
     border-color: hsl(from var(--forma-color-secondary) h s calc(l * 0.6))
 }
 
-button.btn-round,
-.dropdown summary.btn-round,
-.dropup summary.btn-round,
-.menu-burger summary.btn-round,
 .btn.btn-round {
     border-radius: 50%;
     padding: calc(var(--forma-gutter)*.5)
 }
 
-button.btn-sm,
-.dropdown summary.btn-sm,
-.dropup summary.btn-sm,
-.menu-burger summary.btn-sm,
 .btn.btn-sm {
     font-size: calc(var(--forma-font-size)*.75);
     padding: calc(var(--forma-gutter)*.35) calc(var(--forma-gutter)*.75);
     gap: calc(var(--forma-gutter)*.4)
 }
 
-button.btn-sm svg,
-.dropdown summary.btn-sm svg,
-.dropup summary.btn-sm svg,
-.menu-burger summary.btn-sm svg,
-button.btn-sm i,
-.dropdown summary.btn-sm i,
-.dropup summary.btn-sm i,
-.menu-burger summary.btn-sm i,
 .btn.btn-sm svg,
 .btn.btn-sm i {
     height: calc(var(--forma-font-size)*.75);
     width: auto
 }
 
-button.btn-sm.btn-round,
-.dropdown summary.btn-sm.btn-round,
-.dropup summary.btn-sm.btn-round,
-.menu-burger summary.btn-sm.btn-round,
 .btn.btn-sm.btn-round {
     padding: calc(var(--forma-gutter)*.35)
 }
 
-button.btn-lg,
-.dropdown summary.btn-lg,
-.dropup summary.btn-lg,
-.menu-burger summary.btn-lg,
 .btn.btn-lg {
     font-size: calc(var(--forma-font-size)*1.25);
     padding: calc(var(--forma-gutter)*.75) calc(var(--forma-gutter)*1.25);
     gap: calc(var(--forma-gutter)*.75)
 }
 
-button.btn-lg svg,
-.dropdown summary.btn-lg svg,
-.dropup summary.btn-lg svg,
-.menu-burger summary.btn-lg svg,
-button.btn-lg i,
-.dropdown summary.btn-lg i,
-.dropup summary.btn-lg i,
-.menu-burger summary.btn-lg i,
 .btn.btn-lg svg,
 .btn.btn-lg i {
     height: calc(var(--forma-font-size)*1.25);
     width: auto
 }
 
-button.btn-lg.btn-round,
-.dropdown summary.btn-lg.btn-round,
-.dropup summary.btn-lg.btn-round,
-.menu-burger summary.btn-lg.btn-round,
 .btn.btn-lg.btn-round {
     padding: calc(var(--forma-gutter)*.75)
 }
@@ -629,67 +541,16 @@ a:hover {
     gap: 1px
 }
 
-.btn-group .btn,
-.btn-group button,
-.btn-group .dropdown summary,
-.dropdown .btn-group summary,
-.btn-group .dropup summary,
-.dropup .btn-group summary,
-.btn-group .menu-burger summary,
-.menu-burger .btn-group summary,
-.btn-group .dropdown {
-    border-radius: 0
-}
-
-.btn-group .btn summary,
-.btn-group button summary,
-.dropdown .btn-group summary summary,
-.btn-group .dropup summary summary,
-.dropup .btn-group summary summary,
-.btn-group .menu-burger summary summary,
-.menu-burger .btn-group summary summary,
-.btn-group .dropdown summary {
+.btn-group .btn {
     border-radius: 0
 }
 
 .btn-group .btn:first-child:not(summary),
-.btn-group .btn:first-child summary,
-.btn-group button:first-child:not(summary),
-.btn-group .dropdown summary:first-child:not(summary),
-.dropdown .btn-group summary:first-child:not(summary),
-.btn-group .dropup summary:first-child:not(summary),
-.dropup .btn-group summary:first-child:not(summary),
-.btn-group .menu-burger summary:first-child:not(summary),
-.menu-burger .btn-group summary:first-child:not(summary),
-.btn-group button:first-child summary,
-.btn-group .dropdown summary:first-child summary,
-.dropdown .btn-group summary:first-child summary,
-.btn-group .dropup summary:first-child summary,
-.dropup .btn-group summary:first-child summary,
-.btn-group .menu-burger summary:first-child summary,
-.menu-burger .btn-group summary:first-child summary,
-.btn-group .dropdown:first-child:not(summary),
 .btn-group .dropdown:first-child summary {
     border-radius: var(--forma-border-radius-button) 0 0 var(--forma-border-radius-button)
 }
 
 .btn-group .btn:last-child:not(summary),
-.btn-group .btn:last-child summary,
-.btn-group button:last-child:not(summary),
-.btn-group .dropdown summary:last-child:not(summary),
-.dropdown .btn-group summary:last-child:not(summary),
-.btn-group .dropup summary:last-child:not(summary),
-.dropup .btn-group summary:last-child:not(summary),
-.btn-group .menu-burger summary:last-child:not(summary),
-.menu-burger .btn-group summary:last-child:not(summary),
-.btn-group button:last-child summary,
-.btn-group .dropdown summary:last-child summary,
-.dropdown .btn-group summary:last-child summary,
-.btn-group .dropup summary:last-child summary,
-.dropup .btn-group summary:last-child summary,
-.btn-group .menu-burger summary:last-child summary,
-.menu-burger .btn-group summary:last-child summary,
-.btn-group .dropdown:last-child:not(summary),
 .btn-group .dropdown:last-child summary {
     border-radius: 0 var(--forma-border-radius-button) var(--forma-border-radius-button) 0
 }
@@ -701,73 +562,23 @@ a:hover {
 }
 
 .btn-group-vertical .btn,
-.btn-group-vertical button,
-.btn-group-vertical .dropdown summary,
-.dropdown .btn-group-vertical summary,
-.btn-group-vertical .dropup summary,
-.dropup .btn-group-vertical summary,
-.btn-group-vertical .menu-burger summary,
-.menu-burger .btn-group-vertical summary,
-.btn-group-vertical .dropdown,
-.btn-group-vertical .dropup {
+.btn-group-vertical .dropdown {
     border-radius: 0;
     width: 100%
 }
 
-.btn-group-vertical .btn summary,
-.btn-group-vertical button summary,
-.dropdown .btn-group-vertical summary summary,
-.dropup .btn-group-vertical summary summary,
-.btn-group-vertical .menu-burger summary summary,
-.menu-burger .btn-group-vertical summary summary,
-.btn-group-vertical .dropdown summary,
-.btn-group-vertical .dropup summary {
-    border-radius: 0
+.btn-group-vertical summary svg,
+.btn-group-vertical summary i {
+    margin-left: auto
 }
 
 .btn-group-vertical .btn:first-child:not(summary),
-.btn-group-vertical .btn:first-child summary,
-.btn-group-vertical button:first-child:not(summary),
-.btn-group-vertical .dropdown summary:first-child:not(summary),
-.dropdown .btn-group-vertical summary:first-child:not(summary),
-.btn-group-vertical .dropup summary:first-child:not(summary),
-.dropup .btn-group-vertical summary:first-child:not(summary),
-.btn-group-vertical .menu-burger summary:first-child:not(summary),
-.menu-burger .btn-group-vertical summary:first-child:not(summary),
-.btn-group-vertical button:first-child summary,
-.btn-group-vertical .dropdown summary:first-child summary,
-.dropdown .btn-group-vertical summary:first-child summary,
-.btn-group-vertical .dropup summary:first-child summary,
-.dropup .btn-group-vertical summary:first-child summary,
-.btn-group-vertical .menu-burger summary:first-child summary,
-.menu-burger .btn-group-vertical summary:first-child summary,
-.btn-group-vertical .dropdown:first-child:not(summary),
-.btn-group-vertical .dropdown:first-child summary,
-.btn-group-vertical .dropup:first-child:not(summary),
-.btn-group-vertical .dropup:first-child summary {
+.btn-group-vertical .dropdown:first-child summary {
     border-radius: var(--forma-border-radius-button) var(--forma-border-radius-button) 0 0
 }
 
 .btn-group-vertical .btn:last-child:not(summary),
-.btn-group-vertical .btn:last-child summary,
-.btn-group-vertical button:last-child:not(summary),
-.btn-group-vertical .dropdown summary:last-child:not(summary),
-.dropdown .btn-group-vertical summary:last-child:not(summary),
-.btn-group-vertical .dropup summary:last-child:not(summary),
-.dropup .btn-group-vertical summary:last-child:not(summary),
-.btn-group-vertical .menu-burger summary:last-child:not(summary),
-.menu-burger .btn-group-vertical summary:last-child:not(summary),
-.btn-group-vertical button:last-child summary,
-.btn-group-vertical .dropdown summary:last-child summary,
-.dropdown .btn-group-vertical summary:last-child summary,
-.btn-group-vertical .dropup summary:last-child summary,
-.dropup .btn-group-vertical summary:last-child summary,
-.btn-group-vertical .menu-burger summary:last-child summary,
-.menu-burger .btn-group-vertical summary:last-child summary,
-.btn-group-vertical .dropdown:last-child:not(summary),
-.btn-group-vertical .dropdown:last-child summary,
-.btn-group-vertical .dropup:last-child:not(summary),
-.btn-group-vertical .dropup:last-child summary {
+.btn-group-vertical .dropdown:last-child summary {
     border-radius: 0 0 var(--forma-border-radius-button) var(--forma-border-radius-button)
 }
 
@@ -818,22 +629,13 @@ a:hover {
     transform: rotate(405deg)
 }
 
-.dropdown,
-.dropup,
-.menu-burger {
+.dropdown {
     width: -moz-fit-content;
-    width: fit-content
-}
-
-.dropdown,
-.dropup,
-.menu-burger {
+    width: fit-content;
     position: relative
 }
 
-.dropdown ul,
-.dropup ul,
-.menu-burger ul {
+.dropdown ul {
     display: block;
     position: absolute;
     top: calc(100% + .15rem);
@@ -846,29 +648,19 @@ a:hover {
 }
 
 .dropdown ul:popover-open,
-.dropdown ul:popover-open::backdrop,
-.dropup ul:popover-open,
-.dropup ul:popover-open::backdrop,
-.menu-burger ul:popover-open,
-.menu-burger ul:popover-open::backdrop {
+.dropdown ul:popover-open::backdrop {
     opacity: 1
 }
 
 @starting-style {
 
     .dropdown ul:popover-open,
-    .dropdown ul:popover-open::backdrop,
-    .dropup ul:popover-open,
-    .dropup ul:popover-open::backdrop,
-    .menu-burger ul:popover-open,
-    .menu-burger ul:popover-open::backdrop {
+    .dropdown ul:popover-open::backdrop {
         opacity: 0
     }
 }
 
-.dropdown ul,
-.dropup ul,
-.menu-burger ul {
+.dropdown ul {
     padding: 0;
     margin: 0;
     list-style: none;
@@ -881,30 +673,21 @@ a:hover {
     font-family: var(--forma-font-family-headings)
 }
 
-.dropdown.dropdown-align-right ul,
-.dropup.dropdown-align-right ul,
-.menu-burger.dropdown-align-right ul {
+.dropdown.dropdown-align-right ul {
     right: 0
 }
 
-.dropdown[open] ul,
-.dropup[open] ul,
-.menu-burger[open] ul {
+.dropdown[open] ul {
     opacity: 1
 }
 
 @starting-style {
-
-    .dropdown[open] ul,
-    .dropup[open] ul,
-    .menu-burger[open] ul {
+    .dropdown[open] ul {
         opacity: 0
     }
 }
 
-.dropdown[open] summary::before,
-.dropup[open] summary::before,
-.menu-burger[open] summary::before {
+.dropdown[open] summary::before {
     content: "";
     width: 100vw;
     height: 100vh;
@@ -914,8 +697,7 @@ a:hover {
     cursor: auto
 }
 
-.dropup:not(.menu-burger) li a,
-.dropdown:not(.menu-burger) li a {
+.dropdown:not(:has(nav)) li a {
     font-size: .8rem;
     display: block;
     font-weight: normal;
@@ -926,14 +708,12 @@ a:hover {
     transition: none
 }
 
-.dropup:not(.menu-burger) li a:hover,
-.dropdown:not(.menu-burger) li a:hover {
+.dropdown:not(:has(nav)) li a:hover {
     background: var(--forma-color-gray-highlight);
     color: contrast-color(var(--forma-color-gray-highlight))
 }
 
-.dropup:not(.menu-burger) li:last-of-type a,
-.dropdown:not(.menu-burger) li:last-of-type a {
+.dropdown:not(:has(nav)) li:last-of-type a {
     border: none
 }
 
@@ -942,14 +722,14 @@ a:hover {
     bottom: calc(100% + .15rem)
 }
 
-.menu-burger summary i {
+.burger-menu summary i {
     aspect-ratio: 1;
     display: flex;
     align-items: center;
     justify-content: center
 }
 
-.menu-burger summary span {
+.burger-menu summary span {
     display: block;
     width: 100%;
     height: 1px;
@@ -958,8 +738,8 @@ a:hover {
     transition: transform var(--forma-transition-fast) ease-in-out
 }
 
-.menu-burger summary span::after,
-.menu-burger summary span::before {
+.burger-menu summary span::after,
+.burger-menu summary span::before {
     content: "";
     display: block;
     width: 100%;
@@ -969,37 +749,37 @@ a:hover {
     transition: transform var(--forma-transition-fast) ease-in-out, top var(--forma-transition-fast) ease-in-out
 }
 
-.menu-burger summary span::before {
+.burger-menu summary span::before {
     top: -6px
 }
 
-.menu-burger summary span::after {
+.burger-menu summary span::after {
     content: "";
     top: 6px
 }
 
-.menu-burger ul {
+.burger-menu ul {
     padding: 0;
     margin: 0;
     border-radius: var(--forma-border-radius-panel)
 }
 
-.menu-burger ul li {
+.burger-menu ul li {
     margin: 1rem;
     text-wrap: nowrap
 }
 
-.menu-burger[open] summary span {
+.burger-menu[open] summary span {
     background: rgba(0, 0, 0, 0);
     transform: none
 }
 
-.menu-burger[open] summary span::before {
+.burger-menu[open] summary span::before {
     transform: rotate(225deg);
     top: 0
 }
 
-.menu-burger[open] summary span::after {
+.burger-menu[open] summary span::after {
     transform: rotate(-225deg);
     top: 0
 }
