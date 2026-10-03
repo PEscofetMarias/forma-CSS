@@ -23,13 +23,13 @@
 }
 
 @mixin panel-elevation-2 {
-  background: $color-panel;
+  background-color: $color-panel;
   backdrop-filter: $filter-panel;
   border: 1px solid $color-border-panel;
   box-shadow: $elevation-2;
 }
 @mixin panel-elevation-3 {
-  background: $color-panel;
+  background-color: $color-panel;
   backdrop-filter: $filter-panel;
   border: 1px solid $color-border-panel;
   box-shadow: $elevation-3;

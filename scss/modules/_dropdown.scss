@@ -12,8 +12,6 @@
     display: block;
     position: absolute;
     top: calc(100% + 0.15rem);
-    @include m.panel-elevation-2;
-    @include m.initialize-fading;
     padding: 0;
     margin: 0;
     list-style: none;
@@ -23,6 +21,8 @@
     min-width: 100%;
     width: fit-content;
     font-family: $font-family-headings;
+    @include m.panel-elevation-2;
+    @include m.initialize-fading;
   }
   &.dropdown-align-right {
     ul {
@@ -143,8 +143,6 @@
     li {
       margin: 1rem;
       text-wrap: nowrap;
-      a {
-      }
     }
   }
   &[open] {
@@ -171,28 +169,41 @@
   form {
     position: relative;
     height: 100%;
-    @include m.initialize-fading;
     padding: 0;
     margin: 0;
     min-width: 100%;
     font-family: $font-family-headings;
+    @include m.initialize-fading;
   }
-  input {
+  input[type="search"] {
     position: relative;
     height: 100%;
-    border-radius: $border-radius-panel 0 0 $border-radius-panel;
-    font-size: $font-size;
+    border-radius: 50px 0 0 50px;
+    font-size: 1rem;
+    padding: 0 $gutter 0 calc($gutter * 2);
+    background-image: $icon-search;
+    background-size: calc(1rem * 0.85) auto;
+    background-repeat: no-repeat;
+    background-position: calc($gutter * 0.75) center;
     @include m.panel-elevation-2;
-    padding: 0 $gutter;
+  }
+  .close-icon {
+    display: none;
   }
   &[open] {
+    .search-icon {
+      display: none;
+    }
+    .close-icon {
+      display: block;
+    }
     form {
       opacity: 1;
       @starting-style {
         opacity: 0;
       }
     }
-    .btn {
+    summary {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
       box-shadow: $elevation-2;

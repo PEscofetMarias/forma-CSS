@@ -2,6 +2,8 @@
 
 $css-var-prefix: --forma-;
 $color-contrast: #{$css-var-prefix}color-contrast;
+$button-color: #{$css-var-prefix}button-color;
+$icon: #{$css-var-prefix}icon;
 
 $font-family: var(#{$css-var-prefix}font-family);
 $font-family-headings: var(#{$css-var-prefix}font-family-headings);
@@ -30,6 +32,12 @@ $filter-panel: var(#{$css-var-prefix}filter-panel);
 $elevation-1: var(#{$css-var-prefix}elevation-1);
 $elevation-2: var(#{$css-var-prefix}elevation-2);
 $elevation-3: var(#{$css-var-prefix}elevation-3);
+
+$icon-search: var(#{$css-var-prefix}icon-search);
+$icon-date: var(#{$css-var-prefix}icon-date);
+$icon-time: var(#{$css-var-prefix}icon-time);
+$icon-expand: var(#{$css-var-prefix}icon-expand);
+$icon-check: var(#{$css-var-prefix}icon-check);
 
 $breakpoints: (
   sm: (
@@ -69,6 +77,8 @@ $spacing-name: (
   pb: padding-bottom,
   pl: padding-left,
   pr: padding-right,
+  m: margin,
+  p: padding,
 );
 $text-sizes: (
   "h1, .heading-1": (
@@ -76,29 +86,46 @@ $text-sizes: (
     line-height: 90%,
     letter-spacing: -4%,
     margin: 0.5em 0,
+    font-family: $font-family-headings,
+    font-weight: bold,
   ),
   "h2, .heading-2": (
     size: 5rem,
     line-height: 90%,
     letter-spacing: -4%,
     margin: 0.5em 0,
+    font-family: $font-family-headings,
+    font-weight: bold,
   ),
   "h3, .heading-3": (
     size: 4rem,
     line-height: 100%,
     letter-spacing: -4%,
     margin: 1rem 0,
+    font-family: $font-family-headings,
+    font-weight: bold,
   ),
   "h4, .heading-4": (
     size: 3rem,
     line-height: 100%,
     letter-spacing: -4%,
     margin: 0.5rem 0,
+    font-family: $font-family-headings,
+    font-weight: bold,
   ),
   "h5, .heading-5": (
     size: 2rem,
     line-height: 100%,
     margin: 0.5rem 0,
+    font-family: $font-family-headings,
+    font-weight: bold,
+  ),
+  "h6, .heading-6": (
+    size: 1.5rem,
+    line-height: 100%,
+    margin: 0.25rem 0,
+    font-family: $font-family-headings,
+    font-weight: bold,
   ),
   p: (
     size: 1rem,

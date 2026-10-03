@@ -1,13 +1,18 @@
 @use "../config" as *;
 @use "mixins" as m;
 
-article {
+:is(article, .card) {
+  display: block;
   padding: calc($gutter * 0.5);
   border-radius: $border-radius-panel;
+  margin-bottom: calc($gutter * 0.5);
   @include m.panel-elevation-2;
   backdrop-filter: none;
   box-shadow: $elevation-1;
-  .btn.btn-contrast {
+  > * {
+    width: 100%;
+  }
+  .btn-contrast {
     #{$color-contrast}: contrast-color($color-panel);
   }
 }

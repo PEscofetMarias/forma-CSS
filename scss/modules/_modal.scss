@@ -4,13 +4,16 @@
 .modal-window {
   padding: $gutter;
   border-radius: $border-radius-panel;
+  transition: opacity $transition-slow ease-in-out;
   @include m.panel-elevation-3;
   @include m.initialize-fading;
-  transition: opacity $transition-slow ease-in-out;
   &::backdrop {
     background: $color-backdrop;
     backdrop-filter: $filter-backdrop;
-    @include m.initialize-fading;
     transition: opacity $transition-slow ease-in-out;
+    @include m.initialize-fading;
+  }
+  .btn-contrast {
+    #{$color-contrast}: contrast-color($color-panel);
   }
 }

@@ -14,7 +14,6 @@
   z-index: 9999;
   @include m.panel-elevation-3;
   @include m.initialize-fading;
-
   @include m.media(xxl, down) {
     width: 40vw;
   }
@@ -23,5 +22,8 @@
   }
   @include m.media(md, down) {
     width: 80vw;
+  }
+  .btn-contrast {
+    #{$color-contrast}: contrast-color($color-panel);
   }
 }

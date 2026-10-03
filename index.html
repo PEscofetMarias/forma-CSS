@@ -1,5 +1,8 @@
 <html>
   <head>
+    <meta charset="UTF-8" />
+    <title>Forma-CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
       href="./web/css/styles.css"
@@ -26,7 +29,7 @@
         --forma-color-secondary: #2e48f4;
         --forma-color-text: #3e3e3e;
         --forma-color-background: #eeeeee;
-        --forma-color-panel: rgb(from white r g b / 0.5);
+        --forma-color-panel: rgb(from white r g b / 0.6);
         --forma-color-backdrop: rgb(from white r g b / 0.4);
         --forma-color-gray-highlight: #e2e2e2;
         --forma-color-border-panel: white;
@@ -46,6 +49,13 @@
         --forma-elevation-1: 0 0 0.25rem rgba(0, 0, 0, 0.1);
         --forma-elevation-2: 0 0 0.65rem rgba(0, 0, 0, 0.2);
         --forma-elevation-3: 0 0 1.25rem rgba(0, 0, 0, 0.3);
+
+        /* Icons */
+        --forma-icon-search: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='rgb(136, 145, 164)' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0'/%3E%3C/svg%3E");
+        --forma-icon-date: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='rgb(136, 145, 164)' class='bi bi-calendar3' viewBox='0 0 16 16'%3E%3Cpath d='M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857z'/%3E%3Cpath d='M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2'/%3E%3C/svg%3E");
+        --forma-icon-time: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='rgb(136, 145, 164)' class='bi bi-clock' viewBox='0 0 16 16'%3E%3Cpath d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z'/%3E%3Cpath d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0'/%3E%3C/svg%3E");
+        --forma-icon-expand: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='rgb(136, 145, 164)' class='bi bi-chevron-expand' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M3.646 9.146a.5.5 0 0 1 .708 0L8 12.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708m0-2.292a.5.5 0 0 0 .708 0L8 3.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708'/%3E%3C/svg%3E");
+        --forma-icon-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='rgb(255, 255, 255)' class='bi bi-check-lg' viewBox='0 0 16 16'%3E%3Cpath d='M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z'/%3E%3C/svg%3E");
       }
 
       details .content {
@@ -69,8 +79,8 @@
     </style>
   </head>
   <body>
-    <header class="fluid flex-row align-center">
-      <a class="btn btn-lg btn-round" href="#">
+    <header class="fluid flex-row align-center mt-2">
+      <a class="btn btn-lg btn-round mb-0" href="#">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -85,7 +95,7 @@
         </svg>
       </a>
       <details class="burger-menu dropdown">
-        <summary class="btn btn-lg btn-round">
+        <summary class="btn-lg btn-round">
           <i><span></span></i>
         </summary>
         <nav>
@@ -99,11 +109,16 @@
         </nav>
       </details>
       <details class="dropdown form-revealer">
-          <summary class="btn btn-round btn-lg">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+          <summary class="btn-round btn-lg">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
               viewBox="0 0 16 16">
               <path
                 d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+            </svg>
+            <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg"
+              viewBox="0 0 16 16">
+              <path
+                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
             </svg>
           </summary>
           <form>
@@ -128,6 +143,20 @@
           Open Popover-dialog
         </button>
         <dialog class="modal-window" popover="manual" id="my-popover-dialog">
+          <div class="flex-row align-center flex-full mb-2">
+            <h5 class="m-0">Modal Window</h5>
+            <button 
+              class="btn-round btn-sm btn-contrast mb-0" 
+              popovertarget="my-popover-dialog"
+              popovertargetaction="hide"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg"
+                viewBox="0 0 16 16">
+                <path
+                  d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+              </svg>
+            </button>
+          </div>
           <p>
             This dialog was opened using the Popover API.<br />
             This case is more convenient because it adds the dismiss
@@ -144,6 +173,17 @@
 
         <button class="btn" popovertarget="my-toast">Open toast alert</button>
         <div id="my-toast" popover="manual" class="toast">
+          <div class="flex-row align-center flex-full">
+            <h6 class="m-0">Toast</h6>
+            <button class="btn-round btn-sm btn-contrast mb-0" commandfor="my-toast" command="hide-popover">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg"
+                viewBox="0 0 16 16">
+                <path
+                  d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+              </svg>
+            </button>
+          </div>
+          
           <p>This toast was opened using Invoker Commands and stays open.</p>
           <button class="btn mb-0" commandfor="my-toast" command="hide-popover">
             Dismiss
@@ -209,7 +249,7 @@
       <section class="flex-row align-center">
         dropdowns
         <details class="dropdown">
-          <summary class="btn btn-lg btn-secondary">
+          <summary class="btn-lg btn-secondary">
             Drop down
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -233,7 +273,7 @@
           </ul>
         </details>
         <details class="dropdown dropup">
-          <summary class="btn">
+          <summary>
             Drop up
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -257,7 +297,7 @@
           </ul>
         </details>
         <details class="dropdown dropdown-align-right">
-          <summary class="btn">
+          <summary>
             Drop down
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -281,7 +321,7 @@
           </ul>
         </details>
         <details class="dropdown dropup dropdown-align-right">
-          <summary class="btn btn-round">
+          <summary class="btn-round">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -480,7 +520,7 @@
           <a href="#" class="btn">Element longer</a>
           <button class="btn">Element 3</button>
           <details class="dropdown">
-            <summary class="btn">
+            <summary>
               Drop down
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -505,7 +545,7 @@
           </details>
           <a href="#" class="btn">Element 4</a>
           <details class="dropdown">
-            <summary class="btn">
+            <summary>
               Drop down
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -538,7 +578,7 @@
           <a href="#" class="btn">Element 3</a>
           <a href="#" class="btn">Element 4</a>
           <details class="dropdown dropup dropright">
-            <summary class="btn">
+            <summary>
               Drop right
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right"
                 viewBox="0 0 16 16">
@@ -585,8 +625,9 @@
             </details>
           </div>
         </article>
+        <hr>
       </aside>
-      <hr>
+      
       <!-- Forms-->
       <section id="form">
         <form>
@@ -606,8 +647,10 @@
           <!-- Select -->
           <label for="select">Select
             <select id="select" name="select" required="">
-              <option value="" selected="">Select…</option>
-              <option>…</option>
+              <option value="" selected="">Select...</option>
+              <option>Option 1</option>
+              <option>Option 2</option>
+              <option>Option 3</option>
             </select>
           </label>
       
@@ -657,7 +700,7 @@
           <div class="grid">
             <!-- Checkboxes -->
             <fieldset>
-              <legend><strong>Checkboxes</strong></legend>
+              <legend>Checkboxes</legend>
               <label for="checkbox-1">
                 <input type="checkbox" id="checkbox-1" name="checkbox-1" checked="">
                 Checkbox
@@ -670,7 +713,7 @@
       
             <!-- Radio buttons -->
             <fieldset>
-              <legend><strong>Radio buttons</strong></legend>
+              <legend>Radio buttons</legend>
               <label for="radio-1">
                 <input type="radio" id="radio-1" name="radio" value="radio-1" checked="">
                 Radio button
@@ -683,7 +726,7 @@
       
             <!-- Switch -->
             <fieldset>
-              <legend><strong>Switches</strong></legend>
+              <legend>Switches</legend>
               <label for="switch-1">
                 <input type="checkbox" id="switch-1" name="switch-1" role="switch" checked="">
                 Switch
@@ -696,8 +739,10 @@
           </div>
       
           <!-- Buttons -->
-          <input type="reset" value="Reset" onclick="event.preventDefault()">
-          <input type="submit" value="Submit" onclick="event.preventDefault()">
+          <div class="flex-row">
+            <input type="reset" value="Reset" onclick="event.preventDefault()">
+            <input type="submit" value="Submit" onclick="event.preventDefault()">
+          </div>
         </form>
       </section>
     </main>

@@ -2,46 +2,60 @@
 @use "../config" as *;
 @use "mixins" as m;
 
-:root {
-  @include m.media(md, down) {
-    font-size: map.get($breakpoints, sm, root-font-size);
+@include m.media(md, down) {
+  :root {
+    //font-size: map.get($breakpoints, sm, root-font-size);
   }
-  @include m.media(md, up) {
-    margin: 0 auto;
-    font-size: map.get($breakpoints, md, root-font-size);
-  }
-  @include m.media(lg, up) {
-    font-size: map.get($breakpoints, lg, root-font-size);
-  }
-  @include m.media(xl, up) {
-    font-size: map.get($breakpoints, xl, root-font-size);
-  }
-  @include m.media(xxl, up) {
-    font-size: map.get($breakpoints, xxl, root-font-size);
-  }
-}
-
-header,
-main,
-footer {
-  &:not(.fluid) {
-    @include m.media(md, down) {
+  :is(header, main, footer) {
+    &:not(.fluid) {
       margin: 0 calc($gutter * 0.5);
     }
-    @include m.media(md, up) {
+  }
+}
+@include m.media(md, up) {
+  :root {
+    margin: 0 auto;
+    //font-size: map.get($breakpoints, md, root-font-size);
+  }
+  :is(header, main, footer) {
+    &:not(.fluid) {
       margin: 0 auto;
       max-width: map.get($breakpoints, md, viewport);
     }
-    @include m.media(lg, up) {
+  }
+}
+@include m.media(lg, up) {
+  :root {
+    //font-size: map.get($breakpoints, lg, root-font-size);
+  }
+  :is(header, main, footer) {
+    &:not(.fluid) {
       max-width: map.get($breakpoints, lg, viewport);
     }
-    @include m.media(xl, up) {
+  }
+}
+@include m.media(xl, up) {
+  :root {
+    //font-size: map.get($breakpoints, xl, root-font-size);
+  }
+  :is(header, main, footer) {
+    &:not(.fluid) {
       max-width: map.get($breakpoints, xl, viewport);
     }
-    @include m.media(xxl, up) {
+  }
+}
+@include m.media(xxl, up) {
+  :root {
+    //font-size: map.get($breakpoints, xxl, root-font-size);
+  }
+  :is(header, main, footer) {
+    &:not(.fluid) {
       max-width: map.get($breakpoints, xxl, viewport);
     }
   }
+}
+
+:is(header, main, footer) {
   &.fluid {
     margin: 0;
     padding: 0 calc($gutter * 0.5);
@@ -66,6 +80,9 @@ section {
 .align-center {
   align-items: center;
 }
+.flex-full {
+  justify-content: space-between;
+}
 
 @each $selector, $props in $text-sizes {
   #{$selector} {
@@ -81,15 +98,13 @@ section {
     @if map.get($props, margin) {
       margin: map.get($props, margin);
     }
+    @if map.get($props, font-family) {
+      font-family: map.get($props, font-family);
+    }
+    @if map.get($props, font-weight) {
+      font-weight: map.get($props, font-weight);
+    }
   }
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: $font-family-headings;
 }
 
 $e: 0;

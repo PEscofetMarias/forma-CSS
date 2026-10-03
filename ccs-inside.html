@@ -1,0 +1,744 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Forma-CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      :root {
+        interpolate-size: allow-keywords;
+
+        /* Tokens list */
+
+        /* Fonts */
+        --forma-font-family-headings: Arial, Helvetica, sans-serif;
+        --forma-font-family: "Times New Roman", Times, serif;
+        --forma-font-size: 16px;
+        --forma-line-height: 1rem;
+
+        /* Colors */
+        --forma-color-primary: #a00861;
+        --forma-color-secondary: #2e48f4;
+        --forma-color-text: #3e3e3e;
+        --forma-color-background: #eeeeee;
+        --forma-color-panel: rgb(from white r g b / 0.6);
+        --forma-color-backdrop: rgb(from white r g b / 0.4);
+        --forma-color-gray-highlight: #e2e2e2;
+        --forma-color-border-panel: white;
+
+        /* Borders and Spacings */
+        --forma-gutter: 1rem;
+        --forma-border-radius-button: .75rem;
+        --forma-border-radius-panel: 1.25rem;
+
+        /* Filters & Transitions */
+        --forma-filter-panel: blur(10px) saturate(180%);
+        --forma-filter-backdrop: blur(5px);
+        --forma-transition-fast: 0.2s;
+        --forma-transition-slow: 0.5s;
+
+        /* Elevations */
+        --forma-elevation-1: 0 0 0.25rem rgba(0, 0, 0, 0.1);
+        --forma-elevation-2: 0 0 0.65rem rgba(0, 0, 0, 0.2);
+        --forma-elevation-3: 0 0 1.25rem rgba(0, 0, 0, 0.3);
+
+        /* Icons */
+        --forma-icon-search: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='rgb(136, 145, 164)' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0'/%3E%3C/svg%3E");
+        --forma-icon-date: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='rgb(136, 145, 164)' class='bi bi-calendar3' viewBox='0 0 16 16'%3E%3Cpath d='M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857z'/%3E%3Cpath d='M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2'/%3E%3C/svg%3E");
+        --forma-icon-time: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='rgb(136, 145, 164)' class='bi bi-clock' viewBox='0 0 16 16'%3E%3Cpath d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z'/%3E%3Cpath d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0'/%3E%3C/svg%3E");
+        --forma-icon-expand: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='rgb(136, 145, 164)' class='bi bi-chevron-expand' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M3.646 9.146a.5.5 0 0 1 .708 0L8 12.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708m0-2.292a.5.5 0 0 0 .708 0L8 3.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708'/%3E%3C/svg%3E");
+        --forma-icon-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='rgb(255, 255, 255)' class='bi bi-check-lg' viewBox='0 0 16 16'%3E%3Cpath d='M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z'/%3E%3C/svg%3E");
+      }
+
+      details .content {
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+        transition:
+          opacity 0.5s ease-in-out,
+          height 0.5s ease-in-out,
+          content-visibility 0.5s allow-discrete;
+      }
+
+      details[open] .content {
+        opacity: 1;
+        height: auto;
+        @starting-style {
+          opacity: 0;
+          height: 0;
+        }
+      }
+
+      *,*::before,*::after{box-sizing:border-box;background-repeat:no-repeat}::before,::after{text-decoration:inherit;vertical-align:inherit}:where(:root),:where(:host){-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:100%;background-color:var(--forma-color-background);color:var(--forma-color-text);font-weight:var(--forma-font-weight);font-size:var(--forma-font-size);line-height:var(--forma-line-height);font-family:var(--forma-font-family);text-underline-offset:var(--forma-text-underline-offset);text-rendering:optimizeLegibility;overflow-wrap:break-word;-moz-tab-size:4;-o-tab-size:4;tab-size:4}body{width:100%;margin:0}dialog{color:var(--forma-color-text)}summary:first-of-type{list-style-type:none;display:flex;align-items:center;gap:.5rem;cursor:hand}@media(max-width: 767.98px){:is(header,main,footer):not(.fluid){margin:0 calc(var(--forma-gutter)*.5)}}@media(min-width: 768px){:root{margin:0 auto}:is(header,main,footer):not(.fluid){margin:0 auto;max-width:720px}}@media(min-width: 1024px){:is(header,main,footer):not(.fluid){max-width:960px}}@media(min-width: 1450px){:is(header,main,footer):not(.fluid){max-width:1200px}}@media(min-width: 1536px){:is(header,main,footer):not(.fluid){max-width:1400px}}:is(header,main,footer).fluid{margin:0;padding:0 calc(var(--forma-gutter)*.5)}hr{border:none;border-top:1px solid var(--forma-color-text);width:100%}.flex-row{display:flex;flex-direction:row;gap:calc(var(--forma-gutter)*.5);flex-wrap:wrap}.align-center{align-items:center}.flex-full{justify-content:space-between}h1,.heading-1{font-size:7rem;line-height:90%;letter-spacing:-4%;margin:.5em 0;font-family:var(--forma-font-family-headings);font-weight:bold}h2,.heading-2{font-size:5rem;line-height:90%;letter-spacing:-4%;margin:.5em 0;font-family:var(--forma-font-family-headings);font-weight:bold}h3,.heading-3{font-size:4rem;line-height:100%;letter-spacing:-4%;margin:1rem 0;font-family:var(--forma-font-family-headings);font-weight:bold}h4,.heading-4{font-size:3rem;line-height:100%;letter-spacing:-4%;margin:.5rem 0;font-family:var(--forma-font-family-headings);font-weight:bold}h5,legend,.heading-5{font-size:2rem;line-height:100%;margin:.5rem 0;font-family:var(--forma-font-family-headings);font-weight:bold}h6,.heading-6{font-size:1.5rem;line-height:100%;margin:.25rem 0;font-family:var(--forma-font-family-headings);font-weight:bold}p{font-size:1rem;line-height:130%;margin:.5em 0}p.smaller,small{font-size:.75em}p.lead{font-size:1.5em}hr{margin:1rem 0}.mt-0{margin-top:0 !important}.mb-0{margin-bottom:0 !important}.ml-0{margin-left:0 !important}.mr-0{margin-right:0 !important}.pt-0{padding-top:0 !important}.pb-0{padding-bottom:0 !important}.pl-0{padding-left:0 !important}.pr-0{padding-right:0 !important}.m-0{margin:0 !important}.p-0{padding:0 !important}.mt-1{margin-top:calc(var(--forma-gutter)*0.5) !important}.mb-1{margin-bottom:calc(var(--forma-gutter)*0.5) !important}.ml-1{margin-left:calc(var(--forma-gutter)*0.5) !important}.mr-1{margin-right:calc(var(--forma-gutter)*0.5) !important}.pt-1{padding-top:calc(var(--forma-gutter)*0.5) !important}.pb-1{padding-bottom:calc(var(--forma-gutter)*0.5) !important}.pl-1{padding-left:calc(var(--forma-gutter)*0.5) !important}.pr-1{padding-right:calc(var(--forma-gutter)*0.5) !important}.m-1{margin:calc(var(--forma-gutter)*0.5) !important}.p-1{padding:calc(var(--forma-gutter)*0.5) !important}.mt-2{margin-top:calc(var(--forma-gutter)*1) !important}.mb-2{margin-bottom:calc(var(--forma-gutter)*1) !important}.ml-2{margin-left:calc(var(--forma-gutter)*1) !important}.mr-2{margin-right:calc(var(--forma-gutter)*1) !important}.pt-2{padding-top:calc(var(--forma-gutter)*1) !important}.pb-2{padding-bottom:calc(var(--forma-gutter)*1) !important}.pl-2{padding-left:calc(var(--forma-gutter)*1) !important}.pr-2{padding-right:calc(var(--forma-gutter)*1) !important}.m-2{margin:calc(var(--forma-gutter)*1) !important}.p-2{padding:calc(var(--forma-gutter)*1) !important}.mt-3{margin-top:calc(var(--forma-gutter)*2) !important}.mb-3{margin-bottom:calc(var(--forma-gutter)*2) !important}.ml-3{margin-left:calc(var(--forma-gutter)*2) !important}.mr-3{margin-right:calc(var(--forma-gutter)*2) !important}.pt-3{padding-top:calc(var(--forma-gutter)*2) !important}.pb-3{padding-bottom:calc(var(--forma-gutter)*2) !important}.pl-3{padding-left:calc(var(--forma-gutter)*2) !important}.pr-3{padding-right:calc(var(--forma-gutter)*2) !important}.m-3{margin:calc(var(--forma-gutter)*2) !important}.p-3{padding:calc(var(--forma-gutter)*2) !important}.mt-4{margin-top:calc(var(--forma-gutter)*4) !important}.mb-4{margin-bottom:calc(var(--forma-gutter)*4) !important}.ml-4{margin-left:calc(var(--forma-gutter)*4) !important}.mr-4{margin-right:calc(var(--forma-gutter)*4) !important}.pt-4{padding-top:calc(var(--forma-gutter)*4) !important}.pb-4{padding-bottom:calc(var(--forma-gutter)*4) !important}.pl-4{padding-left:calc(var(--forma-gutter)*4) !important}.pr-4{padding-right:calc(var(--forma-gutter)*4) !important}.m-4{margin:calc(var(--forma-gutter)*4) !important}.p-4{padding:calc(var(--forma-gutter)*4) !important}.mt-5{margin-top:calc(var(--forma-gutter)*6) !important}.mb-5{margin-bottom:calc(var(--forma-gutter)*6) !important}.ml-5{margin-left:calc(var(--forma-gutter)*6) !important}.mr-5{margin-right:calc(var(--forma-gutter)*6) !important}.pt-5{padding-top:calc(var(--forma-gutter)*6) !important}.pb-5{padding-bottom:calc(var(--forma-gutter)*6) !important}.pl-5{padding-left:calc(var(--forma-gutter)*6) !important}.pr-5{padding-right:calc(var(--forma-gutter)*6) !important}.m-5{margin:calc(var(--forma-gutter)*6) !important}.p-5{padding:calc(var(--forma-gutter)*6) !important}.mt-6{margin-top:calc(var(--forma-gutter)*8) !important}.mb-6{margin-bottom:calc(var(--forma-gutter)*8) !important}.ml-6{margin-left:calc(var(--forma-gutter)*8) !important}.mr-6{margin-right:calc(var(--forma-gutter)*8) !important}.pt-6{padding-top:calc(var(--forma-gutter)*8) !important}.pb-6{padding-bottom:calc(var(--forma-gutter)*8) !important}.pl-6{padding-left:calc(var(--forma-gutter)*8) !important}.pr-6{padding-right:calc(var(--forma-gutter)*8) !important}.m-6{margin:calc(var(--forma-gutter)*8) !important}.p-6{padding:calc(var(--forma-gutter)*8) !important}:is(.btn,button,details summary),input:is([type=button],[type=submit],[type=reset]),input[type=file]::file-selector-button{--forma-button-color:var(--forma-color-primary);cursor:pointer;font-size:1rem;line-height:1rem;font-family:var(--forma-font-family-headings);font-weight:normal;padding:calc(var(--forma-gutter)*.5) calc(var(--forma-gutter)*.75);border-radius:var(--forma-border-radius-button);border:1px solid var(--forma-button-color);background:var(--forma-button-color);color:contrast-color(var(--forma-button-color));width:-moz-fit-content;width:fit-content;height:-moz-fit-content;height:fit-content;display:flex;align-items:center;justify-content:center;gap:calc(var(--forma-gutter)*.5);margin-bottom:calc(var(--forma-gutter)*.5);transition:background var(--forma-transition-fast) ease-in-out,color var(--forma-transition-fast) ease-in-out}:is(.btn,button,details summary):hover,input:is([type=button],[type=submit],[type=reset]):hover,input[type=file]::file-selector-button:hover{background:hsl(from var(--forma-button-color) h s calc(l * 0.7));color:contrast-color(hsl(from var(--forma-button-color) h s calc(l * 0.7)));border-color:hsl(from var(--forma-button-color) h s calc(l * 0.7))}:is(.btn,button,details summary):active,input:is([type=button],[type=submit],[type=reset]):active,input[type=file]::file-selector-button:active{outline:0;background:hsl(from var(--forma-button-color) h s calc(l * 0.55));color:contrast-color(hsl(from var(--forma-button-color) h s calc(l * 0.55)));border-color:hsl(from var(--forma-button-color) h s calc(l * 0.55))}:is(.btn,button,details summary):focus,input:is([type=button],[type=submit],[type=reset]):focus,input[type=file]::file-selector-button:focus{outline:0}:is(.btn,button,details summary):focus-visible,input:is([type=button],[type=submit],[type=reset]):focus-visible,input[type=file]::file-selector-button:focus-visible{outline:2px solid var(--forma-button-color);outline-offset:2px}.btn svg,.btn i,button svg,button i,details summary svg,details summary i{height:1rem;width:auto}:is(.btn-outline,.btn-outline-secondary,.btn-outline-contrast){background:rgba(0,0,0,0);color:var(--forma-button-color)}:is(.btn-outline,.btn-outline-secondary,.btn-outline-contrast):hover{background:hsl(from var(--forma-button-color) h s calc(l * 0.7));color:contrast-color(hsl(from var(--forma-button-color) h s calc(l * 0.7)))}:is(.btn-outline,.btn-outline-secondary,.btn-outline-contrast):active{background:hsl(from var(--forma-button-color) h s calc(l * 0.55));color:contrast-color(hsl(from var(--forma-button-color) h s calc(l * 0.55)))}.btn-secondary,.btn-outline-secondary{--forma-button-color:var(--forma-color-secondary)}.btn-contrast,.btn-outline-contrast{--forma-color-contrast:contrast-color(var(--forma-color-background));--forma-button-color:var(--forma-color-contrast)}.btn-round{border-radius:50%;padding:calc(var(--forma-gutter)*.5)}.btn-sm{font-size:.75rem;padding:calc(var(--forma-gutter)*.35) calc(var(--forma-gutter)*.75);gap:calc(var(--forma-gutter)*.4)}.btn-sm svg,.btn-sm i{height:.75rem}.btn-sm.btn-round{padding:calc(var(--forma-gutter)*.4)}.btn-lg{font-size:1.25rem;padding:calc(var(--forma-gutter)*.75) var(--forma-gutter);gap:calc(var(--forma-gutter)*.75)}.btn-lg svg,.btn-lg i{height:1.25rem}.btn-lg.btn-round{padding:calc(var(--forma-gutter)*.75)}a{--forma-button-color:var(--forma-color-primary);color:var(--forma-button-color);text-decoration:none;font-weight:bold;transition:all var(--forma-transition-fast) ease-in-out}a:hover{color:hsl(from var(--forma-button-color) h s calc(l * 0.7))}.btn-group{--border-radius-first: var(--forma-border-radius-button) 0 0 var(--forma-border-radius-button);--border-radius-last: 0 var(--forma-border-radius-button) var(--forma-border-radius-button) 0}:is(.btn-group,.btn-group-vertical){display:flex;gap:1px}:is(.btn-group,.btn-group-vertical) .btn,:is(.btn-group,.btn-group-vertical) summary{border-radius:0;margin-bottom:0;justify-content:space-between}:is(.btn-group,.btn-group-vertical) .btn:first-child,:is(.btn-group,.btn-group-vertical) details:first-child summary{border-radius:var(--border-radius-first)}:is(.btn-group,.btn-group-vertical) .btn:last-child,:is(.btn-group,.btn-group-vertical) details:last-child summary{border-radius:var(--border-radius-last)}.btn-group-vertical{--border-radius-first: var(--forma-border-radius-button) var(--forma-border-radius-button) 0 0;--border-radius-last: 0 0 var(--forma-border-radius-button) var(--forma-border-radius-button);flex-direction:column}.btn-group-vertical .btn,.btn-group-vertical .dropdown,.btn-group-vertical summary{width:100%}.nav-item{color:var(--forma-color-text);font-size:1.25rem;font-weight:normal}.accordion summary span{display:block;width:1rem;height:1px;background:var(--forma-color-text);position:relative;transition:transform .5s ease-in-out}.accordion summary span::before{content:"";display:block;width:1rem;height:1px;background:var(--forma-color-text);transform:rotate(90deg)}.accordion .content{opacity:0;height:0;overflow:hidden;transition:opacity .5s ease-in-out,height .5s ease-in-out}.accordion details[open] .content{opacity:1;height:auto}@starting-style{.accordion details[open]{opacity:0;height:0}}.accordion details[open] summary span{transform:rotate(405deg)}.dropdown{width:-moz-fit-content;width:fit-content;position:relative}.dropdown summary{margin:0}.dropdown ul{display:block;position:absolute;top:calc(100% + .15rem);padding:0;margin:0;list-style:none;border-radius:calc(var(--forma-border-radius-button)*.75);z-index:999;overflow:hidden;min-width:100%;width:-moz-fit-content;width:fit-content;font-family:var(--forma-font-family-headings);background-color:var(--forma-color-panel);backdrop-filter:var(--forma-filter-panel);border:1px solid var(--forma-color-border-panel);box-shadow:var(--forma-elevation-2);opacity:0;transition:opacity var(--forma-transition-fast) ease-in-out,content-visibility var(--forma-transition-fast) allow-discrete}.dropdown ul:popover-open,.dropdown ul:popover-open::backdrop{opacity:1}@starting-style{.dropdown ul:popover-open,.dropdown ul:popover-open::backdrop{opacity:0}}.dropdown.dropdown-align-right ul{right:0}.dropdown[open] ul{opacity:1}@starting-style{.dropdown[open] ul{opacity:0}}.dropdown[open] summary::before{content:"";width:100vw;height:100vh;position:fixed;top:0;left:0;cursor:auto}.dropdown:not(:has(nav,div)) li a{font-size:.8rem;display:block;font-weight:normal;color:var(--forma-color-text);border-bottom:1px solid var(--forma-color-gray-highlight);padding:calc(var(--forma-gutter)*.5);text-wrap:nowrap;transition:none}.dropdown:not(:has(nav,div)) li a:hover{background:var(--forma-color-gray-highlight);color:contrast-color(var(--forma-color-gray-highlight))}.dropdown:not(:has(nav,div)) li:last-of-type a{border:none}.dropup ul{top:auto;bottom:calc(100% + .15rem)}.dropright ul{top:0;left:calc(100% + .15rem)}.dropright.dropup ul{bottom:0;top:auto}.dropleft ul{top:0;right:calc(100% + .15rem)}.dropleft.dropup ul{bottom:0;top:auto}.burger-menu summary i{aspect-ratio:1;display:flex;align-items:center;justify-content:center}.burger-menu summary span{display:block;width:100%;height:1px;background:contrast-color(var(--forma-color-primary));position:relative;transition:transform var(--forma-transition-fast) ease-in-out}.burger-menu summary span::after,.burger-menu summary span::before{content:"";display:block;width:100%;height:1px;background:contrast-color(var(--forma-color-primary));position:absolute;transition:transform var(--forma-transition-fast) ease-in-out,top var(--forma-transition-fast) ease-in-out}.burger-menu summary span::before{top:-6px}.burger-menu summary span::after{content:"";top:6px}.burger-menu ul{padding:0;margin:0;border-radius:var(--forma-border-radius-panel)}.burger-menu ul li{margin:1rem;text-wrap:nowrap}.burger-menu[open] summary span{background:rgba(0,0,0,0);transform:none}.burger-menu[open] summary span::before{transform:rotate(225deg);top:0}.burger-menu[open] summary span::after{transform:rotate(-225deg);top:0}.form-revealer{display:flex;align-items:stretch;flex-direction:row-reverse;position:relative}.form-revealer form{position:relative;height:100%;padding:0;margin:0;min-width:100%;font-family:var(--forma-font-family-headings);opacity:0;transition:opacity var(--forma-transition-fast) ease-in-out,content-visibility var(--forma-transition-fast) allow-discrete}.form-revealer form:popover-open,.form-revealer form:popover-open::backdrop{opacity:1}@starting-style{.form-revealer form:popover-open,.form-revealer form:popover-open::backdrop{opacity:0}}.form-revealer input[type=search]{position:relative;height:100%;border-radius:50px 0 0 50px;font-size:1rem;padding:0 var(--forma-gutter) 0 calc(var(--forma-gutter)*2);background-image:var(--forma-icon-search);background-size:calc(var(--forma-gutter)*.85) auto;background-repeat:no-repeat;background-position:calc(var(--forma-gutter)*.75) center;background-color:var(--forma-color-panel);backdrop-filter:var(--forma-filter-panel);border:1px solid var(--forma-color-border-panel);box-shadow:var(--forma-elevation-2)}.form-revealer .close-icon{display:none}.form-revealer[open] .search-icon{display:none}.form-revealer[open] .close-icon{display:block}.form-revealer[open] form{opacity:1}@starting-style{.form-revealer[open] form{opacity:0}}.form-revealer[open] summary{border-top-left-radius:0;border-bottom-left-radius:0;box-shadow:var(--forma-elevation-2)}.toast{position:fixed;color:var(--forma-color-text);top:var(--forma-gutter);right:var(--forma-gutter);left:auto;margin:0;padding:var(--forma-gutter);border-radius:var(--forma-border-radius-panel);width:30vw;z-index:9999;background-color:var(--forma-color-panel);backdrop-filter:var(--forma-filter-panel);border:1px solid var(--forma-color-border-panel);box-shadow:var(--forma-elevation-3);opacity:0;transition:opacity var(--forma-transition-fast) ease-in-out,content-visibility var(--forma-transition-fast) allow-discrete}.toast:popover-open,.toast:popover-open::backdrop{opacity:1}@starting-style{.toast:popover-open,.toast:popover-open::backdrop{opacity:0}}@media(max-width: 1535.98px){.toast{width:40vw}}@media(max-width: 1023.98px){.toast{width:60vw}}@media(max-width: 767.98px){.toast{width:80vw}}.toast .btn-contrast{--forma-color-contrast:contrast-color(var(--forma-color-panel))}.modal-window{padding:var(--forma-gutter);border-radius:var(--forma-border-radius-panel);transition:opacity var(--forma-transition-slow) ease-in-out;background-color:var(--forma-color-panel);backdrop-filter:var(--forma-filter-panel);border:1px solid var(--forma-color-border-panel);box-shadow:var(--forma-elevation-3);opacity:0;transition:opacity var(--forma-transition-fast) ease-in-out,content-visibility var(--forma-transition-fast) allow-discrete}.modal-window:popover-open,.modal-window:popover-open::backdrop{opacity:1}@starting-style{.modal-window:popover-open,.modal-window:popover-open::backdrop{opacity:0}}.modal-window::backdrop{background:var(--forma-color-backdrop);backdrop-filter:var(--forma-filter-backdrop);transition:opacity var(--forma-transition-slow) ease-in-out;opacity:0;transition:opacity var(--forma-transition-fast) ease-in-out,content-visibility var(--forma-transition-fast) allow-discrete}.modal-window::backdrop:popover-open,.modal-window::backdrop:popover-open::backdrop{opacity:1}@starting-style{.modal-window::backdrop:popover-open,.modal-window::backdrop:popover-open::backdrop{opacity:0}}.modal-window .btn-contrast{--forma-color-contrast:contrast-color(var(--forma-color-panel))}:is(article,fieldset,.card){display:block;padding:calc(var(--forma-gutter)*.5);border-radius:var(--forma-border-radius-panel);margin-bottom:calc(var(--forma-gutter)*.5);background-color:var(--forma-color-panel);backdrop-filter:var(--forma-filter-panel);border:1px solid var(--forma-color-border-panel);box-shadow:var(--forma-elevation-2);backdrop-filter:none;box-shadow:var(--forma-elevation-1)}:is(article,fieldset,.card)>*{width:100%}:is(article,fieldset,.card) .btn-contrast{--forma-color-contrast:contrast-color(var(--forma-color-panel))}[data-text]{position:relative}[data-text]::after{content:attr(data-text);position:absolute;bottom:100%;left:50%;transform:translate(-50%, 0);font-family:var(--forma-font-family-headings);background-color:var(--forma-color-text);color:contrast-color(var(--forma-color-text));padding:.5rem;border-radius:calc(var(--forma-border-radius-button)*.5);font-size:.8rem;font-weight:normal;white-space:normal;max-width:12rem;width:-moz-max-content;width:max-content;overflow-wrap:break-word;line-height:120%;z-index:10;box-shadow:var(--forma-elevation-1);opacity:0;visibility:hidden;transition:all var(--forma-transition-fast) ease-in-out;pointer-events:none}[data-text]::before{content:"";position:absolute;bottom:calc(100% - .55rem);left:50%;transform:translate(-50%, 0);border:6px solid rgba(0,0,0,0);border-top-color:var(--forma-color-text);opacity:0;visibility:hidden;transition:all var(--forma-transition-fast) ease-in-out;pointer-events:none}[data-text]:hover::after,[data-text]:focus::after{opacity:1;visibility:visible;transform:translate(-50%, -0.35rem)}[data-text]:hover::before,[data-text]:focus::before{opacity:1;visibility:visible;transform:translate(-50%, -0.35rem)}label{display:flex;flex-direction:column;margin-bottom:calc(var(--forma-gutter)*.75);gap:calc(var(--forma-gutter)*.5)}label:has([type=checkbox]),label:has([type=radio]){flex-direction:row;align-items:center}:is(input,select){border-radius:var(--forma-border-radius-button);font-size:1rem;border:2px solid var(--forma-color-gray-highlight);padding:var(--forma-gutter);background-color:rgb(from var(--forma-color-panel) r g b/0.4);transition:all var(--forma-transition-fast) ease-in-out}:is(input,select):not([type=checkbox],[type=radio]):focus{outline:0;background-color:var(--forma-color-panel);backdrop-filter:var(--forma-filter-panel);border:1px solid var(--forma-color-border-panel);box-shadow:var(--forma-elevation-2);border-width:2px}:is(input,select)[disabled]{opacity:.5;cursor:not-allowed}select{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-image:var(--forma-icon-expand);background-size:.85rem auto;background-repeat:no-repeat;background-position:center right calc(var(--forma-gutter)*.75);padding-right:calc(var(--forma-gutter)*2)}input{-webkit-appearance:none;-moz-appearance:none;appearance:none}input[type=file]{background:rgba(0,0,0,0);border:none;padding:0}input[type=file]::file-selector-button{margin-bottom:0}input:is([type=search],[type=time],[type=date]){background-image:var(--forma-icon);background-size:.85rem auto;background-repeat:no-repeat;background-position:center right calc(var(--forma-gutter)*.75);padding-right:calc(var(--forma-gutter)*2)}input[type=search]{--forma-icon:var(--forma-icon-search);border-radius:50px;background-position:center left calc(var(--forma-gutter)*.75);padding-left:calc(var(--forma-gutter)*2)}input[type=time]{--forma-icon:var(--forma-icon-time)}input[type=date]{--forma-icon:var(--forma-icon-date)}input[type=checkbox]:not([role=switch]){padding:0;width:1.25rem;height:1.25rem;border:2px solid var(--forma-color-gray-highlight);border-radius:calc(var(--forma-border-radius-button)*.5)}input[type=checkbox]:not([role=switch]):checked{background-color:var(--forma-color-primary);border-color:var(--forma-color-primary);background-image:var(--forma-icon-check);background-size:1rem auto;background-repeat:no-repeat;background-position:center center}input[type=radio]{padding:0;width:1.25rem;height:1.25rem;border:2px solid var(--forma-color-gray-highlight);border-radius:50%}input[type=radio]:checked{outline:.35rem solid var(--forma-color-primary);outline-offset:-0.35rem}input[role=switch]{padding:0;width:2.6rem;height:1.4rem;border-radius:50px;background-color:var(--forma-color-gray-highlight);position:relative;border:none}input[role=switch]::after{content:"";position:absolute;top:0;left:0;border:0;width:1.4rem;height:1.4rem;border-radius:50%;background-color:contrast-color(var(--forma-color-primary));transition:all var(--forma-transition-fast) ease-in-out;border:3px solid var(--forma-color-gray-highlight)}input[role=switch]:checked{background-color:var(--forma-color-primary)}input[role=switch]:checked::after{transform:translateX(1.3rem);border-color:var(--forma-color-primary)}legend{float:left;width:100%}/*# sourceMappingURL=styles.css.map */
+    </style>
+  </head>
+  <body>
+    <header class="fluid flex-row align-center mt-2">
+      <a class="btn btn-lg btn-round mb-0" href="#">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-search"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+          />
+        </svg>
+      </a>
+      <details class="burger-menu dropdown">
+        <summary class="btn-lg btn-round">
+          <i><span></span></i>
+        </summary>
+        <nav>
+          <ul>
+            <li><a class="nav-item" href="#">Start</a></li>
+            <li><a class="nav-item" href="#">About us</a></li>
+            <li><a class="nav-item" href="#">Bookings</a></li>
+            <li><a class="nav-item" href="#">Contact</a></li>
+            <li><a href="#" class="btn btn-sm">Menu button</a></li>
+          </ul>
+        </nav>
+      </details>
+      <details class="dropdown form-revealer">
+          <summary class="btn-round btn-lg">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+              viewBox="0 0 16 16">
+              <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+            </svg>
+            <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg"
+              viewBox="0 0 16 16">
+              <path
+                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+            </svg>
+          </summary>
+          <form>
+            <input type="search" id="search" name="search" placeholder="Search">
+          </form>
+        </details>
+      <hr />
+    </header>
+
+    <main>
+      <section>
+        <h1>Forma-CSS</h1>
+        <h3>An amazing SASS design system with 0% Java Script</h3>
+      </section>
+      <!-- Modal & Toast -->
+      <section class="flex-row">
+        <button
+          class="btn"
+          data-text="Open a modal window! That's a huge large tooltip."
+          popovertarget="my-popover-dialog"
+        >
+          Open Popover-dialog
+        </button>
+        <dialog class="modal-window" popover="manual" id="my-popover-dialog">
+          <div class="flex-row align-center flex-full mb-2">
+            <h5 class="m-0">Modal Window</h5>
+            <button 
+              class="btn-round btn-sm btn-contrast mb-0" 
+              popovertarget="my-popover-dialog"
+              popovertargetaction="hide"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg"
+                viewBox="0 0 16 16">
+                <path
+                  d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+              </svg>
+            </button>
+          </div>
+          <p>
+            This dialog was opened using the Popover API.<br />
+            This case is more convenient because it adds the dismiss
+            functionality by clicking outside.
+          </p>
+          <button
+            class="btn mb-0"
+            popovertarget="my-popover-dialog"
+            popovertargetaction="hide"
+          >
+            Close
+          </button>
+        </dialog>
+
+        <button class="btn" popovertarget="my-toast">Open toast alert</button>
+        <div id="my-toast" popover="manual" class="toast">
+          <div class="flex-row align-center flex-full">
+            <h6 class="m-0">Toast</h6>
+            <button class="btn-round btn-sm btn-contrast mb-0" commandfor="my-toast" command="hide-popover">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg"
+                viewBox="0 0 16 16">
+                <path
+                  d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+              </svg>
+            </button>
+          </div>
+          
+          <p>This toast was opened using Invoker Commands and stays open.</p>
+          <button class="btn mb-0" commandfor="my-toast" command="hide-popover">
+            Dismiss
+          </button>
+        </div>
+      </section>
+      <hr />
+      <!-- Accordion -->
+      <section>
+        <div class="accordion">
+          <details name="accordion1" open>
+            <summary><span></span>Details</summary>
+            <div class="content">
+              <p>Something small enough to escape casual notice.</p>
+            </div>
+          </details>
+          <details name="accordion1">
+            <summary><span></span>Details 2</summary>
+            <div class="content">
+              <p>Something small enough to escape casual notice 2.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <hr />
+      <!-- Typography -->
+      <section>
+        <p class="lead">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+          accumsan nunc at viverra suscipit. Morbi elementum non arcu a viverra.
+          Fusce auctor ornare augue ut egestas. Pellentesque nec velit augue.
+          Aenean ac bibendum lacus. Aenean fringilla nec metus sed suscipit. Nam
+          pretium ullamcorper dolor nec dignissim. Donec posuere magna a ligula
+          ultricies, vitae placerat risus mattis. Aliquam venenatis justo
+          convallis mattis sodales. Morbi eu nunc ac turpis fringilla tincidunt
+          nec non nunc.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet,
+          <strong data-text="That's a tooltip!!">adipiscing elit</strong>.
+          Aliquam accumsan nunc at viverra suscipit. Morbi elementum non arcu a
+          viverra. Fusce auctor ornare augue ut egestas. Pellentesque nec velit
+          augue. Aenean ac bibendum lacus. Aenean fringilla nec metus sed
+          suscipit. Nam pretium ullamcorper dolor nec dignissim. Donec posuere
+          magna a ligula ultricies, vitae placerat risus mattis. Aliquam
+          venenatis justo convallis mattis sodales. Morbi eu nunc ac turpis
+          fringilla tincidunt nec non nunc.
+        </p>
+        <p class="smaller">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+          accumsan nunc at viverra suscipit. Morbi elementum non arcu a viverra.
+          Fusce auctor ornare augue ut egestas. Pellentesque nec velit augue.
+          Aenean ac bibendum lacus. Aenean fringilla nec metus sed suscipit. Nam
+          pretium ullamcorper dolor nec dignissim. Donec posuere magna a ligula
+          ultricies, vitae placerat risus mattis. Aliquam venenatis justo
+          convallis mattis sodales. Morbi eu nunc ac turpis fringilla tincidunt
+          nec non nunc.
+        </p>
+        <hr />
+      </section>
+      <!-- Dropdowns-->
+      <section class="flex-row align-center">
+        dropdowns
+        <details class="dropdown">
+          <summary class="btn-lg btn-secondary">
+            Drop down
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-chevron-down"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+              />
+            </svg>
+          </summary>
+          <ul>
+            <li><a href="#">Option 1</a></li>
+            <li><a href="#">Option 2</a></li>
+            <li><a href="#">Option 3</a></li>
+            <li><a href="#">Option 4</a></li>
+          </ul>
+        </details>
+        <details class="dropdown dropup">
+          <summary>
+            Drop up
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-chevron-up"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z"
+              />
+            </svg>
+          </summary>
+          <ul>
+            <li><a href="#">Option 1</a></li>
+            <li><a href="#">An extrem large option</a></li>
+            <li><a href="#">Option 3</a></li>
+            <li><a href="#">Option 4</a></li>
+          </ul>
+        </details>
+        <details class="dropdown dropdown-align-right">
+          <summary>
+            Drop down
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-chevron-down"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+              />
+            </svg>
+          </summary>
+          <ul>
+            <li><a href="#">Option 1</a></li>
+            <li><a href="#">An extrem large option</a></li>
+            <li><a href="#">Option 3</a></li>
+            <li><a href="#">Option 4</a></li>
+          </ul>
+        </details>
+        <details class="dropdown dropup dropdown-align-right">
+          <summary class="btn-round">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-three-dots-vertical"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"
+              />
+            </svg>
+          </summary>
+          <ul>
+            <li><a href="#">Option 1</a></li>
+            <li><a href="#">An extrem large option</a></li>
+            <li><a href="#">Option 3</a></li>
+            <li><a href="#">Option 4</a></li>
+          </ul>
+        </details>
+      </section>
+
+      <hr />
+      <!-- Buttons -->
+      <section class="flex-row align-center">
+        <a class="btn" href="#">Button standard</a>
+        <a class="btn btn-outline" href="#">Button standard</a>
+        <a class="btn btn-secondary" href="#">Button secondary</a>
+        <a class="btn btn-outline-secondary" href="#">Button secondary</a>
+        <a class="btn btn-contrast" href="#">Button contrast</a>
+        <a class="btn btn-outline-contrast" href="#">Button Contrast</a>
+        <a class="btn btn-sm" href="#">Button small</a>
+        <a class="btn btn-sm btn-outline" href="#">Button small</a>
+        <a class="btn btn-sm btn-secondary" href="#">Button small</a>
+        <a class="btn btn-sm btn-outline-secondary" href="#">Button small</a>
+      </section>
+      <section class="flex-row align-center mt-1">
+        <a class="btn" href="#">Button standard</a>
+        <a class="btn" href="#">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-arrow-right-circle-fill"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"
+            />
+          </svg>
+          Icon button</a
+        >
+        <a class="btn" href="#">
+          Icon button
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-arrow-right-circle-fill"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"
+            />
+          </svg>
+        </a>
+        <a class="btn btn-sm" href="#"> Button small</a>
+        <a class="btn btn-sm" href="#">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-arrow-right-circle-fill"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"
+            />
+          </svg>
+          Icon button small
+        </a>
+      </section>
+      <section class="flex-row align-center mt-1">
+        Large buttons
+        <a class="btn btn-lg" href="#">Button large</a>
+        <a class="btn btn-lg" href="#">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-arrow-right-circle-fill"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"
+            />
+          </svg>
+          Icon button</a
+        >
+      </section>
+      <section class="flex-row align-center mt-1">
+        Round buttons
+        <a class="btn btn-lg btn-round" href="#">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-arrow-right-circle-fill"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"
+            />
+          </svg>
+        </a>
+        <a class="btn btn-round" href="#">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-arrow-right-circle-fill"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"
+            />
+          </svg>
+        </a>
+        <a class="btn btn-sm btn-round" href="#">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-arrow-right-circle-fill"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"
+            />
+          </svg>
+        </a>
+        <a class="btn btn-lg btn-round btn-secondary" href="#">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-arrow-right-circle-fill"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"
+            />
+          </svg>
+        </a>
+        <a class="btn btn-round btn-secondary" href="#">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-arrow-right-circle-fill"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"
+            />
+          </svg>
+        </a>
+        <a class="btn btn-sm btn-round btn-secondary" href="#">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-arrow-right-circle-fill"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"
+            />
+          </svg>
+        </a>
+      </section>
+      <section class="flex-row align-center mt-2 mb-2">
+        Button group
+        <div class="btn-group">
+          <a href="#" class="btn">Element 1</a>
+          <a href="#" class="btn">Element longer</a>
+          <button class="btn">Element 3</button>
+          <details class="dropdown">
+            <summary>
+              Drop down
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-chevron-down"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+                />
+              </svg>
+            </summary>
+            <ul>
+              <li><a href="#">Option 1</a></li>
+              <li><a href="#">Option 2</a></li>
+              <li><a href="#">Option 3</a></li>
+              <li><a href="#">Option 4</a></li>
+            </ul>
+          </details>
+          <a href="#" class="btn">Element 4</a>
+          <details class="dropdown">
+            <summary>
+              Drop down
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-chevron-down"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+                />
+              </svg>
+            </summary>
+            <ul>
+              <li><a href="#">Option 1</a></li>
+              <li><a href="#">Option 2</a></li>
+              <li><a href="#">Option 3</a></li>
+              <li><a href="#">Option 4</a></li>
+            </ul>
+          </details>
+        </div>
+      </section>
+      <section class="flex-row mt-2 mb-2">
+        Button group vertical
+        <div class="btn-group-vertical">
+          <a href="#" class="btn">Element 1</a>
+          <a href="#" class="btn">Element longer</a>
+          <a href="#" class="btn">Element 3</a>
+          <a href="#" class="btn">Element 4</a>
+          <details class="dropdown dropup dropright">
+            <summary>
+              Drop right
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                  d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+              </svg>
+            </summary>
+            <ul>
+              <li><a href="#">Option 1</a></li>
+              <li><a href="#">Option 2</a></li>
+              <li><a href="#">Option 3</a></li>
+              <li><a href="#">Option 4</a></li>
+            </ul>
+          </details>
+        </div>
+      </section>
+      <hr />
+      <!-- Cards-->
+      <aside class="flex-row mt-1">
+        <article>
+          <h4>Article name</h4>
+          <p>Short description</p>
+          <a href="#" class="btn btn-sm mb-0">CTA button</a>
+        </article>
+        <article>
+          <h4>Article name</h4>
+          <p>Short description</p>
+          <div class="flex-row">
+            <a href="#" class="btn btn-sm btn-contrast mb-0">CTA button</a>
+            <details class="dropdown dropup">
+              <summary class="btn btn-round btn-sm btn-contrast mb-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical"
+                  viewBox="0 0 16 16">
+                  <path
+                    d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
+                </svg>
+              </summary>
+              <ul>
+                <li><a href="#">Option 1</a></li>
+                <li><a href="#">An extrem large option</a></li>
+                <li><a href="#">Option 3</a></li>
+                <li><a href="#">Option 4</a></li>
+              </ul>
+            </details>
+          </div>
+        </article>
+        <hr>
+      </aside>
+      
+      <!-- Forms-->
+      <section id="form">
+        <form>
+          <h3>Form elements</h3>
+      
+          <!-- Search -->
+          <label for="search">Search
+            <input type="search" id="search" name="search" placeholder="Search">
+          </label>
+      
+          <!-- Text -->
+          <label for="text">Text
+            <input type="text" id="text" name="text" placeholder="Text">
+            <small>Curabitur consequat lacus at lacus porta finibus.</small>
+          </label>
+      
+          <!-- Select -->
+          <label for="select">Select
+            <select id="select" name="select" required="">
+              <option value="" selected="">Select...</option>
+              <option>Option 1</option>
+              <option>Option 2</option>
+              <option>Option 3</option>
+            </select>
+          </label>
+      
+          <!-- File browser -->
+          <label for="file">File browser
+            <input type="file" id="file" name="file">
+          </label>
+      
+          <!-- Range slider control -->
+          <label for="range">Range slider
+            <input type="range" min="0" max="100" value="50" id="range" name="range">
+          </label>
+      
+          <!-- States -->
+          <div class="grid">
+            <label for="valid">
+              Valid
+              <input type="text" id="valid" name="valid" placeholder="Valid" aria-invalid="false">
+            </label>
+            <label for="invalid">
+              Invalid
+              <input type="text" id="invalid" name="invalid" placeholder="Invalid" aria-invalid="true">
+            </label>
+            <label for="disabled">
+              Disabled
+              <input type="text" id="disabled" name="disabled" placeholder="Disabled" disabled="">
+            </label>
+          </div>
+      
+          <div class="grid">
+            <!-- Date-->
+            <label for="date">Date
+              <input type="date" id="date" name="date">
+            </label>
+      
+            <!-- Time-->
+            <label for="time">Time
+              <input type="time" id="time" name="time">
+            </label>
+      
+            <!-- Color-->
+            <label for="color">Color
+              <input type="color" id="color" name="color" value="#0eaaaa">
+            </label>
+          </div>
+      
+          <div class="grid">
+            <!-- Checkboxes -->
+            <fieldset>
+              <legend>Checkboxes</legend>
+              <label for="checkbox-1">
+                <input type="checkbox" id="checkbox-1" name="checkbox-1" checked="">
+                Checkbox
+              </label>
+              <label for="checkbox-2">
+                <input type="checkbox" id="checkbox-2" name="checkbox-2">
+                Checkbox
+              </label>
+            </fieldset>
+      
+            <!-- Radio buttons -->
+            <fieldset>
+              <legend>Radio buttons</legend>
+              <label for="radio-1">
+                <input type="radio" id="radio-1" name="radio" value="radio-1" checked="">
+                Radio button
+              </label>
+              <label for="radio-2">
+                <input type="radio" id="radio-2" name="radio" value="radio-2">
+                Radio button
+              </label>
+            </fieldset>
+      
+            <!-- Switch -->
+            <fieldset>
+              <legend>Switches</legend>
+              <label for="switch-1">
+                <input type="checkbox" id="switch-1" name="switch-1" role="switch" checked="">
+                Switch
+              </label>
+              <label for="switch-2">
+                <input type="checkbox" id="switch-2" name="switch-2" role="switch">
+                Switch
+              </label>
+            </fieldset>
+          </div>
+      
+          <!-- Buttons -->
+          <div class="flex-row">
+            <input type="reset" value="Reset" onclick="event.preventDefault()">
+            <input type="submit" value="Submit" onclick="event.preventDefault()">
+          </div>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

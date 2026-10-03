@@ -52,6 +52,10 @@ summary:first-of-type {
     :root {
         font-size: 85%
     }
+
+    :is(header, main, footer):not(.fluid) {
+        margin: 0 calc(var(--forma-gutter)*.5)
+    }
 }
 
 @media(min-width: 768px) {
@@ -59,11 +63,20 @@ summary:first-of-type {
         margin: 0 auto;
         font-size: 95%
     }
+
+    :is(header, main, footer):not(.fluid) {
+        margin: 0 auto;
+        max-width: 720px
+    }
 }
 
 @media(min-width: 1024px) {
     :root {
         font-size: 100%
+    }
+
+    :is(header, main, footer):not(.fluid) {
+        max-width: 960px
     }
 }
 
@@ -71,63 +84,23 @@ summary:first-of-type {
     :root {
         font-size: 105%
     }
+
+    :is(header, main, footer):not(.fluid) {
+        max-width: 1200px
+    }
 }
 
 @media(min-width: 1536px) {
     :root {
         font-size: 115%
     }
-}
 
-@media(max-width: 767.98px) {
-
-    header:not(.fluid),
-    main:not(.fluid),
-    footer:not(.fluid) {
-        margin: 0 calc(var(--forma-gutter)*.5)
-    }
-}
-
-@media(min-width: 768px) {
-
-    header:not(.fluid),
-    main:not(.fluid),
-    footer:not(.fluid) {
-        margin: 0 auto;
-        max-width: 720px
-    }
-}
-
-@media(min-width: 1024px) {
-
-    header:not(.fluid),
-    main:not(.fluid),
-    footer:not(.fluid) {
-        max-width: 960px
-    }
-}
-
-@media(min-width: 1450px) {
-
-    header:not(.fluid),
-    main:not(.fluid),
-    footer:not(.fluid) {
-        max-width: 1200px
-    }
-}
-
-@media(min-width: 1536px) {
-
-    header:not(.fluid),
-    main:not(.fluid),
-    footer:not(.fluid) {
+    :is(header, main, footer):not(.fluid) {
         max-width: 1400px
     }
 }
 
-header.fluid,
-main.fluid,
-footer.fluid {
+:is(header, main, footer).fluid {
     margin: 0;
     padding: 0 calc(var(--forma-gutter)*.5)
 }
@@ -149,12 +122,18 @@ hr {
     align-items: center
 }
 
+.flex-full {
+    justify-content: space-between
+}
+
 h1,
 .heading-1 {
     font-size: 7rem;
     line-height: 90%;
     letter-spacing: -4%;
-    margin: .5em 0
+    margin: .5em 0;
+    font-family: var(--forma-font-family-headings);
+    font-weight: bold
 }
 
 h2,
@@ -162,7 +141,9 @@ h2,
     font-size: 5rem;
     line-height: 90%;
     letter-spacing: -4%;
-    margin: .5em 0
+    margin: .5em 0;
+    font-family: var(--forma-font-family-headings);
+    font-weight: bold
 }
 
 h3,
@@ -170,7 +151,9 @@ h3,
     font-size: 4rem;
     line-height: 100%;
     letter-spacing: -4%;
-    margin: 1rem 0
+    margin: 1rem 0;
+    font-family: var(--forma-font-family-headings);
+    font-weight: bold
 }
 
 h4,
@@ -178,14 +161,28 @@ h4,
     font-size: 3rem;
     line-height: 100%;
     letter-spacing: -4%;
-    margin: .5rem 0
+    margin: .5rem 0;
+    font-family: var(--forma-font-family-headings);
+    font-weight: bold
 }
 
 h5,
+legend,
 .heading-5 {
     font-size: 2rem;
     line-height: 100%;
-    margin: .5rem 0
+    margin: .5rem 0;
+    font-family: var(--forma-font-family-headings);
+    font-weight: bold
+}
+
+h6,
+.heading-6 {
+    font-size: 1.5rem;
+    line-height: 100%;
+    margin: .25rem 0;
+    font-family: var(--forma-font-family-headings);
+    font-weight: bold
 }
 
 p {
@@ -205,15 +202,6 @@ p.lead {
 
 hr {
     margin: 1rem 0
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: var(--forma-font-family-headings)
 }
 
 .mt-0 {
@@ -248,6 +236,14 @@ h6 {
     padding-right: 0 !important
 }
 
+.m-0 {
+    margin: 0 !important
+}
+
+.p-0 {
+    padding: 0 !important
+}
+
 .mt-1 {
     margin-top: calc(var(--forma-gutter)*0.5) !important
 }
@@ -278,6 +274,14 @@ h6 {
 
 .pr-1 {
     padding-right: calc(var(--forma-gutter)*0.5) !important
+}
+
+.m-1 {
+    margin: calc(var(--forma-gutter)*0.5) !important
+}
+
+.p-1 {
+    padding: calc(var(--forma-gutter)*0.5) !important
 }
 
 .mt-2 {
@@ -312,6 +316,14 @@ h6 {
     padding-right: calc(var(--forma-gutter)*1) !important
 }
 
+.m-2 {
+    margin: calc(var(--forma-gutter)*1) !important
+}
+
+.p-2 {
+    padding: calc(var(--forma-gutter)*1) !important
+}
+
 .mt-3 {
     margin-top: calc(var(--forma-gutter)*2) !important
 }
@@ -342,6 +354,14 @@ h6 {
 
 .pr-3 {
     padding-right: calc(var(--forma-gutter)*2) !important
+}
+
+.m-3 {
+    margin: calc(var(--forma-gutter)*2) !important
+}
+
+.p-3 {
+    padding: calc(var(--forma-gutter)*2) !important
 }
 
 .mt-4 {
@@ -376,6 +396,14 @@ h6 {
     padding-right: calc(var(--forma-gutter)*4) !important
 }
 
+.m-4 {
+    margin: calc(var(--forma-gutter)*4) !important
+}
+
+.p-4 {
+    padding: calc(var(--forma-gutter)*4) !important
+}
+
 .mt-5 {
     margin-top: calc(var(--forma-gutter)*6) !important
 }
@@ -406,6 +434,14 @@ h6 {
 
 .pr-5 {
     padding-right: calc(var(--forma-gutter)*6) !important
+}
+
+.m-5 {
+    margin: calc(var(--forma-gutter)*6) !important
+}
+
+.p-5 {
+    padding: calc(var(--forma-gutter)*6) !important
 }
 
 .mt-6 {
@@ -440,189 +476,182 @@ h6 {
     padding-right: calc(var(--forma-gutter)*8) !important
 }
 
-.btn {
-    cursor: hand;
+.m-6 {
+    margin: calc(var(--forma-gutter)*8) !important
+}
+
+.p-6 {
+    padding: calc(var(--forma-gutter)*8) !important
+}
+
+:is(.btn, button, details summary),
+input:is([type=button], [type=submit], [type=reset]),
+input[type=file]::file-selector-button {
+    --forma-button-color: var(--forma-color-primary);
+    cursor: pointer;
     font-size: var(--forma-font-size);
     line-height: var(--forma-font-size);
     font-family: var(--forma-font-family-headings);
     font-weight: normal;
     padding: calc(var(--forma-gutter)*.5) calc(var(--forma-gutter)*.75);
     border-radius: var(--forma-border-radius-button);
-    border: 1px solid var(--forma-color-primary);
-    background: var(--forma-color-primary);
-    color: contrast-color(var(--forma-color-primary));
+    border: 1px solid var(--forma-button-color);
+    background: var(--forma-button-color);
+    color: contrast-color(var(--forma-button-color));
     width: -moz-fit-content;
     width: fit-content;
     height: -moz-fit-content;
     height: fit-content;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: calc(var(--forma-gutter)*.5);
-    justify-content: space-between;
-    margin-bottom: calc(var(--forma-gutter)*.5)
-}
-
-.btn:hover {
-    background: hsl(from var(--forma-color-primary) h s calc(l * 0.8));
-    color: contrast-color(hsl(from var(--forma-color-primary) h s calc(l * 0.8)));
-    border-color: hsl(from var(--forma-color-primary) h s calc(l * 0.8))
-}
-
-.btn:active {
-    background: hsl(from var(--forma-color-primary) h s calc(l * 0.6));
-    border-color: hsl(from var(--forma-color-primary) h s calc(l * 0.6))
-}
-
-.btn:focus {
-    outline: 0
-}
-
-.btn {
+    margin-bottom: calc(var(--forma-gutter)*.5);
     transition: background var(--forma-transition-fast) ease-in-out, color var(--forma-transition-fast) ease-in-out
 }
 
-.btn.btn-secondary {
-    background: var(--forma-color-secondary);
-    border-color: var(--forma-color-secondary);
-    color: contrast-color(var(--forma-color-secondary))
+:is(.btn, button, details summary):hover,
+input:is([type=button], [type=submit], [type=reset]):hover,
+input[type=file]::file-selector-button:hover {
+    background: hsl(from var(--forma-button-color) h s calc(l * 0.7));
+    color: contrast-color(hsl(from var(--forma-button-color) h s calc(l * 0.7)));
+    border-color: hsl(from var(--forma-button-color) h s calc(l * 0.7))
 }
 
-.btn.btn-secondary:hover {
-    background: hsl(from var(--forma-color-secondary) h s calc(l * 0.8));
-    border-color: hsl(from var(--forma-color-secondary) h s calc(l * 0.8));
-    color: contrast-color(hsl(from var(--forma-color-secondary) h s calc(l * 0.8)))
+:is(.btn, button, details summary):active,
+input:is([type=button], [type=submit], [type=reset]):active,
+input[type=file]::file-selector-button:active {
+    outline: 0;
+    background: hsl(from var(--forma-button-color) h s calc(l * 0.55));
+    color: contrast-color(hsl(from var(--forma-button-color) h s calc(l * 0.55)));
+    border-color: hsl(from var(--forma-button-color) h s calc(l * 0.55))
 }
 
-.btn.btn-secondary:active {
-    background: hsl(from var(--forma-color-secondary) h s calc(l * 0.6));
-    border-color: hsl(from var(--forma-color-secondary) h s calc(l * 0.6))
+:is(.btn, button, details summary):focus,
+input:is([type=button], [type=submit], [type=reset]):focus,
+input[type=file]::file-selector-button:focus {
+    outline: 0
 }
 
-.btn.btn-outline {
+:is(.btn, button, details summary):focus-visible,
+input:is([type=button], [type=submit], [type=reset]):focus-visible,
+input[type=file]::file-selector-button:focus-visible {
+    outline: 2px solid var(--forma-button-color);
+    outline-offset: 2px
+}
+
+:is(.btn-outline, .btn-outline-secondary, .btn-outline-contrast) {
     background: rgba(0, 0, 0, 0);
-    color: var(--forma-color-primary)
+    color: var(--forma-button-color)
 }
 
-.btn.btn-outline:hover {
-    background: hsl(from var(--forma-color-primary) h s calc(l * 0.8));
-    border-color: hsl(from var(--forma-color-primary) h s calc(l * 0.8));
-    color: contrast-color(hsl(from var(--forma-color-primary) h s calc(l * 0.8)))
+:is(.btn-outline, .btn-outline-secondary, .btn-outline-contrast):hover {
+    background: hsl(from var(--forma-button-color) h s calc(l * 0.7));
+    color: contrast-color(hsl(from var(--forma-button-color) h s calc(l * 0.7)))
 }
 
-.btn.btn-outline:active {
-    background: hsl(from var(--forma-color-primary) h s calc(l * 0.6));
-    border-color: hsl(from var(--forma-color-primary) h s calc(l * 0.6))
+:is(.btn-outline, .btn-outline-secondary, .btn-outline-contrast):active {
+    background: hsl(from var(--forma-button-color) h s calc(l * 0.55));
+    color: contrast-color(hsl(from var(--forma-button-color) h s calc(l * 0.55)))
 }
 
-.btn.btn-outline-secondary {
-    background: rgba(0, 0, 0, 0);
-    color: var(--forma-color-secondary);
-    border-color: var(--forma-color-secondary)
+.btn-secondary,
+.btn-outline-secondary {
+    --forma-button-color: var(--forma-color-secondary)
 }
 
-.btn.btn-outline-secondary:hover {
-    background: hsl(from var(--forma-color-secondary) h s calc(l * 0.8));
-    border-color: hsl(from var(--forma-color-secondary) h s calc(l * 0.8));
-    color: contrast-color(hsl(from var(--forma-color-secondary) h s calc(l * 0.8)))
+.btn-contrast,
+.btn-outline-contrast {
+    --forma-color-contrast: contrast-color(var(--forma-color-background));
+    --forma-button-color: var(--forma-color-contrast)
 }
 
-.btn.btn-outline-secondary:active {
-    background: hsl(from var(--forma-color-secondary) h s calc(l * 0.6));
-    border-color: hsl(from var(--forma-color-secondary) h s calc(l * 0.6))
-}
-
-.btn.btn-round {
+.btn-round {
     border-radius: 50%;
     padding: calc(var(--forma-gutter)*.5)
 }
 
-.btn.btn-sm {
+.btn-sm {
     font-size: calc(var(--forma-font-size)*.75);
     padding: calc(var(--forma-gutter)*.35) calc(var(--forma-gutter)*.75);
     gap: calc(var(--forma-gutter)*.4)
 }
 
-.btn.btn-sm svg,
-.btn.btn-sm i {
+.btn-sm svg,
+.btn-sm i {
     height: calc(var(--forma-font-size)*.75);
     width: auto
 }
 
-.btn.btn-sm.btn-round {
-    padding: calc(var(--forma-gutter)*.35)
+.btn-sm.btn-round {
+    padding: calc(var(--forma-gutter)*.4)
 }
 
-.btn.btn-lg {
+.btn-lg {
     font-size: calc(var(--forma-font-size)*1.25);
     padding: calc(var(--forma-gutter)*.75) calc(var(--forma-gutter)*1.25);
     gap: calc(var(--forma-gutter)*.75)
 }
 
-.btn.btn-lg svg,
-.btn.btn-lg i {
+.btn-lg svg,
+.btn-lg i {
     height: calc(var(--forma-font-size)*1.25);
     width: auto
 }
 
-.btn.btn-lg.btn-round {
+.btn-lg.btn-round {
     padding: calc(var(--forma-gutter)*.75)
 }
 
 a {
-    color: var(--forma-color-primary);
+    --forma-button-color: var(--forma-color-primary);
+    color: var(--forma-button-color);
     text-decoration: none;
     font-weight: bold;
     transition: all var(--forma-transition-fast) ease-in-out
 }
 
 a:hover {
-    color: hsl(from var(--forma-color-primary) h s calc(l * 0.8))
+    color: hsl(from var(--forma-button-color) h s calc(l * 0.7))
 }
 
 .btn-group {
+    --border-radius-first: var(--forma-border-radius-button) 0 0 var(--forma-border-radius-button);
+    --border-radius-last: 0 var(--forma-border-radius-button) var(--forma-border-radius-button) 0
+}
+
+:is(.btn-group, .btn-group-vertical) {
     display: flex;
     gap: 1px
 }
 
-.btn-group .btn {
+:is(.btn-group, .btn-group-vertical) .btn,
+:is(.btn-group, .btn-group-vertical) summary {
     border-radius: 0;
-    margin-bottom: 0
+    margin-bottom: 0;
+    justify-content: space-between
 }
 
-.btn-group .btn:first-child:not(summary),
-.btn-group .dropdown:first-child summary {
-    border-radius: var(--forma-border-radius-button) 0 0 var(--forma-border-radius-button)
+:is(.btn-group, .btn-group-vertical) .btn:first-child,
+:is(.btn-group, .btn-group-vertical) details:first-child summary {
+    border-radius: var(--border-radius-first)
 }
 
-.btn-group .btn:last-child:not(summary),
-.btn-group .dropdown:last-child summary {
-    border-radius: 0 var(--forma-border-radius-button) var(--forma-border-radius-button) 0
+:is(.btn-group, .btn-group-vertical) .btn:last-child,
+:is(.btn-group, .btn-group-vertical) details:last-child summary {
+    border-radius: var(--border-radius-last)
 }
 
 .btn-group-vertical {
-    display: flex;
-    flex-direction: column;
-    gap: 1px
-}
-
-.btn-group-vertical .btn {
-    margin-bottom: 0
+    --border-radius-first: var(--forma-border-radius-button) var(--forma-border-radius-button) 0 0;
+    --border-radius-last: 0 0 var(--forma-border-radius-button) var(--forma-border-radius-button);
+    flex-direction: column
 }
 
 .btn-group-vertical .btn,
-.btn-group-vertical .dropdown {
-    border-radius: 0;
+.btn-group-vertical .dropdown,
+.btn-group-vertical summary {
     width: 100%
-}
-
-.btn-group-vertical .btn:first-child:not(summary),
-.btn-group-vertical .dropdown:first-child summary {
-    border-radius: var(--forma-border-radius-button) var(--forma-border-radius-button) 0 0
-}
-
-.btn-group-vertical .btn:last-child:not(summary),
-.btn-group-vertical .dropdown:last-child summary {
-    border-radius: 0 0 var(--forma-border-radius-button) var(--forma-border-radius-button)
 }
 
 .nav-item {
@@ -678,11 +707,25 @@ a:hover {
     position: relative
 }
 
+.dropdown summary {
+    margin: 0
+}
+
 .dropdown ul {
     display: block;
     position: absolute;
     top: calc(100% + .15rem);
-    background: var(--forma-color-panel);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border-radius: calc(var(--forma-border-radius-button)*.75);
+    z-index: 999;
+    overflow: hidden;
+    min-width: 100%;
+    width: -moz-fit-content;
+    width: fit-content;
+    font-family: var(--forma-font-family-headings);
+    background-color: var(--forma-color-panel);
     backdrop-filter: var(--forma-filter-panel);
     border: 1px solid var(--forma-color-border-panel);
     box-shadow: var(--forma-elevation-2);
@@ -701,19 +744,6 @@ a:hover {
     .dropdown ul:popover-open::backdrop {
         opacity: 0
     }
-}
-
-.dropdown ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    border-radius: calc(var(--forma-border-radius-button)*.75);
-    z-index: 999;
-    overflow: hidden;
-    min-width: 100%;
-    width: -moz-fit-content;
-    width: fit-content;
-    font-family: var(--forma-font-family-headings)
 }
 
 .dropdown.dropdown-align-right ul {
@@ -740,23 +770,23 @@ a:hover {
     cursor: auto
 }
 
-.dropdown:not(:has(nav)) li a {
+.dropdown:not(:has(nav, div)) li a {
     font-size: .8rem;
     display: block;
     font-weight: normal;
     color: var(--forma-color-text);
-    border-bottom: 1px solid var(--forma-color-border-panel);
+    border-bottom: 1px solid var(--forma-color-gray-highlight);
     padding: calc(var(--forma-gutter)*.5);
     text-wrap: nowrap;
     transition: none
 }
 
-.dropdown:not(:has(nav)) li a:hover {
+.dropdown:not(:has(nav, div)) li a:hover {
     background: var(--forma-color-gray-highlight);
     color: contrast-color(var(--forma-color-gray-highlight))
 }
 
-.dropdown:not(:has(nav)) li:last-of-type a {
+.dropdown:not(:has(nav, div)) li:last-of-type a {
     border: none
 }
 
@@ -857,6 +887,10 @@ a:hover {
 .form-revealer form {
     position: relative;
     height: 100%;
+    padding: 0;
+    margin: 0;
+    min-width: 100%;
+    font-family: var(--forma-font-family-headings);
     opacity: 0;
     transition: opacity var(--forma-transition-fast) ease-in-out, content-visibility var(--forma-transition-fast) allow-discrete
 }
@@ -874,23 +908,32 @@ a:hover {
     }
 }
 
-.form-revealer form {
-    padding: 0;
-    margin: 0;
-    min-width: 100%;
-    font-family: var(--forma-font-family-headings)
-}
-
-.form-revealer input {
+.form-revealer input[type=search] {
     position: relative;
     height: 100%;
-    border-radius: var(--forma-border-radius-panel) 0 0 var(--forma-border-radius-panel);
+    border-radius: 50px 0 0 50px;
     font-size: var(--forma-font-size);
-    background: var(--forma-color-panel);
+    padding: 0 var(--forma-gutter) 0 calc(var(--forma-gutter)*2);
+    background-image: var(--forma-icon-search);
+    background-size: calc(var(--forma-gutter)*.85) auto;
+    background-repeat: no-repeat;
+    background-position: calc(var(--forma-gutter)*.75) center;
+    background-color: var(--forma-color-panel);
     backdrop-filter: var(--forma-filter-panel);
     border: 1px solid var(--forma-color-border-panel);
-    box-shadow: var(--forma-elevation-2);
-    padding: 0 var(--forma-gutter)
+    box-shadow: var(--forma-elevation-2)
+}
+
+.form-revealer .close-icon {
+    display: none
+}
+
+.form-revealer[open] .search-icon {
+    display: none
+}
+
+.form-revealer[open] .close-icon {
+    display: block
 }
 
 .form-revealer[open] form {
@@ -903,7 +946,7 @@ a:hover {
     }
 }
 
-.form-revealer[open] .btn {
+.form-revealer[open] summary {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     box-shadow: var(--forma-elevation-2)
@@ -920,10 +963,10 @@ a:hover {
     border-radius: var(--forma-border-radius-panel);
     width: 30vw;
     z-index: 9999;
-    background: var(--forma-color-panel);
+    background-color: var(--forma-color-panel);
     backdrop-filter: var(--forma-filter-panel);
     border: 1px solid var(--forma-color-border-panel);
-    box-shadow: var(--forma-elevation-2);
+    box-shadow: var(--forma-elevation-3);
     opacity: 0;
     transition: opacity var(--forma-transition-fast) ease-in-out, content-visibility var(--forma-transition-fast) allow-discrete
 }
@@ -959,13 +1002,18 @@ a:hover {
     }
 }
 
+.toast .btn-contrast {
+    --forma-color-contrast: contrast-color(var(--forma-color-panel))
+}
+
 .modal-window {
     padding: var(--forma-gutter);
     border-radius: var(--forma-border-radius-panel);
-    background: var(--forma-color-panel);
+    transition: opacity var(--forma-transition-slow) ease-in-out;
+    background-color: var(--forma-color-panel);
     backdrop-filter: var(--forma-filter-panel);
     border: 1px solid var(--forma-color-border-panel);
-    box-shadow: var(--forma-elevation-2);
+    box-shadow: var(--forma-elevation-3);
     opacity: 0;
     transition: opacity var(--forma-transition-fast) ease-in-out, content-visibility var(--forma-transition-fast) allow-discrete
 }
@@ -983,13 +1031,10 @@ a:hover {
     }
 }
 
-.modal-window {
-    transition: opacity var(--forma-transition-slow) ease-in-out
-}
-
 .modal-window::backdrop {
     background: var(--forma-color-backdrop);
     backdrop-filter: var(--forma-filter-backdrop);
+    transition: opacity var(--forma-transition-slow) ease-in-out;
     opacity: 0;
     transition: opacity var(--forma-transition-fast) ease-in-out, content-visibility var(--forma-transition-fast) allow-discrete
 }
@@ -1007,18 +1052,29 @@ a:hover {
     }
 }
 
-.modal-window::backdrop {
-    transition: opacity var(--forma-transition-slow) ease-in-out
+.modal-window .btn-contrast {
+    --forma-color-contrast: contrast-color(var(--forma-color-panel))
 }
 
-article {
+:is(article, fieldset, .card) {
+    display: block;
     padding: calc(var(--forma-gutter)*.5);
     border-radius: var(--forma-border-radius-panel);
-    background: var(--forma-color-panel);
+    margin-bottom: calc(var(--forma-gutter)*.5);
+    background-color: var(--forma-color-panel);
     backdrop-filter: var(--forma-filter-panel);
     border: 1px solid var(--forma-color-border-panel);
     box-shadow: var(--forma-elevation-2);
+    backdrop-filter: none;
     box-shadow: var(--forma-elevation-1)
+}
+
+:is(article, fieldset, .card)>* {
+    width: 100%
+}
+
+:is(article, fieldset, .card) .btn-contrast {
+    --forma-color-contrast: contrast-color(var(--forma-color-panel))
 }
 
 [data-text] {
@@ -1089,23 +1145,144 @@ label {
 
 label:has([type=checkbox]),
 label:has([type=radio]) {
-    flex-direction: row
+    flex-direction: row;
+    align-items: center
 }
 
-input {
+:is(input, select) {
     border-radius: var(--forma-border-radius-button);
     font-size: var(--forma-font-size);
     border: 2px solid var(--forma-color-gray-highlight);
-    padding: calc(var(--forma-gutter)*.5)
+    padding: var(--forma-gutter);
+    background-color: rgb(from var(--forma-color-panel) r g b/0.4);
+    transition: all var(--forma-transition-fast) ease-in-out
 }
 
-input:focus {
+:is(input, select):not([type=checkbox], [type=radio]):focus {
     outline: 0;
-    background: var(--forma-color-panel);
+    background-color: var(--forma-color-panel);
     backdrop-filter: var(--forma-filter-panel);
     border: 1px solid var(--forma-color-border-panel);
     box-shadow: var(--forma-elevation-2);
     border-width: 2px
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: var(--forma-icon-expand);
+    background-size: calc(var(--forma-gutter)*.85) auto;
+    background-repeat: no-repeat;
+    background-position: center right calc(var(--forma-gutter)*.75);
+    padding-right: calc(var(--forma-gutter)*2)
+}
+
+input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none
+}
+
+input[type=file] {
+    background: rgba(0, 0, 0, 0);
+    border: none;
+    padding: 0
+}
+
+input[type=file]::file-selector-button {
+    margin-bottom: 0
+}
+
+input:is([type=search], [type=time], [type=date]) {
+    background-image: var(--forma-icon);
+    background-size: calc(var(--forma-gutter)*.85) auto;
+    background-repeat: no-repeat;
+    background-position: center right calc(var(--forma-gutter)*.75);
+    padding-right: calc(var(--forma-gutter)*2)
+}
+
+input[type=search] {
+    --forma-icon: var(--forma-icon-search);
+    border-radius: 50px;
+    background-position: center left calc(var(--forma-gutter)*.75);
+    padding-left: calc(var(--forma-gutter)*2)
+}
+
+input[type=time] {
+    --forma-icon: var(--forma-icon-time)
+}
+
+input[type=date] {
+    --forma-icon: var(--forma-icon-date)
+}
+
+input[type=checkbox]:not([role=switch]) {
+    padding: 0;
+    width: calc(var(--forma-gutter)*1.5);
+    height: calc(var(--forma-gutter)*1.5);
+    border: 2px solid var(--forma-color-gray-highlight);
+    border-radius: calc(var(--forma-border-radius-button)*.5)
+}
+
+input[type=checkbox]:not([role=switch]):checked {
+    background-color: var(--forma-color-primary);
+    border-color: var(--forma-color-primary);
+    background-image: var(--forma-icon-check);
+    background-size: calc(var(--forma-gutter)*1.2) auto;
+    background-repeat: no-repeat;
+    background-position: center center
+}
+
+input[type=radio] {
+    padding: 0;
+    width: calc(var(--forma-gutter)*1.5);
+    height: calc(var(--forma-gutter)*1.5);
+    border: 2px solid var(--forma-color-gray-highlight);
+    border-radius: 50%
+}
+
+input[type=radio]:checked {
+    outline: calc(var(--forma-gutter)*.35) solid var(--forma-color-primary);
+    outline-offset: calc(var(--forma-gutter)*-0.35)
+}
+
+input[role=switch] {
+    padding: 0;
+    width: calc(var(--forma-gutter)*2.6);
+    height: calc(var(--forma-gutter)*1.4);
+    border-radius: 50px;
+    background-color: var(--forma-color-gray-highlight);
+    position: relative;
+    border: none
+}
+
+input[role=switch]::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 0;
+    width: calc(var(--forma-gutter)*1.4);
+    height: calc(var(--forma-gutter)*1.4);
+    border-radius: 50%;
+    background-color: contrast-color(var(--forma-color-primary));
+    transition: all var(--forma-transition-fast) ease-in-out;
+    border: 3px solid var(--forma-color-gray-highlight)
+}
+
+input[role=switch]:checked {
+    background-color: var(--forma-color-primary)
+}
+
+input[role=switch]:checked::after {
+    transform: translateX(calc(var(--forma-gutter) * 1.3));
+    border-color: var(--forma-color-primary)
+}
+
+legend {
+    float: left;
+    width: 100%
 }
 
 /*# sourceMappingURL=styles.css.map */
