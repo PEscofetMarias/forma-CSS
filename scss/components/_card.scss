@@ -6,9 +6,8 @@
 
 @if map.get($modules, "components/card") {
   :is(article, .card) {
-    padding: calc($gutter * 0.5);
+    padding: $gutter;
     border-radius: $border-radius-panel;
-    margin-bottom: calc($gutter * 0.5);
     @include m.panel-elevation-2;
     backdrop-filter: none;
     box-shadow: $elevation-1;

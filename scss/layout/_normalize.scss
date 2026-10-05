@@ -76,6 +76,7 @@
     text-rendering: optimizeLegibility;
     overflow-wrap: break-word; // 2
     tab-size: 4; // 3
+    interpolate-size: allow-keywords;
   }
 
   // 1. Remove the margin in all browsers (opinionated)

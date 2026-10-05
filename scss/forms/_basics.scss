@@ -59,6 +59,9 @@
       background-repeat: no-repeat;
       background-position: center right calc($gutter * 0.75);
       padding-right: calc($gutter * 2);
+      &::-webkit-calendar-picker-indicator {
+        display: none;
+      }
     }
     &[type="search"] {
       #{$icon}: $icon-search;

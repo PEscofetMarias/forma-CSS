@@ -17,7 +17,6 @@
       margin: 0;
       min-width: 100%;
       font-family: $font-family-headings;
-      @include m.initialize-fading;
     }
     input[type="search"] {
       position: relative;
@@ -40,12 +39,6 @@
       }
       .close-icon {
         display: block;
-      }
-      form {
-        opacity: 1;
-        @starting-style {
-          opacity: 0;
-        }
       }
       summary {
         border-top-left-radius: 0;

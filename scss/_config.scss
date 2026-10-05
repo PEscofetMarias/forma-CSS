@@ -51,7 +51,7 @@ $color-gray-highlight: var(#{$css-var-prefix}color-gray-highlight, #cccccc);
 
 $font-size: var(#{$css-var-prefix}font-size, 16px);
 $gutter: var(#{$css-var-prefix}gutter, 1rem);
-$transition-slow: var(#{$css-var-prefix}transition-slow, 0.3s);
+$transition-slow: var(#{$css-var-prefix}transition-slow, 0.5s);
 $transition-fast: var(#{$css-var-prefix}transition-fast, 0.2s);
 $border-radius-panel: var(#{$css-var-prefix}border-radius-panel, 0.5rem);
 $border-radius-button: var(#{$css-var-prefix}border-radius-button, 0.25rem);
@@ -122,7 +122,7 @@ $text-sizes: (
   ),
   "h3, .heading-3": (
     size: 4rem,
-    line-height: 100%,
+    line-height: 90%,
     letter-spacing: -4%,
     margin: 1rem 0,
     font-family: $font-family-headings,
@@ -130,7 +130,7 @@ $text-sizes: (
   ),
   "h4, .heading-4": (
     size: 3rem,
-    line-height: 100%,
+    line-height: 90%,
     letter-spacing: -4%,
     margin: 0.5rem 0,
     font-family: $font-family-headings,

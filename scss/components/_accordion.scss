@@ -4,7 +4,15 @@
 
 @if map.get($modules, "components/accordion") {
   .accordion {
-    summary {
+    details::details-content {
+      height: 0;
+      overflow: clip;
+      transition-property: block-size, content-visibility;
+      transition-duration: $transition-slow;
+      transition-behavior: allow-discrete;
+    }
+    details[open]::details-content {
+      height: auto;
     }
     summary span {
       display: block;
@@ -12,7 +20,7 @@
       height: 1px;
       background: $color-text;
       position: relative;
-      transition: transform 0.5s ease-in-out;
+      transition: transform $transition-slow ease-in-out;
       &::before {
         content: "";
         display: block;
@@ -22,23 +30,8 @@
         transform: rotate(90deg);
       }
     }
-    .content {
-      opacity: 0;
-      height: 0;
-      overflow: hidden;
-      transition:
-        opacity 0.5s ease-in-out,
-        height 0.5s ease-in-out;
-    }
+
     details[open] {
-      .content {
-        opacity: 1;
-        height: auto;
-      }
-      @starting-style {
-        opacity: 0;
-        height: 0;
-      }
       summary span {
         transform: rotate(405deg);
       }
