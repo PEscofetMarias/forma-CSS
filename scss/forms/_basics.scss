@@ -1,0 +1,84 @@
+@use "sass:map";
+@use "../config" as *;
+@use "../mixins/mixins" as m;
+@use "../layout/layout";
+@use "../components/card";
+@use "../content/typography";
+
+@if map.get($modules, "forms/basics") {
+  label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: calc($gutter * 0.75);
+    gap: calc($gutter * 0.5);
+    &:has([type="checkbox"]),
+    &:has([type="radio"]) {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  :is(input, select) {
+    border-radius: $border-radius-button;
+    font-size: 1rem;
+    border: 2px solid $color-gray-highlight;
+    padding: $gutter;
+    background-color: rgb(from $color-panel r g b / 0.4);
+    transition: all $transition-fast ease-in-out;
+    &:not([type="checkbox"], [type="radio"]):focus {
+      outline: 0;
+      @include m.panel-elevation-2;
+      border-width: 2px;
+    }
+    &[disabled] {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+  select {
+    appearance: none;
+    background-image: $icon-expand;
+    background-size: calc(1rem * 0.85) auto;
+    background-repeat: no-repeat;
+    background-position: center right calc($gutter * 0.75);
+    padding-right: calc($gutter * 2);
+  }
+  input {
+    appearance: none;
+    &[type="file"] {
+      background: transparent;
+      border: none;
+      padding: 0;
+      &::file-selector-button {
+        margin-bottom: 0;
+      }
+    }
+    &:is([type="search"], [type="time"], [type="date"]) {
+      background-image: var($icon);
+      background-size: calc(1rem * 0.85) auto;
+      background-repeat: no-repeat;
+      background-position: center right calc($gutter * 0.75);
+      padding-right: calc($gutter * 2);
+    }
+    &[type="search"] {
+      #{$icon}: $icon-search;
+      border-radius: 50px;
+      background-position: center left calc($gutter * 0.75);
+      padding-left: calc($gutter * 2);
+    }
+    &[type="time"] {
+      #{$icon}: $icon-time;
+    }
+    &[type="date"] {
+      #{$icon}: $icon-date;
+    }
+  }
+  fieldset {
+    @extend article;
+  }
+  legend {
+    @extend h5;
+    float: left;
+    width: 100%;
+  }
+}

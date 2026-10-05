@@ -1,9 +1,0 @@
-@use "../config" as *;
-@use "mixins" as m;
-@use "buttons";
-
-.nav-item {
-  color: $color-text;
-  font-size: calc(1rem * 1.25);
-  font-weight: normal;
-}

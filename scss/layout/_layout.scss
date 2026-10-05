@@ -1,0 +1,185 @@
+@use "sass:map";
+@use "../config" as *;
+@use "../mixins/mixins" as m;
+
+@if map.get($modules, "layout/layout") {
+  ////// Responsive specific styles //////////
+  /// Global styles ////
+  :is(header, main, footer) {
+    &.fluid {
+      margin: 0;
+      padding: 0 calc($gutter * 0.5);
+    }
+  }
+
+  //// to define the display of an element, use the .display class and set the --display variable to the desired value.
+  /// For further breackpoints, you can set the --display-md, --display-lg, --display-xl and --display-xxl variables to define the display for each breakpoint.
+  /// Example: <div class="display" style="--display: flex; --display-md: block; --display-lg: grid;"> </div>
+  .display {
+    --display-defined: var(--display, block);
+    display: var(--display-defined) !important;
+  }
+
+  ///// to define a grid, use de .grid class and set the --grid-columns variable to the number of columns you want.
+  /// You can also set the --grid-md-columns, --grid-lg-columns, --grid-xl-columns and --grid-xxl-columns variables to define the number of columns for each breakpoint.
+  /// Example: <div class="grid" style="--grid-columns: 3; --grid-md-columns: 4; --grid-lg-columns: 5;"> </div>
+  .grid {
+    --grid-columns-defined: var(--grid-columns, 1);
+    display: grid;
+    gap: $gutter;
+    grid-template-columns: repeat(var(--grid-columns-defined), 1fr);
+  }
+
+  //// SM till MD /////
+  @include m.media(md, down) {
+    :root {
+      font-size: map.get($breakpoints, sm, root-font-size);
+    }
+    :is(header, main, footer) {
+      &:not(.fluid) {
+        margin: 0 calc($gutter * 0.5);
+      }
+    }
+  }
+
+  /// MD till LG /////
+  @include m.media(md, up) {
+    :root {
+      margin: 0 auto;
+      font-size: map.get($breakpoints, md, root-font-size);
+    }
+    :is(header, main, footer) {
+      &:not(.fluid) {
+        margin: 0 auto;
+        max-width: map.get($breakpoints, md, viewport);
+      }
+    }
+    .display {
+      --display-defined: var(--display-md, var(--display, block));
+    }
+    .grid {
+      --grid-columns-defined: var(--grid-md-columns, var(--grid-columns, 3));
+    }
+  }
+
+  /// LG till XL /////
+  @include m.media(lg, up) {
+    :root {
+      font-size: map.get($breakpoints, lg, root-font-size);
+    }
+    :is(header, main, footer) {
+      &:not(.fluid) {
+        max-width: map.get($breakpoints, lg, viewport);
+      }
+    }
+    .display {
+      --display-defined: var(
+        --display-lg,
+        var(--display-md, var(--display, block))
+      );
+    }
+    .grid {
+      --grid-columns-defined: var(
+        --grid-lg-columns,
+        var(--grid-md-columns, var(--grid-columns, 4))
+      );
+    }
+  }
+
+  /// XL till XXL /////
+  @include m.media(xl, up) {
+    :root {
+      font-size: map.get($breakpoints, xl, root-font-size);
+    }
+    :is(header, main, footer) {
+      &:not(.fluid) {
+        max-width: map.get($breakpoints, xl, viewport);
+      }
+    }
+    .display {
+      --display-defined: var(
+        --display-xl,
+        var(--display-lg, var(--display-md, var(--display, block)))
+      );
+    }
+    .grid {
+      --grid-columns-defined: var(
+        --grid-xl-columns,
+        var(--grid-lg-columns, var(--grid-md-columns, var(--grid-columns, 4)))
+      );
+    }
+  }
+
+  /// XXL and above /////
+  @include m.media(xxl, up) {
+    :root {
+      font-size: map.get($breakpoints, xxl, root-font-size);
+    }
+    :is(header, main, footer) {
+      &:not(.fluid) {
+        max-width: map.get($breakpoints, xxl, viewport);
+      }
+    }
+    .display {
+      --display-defined: var(
+        --display-xxl,
+        var(
+          --display-xl,
+          var(--display-lg, var(--display-md, var(--display, block)))
+        )
+      );
+    }
+    .grid {
+      --grid-columns-defined: var(
+        --grid-xxl-columns,
+        var(
+          --grid-xl-columns,
+          var(--grid-lg-columns, var(--grid-md-columns, var(--grid-columns, 4)))
+        )
+      );
+    }
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid $color-text;
+    width: 100%;
+  }
+  section {
+    //display: flex;
+    //flex-direction: column;
+  }
+
+  //////// Spacing classes ////////////
+
+  .mt-0 {
+    margin-top: 0 !important;
+  }
+  .ml-0 {
+    margin-left: 0 !important;
+  }
+  .mr-0 {
+    margin-right: 0 !important;
+  }
+  .mb-0 {
+    margin-bottom: 0 !important;
+  }
+  .pt-0 {
+    padding-top: 0 !important;
+  }
+  .pl-0 {
+    padding-left: 0 !important;
+  }
+  .pb-0 {
+    padding-bottom: 0 !important;
+  }
+  .pr-0 {
+    padding-right: 0 !important;
+  }
+  .m-0 {
+    margin: 0 !important;
+  }
+  .p-0 {
+    padding: 0 !important;
+  }
+}

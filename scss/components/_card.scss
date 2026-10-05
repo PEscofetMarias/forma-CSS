@@ -1,0 +1,32 @@
+@use "../config" as *;
+@use "../mixins/mixins" as m;
+
+@use "sass:map";
+@use "../config" as *;
+
+@if map.get($modules, "components/card") {
+  :is(article, .card) {
+    padding: calc($gutter * 0.5);
+    border-radius: $border-radius-panel;
+    margin-bottom: calc($gutter * 0.5);
+    @include m.panel-elevation-2;
+    backdrop-filter: none;
+    box-shadow: $elevation-1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    > * {
+      width: 100%;
+    }
+    .btn-contrast {
+      #{$color-contrast}: contrast-color($color-panel);
+    }
+    > footer,
+    > header {
+      display: flex;
+      flex-direction: row;
+      gap: calc($gutter * 0.5);
+      flex-wrap: wrap;
+    }
+  }
+}

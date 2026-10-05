@@ -1,0 +1,57 @@
+@use "../config" as *;
+@use "../mixins/mixins" as m;
+@use "../content/buttons";
+
+@use "sass:map";
+
+@if map.get($modules, "forms/hidden-search") {
+  .hidden-search {
+    display: flex;
+    align-items: stretch;
+    flex-direction: row-reverse;
+    position: relative;
+    form {
+      position: relative;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      min-width: 100%;
+      font-family: $font-family-headings;
+      @include m.initialize-fading;
+    }
+    input[type="search"] {
+      position: relative;
+      height: 100%;
+      border-radius: 50px 0 0 50px;
+      font-size: 1rem;
+      padding: 0 $gutter 0 calc($gutter * 2);
+      background-image: $icon-search;
+      background-size: calc(1rem * 0.85) auto;
+      background-repeat: no-repeat;
+      background-position: calc($gutter * 0.75) center;
+      @include m.panel-elevation-2;
+    }
+    .close-icon {
+      display: none;
+    }
+    &[open] {
+      .search-icon {
+        display: none;
+      }
+      .close-icon {
+        display: block;
+      }
+      form {
+        opacity: 1;
+        @starting-style {
+          opacity: 0;
+        }
+      }
+      summary {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        box-shadow: $elevation-2;
+      }
+    }
+  }
+}

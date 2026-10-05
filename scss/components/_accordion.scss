@@ -1,0 +1,47 @@
+@use "sass:map";
+@use "../config" as *;
+@use "../content/typography";
+
+@if map.get($modules, "components/accordion") {
+  .accordion {
+    summary {
+    }
+    summary span {
+      display: block;
+      width: 1rem;
+      height: 1px;
+      background: $color-text;
+      position: relative;
+      transition: transform 0.5s ease-in-out;
+      &::before {
+        content: "";
+        display: block;
+        width: 1rem;
+        height: 1px;
+        background: $color-text;
+        transform: rotate(90deg);
+      }
+    }
+    .content {
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+      transition:
+        opacity 0.5s ease-in-out,
+        height 0.5s ease-in-out;
+    }
+    details[open] {
+      .content {
+        opacity: 1;
+        height: auto;
+      }
+      @starting-style {
+        opacity: 0;
+        height: 0;
+      }
+      summary span {
+        transform: rotate(405deg);
+      }
+    }
+  }
+}

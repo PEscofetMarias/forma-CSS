@@ -1,0 +1,13 @@
+@use "../config" as *;
+@use "../mixins/mixins" as m;
+@use "../content/buttons";
+
+@use "sass:map";
+
+@if map.get($modules, "components/nav") {
+  .nav-item {
+    color: $color-text;
+    font-size: calc(1rem * 1.25);
+    font-weight: normal;
+  }
+}

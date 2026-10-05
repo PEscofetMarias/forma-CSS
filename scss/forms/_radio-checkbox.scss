@@ -1,0 +1,62 @@
+@use "sass:map";
+@use "../config" as *;
+
+@if map.get($modules, "forms/radio-checkbox") {
+  input {
+    &[type="checkbox"]:not([role="switch"]) {
+      padding: 0;
+      width: calc(1rem * 1.25);
+      height: calc(1rem * 1.25);
+      border: 2px solid $color-gray-highlight;
+      border-radius: calc($border-radius-button * 0.5);
+      &:checked {
+        background-color: $color-primary;
+        border-color: $color-primary;
+        background-image: $icon-check;
+        background-size: 1rem auto;
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+    }
+    &[type="radio"] {
+      padding: 0;
+      width: calc(1rem * 1.25);
+      height: calc(1rem * 1.25);
+      border: 2px solid $color-gray-highlight;
+      border-radius: 50%;
+      &:checked {
+        outline: calc(1rem * 0.35) solid $color-primary;
+        outline-offset: calc(1rem * -0.35);
+      }
+    }
+    &[role="switch"] {
+      padding: 0;
+      width: calc(1rem * 2.6);
+      height: calc(1rem * 1.4);
+      border-radius: 50px;
+      background-color: $color-gray-highlight;
+      position: relative;
+      border: none;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 0;
+        width: calc(1rem * 1.4);
+        height: calc(1rem * 1.4);
+        border-radius: 50%;
+        background-color: contrast-color($color-primary);
+        transition: all $transition-fast ease-in-out;
+        border: 3px solid $color-gray-highlight;
+      }
+      &:checked {
+        background-color: $color-primary;
+        &::after {
+          transform: translateX(calc(1rem * 1.3));
+          border-color: $color-primary;
+        }
+      }
+    }
+  }
+}

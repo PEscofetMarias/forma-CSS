@@ -1,37 +1,73 @@
 @use "sass:map";
 
+$modules: () !default;
+$modules: map.merge(
+  (
+    //// Content modules
+    "content/buttons": true,
+    "content/typography": true,
+
+    //// Components modules
+    "components/nav": true,
+    "components/accordion": true,
+    "components/dropdown": true,
+    "components/toast": true,
+    "components/modal": true,
+    "components/card": true,
+    "components/tooltip": true,
+
+    //// Forms modules
+    "forms/basics": true,
+    "forms/hidden-search": true,
+    "forms/radio-checkbox": true,
+    "forms/switch": true,
+
+    //// Layout modules
+    "layout/normalize": true,
+    "layout/layout": true,
+    "layout/helpers": true
+  ),
+  $modules
+);
+
 $css-var-prefix: --forma-;
 $color-contrast: #{$css-var-prefix}color-contrast;
 $button-color: #{$css-var-prefix}button-color;
 $icon: #{$css-var-prefix}icon;
 
-$font-family: var(#{$css-var-prefix}font-family);
-$font-family-headings: var(#{$css-var-prefix}font-family-headings);
-$font-weight: var(#{$css-var-prefix}font-weight);
-$line-height: var(#{$css-var-prefix}line-height);
+$font-family: var(#{$css-var-prefix}font-family, Arial);
+$font-family-headings: var(#{$css-var-prefix}font-family-headings, Arial);
+$font-weight: var(#{$css-var-prefix}font-weight, normal);
+$line-height: var(#{$css-var-prefix}line-height, 120%);
 
-$color-primary: var(#{$css-var-prefix}color-primary);
-$color-secondary: var(#{$css-var-prefix}color-secondary);
-$color-text: var(#{$css-var-prefix}color-text);
-$color-background: var(#{$css-var-prefix}color-background);
-$color-backdrop: var(#{$css-var-prefix}color-backdrop);
-$color-panel: var(#{$css-var-prefix}color-panel);
-$color-border-panel: var(#{$css-var-prefix}color-border-panel);
-$color-gray-highlight: var(#{$css-var-prefix}color-gray-highlight);
+$color-primary: var(#{$css-var-prefix}color-primary, #083cc0);
+$color-secondary: var(#{$css-var-prefix}color-secondary, #05a5d1);
+$color-text: var(#{$css-var-prefix}color-text, #222);
+$color-background: var(#{$css-var-prefix}color-background, white);
+$color-backdrop: var(#{$css-var-prefix}color-backdrop, rgba(0, 0, 0, 0.5));
+$color-panel: var(#{$css-var-prefix}color-panel, white);
+$color-border-panel: var(#{$css-var-prefix}color-border-panel, #e0e0e0);
+$color-gray-highlight: var(#{$css-var-prefix}color-gray-highlight, #cccccc);
 
-$font-size: var(#{$css-var-prefix}font-size);
-$gutter: var(#{$css-var-prefix}gutter);
-$transition-slow: var(#{$css-var-prefix}transition-slow);
-$transition-fast: var(#{$css-var-prefix}transition-fast);
-$border-radius-panel: var(#{$css-var-prefix}border-radius-panel);
-$border-radius-button: var(#{$css-var-prefix}border-radius-button);
+$font-size: var(#{$css-var-prefix}font-size, 16px);
+$gutter: var(#{$css-var-prefix}gutter, 1rem);
+$transition-slow: var(#{$css-var-prefix}transition-slow, 0.3s);
+$transition-fast: var(#{$css-var-prefix}transition-fast, 0.2s);
+$border-radius-panel: var(#{$css-var-prefix}border-radius-panel, 0.5rem);
+$border-radius-button: var(#{$css-var-prefix}border-radius-button, 0.25rem);
 
-$filter-backdrop: var(#{$css-var-prefix}filter-backdrop);
-$filter-panel: var(#{$css-var-prefix}filter-panel);
+$filter-backdrop: var(#{$css-var-prefix}filter-backdrop, none);
+$filter-panel: var(#{$css-var-prefix}filter-panel, none);
 
-$elevation-1: var(#{$css-var-prefix}elevation-1);
-$elevation-2: var(#{$css-var-prefix}elevation-2);
-$elevation-3: var(#{$css-var-prefix}elevation-3);
+$elevation-1: var(
+  #{$css-var-prefix}elevation-1,
+  0 0 0.25rem rgba(0, 0, 0, 0.2)
+);
+$elevation-2: var(
+  #{$css-var-prefix}elevation-2,
+  0 0 0.75rem rgba(0, 0, 0, 0.3)
+);
+$elevation-3: var(#{$css-var-prefix}elevation-3, 0 0 1.5rem rgba(0, 0, 0, 0.4));
 
 $icon-search: var(#{$css-var-prefix}icon-search);
 $icon-date: var(#{$css-var-prefix}icon-date);
@@ -43,12 +79,12 @@ $breakpoints: (
   sm: (
     breakpoint: 600px,
     viewport: 540px,
-    root-font-size: 85%,
+    root-font-size: 110%,
   ),
   md: (
     breakpoint: 768px,
     viewport: 720px,
-    root-font-size: 95%,
+    root-font-size: 105%,
   ),
   lg: (
     breakpoint: 1024px,
@@ -58,28 +94,15 @@ $breakpoints: (
   xl: (
     breakpoint: 1450px,
     viewport: 1200px,
-    root-font-size: 105%,
+    root-font-size: 110%,
   ),
   xxl: (
     breakpoint: 1536px,
     viewport: 1400px,
-    root-font-size: 115%,
+    root-font-size: 120%,
   ),
 );
 
-$spaces: 0, 0.5, 1, 2, 4, 6, 8;
-$spacing-name: (
-  mt: margin-top,
-  mb: margin-bottom,
-  ml: margin-left,
-  mr: margin-right,
-  pt: padding-top,
-  pb: padding-bottom,
-  pl: padding-left,
-  pr: padding-right,
-  m: margin,
-  p: padding,
-);
 $text-sizes: (
   "h1, .heading-1": (
     size: 7rem,
