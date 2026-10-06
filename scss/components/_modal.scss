@@ -7,6 +7,7 @@
     padding: $gutter;
     border-radius: $border-radius-panel;
     transition: opacity $transition-slow ease-in-out;
+    z-index: 9999;
     @include m.panel-elevation-3;
     @include m.initialize-fading;
     &::backdrop {

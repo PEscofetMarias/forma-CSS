@@ -6,7 +6,8 @@
 @if map.get($modules, "components/off-canvas") {
   .off-canvas {
     @extend .toast;
-    padding: calc($gutter * 2);
+    z-index: 3333;
+    padding: calc($gutter * 1.5);
     border-radius: 0;
     top: 0;
     right: 0;

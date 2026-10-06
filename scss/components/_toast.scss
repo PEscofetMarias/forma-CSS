@@ -13,7 +13,7 @@
     padding: $gutter;
     border-radius: $border-radius-panel;
     width: 30vw;
-    z-index: 9999;
+    z-index: 6666;
     @include m.panel-elevation-3;
     @include m.initialize-fading;
     @include m.media(xxl, down) {
