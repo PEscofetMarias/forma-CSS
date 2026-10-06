@@ -1,0 +1,15 @@
+@use "../config" as *;
+@use "../mixins/mixins" as m;
+@use "sass:map";
+@use "toast";
+
+@if map.get($modules, "components/off-canvas") {
+  .off-canvas {
+    @extend .toast;
+    padding: calc($gutter * 2);
+    border-radius: 0;
+    top: 0;
+    right: 0;
+    height: 100dvh;
+  }
+}
