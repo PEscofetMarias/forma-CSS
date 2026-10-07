@@ -19,10 +19,12 @@
   }
 
   :is(input, select) {
+    appearance: none;
     border-radius: $border-radius-button;
-    font-size: 1rem;
+    font-size: 0.8rem;
+    line-height: 120%;
     border: 2px solid $color-gray-highlight;
-    padding: $gutter;
+    padding: 0.6rem;
     background-color: rgb(from $color-panel r g b / 0.4);
     transition: all $transition-fast ease-in-out;
     &:not([type="checkbox"], [type="radio"]):focus {
@@ -36,7 +38,6 @@
     }
   }
   select {
-    appearance: none;
     background-image: $icon-expand;
     background-size: calc(1rem * 0.85) auto;
     background-repeat: no-repeat;
@@ -44,7 +45,16 @@
     padding-right: calc($gutter * 2);
   }
   input {
-    appearance: none;
+    &[type="color"] {
+      padding: 0;
+      width: 4rem;
+      height: auto;
+      aspect-ratio: 1;
+      overflow: hidden;
+      &::-webkit-color-swatch-wrapper {
+        padding: 0;
+      }
+    }
     &[type="file"] {
       background: transparent;
       border: none;
