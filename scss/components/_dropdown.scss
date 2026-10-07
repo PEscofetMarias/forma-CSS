@@ -25,18 +25,20 @@
       width: fit-content;
       font-family: $font-family-headings;
       @include m.panel-elevation-2;
-      @include m.initialize-fading;
+    }
+    &::details-content {
+      opacity: 0;
+      transition-property: opacity, content-visibility;
+      transition-duration: $transition-fast;
+      transition-behavior: allow-discrete;
     }
     &.dropdown-align-right {
       ul {
         right: 0;
       }
     }
-    &[open] ul {
+    &[open]::details-content {
       opacity: 1;
-      @starting-style {
-        opacity: 0;
-      }
     }
     //// this hides the menu on clickung outside
     &[open] summary::before {

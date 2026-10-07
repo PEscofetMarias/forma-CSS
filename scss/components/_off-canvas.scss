@@ -12,5 +12,12 @@
     top: 0;
     right: 0;
     height: 100dvh;
+    transition: transform $transition-fast ease-in-out allow-discrete;
+    &:popover-open {
+      transform: translateX(0);
+      @starting-style {
+        transform: translateX(100%);
+      }
+    }
   }
 }

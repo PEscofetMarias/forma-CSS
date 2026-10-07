@@ -30,12 +30,24 @@
       background-position: calc($gutter * 0.75) center;
       @include m.panel-elevation-2;
     }
+    &::details-content {
+      transform: scaleX(0);
+      width: 0;
+      transform-origin: right center;
+      transition-property: width, transform, content-visibility;
+      transition-duration: $transition-fast;
+      transition-behavior: allow-discrete;
+    }
     .close-icon {
       display: none;
     }
     &[open] {
       .search-icon {
         display: none;
+      }
+      &::details-content {
+        transform: scaleX(1);
+        width: auto;
       }
       .close-icon {
         display: block;
