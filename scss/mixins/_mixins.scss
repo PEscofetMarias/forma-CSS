@@ -21,6 +21,11 @@
     @warn "El breakpoint '#{$breakpoint-key}' no existeix.";
   }
 }
+@mixin panel-elevation-1 {
+  background-color: $color-panel;
+  border: 1px solid $color-border-panel;
+  box-shadow: $elevation-1;
+}
 
 @mixin panel-elevation-2 {
   background-color: $color-panel;
