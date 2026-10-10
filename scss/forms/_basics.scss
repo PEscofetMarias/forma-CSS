@@ -6,92 +6,86 @@
 @use "../content/typography";
 
 @if map.get($modules, "forms/basics") {
-  label {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: calc($gutter * 0.75);
-    gap: calc($gutter * 0.5);
-    &:has([type="checkbox"]),
-    &:has([type="radio"]) {
-      flex-direction: row;
-      align-items: center;
+  @layer forma.components {
+    label {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: calc($gutter * 0.75);
+      gap: calc($gutter * 0.5);
+      &:has([type="checkbox"]),
+      &:has([type="radio"]) {
+        flex-direction: row;
+        align-items: center;
+      }
     }
-  }
 
-  :is(input, select) {
-    appearance: none;
-    border-radius: $border-radius-button;
-    font-size: 0.8rem;
-    line-height: 120%;
-    border: 2px solid $color-gray-highlight;
-    padding: 0.6rem;
-    background-color: rgb(from $color-panel r g b / 0.4);
-    transition: all $transition-fast ease-in-out;
-    &:not([type="checkbox"], [type="radio"]):focus {
-      outline: 0;
-      @include m.panel-elevation-2;
-      border-width: 2px;
-    }
-    &[disabled] {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-  }
-  select {
-    background-image: $icon-expand;
-    background-size: calc(1rem * 0.85) auto;
-    background-repeat: no-repeat;
-    background-position: center right calc($gutter * 0.75);
-    padding-right: calc($gutter * 2);
-  }
-  input {
-    &[type="color"] {
-      padding: 0;
-      width: 4rem;
-      height: auto;
-      aspect-ratio: 1;
-      overflow: hidden;
-      &::-webkit-color-swatch-wrapper {
-        padding: 0;
+    :is(input, select) {
+      appearance: none;
+      border-radius: $border-radius-button;
+      font-size: 0.8rem;
+      line-height: 120%;
+      border: 2px solid $color-gray-highlight;
+      padding: 0.6rem;
+      background-color: rgb(from $color-panel r g b / 0.4);
+      transition: all $transition-fast ease-in-out;
+      &:not([type="checkbox"], [type="radio"]):focus {
+        outline: 0;
+        @include m.panel-elevation-2;
+        border-width: 2px;
+      }
+      &[disabled] {
+        opacity: 0.5;
+        cursor: not-allowed;
       }
     }
-    &[type="file"] {
-      background: transparent;
-      border: none;
-      padding: 0;
-      &::file-selector-button {
-        margin-bottom: 0;
-      }
-    }
-    &:is([type="search"], [type="time"], [type="date"]) {
-      background-image: var($icon);
+    select {
+      background-image: $icon-expand;
       background-size: calc(1rem * 0.85) auto;
       background-repeat: no-repeat;
       background-position: center right calc($gutter * 0.75);
       padding-right: calc($gutter * 2);
-      &::-webkit-calendar-picker-indicator {
-        display: none;
+    }
+    input {
+      &[type="color"] {
+        padding: 0;
+        width: 4rem;
+        height: auto;
+        aspect-ratio: 1;
+        overflow: hidden;
+        &::-webkit-color-swatch-wrapper {
+          padding: 0;
+        }
+      }
+      &[type="file"] {
+        background: transparent;
+        border: none;
+        padding: 0;
+        &::file-selector-button {
+          margin-bottom: 0;
+        }
+      }
+      &:is([type="search"], [type="time"], [type="date"]) {
+        background-image: var($icon);
+        background-size: calc(1rem * 0.85) auto;
+        background-repeat: no-repeat;
+        background-position: center right calc($gutter * 0.75);
+        padding-right: calc($gutter * 2);
+        &::-webkit-calendar-picker-indicator {
+          display: none;
+        }
+      }
+      &[type="search"] {
+        #{$icon}: $icon-search;
+        border-radius: 50px;
+        background-position: center left calc($gutter * 0.75);
+        padding-left: calc($gutter * 2);
+      }
+      &[type="time"] {
+        #{$icon}: $icon-time;
+      }
+      &[type="date"] {
+        #{$icon}: $icon-date;
       }
     }
-    &[type="search"] {
-      #{$icon}: $icon-search;
-      border-radius: 50px;
-      background-position: center left calc($gutter * 0.75);
-      padding-left: calc($gutter * 2);
-    }
-    &[type="time"] {
-      #{$icon}: $icon-time;
-    }
-    &[type="date"] {
-      #{$icon}: $icon-date;
-    }
-  }
-  fieldset {
-    @extend article;
-  }
-  legend {
-    @extend h5;
-    float: left;
-    width: 100%;
   }
 }

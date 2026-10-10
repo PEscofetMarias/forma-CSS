@@ -5,62 +5,64 @@
 @use "sass:map";
 
 @if map.get($modules, "components/burger-menu") {
-  .burger-menu {
-    summary {
-      i {
-        aspect-ratio: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      span {
-        display: block;
-        width: 100%;
-        height: 1px;
-        background: contrast-color($color-primary);
-        position: relative;
-        transition: transform $transition-fast ease-in-out;
-        &::after,
-        &::before {
-          content: "";
+  @layer forma.components {
+    .burger-menu {
+      summary {
+        i {
+          aspect-ratio: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        span {
           display: block;
           width: 100%;
           height: 1px;
           background: contrast-color($color-primary);
-          position: absolute;
-          transition:
-            transform $transition-fast ease-in-out,
-            top $transition-fast ease-in-out;
-        }
-        &::before {
-          top: -6px;
-        }
-        &::after {
-          content: "";
-          top: 6px;
+          position: relative;
+          transition: transform $transition-fast ease-in-out;
+          &::after,
+          &::before {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 1px;
+            background: contrast-color($color-primary);
+            position: absolute;
+            transition:
+              transform $transition-fast ease-in-out,
+              top $transition-fast ease-in-out;
+          }
+          &::before {
+            top: -6px;
+          }
+          &::after {
+            content: "";
+            top: 6px;
+          }
         }
       }
-    }
-    ul {
-      padding: 0;
-      margin: 0;
-      border-radius: $border-radius-panel;
-      li {
-        margin: 1rem;
-        text-wrap: nowrap;
-      }
-    }
-    &[open] {
-      summary span {
-        background: transparent;
-        transform: none;
-        &::before {
-          transform: rotate(225deg);
-          top: 0;
+      ul {
+        padding: 0;
+        margin: 0;
+        border-radius: $border-radius-panel;
+        li {
+          margin: 1rem;
+          text-wrap: nowrap;
         }
-        &::after {
-          transform: rotate(-225deg);
-          top: 0;
+      }
+      &[open] {
+        summary span {
+          background: transparent;
+          transform: none;
+          &::before {
+            transform: rotate(225deg);
+            top: 0;
+          }
+          &::after {
+            transform: rotate(-225deg);
+            top: 0;
+          }
         }
       }
     }

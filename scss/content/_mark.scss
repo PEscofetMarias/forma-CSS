@@ -1,0 +1,12 @@
+@use "sass:map";
+@use "../config" as *;
+
+@if map.get($modules, "content/mark") {
+  @layer forma.base {
+    mark {
+      background: linear-gradient(to right, $color-secondary, $color-primary);
+      background-clip: text;
+      color: transparent;
+    }
+  }
+}

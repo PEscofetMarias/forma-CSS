@@ -5,102 +5,104 @@
 @use "sass:map";
 
 @if map.get($modules, "components/dropdown") {
-  .dropdown {
-    width: fit-content;
-    position: relative;
-    summary {
-      margin: 0;
-    }
-    ul {
-      display: block;
-      position: absolute;
-      top: calc(100% + 0.15rem);
-      padding: 0;
-      margin: 0;
-      list-style: none;
-      border-radius: calc($border-radius-button * 0.75);
-      z-index: 999;
-      overflow: hidden;
-      min-width: 100%;
+  @layer forma.components {
+    .dropdown {
       width: fit-content;
-      font-family: $font-family-headings;
-      @include m.panel-elevation-2;
-    }
-    &::details-content {
-      opacity: 0;
-      transition-property: opacity, content-visibility;
-      transition-duration: $transition-fast;
-      transition-behavior: allow-discrete;
-    }
-    &.dropdown-align-right {
-      ul {
-        right: 0;
+      position: relative;
+      summary {
+        margin: 0;
       }
-    }
-    &[open]::details-content {
-      opacity: 1;
-    }
-    //// this hides the menu on clickung outside
-    &[open] summary::before {
-      content: "";
-      width: 100vw;
-      height: 100vh;
-      position: fixed;
-      top: 0;
-      left: 0;
-      cursor: auto;
-    }
-    //// adding a nav on div tag invalidates the list styling
-    &:not(:has(nav, div)) {
-      li {
-        a {
-          font-size: 0.8rem;
-          display: block;
-          font-weight: normal;
-          color: $color-text;
-          border-bottom: 1px solid $color-gray-highlight;
-          padding: calc($gutter * 0.5);
-          text-wrap: nowrap;
-          transition: none;
-          &:hover {
-            background: $color-gray-highlight;
-            color: contrast-color($color-gray-highlight);
+      ul {
+        display: block;
+        position: absolute;
+        top: calc(100% + 0.15rem);
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        border-radius: calc($border-radius-button * 0.75);
+        z-index: 999;
+        overflow: hidden;
+        min-width: 100%;
+        width: fit-content;
+        font-family: $font-family-headings;
+        @include m.panel-elevation-2;
+      }
+      &::details-content {
+        opacity: 0;
+        transition-property: opacity, content-visibility;
+        transition-duration: $transition-fast;
+        transition-behavior: allow-discrete;
+      }
+      &.dropdown-align-right {
+        ul {
+          right: 0;
+        }
+      }
+      &[open]::details-content {
+        opacity: 1;
+      }
+      //// this hides the menu on clickung outside
+      &[open] summary::before {
+        content: "";
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        cursor: auto;
+      }
+      //// adding a nav on div tag invalidates the list styling
+      &:not(:has(nav, div)) {
+        li {
+          a {
+            font-size: 0.8rem;
+            display: block;
+            font-weight: normal;
+            color: $color-text;
+            border-bottom: 1px solid $color-gray-highlight;
+            padding: calc($gutter * 0.5);
+            text-wrap: nowrap;
+            transition: none;
+            &:hover {
+              background: $color-gray-highlight;
+              color: contrast-color($color-gray-highlight);
+            }
+          }
+          &:last-of-type a {
+            border: none;
           }
         }
-        &:last-of-type a {
-          border: none;
+      }
+    }
+
+    .dropup {
+      ul {
+        top: auto;
+        bottom: calc(100% + 0.15rem);
+      }
+    }
+    .dropright {
+      ul {
+        top: 0;
+        left: calc(100% + 0.15rem);
+      }
+      &.dropup {
+        ul {
+          bottom: 0;
+          top: auto;
         }
       }
     }
-  }
-
-  .dropup {
-    ul {
-      top: auto;
-      bottom: calc(100% + 0.15rem);
-    }
-  }
-  .dropright {
-    ul {
-      top: 0;
-      left: calc(100% + 0.15rem);
-    }
-    &.dropup {
+    .dropleft {
       ul {
-        bottom: 0;
-        top: auto;
+        top: 0;
+        right: calc(100% + 0.15rem);
       }
-    }
-  }
-  .dropleft {
-    ul {
-      top: 0;
-      right: calc(100% + 0.15rem);
-    }
-    &.dropup {
-      ul {
-        bottom: 0;
-        top: auto;
+      &.dropup {
+        ul {
+          bottom: 0;
+          top: auto;
+        }
       }
     }
   }

@@ -5,9 +5,11 @@
 @use "sass:map";
 
 @if map.get($modules, "components/nav") {
-  .nav-item {
-    color: $color-text;
-    font-size: calc(1rem * 1.25);
-    font-weight: normal;
+  @layer forma.components {
+    .nav-item {
+      color: $color-text;
+      font-size: calc(1rem * 1.25);
+      font-weight: normal;
+    }
   }
 }

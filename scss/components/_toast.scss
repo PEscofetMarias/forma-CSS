@@ -3,30 +3,32 @@
 @use "sass:map";
 
 @if map.get($modules, "components/toast") {
-  .toast {
-    position: fixed;
-    color: $color-text;
-    top: $gutter;
-    right: $gutter;
-    left: auto;
-    margin: 0;
-    padding: $gutter;
-    border-radius: $border-radius-panel;
-    width: 30vw;
-    z-index: 6666;
-    @include m.panel-elevation-3;
-    @include m.initialize-fading;
-    @include m.media(xxl, down) {
-      width: 40vw;
-    }
-    @include m.media(lg, down) {
-      width: 60vw;
-    }
-    @include m.media(md, down) {
-      width: 80vw;
-    }
-    .btn-contrast {
-      #{$color-contrast}: contrast-color($color-panel);
+  @layer forma.components {
+    .toast {
+      position: fixed;
+      color: $color-text;
+      top: $gutter;
+      right: $gutter;
+      left: auto;
+      margin: 0;
+      padding: $gutter;
+      border-radius: $border-radius-panel;
+      width: 30vw;
+      z-index: 6666;
+      @include m.panel-elevation-3;
+      @include m.initialize-fading;
+      @include m.media(xxl, down) {
+        width: 40vw;
+      }
+      @include m.media(lg, down) {
+        width: 60vw;
+      }
+      @include m.media(md, down) {
+        width: 80vw;
+      }
+      .btn-contrast {
+        #{$color-contrast}: contrast-color($color-panel);
+      }
     }
   }
 }

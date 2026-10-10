@@ -1,0 +1,39 @@
+@use "sass:map";
+@use "../config" as *;
+
+@if map.get($modules, "content/table") {
+  @layer forma.base {
+    table {
+      width: 100%;
+      border-spacing: 0;
+    }
+    th,
+    td {
+      text-align: start;
+      border-bottom: 1px solid $color-gray-highlight;
+      padding: calc($gutter / 2);
+    }
+    thead {
+      th {
+        border-bottom-width: 3px;
+      }
+    }
+    tfoot {
+      th,
+      td {
+        border-bottom: none;
+        border-top: 2px solid $color-gray-highlight;
+        font-weight: bold;
+      }
+    }
+  }
+  @layer forma.components {
+    .stripped {
+      tbody {
+        tr:nth-child(odd) {
+          background-color: hsl(from $color-gray-highlight h s calc(l * 1.08));
+        }
+      }
+    }
+  }
+}

@@ -1,7 +1,10 @@
 @use "layout/normalize";
 @use "layout/layout";
+@use "content/typography";
+@use "content/mark";
 @use "content/buttons";
 @use "content/figure";
+@use "content/table";
 @use "components/nav";
 @use "components/accordion";
 @use "components/dropdown";

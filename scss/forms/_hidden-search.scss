@@ -5,59 +5,61 @@
 @use "sass:map";
 
 @if map.get($modules, "forms/hidden-search") {
-  .hidden-search {
-    display: flex;
-    align-items: stretch;
-    flex-direction: row-reverse;
-    position: relative;
-    form {
+  @layer forma.components {
+    .hidden-search {
+      display: flex;
+      align-items: stretch;
+      flex-direction: row-reverse;
       position: relative;
-      height: 100%;
-      width: 30vw;
-      padding: 0;
-      margin: 0;
-      min-width: 100%;
-      font-family: $font-family-headings;
-    }
-    input[type="search"] {
-      position: relative;
-      height: 100%;
-      width: 100%;
-      border-radius: 50px 0 0 50px;
-      font-size: 0.8rem;
-      padding: 0 $gutter 0 calc($gutter * 2);
-      background-image: $icon-search;
-      background-size: calc(1rem * 0.85) auto;
-      background-repeat: no-repeat;
-      background-position: calc($gutter * 0.75) center;
-      @include m.panel-elevation-2;
-    }
-    &::details-content {
-      transform: scaleX(0);
-      width: 0;
-      transform-origin: right center;
-      transition-property: width, transform, content-visibility;
-      transition-duration: $transition-fast;
-      transition-behavior: allow-discrete;
-    }
-    .close-icon {
-      display: none;
-    }
-    &[open] {
-      .search-icon {
-        display: none;
+      form {
+        position: relative;
+        height: 100%;
+        width: 30vw;
+        padding: 0;
+        margin: 0;
+        min-width: 100%;
+        font-family: $font-family-headings;
+      }
+      input[type="search"] {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        border-radius: 50px 0 0 50px;
+        font-size: 0.8rem;
+        padding: 0 $gutter 0 calc($gutter * 2);
+        background-image: $icon-search;
+        background-size: calc(1rem * 0.85) auto;
+        background-repeat: no-repeat;
+        background-position: calc($gutter * 0.75) center;
+        @include m.panel-elevation-2;
       }
       &::details-content {
-        transform: scaleX(1);
-        width: auto;
+        transform: scaleX(0);
+        width: 0;
+        transform-origin: right center;
+        transition-property: width, transform, content-visibility;
+        transition-duration: $transition-fast;
+        transition-behavior: allow-discrete;
       }
       .close-icon {
-        display: block;
+        display: none;
       }
-      summary {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-        box-shadow: $elevation-2;
+      &[open] {
+        .search-icon {
+          display: none;
+        }
+        &::details-content {
+          transform: scaleX(1);
+          width: auto;
+        }
+        .close-icon {
+          display: block;
+        }
+        summary {
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+          box-shadow: $elevation-2;
+        }
       }
     }
   }

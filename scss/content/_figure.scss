@@ -2,19 +2,21 @@
 @use "../config" as *;
 
 @if map.get($modules, "content/figure") {
-  figure {
-    margin: 0;
-    width: 100%;
-    height: auto;
-    img {
+  @layer forma.base {
+    figure {
+      margin: 0;
       width: 100%;
       height: auto;
-      border-radius: $border-radius-panel;
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: $border-radius-panel;
+      }
     }
-  }
-  figcaption {
-    font-size: 0.75rem;
-    margin-top: 0.5rem;
-    text-align: end;
+    figcaption {
+      font-size: 0.75rem;
+      margin-top: 0.5rem;
+      text-align: end;
+    }
   }
 }
