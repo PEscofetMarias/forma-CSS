@@ -10,7 +10,7 @@
       cursor: pointer;
       font-size: 1rem;
       line-height: 1rem;
-      font-family: $font-family-headings;
+      font-family: $font-family-buttons;
       font-weight: normal;
       padding: 0.5rem 0.75rem;
       gap: 0.5rem;
@@ -72,7 +72,6 @@
     .btn-outline-secondary {
       #{$button-color}: $color-secondary;
     }
-
     .btn-contrast,
     .btn-outline-contrast {
       #{$color-contrast}: contrast-color($color-background);

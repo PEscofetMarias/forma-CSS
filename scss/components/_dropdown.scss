@@ -16,7 +16,7 @@
         display: block;
         position: absolute;
         top: calc(100% + 0.15rem);
-        padding: 0;
+        padding: 0.25rem;
         margin: 0;
         list-style: none;
         border-radius: calc($border-radius-button * 0.75);
@@ -24,7 +24,7 @@
         overflow: hidden;
         min-width: 100%;
         width: fit-content;
-        font-family: $font-family-headings;
+        font-family: $font-family-buttons;
         @include m.panel-elevation-2;
       }
       &::details-content {
@@ -55,21 +55,26 @@
       &:not(:has(nav, div)) {
         li {
           a {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             display: block;
             font-weight: normal;
             color: $color-text;
-            border-bottom: 1px solid $color-gray-highlight;
-            padding: calc($gutter * 0.5);
+            padding: 0.5rem 0.6rem;
+            border-radius: calc($border-radius-button * 0.5);
             text-wrap: nowrap;
             transition: none;
             &:hover {
-              background: $color-gray-highlight;
-              color: contrast-color($color-gray-highlight);
+              background: hsl(
+                from var($button-color) h calc(s * 0.5) calc(l * 2)
+              );
+              color: contrast-color(
+                hsl(from var($button-color) h calc(s * 0.5) calc(l * 2))
+              );
             }
           }
-          &:last-of-type a {
-            border: none;
+          hr {
+            margin: 0.25rem 0;
+            border-color: $color-gray-highlight;
           }
         }
       }

@@ -42,6 +42,7 @@ $icon: #{$css-var-prefix}icon;
 
 $font-family: var(#{$css-var-prefix}font-family, Arial);
 $font-family-headings: var(#{$css-var-prefix}font-family-headings, Arial);
+$font-family-buttons: var(#{$css-var-prefix}font-family-buttons, Arial);
 $font-weight: var(#{$css-var-prefix}font-weight, normal);
 $line-height: var(#{$css-var-prefix}line-height, 120%);
 
@@ -102,27 +103,27 @@ $breakpoints: (
   sm: (
     breakpoint: 600px,
     viewport: 540px,
-    root-font-size: 110%,
+    root-font-size: calc($font-size * 1.1),
   ),
   md: (
     breakpoint: 768px,
     viewport: 720px,
-    root-font-size: 105%,
+    root-font-size: calc($font-size * 1.1),
   ),
   lg: (
     breakpoint: 1024px,
     viewport: 960px,
-    root-font-size: 100%,
+    root-font-size: $font-size,
   ),
   xl: (
     breakpoint: 1450px,
     viewport: 1200px,
-    root-font-size: 110%,
+    root-font-size: calc($font-size * 1.1),
   ),
   xxl: (
     breakpoint: 1536px,
     viewport: 1400px,
-    root-font-size: 120%,
+    root-font-size: calc($font-size * 1.2),
   ),
 );
 
@@ -131,48 +132,48 @@ $text-sizes: (
     size: 7rem,
     line-height: 90%,
     letter-spacing: -0.04em,
-    margin: 0.5em 0,
+    margin: 1em 0 0.5em,
     font-family: $font-family-headings,
-    font-weight: bold,
+    font-weight: 600,
   ),
   "h2, .heading-2": (
     size: 5rem,
     line-height: 90%,
     letter-spacing: -0.04em,
-    margin: 0.5em 0,
+    margin: 1em 0 0.5em,
     font-family: $font-family-headings,
-    font-weight: bold,
+    font-weight: 300,
   ),
   "h3, .heading-3": (
     size: 4rem,
     line-height: 90%,
     letter-spacing: -0.04em,
-    margin: 1rem 0,
+    margin: 1em 0 0.5em,
     font-family: $font-family-headings,
-    font-weight: bold,
+    font-weight: 300,
   ),
   "h4, .heading-4": (
     size: 3rem,
     line-height: 90%,
     letter-spacing: -0.04em,
-    margin: 0.5rem 0,
+    margin: 1em 0 0.5em,
     font-family: $font-family-headings,
-    font-weight: bold,
+    font-weight: 300,
   ),
   "h5, .heading-5": (
     size: 2rem,
     line-height: 100%,
-    margin: 0.5rem 0,
+    margin: 1em 0 0.5em,
     letter-spacing: -0.04em,
     font-family: $font-family-headings,
-    font-weight: bold,
+    font-weight: 300,
   ),
   "h6, .heading-6": (
     size: 1.5rem,
     line-height: 100%,
-    margin: 0.25rem 0,
+    margin: 1em 0 0.5em,
     font-family: $font-family-headings,
-    font-weight: bold,
+    font-weight: 300,
   ),
   p: (
     size: 1rem,
