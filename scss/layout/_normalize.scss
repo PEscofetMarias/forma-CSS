@@ -55,6 +55,9 @@
       overflow-wrap: break-word; // 2
       tab-size: 4; // 3
       interpolate-size: allow-keywords;
+      transition:
+        background-color $transition-slow,
+        color $transition-slow;
     }
 
     // 1. Remove the margin in all browsers (opinionated)

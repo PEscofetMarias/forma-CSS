@@ -1,0 +1,34 @@
+@use "config"
+  with(
+    $modules: (
+      //// Content modules
+      "content/buttons": true,
+      "content/figure": true,
+      "content/typography": true,
+      "content/mark": true,
+      "content/table": false,
+
+      //// Components modules
+      "components/nav": false,
+      "components/accordion": false,
+      "components/dropdown": false,
+      "components/burger-menu": false,
+      "components/toast": false,
+      "components/off-canvas": false,
+      "components/modal": true,
+      "components/card": true,
+      "components/tooltip": false,
+
+      //// Forms modules
+      "forms/basics": false,
+      "forms/hidden-search": false,
+      "forms/radio-checkbox": false,
+      "forms/switch": false,
+
+      //// Layout modules
+      "layout/normalize": true,
+      "layout/layout": true,
+      "layout/helpers": true,
+    )
+  );
+@use "index";
