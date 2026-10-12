@@ -4,6 +4,8 @@
 
 Its goal: style **semantic** HTML elements with little or no utility classes, with automatic light/dark mode support and full customization through **CSS variables**.
 
+> forma-css was born to **fill the gap left by the discontinued [Pico CSS](https://github.com/picocss/pico)**: it carries on the classless-framework philosophy, but built on modern CSS features (layers, Popover API, `light-dark()`, relative color syntax…).
+
 ## Features
 
 - **Zero JS**: all components (accordion, dropdown, modal, toast, off-canvas, burger menu…) work with native HTML (`<details>`, `<summary>`, `popover`).
@@ -304,4 +306,4 @@ forma-css assumes modern browsers (Chrome/Edge 120+, Firefox 129+, Safari 17.4+)
 
 ## License
 
-To be determined — the repository does not include a license file yet.
+[MIT](LICENSE) — forma-css is free and open-source software.
