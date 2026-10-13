@@ -1,5 +1,6 @@
 @use "sass:map";
 @use "../config" as *;
+@use "../mixins/mixins" as m;
 
 @if map.get($modules, "content/typography") {
   @layer forma.base {
@@ -7,7 +8,8 @@
     @each $selector, $props in $text-sizes {
       #{$selector} {
         @if map.get($props, size) {
-          font-size: map.get($props, size);
+          #{$css-var-prefix}font-size: map.get($props, size);
+          font-size: var(#{$css-var-prefix}font-size);
         }
         @if map.get($props, line-height) {
           line-height: map.get($props, line-height);
@@ -24,7 +26,20 @@
         @if map.get($props, font-weight) {
           font-weight: map.get($props, font-weight);
         }
+        @if map.get($props, mobile-hypens) {
+          @include m.media(sm, down) {
+            hyphens: auto;
+            -webkit-hyphens: auto;
+          }
+        }
       }
+    }
+    .lead {
+      font-size: calc(var(#{$css-var-prefix}font-size) * 1.5);
+    }
+    .small,
+    small {
+      font-size: calc(var(#{$css-var-prefix}font-size) * 0.8);
     }
   }
 }

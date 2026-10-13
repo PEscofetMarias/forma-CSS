@@ -145,30 +145,24 @@ $breakpoints: (
 
 $text-sizes: (
   "h1, .heading-1": (
-    size: 7rem,
-    line-height: 90%,
-    letter-spacing: -0.04em,
-    margin: 1em 0 0.5em,
-    font-family: $font-family-headings,
-    font-weight: 600,
-  ),
-  "h2, .heading-2": (
     size: 5rem,
     line-height: 90%,
     letter-spacing: -0.04em,
     margin: 1em 0 0.5em,
     font-family: $font-family-headings,
     font-weight: 300,
+    mobile-hypens: true,
   ),
-  "h3, .heading-3": (
+  "h2, .heading-2": (
     size: 4rem,
     line-height: 90%,
     letter-spacing: -0.04em,
     margin: 1em 0 0.5em,
     font-family: $font-family-headings,
     font-weight: 300,
+    mobile-hypens: true,
   ),
-  "h4, .heading-4": (
+  "h3, .heading-3": (
     size: 3rem,
     line-height: 90%,
     letter-spacing: -0.04em,
@@ -176,8 +170,16 @@ $text-sizes: (
     font-family: $font-family-headings,
     font-weight: 300,
   ),
-  "h5, .heading-5": (
+  "h4, .heading-4": (
     size: 2rem,
+    line-height: 90%,
+    letter-spacing: -0.04em,
+    margin: 1em 0 0.5em,
+    font-family: $font-family-headings,
+    font-weight: 300,
+  ),
+  "h5, .heading-5": (
+    size: 1.5rem,
     line-height: 100%,
     margin: 1em 0 0.5em,
     letter-spacing: -0.04em,
@@ -185,7 +187,7 @@ $text-sizes: (
     font-weight: 300,
   ),
   "h6, .heading-6": (
-    size: 1.5rem,
+    size: 1.2rem,
     line-height: 100%,
     margin: 1em 0 0.5em,
     font-family: $font-family-headings,
@@ -195,12 +197,6 @@ $text-sizes: (
     size: 1rem,
     line-height: 130%,
     margin: 0.5em 0,
-  ),
-  "p.smaller, small": (
-    size: 0.75em,
-  ),
-  "p.lead": (
-    size: 1.5em,
   ),
   "hr": (
     margin: 1rem 0,
