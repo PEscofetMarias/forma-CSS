@@ -13,6 +13,9 @@
       top: 0;
       right: 0;
       height: 100dvh;
+      border-top: none;
+      border-right: none;
+      border-bottom: none;
       transition: transform $transition-fast ease-in-out allow-discrete;
       &:popover-open {
         transform: translateX(0);
