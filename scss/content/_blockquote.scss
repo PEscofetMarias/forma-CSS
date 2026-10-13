@@ -1,0 +1,22 @@
+@use "sass:map";
+@use "../config" as *;
+@use "typography";
+
+@if map.get($modules, "content/blockquote") {
+  @layer forma.base {
+    blockquote {
+      border-left: 4px $color-gray-highlight solid;
+      @extend p;
+      margin: 0;
+      padding: 2rem;
+
+      cite {
+        font-style: normal;
+        font-size: 0.8em;
+        &::before {
+          content: "— ";
+        }
+      }
+    }
+  }
+}

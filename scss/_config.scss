@@ -9,6 +9,7 @@ $modules: map.merge(
     "content/typography": true,
     "content/mark": true,
     "content/table": true,
+    "content/blockquote": true,
 
     //// Components modules
     "components/nav": true,
@@ -35,7 +36,8 @@ $modules: map.merge(
   $modules
 );
 
-$css-var-prefix: --forma-;
+$css-var-prefix: --forma- !default;
+
 $color-contrast: #{$css-var-prefix}color-contrast;
 $button-color: #{$css-var-prefix}button-color;
 $icon: #{$css-var-prefix}icon;
@@ -125,7 +127,7 @@ $breakpoints: (
     viewport: 1400px,
     root-font-size: calc($font-size * 1.2),
   ),
-);
+) !default;
 
 $text-sizes: (
   "h1, .heading-1": (
