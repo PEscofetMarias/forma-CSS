@@ -48,8 +48,22 @@ $font-family-buttons: var(#{$css-var-prefix}font-family-buttons, Arial);
 $font-weight: var(#{$css-var-prefix}font-weight, normal);
 $line-height: var(#{$css-var-prefix}line-height, 120%);
 
-$color-primary: var(#{$css-var-prefix}color-primary, #083cc0);
-$color-secondary: var(#{$css-var-prefix}color-secondary, #05a5d1);
+//// to avoid contrast issues, a light-dark version form primary and secondary colors are possible as well
+/// if dark color is not defined, light will be used in both versions.
+$color-primary: light-dark(
+  var(#{$css-var-prefix}color-primary, #083cc0),
+  var(
+    #{$css-var-prefix}color-primary-dark,
+    (var(#{$css-var-prefix}color-primary, #083cc0))
+  )
+);
+$color-secondary: light-dark(
+  var(#{$css-var-prefix}color-secondary, #05a5d1),
+  var(
+    #{$css-var-prefix}color-secondary-dark,
+    (var(#{$css-var-prefix}color-secondary, #05a5d1))
+  )
+);
 $color-text: light-dark(
   var(#{$css-var-prefix}color-text, #222),
   var(#{$css-var-prefix}color-text-dark, white)

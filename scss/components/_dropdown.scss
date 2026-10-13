@@ -64,12 +64,8 @@
             text-wrap: nowrap;
             transition: none;
             &:hover {
-              background: hsl(
-                from var($button-color) h calc(s * 0.5) calc(l * 2)
-              );
-              color: contrast-color(
-                hsl(from var($button-color) h calc(s * 0.5) calc(l * 2))
-              );
+              background: var($button-color);
+              color: contrast-color(var($button-color));
             }
           }
           hr {
