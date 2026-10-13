@@ -62,7 +62,9 @@ The whole visual identity is controlled from the root (`:root`). Prefix: `--form
 | `--forma-font-size` | `16px` | Base size (scales across breakpoints) |
 | `--forma-line-height` | `120%` | Base line height |
 | `--forma-color-primary` | `#083cc0` | Primary color (buttons, links, checks) |
+| `--forma-color-primary-dark` | — | Primary color in dark mode (defaults to the light value) |
 | `--forma-color-secondary` | `#05a5d1` | Secondary color (`.btn-secondary`) |
+| `--forma-color-secondary-dark` | — | Secondary color in dark mode (defaults to the light value) |
 | `--forma-color-text` | `#222` | Text color (light mode) |
 | `--forma-color-text-dark` | `white` | Text color (dark mode) |
 | `--forma-color-background` | `white` | Page background (light mode) |
@@ -174,6 +176,7 @@ Base styling for `table`; add `.stripped` for alternating row colors.
 
 ### Other
 
+- `<blockquote>` — 4px left border, generous padding, and `cite` with an automatic em dash (`— `) and smaller size.
 - `<figure>` / `<figcaption>` — full width, rounded corners.
 - `<mark>` — secondary→primary gradient as text color.
 - `<hr>` — horizontal rule in the text color.
@@ -259,9 +262,17 @@ Every `<article>` (or `.card` element) gets card styling: padding (`--card-paddi
 
 Shows a tooltip (with arrow) on `:hover`/`:focus`, built from the `data-text` attribute.
 
-### Nav — `.nav-item`
+### Nav
 
-Navigation item styling (text color, `1.25rem` size).
+Every link inside a `<nav>` is styled **without any class**: text color, `1.25rem` size, and primary color on `:hover`. Links with the `.btn` class (e.g. a button inside the navigation) are excluded and keep the button styling.
+
+```html
+<nav>
+  <a href="#">Home</a>
+  <a href="#">Projects</a>
+  <a href="#" class="btn">Contact</a>
+</nav>
+```
 
 ## Forms
 
@@ -298,7 +309,7 @@ Defined in `scss/mixins/_mixins.scss`:
 
 All modules are enabled by default. Disable them via `$modules` in `_config.scss`:
 
-`content/buttons`, `content/figure`, `content/typography`, `content/mark`, `content/table`, `components/nav`, `components/accordion`, `components/dropdown`, `components/burger-menu`, `components/toast`, `components/off-canvas`, `components/modal`, `components/card`, `components/tooltip`, `forms/basics`, `forms/hidden-search`, `forms/radio-checkbox`, `forms/switch`, `layout/normalize`, `layout/layout`, `layout/helpers`.
+`content/buttons`, `content/figure`, `content/typography`, `content/mark`, `content/table`, `content/blockquote`, `components/nav`, `components/accordion`, `components/dropdown`, `components/burger-menu`, `components/toast`, `components/off-canvas`, `components/modal`, `components/card`, `components/tooltip`, `forms/basics`, `forms/hidden-search`, `forms/radio-checkbox`, `forms/switch`, `layout/normalize`, `layout/layout`, `layout/helpers`.
 
 ## Browser support
 
