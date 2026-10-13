@@ -146,15 +146,27 @@ Based on the `$text-sizes` map (editable in `_config.scss`). Default sizes:
 
 | Selector | Size | Weight |
 | --- | --- | --- |
-| `h1`, `.heading-1` | 7rem | 600 |
-| `h2`, `.heading-2` | 5rem | 300 |
-| `h3`, `.heading-3` | 4rem | 300 |
-| `h4`, `.heading-4` | 3rem | 300 |
-| `h5`, `.heading-5` | 2rem | 300 |
-| `h6`, `.heading-6` | 1.5rem | 300 |
+| `h1`, `.heading-1` | 5rem | 300 |
+| `h2`, `.heading-2` | 4rem | 300 |
+| `h3`, `.heading-3` | 3rem | 300 |
+| `h4`, `.heading-4` | 2rem | 300 |
+| `h5`, `.heading-5` | 1.5rem | 300 |
+| `h6`, `.heading-6` | 1.2rem | 300 |
 | `p` | 1rem | — |
-| `p.lead` | 1.5em | — |
-| `p.smaller`, `small` | 0.75em | — |
+| `.lead` | 1.5× | — |
+| `.small`, `small` | 0.8× | — |
+
+Details:
+
+- Each element exposes its size as a local `--forma-font-size`, so you can override it per element: `<h1 style="--forma-font-size: 3rem">…</h1>`.
+- `.lead` and `.small` are standalone classes: they work on any element, not just `p`. Since they scale the element's local size (1.5× and 0.8×), they also work on headings: an `h1.lead` is truly large (7.5rem), an `h2.lead` renders at 6rem, and so on. This way default headings stay at contained sizes, and the `.lead` class gives you the big display headline when you need one.
+
+```html
+<h1>Contained title</h1>
+<h1 class="lead">Really large title</h1>
+```
+- `h1` and `h2` enable `hyphens: auto` on small screens (`sm` and below) to prevent overflow.
+- When switching between light and dark themes, the background and text colors fade smoothly.
 
 ### Buttons
 
