@@ -18,7 +18,7 @@
     /// Example: <div class="display" style="--display: flex; --display-md: block; --display-lg: grid;"> </div>
     .display {
       --display-defined: var(--display, block);
-      display: var(--display-defined);
+      display: var(--display-defined) !important;
     }
 
     ///// to define a grid, use de .grid class and set the --grid-columns variable to the number of columns you want.
