@@ -8,6 +8,8 @@
 @if map.get($modules, "forms/basics") {
   @layer forma.components {
     label {
+      #{$css-var-prefix}font-size: 1rem;
+      font-size: var(#{$css-var-prefix}font-size);
       display: flex;
       flex-direction: column;
       margin-bottom: calc($gutter * 0.75);
@@ -20,12 +22,13 @@
     }
 
     :is(input, select) {
+      #{$css-var-prefix}font-size: 1rem;
+      font-size: var(#{$css-var-prefix}font-size);
       appearance: none;
       border-radius: $border-radius-button;
-      font-size: 0.8rem;
       line-height: 120%;
       border: 2px solid $color-gray-highlight;
-      padding: 0.6rem;
+      padding: 0.6em;
       background-color: rgb(from $color-panel r g b / 0.4);
       transition: all $transition-fast ease-in-out;
       &:not([type="checkbox"], [type="radio"]):focus {
@@ -48,7 +51,7 @@
     input {
       &[type="color"] {
         padding: 0;
-        width: 4rem;
+        width: 4em;
         height: auto;
         aspect-ratio: 1;
         overflow: hidden;
@@ -66,7 +69,7 @@
       }
       &:is([type="search"], [type="time"], [type="date"]) {
         background-image: var($icon);
-        background-size: calc(1rem * 0.85) auto;
+        background-size: calc(1em * 0.85) auto;
         background-repeat: no-repeat;
         background-position: center right calc($gutter * 0.75);
         padding-right: calc($gutter * 2);

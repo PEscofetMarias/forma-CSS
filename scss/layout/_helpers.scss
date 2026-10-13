@@ -18,6 +18,16 @@
       width: 100%;
       overflow: auto;
     }
+    .big {
+      font-size: calc(var(#{$css-var-prefix}font-size) * 1.3);
+    }
+    .small,
+    small {
+      font-size: calc(var(#{$css-var-prefix}font-size) * 0.7);
+    }
+    strong {
+      font-weight: bold;
+    }
     //////// Spacing classes ////////////
 
     .mt-0 {

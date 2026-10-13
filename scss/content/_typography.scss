@@ -34,15 +34,5 @@
         }
       }
     }
-    .lead {
-      font-size: calc(var(#{$css-var-prefix}font-size) * 1.5);
-    }
-    .small,
-    small {
-      font-size: calc(var(#{$css-var-prefix}font-size) * 0.8);
-    }
-    strong {
-      font-weight: bold;
-    }
   }
 }

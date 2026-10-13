@@ -6,28 +6,28 @@
     input {
       &[type="checkbox"]:not([role="switch"]) {
         padding: 0;
-        width: calc(1rem * 1.25);
-        height: calc(1rem * 1.25);
+        width: calc(1em * 1.25);
+        height: calc(1em * 1.25);
         border: 2px solid $color-gray-highlight;
         border-radius: calc($border-radius-button * 0.5);
         &:checked {
           background-color: $color-primary;
           border-color: $color-primary;
           background-image: $icon-check;
-          background-size: 1rem auto;
+          background-size: 1em auto;
           background-repeat: no-repeat;
           background-position: center center;
         }
       }
       &[type="radio"] {
         padding: 0;
-        width: calc(1rem * 1.25);
-        height: calc(1rem * 1.25);
+        width: calc(1em * 1.25);
+        height: calc(1em * 1.25);
         border: 2px solid $color-gray-highlight;
         border-radius: 50%;
         &:checked {
-          outline: calc(1rem * 0.35) solid $color-primary;
-          outline-offset: calc(1rem * -0.35);
+          outline: calc(1em * 0.35) solid $color-primary;
+          outline-offset: calc(1em * -0.35);
         }
       }
     }
