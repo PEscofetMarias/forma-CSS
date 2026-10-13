@@ -51,15 +51,17 @@
         left: 0;
         cursor: auto;
       }
-      //// adding a nav on div tag invalidates the list styling
+      //// adding a nav or div tag invalidates the list styling
       &:not(:has(nav, div)) {
         li {
+          margin: 0;
+          line-height: 100%;
           a {
             font-size: 0.75rem;
             display: block;
             font-weight: normal;
             color: $color-text;
-            padding: 0.5rem 0.6rem;
+            padding: 0.4rem 0.6rem;
             border-radius: calc($border-radius-button * 0.5);
             text-wrap: nowrap;
             transition: none;
