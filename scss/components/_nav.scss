@@ -6,10 +6,13 @@
 
 @if map.get($modules, "components/nav") {
   @layer forma.components {
-    .nav-item {
+    nav a:not(.btn) {
       color: $color-text;
       font-size: calc(1rem * 1.25);
       font-weight: normal;
+      &:hover {
+        color: $color-primary;
+      }
     }
   }
 }
