@@ -29,6 +29,6 @@
       "layout/normalize": true,
       "layout/layout": true,
       "layout/helpers": true,
-    )
+    ) //$css-var-prefix: --framework-name-
   );
 @use "index";
