@@ -29,8 +29,7 @@ $modules: map.merge(
     "forms/switch": true,
 
     //// Layout modules
-    "layout/normalize": true,
-    "layout/layout": true,
+    /// Normalize and Layout will load always
     "layout/helpers": true
   ),
   $modules
