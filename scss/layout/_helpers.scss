@@ -19,14 +19,14 @@
       overflow: auto;
     }
     .xl {
-      font-size: calc(var(#{$css-var-prefix}font-size-base) * 1.5);
+      font-size: calc(var(#{$css-var-prefix}font-size-base) * $scale-xl);
     }
     .lg {
-      font-size: calc(var(#{$css-var-prefix}font-size-base) * 1.3);
+      font-size: calc(var(#{$css-var-prefix}font-size-base) * $scale-lg);
     }
     .sm,
     small {
-      font-size: calc(var(#{$css-var-prefix}font-size-base) * 0.7);
+      font-size: calc(var(#{$css-var-prefix}font-size-base) * $scale-sm);
     }
     strong {
       font-weight: bold;
