@@ -8,8 +8,8 @@
 @if map.get($modules, "forms/basics") {
   @layer forma.components {
     label {
-      #{$css-var-prefix}font-size: 1rem;
-      font-size: var(#{$css-var-prefix}font-size);
+      #{$css-var-prefix}font-size-base: 1rem;
+      font-size: inherit;
       display: flex;
       flex-direction: column;
       margin-bottom: calc($gutter * 0.75);
@@ -22,8 +22,8 @@
     }
 
     :is(input, select) {
-      #{$css-var-prefix}font-size: 1rem;
-      font-size: var(#{$css-var-prefix}font-size);
+      #{$css-var-prefix}font-size-base: 1rem;
+      font-size: inherit;
       appearance: none;
       border-radius: $border-radius-button;
       line-height: 120%;

@@ -89,6 +89,7 @@ $color-gray-highlight: light-dark(
   var(#{$css-var-prefix}color-gray-highlight-dark, #505050)
 );
 
+$font-size-base: var(#{$css-var-prefix}font-size-base, 16px);
 $font-size: var(#{$css-var-prefix}font-size, 16px);
 $gutter: var(#{$css-var-prefix}gutter, 1rem);
 $transition-slow: var(#{$css-var-prefix}transition-slow, 0.5s);

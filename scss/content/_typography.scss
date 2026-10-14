@@ -8,8 +8,8 @@
     @each $selector, $props in $text-sizes {
       #{$selector} {
         @if map.get($props, size) {
-          #{$css-var-prefix}font-size: map.get($props, size);
-          font-size: var(#{$css-var-prefix}font-size);
+          #{$css-var-prefix}font-size-base: map.get($props, size);
+          font-size: var(#{$css-var-prefix}font-size-base);
         }
         @if map.get($props, line-height) {
           line-height: map.get($props, line-height);

@@ -9,14 +9,15 @@
     .dropdown {
       width: fit-content;
       position: relative;
+      font-size: inherit;
       summary {
         margin: 0;
       }
       ul {
         display: block;
         position: absolute;
-        top: calc(100% + 0.15rem);
-        padding: 0.25rem;
+        top: calc(100% + 0.15em);
+        padding: 0.25em;
         margin: 0;
         list-style: none;
         border-radius: calc($border-radius-button * 0.75);
@@ -56,12 +57,13 @@
         li {
           margin: 0;
           line-height: 100%;
+          font-size: inherit;
           a {
-            font-size: 0.75rem;
+            font-size: 0.75em;
             display: block;
             font-weight: normal;
             color: $color-text;
-            padding: 0.4rem 0.6rem;
+            padding: 0.4em 0.6em;
             border-radius: calc($border-radius-button * 0.5);
             text-wrap: nowrap;
             transition: none;
@@ -71,7 +73,7 @@
             }
           }
           hr {
-            margin: 0.25rem 0;
+            margin: 0.25em 0;
             border-color: $color-gray-highlight;
           }
         }

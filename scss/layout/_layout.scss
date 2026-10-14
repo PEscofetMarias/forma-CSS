@@ -34,7 +34,12 @@
     //// SM till MD /////
     @include m.media(md, down) {
       :root {
-        font-size: map.get($breakpoints, sm, root-font-size);
+        #{$css-var-prefix}font-size-base: map.get(
+          $breakpoints,
+          sm,
+          root-font-size
+        );
+        font-size: $font-size-base;
       }
       :is(body > header, body > main, body > footer) {
         &:not(.fluid) {
@@ -47,7 +52,12 @@
     @include m.media(md, up) {
       :root {
         margin: 0 auto;
-        font-size: map.get($breakpoints, md, root-font-size);
+        #{$css-var-prefix}font-size-base: map.get(
+          $breakpoints,
+          md,
+          root-font-size
+        );
+        font-size: $font-size-base;
       }
       :is(body > header, body > main, body > footer) {
         &:not(.fluid) {
@@ -66,7 +76,12 @@
     /// LG till XL /////
     @include m.media(lg, up) {
       :root {
-        font-size: map.get($breakpoints, lg, root-font-size);
+        #{$css-var-prefix}font-size-base: map.get(
+          $breakpoints,
+          lg,
+          root-font-size
+        );
+        font-size: $font-size-base;
       }
       :is(body > header, body > main, body > footer) {
         &:not(.fluid) {
@@ -90,7 +105,12 @@
     /// XL till XXL /////
     @include m.media(xl, up) {
       :root {
-        font-size: map.get($breakpoints, xl, root-font-size);
+        #{$css-var-prefix}font-size-base: map.get(
+          $breakpoints,
+          xl,
+          root-font-size
+        );
+        font-size: $font-size-base;
       }
       :is(body > header, body > main, body > footer) {
         &:not(.fluid) {
@@ -114,7 +134,12 @@
     /// XXL and above /////
     @include m.media(xxl, up) {
       :root {
-        font-size: map.get($breakpoints, xxl, root-font-size);
+        #{$css-var-prefix}font-size-base: map.get(
+          $breakpoints,
+          xxl,
+          root-font-size
+        );
+        font-size: $font-size-base;
       }
       :is(body > header, body > main, body > footer) {
         &:not(.fluid) {

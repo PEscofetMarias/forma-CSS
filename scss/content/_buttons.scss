@@ -8,8 +8,7 @@
     input[type="file"]::file-selector-button {
       #{$button-color}: $color-primary;
       cursor: pointer;
-      #{$css-var-prefix}font-size: 1rem;
-      font-size: var(#{$css-var-prefix}font-size);
+      font-size: inherit;
       line-height: 1em;
       font-family: $font-family-buttons;
       font-weight: normal;

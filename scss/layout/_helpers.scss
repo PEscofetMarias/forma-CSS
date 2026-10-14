@@ -18,12 +18,15 @@
       width: 100%;
       overflow: auto;
     }
-    .large {
-      font-size: calc(var(#{$css-var-prefix}font-size) * 1.3);
+    .xl {
+      font-size: calc(var(#{$css-var-prefix}font-size-base) * 1.5);
     }
-    .small,
+    .lg {
+      font-size: calc(var(#{$css-var-prefix}font-size-base) * 1.3);
+    }
+    .sm,
     small {
-      font-size: calc(var(#{$css-var-prefix}font-size) * 0.7);
+      font-size: calc(var(#{$css-var-prefix}font-size-base) * 0.7);
     }
     strong {
       font-weight: bold;
