@@ -31,6 +31,21 @@
     strong {
       font-weight: bold;
     }
+    u,
+    ins,
+    del,
+    s {
+      text-decoration: none;
+      background-image: linear-gradient(to right, $color-text, $color-text);
+      background-position: bottom left;
+      background-repeat: no-repeat;
+      background-size: 100% calc(var(#{$css-var-prefix}font-size-base) / 20);
+      transition: background-size 0.5s ease;
+    }
+    del,
+    s {
+      background-position: left;
+    }
     //////// Spacing classes ////////////
 
     .mt-0 {
