@@ -1,8 +1,8 @@
 # forma-css
 
-**forma-css** is a stylesheet microframework written in **SCSS**, built around modern CSS: `@layer`, `light-dark()`, the Popover API, `::details-content`, `@starting-style`, relative color syntax (`hsl(from ...)`, `rgb(from ...)`) and functions like `contrast-color()`.
+**forma-css** is a stylesheet microframework written in **SCSS**, built around modern CSS: `@layer`, `light-dark()`, the Popover API, `::details-content`, `@starting-style`, relative color syntax in **`oklch`** and functions like `contrast-color()`.
 
-Its goal: style **semantic** HTML elements with little or no utility classes, with automatic light/dark mode support and full customization through **CSS variables**.
+Its goal: style **semantic** HTML elements with little or no utility classes, with automatic light/dark mode support and full customization through **CSS variables**. Interaction states (hover, active) and color variants are derived with **relative color syntax in `oklch`**, so the variants stay perceptually consistent for any color you choose.
 
 > forma-css was born to **fill the gap left by the discontinued [Pico CSS](https://github.com/picocss/pico)**: it carries on the classless-framework philosophy, but built on modern CSS features (layers, Popover API, `light-dark()`, relative color syntax…).
 
@@ -53,38 +53,44 @@ To include only part of the framework, `@use` the modules you need and disable t
 
 The whole visual identity is controlled from the root (`:root`). Prefix: `--forma-`.
 
-| Variable | Default | Description |
-| --- | --- | --- |
-| `--forma-font-family` | `Arial` | General font |
-| `--forma-font-family-headings` | `Arial` | Heading font (h1–h6, tooltip…) |
-| `--forma-font-family-buttons` | `Arial` | Font for buttons and dropdowns |
-| `--forma-font-weight` | `normal` | Base font weight |
-| `--forma-font-size` | `16px` | Base size (scales across breakpoints) |
-| `--forma-line-height` | `120%` | Base line height |
-| `--forma-color-primary` | `#083cc0` | Primary color (buttons, links, checks) |
-| `--forma-color-primary-dark` | — | Primary color in dark mode (defaults to the light value) |
-| `--forma-color-secondary` | `#05a5d1` | Secondary color (`.btn-secondary`) |
-| `--forma-color-secondary-dark` | — | Secondary color in dark mode (defaults to the light value) |
-| `--forma-color-text` | `#222` | Text color (light mode) |
-| `--forma-color-text-dark` | `white` | Text color (dark mode) |
-| `--forma-color-background` | `white` | Page background (light mode) |
-| `--forma-color-background-dark` | `#2a2a2a` | Page background (dark mode) |
-| `--forma-color-backdrop` | `rgb(from white r g b / 0.4)` | Backdrop background (modals, light mode) |
-| `--forma-color-backdrop-dark` | `rgb(from black r g b / 0.2)` | Backdrop background (dark mode) |
-| `--forma-color-panel` | `white` | Panel background (modals, toasts, dropdowns) |
-| `--forma-color-panel-dark` | `black` | Panel background (dark mode) |
-| `--forma-color-border-panel` | `#e0e0e0` | Panel border |
-| `--forma-color-border-panel-dark` | `#2a2a2a` | Panel border (dark mode) |
-| `--forma-color-gray-highlight` | `#cccccc` | General-purpose gray (input borders, table rows) |
-| `--forma-gutter` | `1rem` | Spacing unit |
-| `--forma-transition-slow` | `0.5s` | Slow transition (accordion, modals) |
-| `--forma-transition-fast` | `0.2s` | Fast transition (buttons, tooltips) |
-| `--forma-border-radius-panel` | `0.5rem` | Panel and image border radius |
-| `--forma-border-radius-button` | `0.25rem` | Button and input border radius |
-| `--forma-filter-backdrop` | `none` | `backdrop-filter` for modal backdrops |
-| `--forma-filter-panel` | `none` | `backdrop-filter` for elevated panels |
-| `--forma-elevation-1/2/3` | predefined shadows | Shadows (elevation levels) |
-| `--forma-icon-search`, `--forma-icon-date`, `--forma-icon-time`, `--forma-icon-expand`, `--forma-icon-check` | — | Icon images for search/date/time inputs, selects and checks |
+
+| Variable                                                                                                     | Default                       | Description                                                 |
+| ------------------------------------------------------------------------------------------------------------ | ----------------------------- | ----------------------------------------------------------- |
+| `--forma-font-family`                                                                                        | `Arial`                       | General font                                                |
+| `--forma-font-family-headings`                                                                               | `Arial`                       | Heading font (h1–h6, tooltip…)                              |
+| `--forma-font-family-buttons`                                                                                | `Arial`                       | Font for buttons and dropdowns                              |
+| `--forma-font-weight`                                                                                        | `normal`                      | Base font weight                                            |
+| `--forma-font-size`                                                                                          | `16px`                        | Base size (scales across breakpoints)                       |
+| `--forma-line-height`                                                                                        | `120%`                        | Base line height                                            |
+| `--forma-color-primary`                                                                                      | `#083cc0`                     | Primary color (buttons, links, checks)                      |
+| `--forma-color-primary-dark`                                                                                 | —                             | Primary color in dark mode (defaults to the light value)    |
+| `--forma-color-secondary`                                                                                    | `#05a5d1`                     | Secondary color (`.btn-secondary`)                          |
+| `--forma-color-secondary-dark`                                                                               | —                             | Secondary color in dark mode (defaults to the light value)  |
+| `--forma-color-text`                                                                                         | `#222`                        | Text color (light mode)                                     |
+| `--forma-color-text-dark`                                                                                    | `white`                       | Text color (dark mode)                                      |
+| `--forma-color-background`                                                                                   | `white`                       | Page background (light mode)                                |
+| `--forma-color-background-dark`                                                                              | `#2a2a2a`                     | Page background (dark mode)                                 |
+| `--forma-color-backdrop`                                                                                     | `rgb(from white r g b / 0.4)` | Backdrop background (modals, light mode)                    |
+| `--forma-color-backdrop-dark`                                                                                | `rgb(from black r g b / 0.2)` | Backdrop background (dark mode)                             |
+| `--forma-color-panel`                                                                                        | `white`                       | Panel background (modals, toasts, dropdowns)                |
+| `--forma-color-panel-dark`                                                                                   | `black`                       | Panel background (dark mode)                                |
+| `--forma-color-border-panel`                                                                                 | `#e0e0e0`                     | Panel border                                                |
+| `--forma-color-border-panel-dark`                                                                            | `#2a2a2a`                     | Panel border (dark mode)                                    |
+| `--forma-color-gray-highlight`                                                                               | `#cccccc`                     | General-purpose gray (input borders, table rows)            |
+| `--forma-font-size-base`                                                                                     | per breakpoint                | Document base size; updates itself at each breakpoint       |
+| `--forma-scale-sm`                                                                                           | `0.7`                         | Scaling factor for the `.sm` class                          |
+| `--forma-scale-lg`                                                                                           | `1.3`                         | Scaling factor for the `.lg` class                          |
+| `--forma-scale-xl`                                                                                           | `1.5`                         | Scaling factor for the `.xl` class                          |
+| `--forma-gutter`                                                                                             | `1rem`                        | Spacing unit                                                |
+| `--forma-transition-slow`                                                                                    | `0.5s`                        | Slow transition (accordion, modals)                         |
+| `--forma-transition-fast`                                                                                    | `0.2s`                        | Fast transition (buttons, tooltips)                         |
+| `--forma-border-radius-panel`                                                                                | `0.5rem`                      | Panel and image border radius                               |
+| `--forma-border-radius-button`                                                                               | `0.25rem`                     | Button and input border radius                              |
+| `--forma-filter-backdrop`                                                                                    | `none`                        | `backdrop-filter` for modal backdrops                       |
+| `--forma-filter-panel`                                                                                       | `none`                        | `backdrop-filter` for elevated panels                       |
+| `--forma-elevation-1/2/3`                                                                                    | predefined shadows            | Shadows (elevation levels)                                  |
+| `--forma-icon-search`, `--forma-icon-date`, `--forma-icon-time`, `--forma-icon-expand`, `--forma-icon-check` | —                             | Icon images for search/date/time inputs, selects and checks |
+
 
 Example:
 
@@ -100,13 +106,15 @@ Example:
 
 Defined in `$breakpoints` (editable in `_config.scss`):
 
-| Key | Breakpoint | Max `main` viewport width |
-| --- | --- | --- |
-| `sm` | 600px | 540px |
-| `md` | 768px | 720px |
-| `lg` | 1024px | 960px |
-| `xl` | 1450px | 1200px |
-| `xxl` | 1536px | 1400px |
+
+| Key   | Breakpoint | Max `main` viewport width |
+| ----- | ---------- | ------------------------- |
+| `sm`  | 600px      | 540px                     |
+| `md`  | 768px      | 720px                     |
+| `lg`  | 1024px     | 960px                     |
+| `xl`  | 1450px     | 1200px                    |
+| `xxl` | 1536px     | 1400px                    |
+
 
 ## Layout
 
@@ -136,6 +144,8 @@ Changes an element's `display` per breakpoint:
 
 - `.flex-row` — flex row with `flex-wrap`.
 - `.flex-full` — `justify-content: space-between`.
+- `.overflow` — full width with `overflow: auto`.
+- `.sm`, `.lg`, `.xl` — universal size classes (see [Typography](#size-classes-sm-lg-xl)).
 - `.m-0`, `.p-0`, `.mt-0`, `.mb-0`, `.ml-0`, `.mr-0`, `.pt-0`, `.pb-0`, `.pl-0`, `.pr-0` — spacing resets.
 
 ## Content
@@ -144,43 +154,60 @@ Changes an element's `display` per breakpoint:
 
 Based on the `$text-sizes` map (editable in `_config.scss`). Default sizes:
 
-| Selector | Size | Weight |
-| --- | --- | --- |
-| `h1`, `.heading-1` | 5rem | 300 |
-| `h2`, `.heading-2` | 4rem | 300 |
-| `h3`, `.heading-3` | 3rem | 300 |
-| `h4`, `.heading-4` | 2rem | 300 |
-| `h5`, `.heading-5` | 1.5rem | 300 |
-| `h6`, `.heading-6` | 1.2rem | 300 |
-| `p` | 1rem | — |
-| `.lead` | 1.5× | — |
-| `.small`, `small` | 0.8× | — |
+
+| Selector           | Size   | Weight |
+| ------------------ | ------ | ------ |
+| `h1`, `.heading-1` | 5rem   | 300    |
+| `h2`, `.heading-2` | 4rem   | 300    |
+| `h3`, `.heading-3` | 3rem   | 300    |
+| `h4`, `.heading-4` | 2rem   | 300    |
+| `h5`, `.heading-5` | 1.5rem | 300    |
+| `h6`, `.heading-6` | 1.2rem | 300    |
+| `p`, `li`          | 1rem   | —      |
+
 
 Details:
 
-- Each element exposes its size as a local `--forma-font-size`, so you can override it per element: `<h1 style="--forma-font-size: 3rem">…</h1>`.
-- `.lead` and `.small` are standalone classes: they work on any element, not just `p`. Since they scale the element's local size (1.5× and 0.8×), they also work on headings: an `h1.lead` is truly large (7.5rem), an `h2.lead` renders at 6rem, and so on. This way default headings stay at contained sizes, and the `.lead` class gives you the big display headline when you need one.
+- Each element exposes its size as a local `--forma-font-size-base`, so you can override it per element: `<h1 style="--forma-font-size-base: 3rem">…</h1>`.
+- `h1` and `h2` enable `hyphens: auto` on small screens (`sm` and below) to prevent overflow.
+- When switching between light and dark themes, the background and text colors fade smoothly.
+
+#### Size classes: `.sm`, `.lg`, `.xl`
+
+Scale any element by multiplying its base size (`--forma-font-size-base`, the element's local one or the document's global) by a configurable factor:
+
+
+| Class | Factor | Description                               |
+| ----- | ------ | ----------------------------------------- |
+| `.sm` | 0.7×   | Smaller version (equivalent to `<small>`) |
+| `.lg` | 1.3×   | Larger version                            |
+| `.xl` | 1.5×   | Really large version                      |
+
 
 ```html
 <h1>Contained title</h1>
-<h1 class="lead">Really large title</h1>
+<h1 class="lg">Large title</h1>
+<button class="btn xl">Large button</button>
 ```
-- `h1` and `h2` enable `hyphens: auto` on small screens (`sm` and below) to prevent overflow.
-- When switching between light and dark themes, the background and text colors fade smoothly.
+
+The factors are adjustable from `:root` via `--forma-scale-sm`, `--forma-scale-lg` and `--forma-scale-xl`. Since button padding, gaps and icons use relative units, the size classes scale **the whole element**, not just the text.
 
 ### Buttons
 
 Every `<button>`, `.btn` and `input[type=button|submit|reset]` is styled out of the box. Variants:
 
-| Class | Description |
-| --- | --- |
-| `.btn` | Base button (primary color background) |
-| `.btn-secondary` | Secondary color background |
-| `.btn-contrast` | Color contrasted against the page background |
-| `.btn-outline`, `.btn-outline-secondary`, `.btn-outline-contrast` | Outlined versions with transparent background |
-| `.btn-sm`, `.btn-lg` | Small and large sizes |
-| `.btn-round` | Circular button |
-| `.btn-group`, `.btn-group-vertical` | Groups adjacent buttons (`<a>`, `<button>` or `<details><summary>`) |
+
+| Class                                                             | Description                                                         |
+| ----------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `.btn`                                                            | Base button (primary color background)                              |
+| `.btn-secondary`                                                  | Secondary color background                                          |
+| `.btn-contrast`                                                   | Color contrasted against the page background                        |
+| `.btn-outline`, `.btn-outline-secondary`, `.btn-outline-contrast` | Outlined versions with transparent background                       |
+| `.btn-round`                                                      | Circular button                                                     |
+| `.btn-group`, `.btn-group-vertical`                               | Groups adjacent buttons (`<a>`, `<button>` or `<details><summary>`) |
+
+
+To make a button bigger or smaller, use the universal size classes (`.sm`, `.lg`, `.xl`) — they work on buttons because all their metrics are in relative units.
 
 ### Tables
 
@@ -188,7 +215,7 @@ Base styling for `table`; add `.stripped` for alternating row colors.
 
 ### Other
 
-- `<blockquote>` — 4px left border, generous padding, and `cite` with an automatic em dash (`— `) and smaller size.
+- `<blockquote>` — 4px left border, generous padding, and `cite` with an automatic em dash (`—` ) and smaller size.
 - `<figure>` / `<figcaption>` — full width, rounded corners.
 - `<mark>` — secondary→primary gradient as text color.
 - `<hr>` — horizontal rule in the text color.
@@ -238,6 +265,27 @@ Position variants: `.dropup`, `.dropright`, `.dropleft` (combinable: `dropup dro
 
 The `<span>` draws the three bars that turn into a cross when opened.
 
+### Expanding search — `.hidden-search`
+
+A search field that takes minimal space (just the icon) and expands with animation when opened. Built on `<details>` with `::details-content` — no JavaScript.
+
+```html
+<details class="hidden-search">
+  <summary class="search-icon">🔍</summary>
+  <form>
+    <input type="search" placeholder="Search…" />
+  </form>
+  <span class="close-icon">✕</span>
+</details>
+```
+
+Notes:
+
+- The content (`<form>`) expands from the right with `scaleX` and an `allow-discrete` transition.
+- With the details open, the search icon is hidden and the `close-icon` is shown (define it with any content you like).
+- The search icon inside the input comes from the `--forma-icon-search` variable.
+- Recommended inside a `<nav>` or `<header>`, with the search icon as the `summary`.
+
 ### Modal — `.modal-window`
 
 ```html
@@ -276,7 +324,7 @@ Shows a tooltip (with arrow) on `:hover`/`:focus`, built from the `data-text` at
 
 ### Nav
 
-Every link inside a `<nav>` is styled **without any class**: text color, `1.25rem` size, and primary color on `:hover`. Links with the `.btn` class (e.g. a button inside the navigation) are excluded and keep the button styling.
+Every link inside a `<nav>` is styled **without any class**: text color, `1.25em` size (scales with the size classes), and primary color on `:hover`. Links with the `.btn` class (e.g. a button inside the navigation) are excluded and keep the button styling.
 
 ```html
 <nav>
@@ -285,6 +333,26 @@ Every link inside a `<nav>` is styled **without any class**: text color, `1.25re
   <a href="#" class="btn">Contact</a>
 </nav>
 ```
+
+### Tabs — `.tabs`
+
+Tab system built on **hidden radio inputs**: no JavaScript. Each `label` is a tab, and panels are toggled through adjacent selectors (`input:checked + label + .tab-panel`). Keyboard navigation works out of the box because the radio inputs are native.
+
+```html
+<div class="tabs">
+  <input type="radio" name="tabs" id="t1" checked />
+  <label for="t1">First</label>
+  <input type="radio" name="tabs" id="t2" />
+  <label for="t2">Second</label>
+
+  <div class="separator"></div>
+
+  <div class="tab-panel">First panel content…</div>
+  <div class="tab-panel">Second panel content…</div>
+</div>
+```
+
+Notes: the `.separator` (a `div` with a top border) divides the tabs from the panels; with the `.full-width` modifier class, the tabs split the container's full width evenly.
 
 ## Forms
 
@@ -319,9 +387,11 @@ Defined in `scss/mixins/_mixins.scss`:
 
 ## Modules
 
-All modules are enabled by default. Disable them via `$modules` in `_config.scss`:
+**Core modules** — `layout/normalize` and `layout/layout` **are always loaded**: they are the foundation of the framework (reset, the global responsive `--forma-font-size-base` variable per breakpoint, containers and grids) and cannot be disabled. All other modules depend on them.
 
-`content/buttons`, `content/figure`, `content/typography`, `content/mark`, `content/table`, `content/blockquote`, `components/nav`, `components/accordion`, `components/dropdown`, `components/burger-menu`, `components/toast`, `components/off-canvas`, `components/modal`, `components/card`, `components/tooltip`, `forms/basics`, `forms/hidden-search`, `forms/radio-checkbox`, `forms/switch`, `layout/normalize`, `layout/layout`, `layout/helpers`.
+The remaining modules are enabled by default. Disable them via `$modules` in `_config.scss`:
+
+`content/buttons`, `content/figure`, `content/typography`, `content/mark`, `content/table`, `content/blockquote`, `components/nav`, `components/accordion`, `components/tab-nav`, `components/dropdown`, `components/burger-menu`, `components/toast`, `components/off-canvas`, `components/modal`, `components/card`, `components/tooltip`, `forms/basics`, `forms/hidden-search`, `forms/radio-checkbox`, `forms/switch`, `layout/helpers`.
 
 ## Browser support
 
