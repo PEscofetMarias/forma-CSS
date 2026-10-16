@@ -59,12 +59,14 @@
       background: transparent;
       color: var($button-color);
       &:hover {
-        background: hsl(from var($button-color) h s calc(l * 0.7));
-        color: contrast-color(hsl(from var($button-color) h s calc(l * 0.7)));
+        background: oklch(from var($button-color) calc(l * 0.7) c h);
+        color: contrast-color(oklch(from var($button-color) calc(l * 0.7) c h));
       }
       &:active {
-        background: hsl(from var($button-color) h s calc(l * 0.55));
-        color: contrast-color(hsl(from var($button-color) h s calc(l * 0.55)));
+        background: oklch(from var($button-color) calc(l * 0.55) c h);
+        color: contrast-color(
+          oklch(from var($button-color) calc(l * 0.55) c h)
+        );
       }
     }
 
