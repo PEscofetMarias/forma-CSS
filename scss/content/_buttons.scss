@@ -59,14 +59,12 @@
       background: transparent;
       color: var($button-color);
       &:hover {
-        background: oklch(from var($button-color) calc(l * 0.7) c h);
-        color: contrast-color(oklch(from var($button-color) calc(l * 0.7) c h));
+        background: oklch(from var($button-color) calc(l * 0.8) c h);
+        color: contrast-color(oklch(from var($button-color) calc(l * 0.8) c h));
       }
       &:active {
-        background: oklch(from var($button-color) calc(l * 0.55) c h);
-        color: contrast-color(
-          oklch(from var($button-color) calc(l * 0.55) c h)
-        );
+        background: oklch(from var($button-color) calc(l * 0.7) c h);
+        color: contrast-color(oklch(from var($button-color) calc(l * 0.7) c h));
       }
     }
 
@@ -92,7 +90,7 @@
       font-weight: bold;
       transition: all $transition-fast ease-in-out;
       &:hover {
-        color: hsl(from var($button-color) h s calc(l * 0.7));
+        color: oklch(from var($button-color) calc(l * 0.8) c h);
       }
     }
 

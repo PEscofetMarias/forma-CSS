@@ -31,7 +31,9 @@
     .stripped {
       tbody {
         tr:nth-child(odd) {
-          background-color: hsl(from $color-gray-highlight h s calc(l * 1.08));
+          background-color: oklch(
+            from $color-gray-highlight calc(l * 0.5 + 0.4) c h
+          );
         }
       }
     }
