@@ -1,0 +1,71 @@
+@use "sass:map";
+@use "../config" as *;
+@use "../content/typography";
+
+@if map.get($modules, "components/tab-nav") {
+  @layer forma.components {
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+
+      input[type="radio"] {
+        display: none;
+      }
+      &.full-width {
+        //// the tabs will use the container's full width
+        label {
+          flex: 1;
+        }
+      }
+
+      label {
+        order: 1;
+        padding: 0.75em 1.25em;
+        border-bottom: 3px solid transparent;
+        color: oklch(from $color-text calc(l * 2) c h);
+        cursor: pointer;
+        text-align: center;
+        transition: all $transition-fast;
+        user-select: none;
+        margin: 0;
+        &:hover {
+          border-color: oklch(from $color-text calc(l * 2) c h);
+          color: $color-text;
+        }
+      }
+      .separator {
+        //// needed to separate tabs from panels
+        order: 2;
+        width: 100%;
+        border-top: 1px solid oklch(from $color-text calc(l * 2) c h);
+      }
+      .tab-panel {
+        order: 3;
+        width: 100%;
+        display: block;
+        visibility: hidden;
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+        box-sizing: border-box;
+        transition:
+          opacity $transition-slow ease,
+          visibility $transition-slow ease;
+      }
+
+      input[type="radio"]:checked + label {
+        border-color: $color-primary;
+        color: $color-text;
+        z-index: 1;
+      }
+
+      input[type="radio"]:checked + label + .tab-panel {
+        visibility: visible;
+        opacity: 1;
+        height: auto;
+        overflow: visible;
+      }
+    }
+  }
+}

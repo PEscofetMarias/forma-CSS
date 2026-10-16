@@ -28,15 +28,15 @@
         background $transition-fast ease-in-out,
         color $transition-fast ease-in-out;
       &:hover {
-        background: hsl(from var($button-color) h s calc(l * 0.7));
-        color: contrast-color(hsl(from var($button-color) h s calc(l * 0.7)));
-        border-color: hsl(from var($button-color) h s calc(l * 0.7));
+        background: oklch(from var($button-color) calc(l * 0.8) c h);
+        color: contrast-color(oklch(from var($button-color) calc(l * 0.8) c h));
+        border-color: oklch(from var($button-color) calc(l * 0.8) c h);
       }
       &:active {
         outline: 0;
-        background: hsl(from var($button-color) h s calc(l * 0.55));
-        color: contrast-color(hsl(from var($button-color) h s calc(l * 0.55)));
-        border-color: hsl(from var($button-color) h s calc(l * 0.55));
+        background: oklch(from var($button-color) calc(l * 0.7) c h);
+        color: contrast-color(oklch(from var($button-color) calc(l * 0.7) c h));
+        border-color: oklch(from var($button-color) calc(l * 0.7) c h);
       }
       &:focus {
         outline: 0;
