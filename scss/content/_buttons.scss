@@ -8,12 +8,12 @@
     input[type="file"]::file-selector-button {
       #{$button-color}: $color-primary;
       cursor: pointer;
-      font-size: inherit;
-      line-height: 1em;
+      font-size: var(#{$css-var-prefix}button-font-size, 1em);
+      line-height: var(#{$css-var-prefix}button-line-height, 1em);
       font-family: $font-family-buttons;
-      font-weight: normal;
-      padding: 0.5em 0.75em;
-      gap: 0.5em;
+      font-weight: var(#{$css-var-prefix}button-font-weight, 1em);
+      padding: var(#{$css-var-prefix}button-padding, 0.5em 0.75em);
+      gap: var(#{$css-var-prefix}button-gap, 0.5em);
       margin-bottom: calc($gutter * 0.5);
       border-radius: $border-radius-button;
       border: 1px solid var($button-color);
