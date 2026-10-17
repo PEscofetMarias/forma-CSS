@@ -35,7 +35,7 @@
         @if map.get($props, font-family) {
           font-family: var(
             #{$css-var-prefix}#{map.get($props, variable-name)}-font-family,
-            map.get($props, family)
+            map.get($props, font-family)
           );
         }
         @if map.get($props, font-weight) {
@@ -47,11 +47,11 @@
         @if map.get($props, mobile-hypens) {
           @include m.media(sm, down) {
             hyphens: var(
-              #{$css-var-prefix}#{map.get($props, variable-name)} -mobile-hypens,
+              #{$css-var-prefix}#{map.get($props, variable-name)}-mobile-hypens,
               auto
             );
             -webkit-hyphens: var(
-              #{$css-var-prefix}#{map.get($props, variable-name)} -mobile-hypens,
+              #{$css-var-prefix}#{map.get($props, variable-name)}-mobile-hypens,
               auto
             );
           }
