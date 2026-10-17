@@ -17,7 +17,7 @@
       }
       summary span {
         display: block;
-        width: 1rem;
+        width: 1em;
         height: 1px;
         background: $color-text;
         position: relative;
@@ -25,7 +25,7 @@
         &::before {
           content: "";
           display: block;
-          width: 1rem;
+          width: 1em;
           height: 1px;
           background: $color-text;
           transform: rotate(90deg);
