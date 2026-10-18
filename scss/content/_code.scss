@@ -1,0 +1,10 @@
+@use "../config" as *;
+pre {
+  background-color: black;
+  color: white;
+  font-weight: 300;
+  font-size: 0.8em;
+  padding: 2em;
+  border-radius: $border-radius-panel;
+  overflow: auto;
+}
