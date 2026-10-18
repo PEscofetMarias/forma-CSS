@@ -13,8 +13,11 @@
       summary {
         margin: 0;
       }
+      .dropdown {
+        width: 100%;
+      }
       ul {
-        display: block;
+        //display: block;
         position: absolute;
         top: calc(100% + 0.15em);
         padding: 0.25em;
@@ -22,7 +25,7 @@
         list-style: none;
         border-radius: calc($border-radius-button * 0.75);
         z-index: 999;
-        overflow: hidden;
+        //overflow: hidden;
         min-width: 100%;
         width: fit-content;
         font-family: $font-family-buttons;
@@ -52,13 +55,18 @@
         left: 0;
         cursor: auto;
       }
+      .dropdown summary::before {
+        display: none;
+      }
       //// adding a nav or div tag invalidates the list styling
       &:not(:has(nav, div)) {
         li {
           margin: 0;
           line-height: 100%;
           font-size: inherit;
-          a {
+          a,
+          .dropdown summary {
+            #{$button-color}: $color-primary;
             font-size: 0.75em;
             display: block;
             font-weight: normal;
@@ -67,10 +75,15 @@
             border-radius: calc($border-radius-button * 0.5);
             text-wrap: nowrap;
             transition: none;
+            //justify-content: space-between;
+            cursor: pointer;
             &:hover {
               background: var($button-color);
               color: contrast-color(var($button-color));
             }
+          }
+          .dropdown summary {
+            display: flex;
           }
           hr {
             margin: 0.25em 0;
@@ -83,13 +96,13 @@
     .dropup {
       ul {
         top: auto;
-        bottom: calc(100% + 0.15rem);
+        bottom: calc(100% + 0.15em);
       }
     }
     .dropright {
       ul {
         top: 0;
-        left: calc(100% + 0.15rem);
+        left: calc(100% + 0.15em);
       }
       &.dropup {
         ul {
@@ -101,12 +114,26 @@
     .dropleft {
       ul {
         top: 0;
-        right: calc(100% + 0.15rem);
+        right: calc(100% + 0.15em);
       }
       &.dropup {
         ul {
           bottom: 0;
           top: auto;
+        }
+      }
+    }
+    .dropdown {
+      .dropright {
+        ul {
+          top: 0;
+          left: calc(100% + 0.5em);
+        }
+      }
+      .dropleft {
+        ul {
+          top: 0;
+          right: calc(100% + 0.5em);
         }
       }
     }
