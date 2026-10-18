@@ -146,7 +146,6 @@ Changes an element's `display` per breakpoint:
 - `.flex-full` — `justify-content: space-between`.
 - `.overflow` — full width with `overflow: auto`.
 - `.sm`, `.lg`, `.xl` — universal size classes (see [Typography](#size-classes-sm-lg-xl)).
-- `.m-0`, `.p-0`, `.mt-0`, `.mb-0`, `.ml-0`, `.mr-0`, `.pt-0`, `.pb-0`, `.pl-0`, `.pr-0` — spacing resets.
 
 ## Content
 
@@ -163,8 +162,27 @@ Based on the `$text-sizes` map (editable in `_config.scss`). Default sizes:
 | `h4`, `.heading-4` | 2rem   | 300    |
 | `h5`, `.heading-5` | 1.5rem | 300    |
 | `h6`, `.heading-6` | 1.2rem | 300    |
-| `p`, `li`          | 1rem   | —      |
+| `p`, `li`          | 1em    | —      |
 
+
+**Per-element customization.** Every property of every element can be overridden through its own variable: `--forma-heading1-font-size`, `--forma-heading1-line-height`, `--forma-heading1-margin`, `--forma-heading1-font-family`… (same pattern for `heading2`–`heading6`, `paragraph`, `hr`, etc.). You can define them at `:root` or on any container:
+
+```css
+:root {
+  --forma-heading1-font-size: 4em;
+  --forma-paragraph-line-height: 150%;
+}
+```
+
+**Relative sizes (em).** All default values are in `em`, so sizes scale in cascade: if a container has the `.sm` class (or `.lg`/`.xl`), every text and button inside scales with it — no need to repeat the class on each element.
+
+```html
+<section class="sm">
+  <h2>This h2 is smaller</h2>
+  <p>And so is this paragraph.</p>
+  <button class="btn">And this button.</button>
+</section>
+```
 
 Details:
 
@@ -209,6 +227,8 @@ Every `<button>`, `.btn` and `input[type=button|submit|reset]` is styled out of 
 
 To make a button bigger or smaller, use the universal size classes (`.sm`, `.lg`, `.xl`) — they work on buttons because all their metrics are in relative units.
 
+**Button customization.** Every button metric has its own variable: `--forma-button-font-size` (default `1em`), `--forma-button-font-weight` (`300`), `--forma-button-line-height` (`1em`), `--forma-button-padding` (`0.5em 0.75em`), `--forma-button-gap` (`0.5em`) and `--forma-font-family-buttons` (font). Define them at `:root` or on any container to tune all the buttons of a section.
+
 ### Tables
 
 Base styling for `table`; add `.stripped` for alternating row colors.
@@ -217,6 +237,7 @@ Base styling for `table`; add `.stripped` for alternating row colors.
 
 - `<blockquote>` — 4px left border, generous padding, and `cite` with an automatic em dash (`—` ) and smaller size.
 - `<figure>` / `<figcaption>` — full width, rounded corners.
+- `<u>`, `<ins>`, `<del>`, `<s>` — gradient underline (thin line in the text color) instead of `text-decoration`; on `del`/`s` the line sits in the middle.
 - `<mark>` — secondary→primary gradient as text color.
 - `<hr>` — horizontal rule in the text color.
 
@@ -251,6 +272,28 @@ Opening animation via `::details-content`; the `<span>` inside `summary` draws t
 ```
 
 Position variants: `.dropup`, `.dropright`, `.dropleft` (combinable: `dropup dropright`). Alignment: `.dropdown-align-right`. Closes on outside click (overlay generated with `summary::before`).
+
+**Multi-level menus.** A `.dropdown` can contain other `.dropdown`s nested inside its `li`s — each level works independently and without JavaScript. Combine with `.dropright` to create lateral submenus:
+
+```html
+<details class="dropdown">
+  <summary>Options</summary>
+  <ul>
+    <li><a href="#">Action 1</a></li>
+    <li>
+      <details class="dropdown dropright">
+        <summary>More…</summary>
+        <ul>
+          <li><a href="#">Sub-action 1</a></li>
+          <li><a href="#">Sub-action 2</a></li>
+        </ul>
+      </details>
+    </li>
+    <li><hr /></li>
+    <li><a href="#">Action 2</a></li>
+  </ul>
+</details>
+```
 
 ### Burger menu — `.burger-menu`
 
