@@ -19,6 +19,9 @@
         margin: 0;
         min-width: 100%;
         font-family: $font-family-headings;
+        @include m.media(lg, down) {
+          width: 80vw;
+        }
       }
       input[type="search"] {
         position: relative;
