@@ -1,0 +1,1301 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Forma CSS — Component Showcase</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./web/fonts/sora/style.css" as="style" onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      " />
+    <link rel="stylesheet" href="./web/fonts/open-sans/style.css" as="style" onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      " />
+    <link rel="stylesheet" href="./web/css/forma-css.min.css" as="style" onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      " />
+    <style>
+        :root {
+            interpolate-size: allow-keywords;
+
+            /* Tokens list */
+
+            /* Fonts */
+            --forma-font-family: Open Sans, Arial, Helvetica, sans-serif;
+            --forma-font-family-buttons: var(--forma-font-family);
+            --forma-font-family-headings: Sora, Arial, Helvetica, sans-serif;
+            --forma-font-size: 16px;
+            --forma-line-height: 1.2em;
+
+            /* Colors */
+            --forma-color-primary: #a00861;
+            --forma-color-primary-dark: #bb217b;
+            --forma-color-secondary: #fe5353;
+            --forma-color-text: #383838;
+            --forma-color-text-dark: white;
+            --forma-color-background: #eeeeee;
+            --forma-color-background-dark: #191919;
+            --forma-color-panel: rgb(from white r g b / 0.6);
+            --forma-color-panel-dark: rgb(from black r g b / 0.5);
+            --forma-color-backdrop: rgb(from white r g b / 0.4);
+            --forma-color-backdrop-dark: rgb(from black r g b / 0.2);
+            --forma-color-gray-highlight: #e2e2e2;
+            --forma-color-gray-highlight-dark: #505050;
+            --forma-color-border-panel: white;
+            --forma-color-border-panel-dark: #2a2a2a;
+
+            /* Borders and Spacings */
+            --forma-gutter: 1em;
+            --forma-border-radius-button: 1rem;
+            --forma-border-radius-panel: 1.25rem;
+
+            /* Filters & Transitions */
+            --forma-filter-panel: blur(10px) saturate(180%);
+            --forma-filter-backdrop: blur(5px);
+            --forma-transition-fast: 0.2s;
+            --forma-transition-slow: 0.5s;
+
+            /* Elevations */
+            --forma-elevation-1: 0 0 0.25rem rgba(0, 0, 0, 0.1);
+            --forma-elevation-2: 0 0 0.65rem rgba(0, 0, 0, 0.2);
+            --forma-elevation-3: 0 0 1.25rem rgba(0, 0, 0, 0.3);
+
+            /* Transformation factors */
+            --forma-scale-sm: 0.7;
+            --forma-scale-lg: 1.2;
+            --forma-scale-xl: 1.5;
+
+            /* Icons */
+            --forma-icon-search: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='rgb(136, 145, 164)' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0'/%3E%3C/svg%3E");
+            --forma-icon-date: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='rgb(136, 145, 164)' class='bi bi-calendar3' viewBox='0 0 16 16'%3E%3Cpath d='M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857z'/%3E%3Cpath d='M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2'/%3E%3C/svg%3E");
+            --forma-icon-time: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='rgb(136, 145, 164)' class='bi bi-clock' viewBox='0 0 16 16'%3E%3Cpath d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z'/%3E%3Cpath d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0'/%3E%3C/svg%3E");
+            --forma-icon-expand: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='rgb(136, 145, 164)' class='bi bi-chevron-expand' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M3.646 9.146a.5.5 0 0 1 .708 0L8 12.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708m0-2.292a.5.5 0 0 0 .708 0L8 3.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708'/%3E%3C/svg%3E");
+            --forma-icon-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='rgb(255, 255, 255)' class='bi bi-check-lg' viewBox='0 0 16 16'%3E%3Cpath d='M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z'/%3E%3C/svg%3E");
+        }
+
+        details .content {
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+            transition:
+                opacity 0.5s ease-in-out,
+                height 0.5s ease-in-out,
+                content-visibility 0.5s allow-discrete;
+        }
+
+        details[open] .content {
+            opacity: 1;
+            height: auto;
+
+            @starting-style {
+                opacity: 0;
+                height: 0;
+            }
+        }
+
+        html:has(.theme-switch:checked) {
+            color-scheme: dark;
+        }
+
+        html:not(:has(.theme-switch:checked)) {
+            color-scheme: light;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="fluid flex-row" style="margin-top: 1rem; justify-content: end; align-items: center">
+        <span class="heading-4" style="margin: 0 auto 0 0">Forma CSS</span>
+        <div>
+            <label class="sm" for="theme-switch" style="margin-bottom: 0; margin-right: 1rem">
+                <input type="checkbox" class="theme-switch" id="theme-switch" role="switch" />
+                Dark theme
+            </label>
+        </div>
+
+        <details class="burger-menu dropdown dropdown-align-right lg">
+            <summary class="btn btn-round">
+                <i><span></span></i>
+            </summary>
+            <nav>
+                <ul>
+                    <li><a href="#">Start</a></li>
+                    <li><a href="#typography">Typography</a></li>
+                    <li><a href="#overlays">Overlays</a></li>
+                    <li><a href="#forms">Forms</a></li>
+                    <li><a href="#" class="btn sm">Menu button</a></li>
+                </ul>
+            </nav>
+        </details>
+
+        <details class="dropdown hidden-search">
+            <summary class="btn btn-round lg">
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-search" viewBox="0 0 16 16">
+                    <path
+                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                </svg>
+                <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-x-lg" viewBox="0 0 16 16">
+                    <path
+                        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                </svg>
+            </summary>
+            <form>
+                <input type="search" id="header-search" name="header-search" placeholder="Search" />
+            </form>
+        </details>
+        <hr />
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section>
+            <h1>An amazing <mark>CSS framework</mark> that needs 0% JavaScript.</h1>
+            <h4 style="margin-bottom: 4rem">Unleashing the power of native HTML components.</h4>
+        </section>
+
+        <!-- Overlays: Modal, Toast & Off-canvas -->
+        <section id="overlays">
+            <h3>Overlays</h3>
+            <p class="sm">
+                Modal windows, toasts and off-canvas panels built on the Popover API and Invoker Commands.
+                No JavaScript required.
+            </p>
+        </section>
+        <section class="flex-row">
+            <button class="btn" data-text="Open a modal window! That's a huge large tooltip."
+                popovertarget="my-popover-dialog">
+                Open modal window
+            </button>
+            <dialog class="modal-window" popover="manual" id="my-popover-dialog">
+                <div class="flex-row align-center flex-full" style="margin-bottom: 1rem">
+                    <h5 class="m-0">Modal window</h5>
+                    <button class="btn-round sm btn-contrast" popovertarget="my-popover-dialog"
+                        popovertargetaction="hide" aria-label="Close modal window">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-x-lg" viewBox="0 0 16 16">
+                            <path
+                                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                        </svg>
+                    </button>
+                </div>
+                <p>
+                    This dialog was opened with the Popover API.<br />
+                    This pattern is especially convenient because it adds light-dismiss behaviour:
+                    click anywhere outside the dialog to close it.
+                </p>
+                <button class="btn" popovertarget="my-popover-dialog" popovertargetaction="hide">Close</button>
+            </dialog>
+
+            <button class="btn" popovertarget="my-toast">Open toast notification</button>
+            <div id="my-toast" popover="manual" class="toast">
+                <div class="flex-row align-center flex-full">
+                    <h6 class="m-0">Toast notification</h6>
+                    <button class="btn-round sm btn-contrast" commandfor="my-toast" command="hide-popover"
+                        aria-label="Dismiss toast">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-x-lg" viewBox="0 0 16 16">
+                            <path
+                                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                        </svg>
+                    </button>
+                </div>
+                <p>This toast was opened with Invoker Commands and stays open until dismissed.</p>
+                <button class="btn" commandfor="my-toast" command="hide-popover">Dismiss</button>
+            </div>
+
+            <button class="btn" popovertarget="off-canvas">Open off-canvas panel</button>
+            <div id="off-canvas" popover class="off-canvas">
+                <div class="flex-row align-center flex-full" style="margin-bottom: 2rem">
+                    <button class="btn-round sm btn-contrast" commandfor="off-canvas" command="hide-popover"
+                        aria-label="Close off-canvas panel">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-x-lg" viewBox="0 0 16 16">
+                            <path
+                                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                        </svg>
+                    </button>
+                    <h6 class="m-0">Off-canvas panel</h6>
+                </div>
+                <p>This off-canvas panel was opened with Invoker Commands and stays open until dismissed.</p>
+                <button class="btn" commandfor="off-canvas" command="hide-popover">Dismiss</button>
+            </div>
+        </section>
+        <div class="accordion" style="width: 100%; margin-top: 1rem">
+            <details>
+                <summary class="heading-6">Show source code<span></span></summary>
+                <div class="content">
+                    <pre><code>&lt;!-- Modal window: Popover API with light-dismiss --&gt;
+&lt;button popovertarget="my-popover-dialog"&gt;Open modal window&lt;/button&gt;
+&lt;dialog class="modal-window" popover="manual" id="my-popover-dialog"&gt;
+  &lt;button popovertarget="my-popover-dialog" popovertargetaction="hide"&gt;Close&lt;/button&gt;
+&lt;/dialog&gt;
+
+&lt;!-- Toast notification: Invoker Commands --&gt;
+&lt;button popovertarget="my-toast"&gt;Open toast notification&lt;/button&gt;
+&lt;div id="my-toast" popover="manual" class="toast"&gt;
+  &lt;button commandfor="my-toast" command="hide-popover"&gt;Dismiss&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- Off-canvas panel --&gt;
+&lt;button popovertarget="off-canvas"&gt;Open off-canvas panel&lt;/button&gt;
+&lt;div id="off-canvas" popover class="off-canvas"&gt;…&lt;/div&gt;</code></pre>
+                </div>
+            </details>
+        </div>
+        <hr />
+
+        <!-- Typography -->
+        <section id="typography">
+            <h3>Typography</h3>
+            <p class="sm">
+                Semantic HTML elements are styled out of the box: headings, paragraphs, inline text
+                elements and lists. The <code>.lg</code> and <code>.sm</code> classes scale any element.
+            </p>
+            <h1 class="lg">h1. Forma heading (lead)</h1>
+            <h2 class="lg">h2. Forma heading (lead)</h2>
+            <h3 class="lg">h3. Forma heading (lead)</h3>
+            <h4 class="lg">h4. Forma heading (lead)</h4>
+            <h5 class="lg">h5. Forma heading (lead)</h5>
+            <h6 class="lg">h6. Forma heading (lead)</h6>
+            <h1>h1. Forma heading</h1>
+            <h2>h2. Forma heading</h2>
+            <h3>h3. Forma heading</h3>
+            <h4>h4. Forma heading</h4>
+            <h5>h5. Forma heading</h5>
+            <h6>h6. Forma heading</h6>
+            <p>You can use the mark tag to <mark>highlight</mark> text.</p>
+            <p><del>This line of text is meant to be treated as deleted text.</del></p>
+            <p><s>This line of text is meant to be treated as no longer accurate.</s></p>
+            <p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
+            <p><u>This line of text will render as underlined.</u></p>
+            <p><small>This line of text is meant to be treated as fine print.</small></p>
+            <p><strong>This line rendered as bold text.</strong></p>
+            <p><em>This line rendered as italicized text.</em></p>
+        </section>
+        <div class="accordion" style="width: 100%; margin-top: 1rem">
+            <details>
+                <summary class="heading-6">Show source code<span></span></summary>
+                <div class="content">
+                    <pre><code>&lt;!-- Headings, with the universal .lg size class --&gt;
+&lt;h1&gt;h1. Forma heading&lt;/h1&gt;
+&lt;h1 class="lg"&gt;h1. Forma heading (lead)&lt;/h1&gt;
+
+&lt;!-- Inline text elements --&gt;
+&lt;p&gt;Use the mark tag to &lt;mark&gt;highlight&lt;/mark&gt; text.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Bold text.&lt;/strong&gt; &lt;em&gt;Italic text.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;Deleted text.&lt;/del&gt; &lt;s&gt;No longer accurate.&lt;/s&gt;
+   &lt;ins&gt;An addition.&lt;/ins&gt; &lt;u&gt;Underlined.&lt;/u&gt; &lt;small&gt;Fine print.&lt;/small&gt;&lt;/p&gt;
+
+&lt;!-- Paragraph sizes --&gt;
+&lt;p class="lg"&gt;Lead paragraph…&lt;/p&gt;
+&lt;p&gt;Standard paragraph…&lt;/p&gt;
+&lt;p class="sm"&gt;Small paragraph…&lt;/p&gt;</code></pre>
+                </div>
+            </details>
+        </div>
+        <section>
+            <p class="lg">
+                Lead paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam accumsan
+                nunc at viverra suscipit. Morbi elementum non arcu a viverra. Fusce auctor ornare augue ut
+                egestas.
+            </p>
+            <p>
+                Standard paragraph. Lorem ipsum dolor sit amet,
+                <strong data-text="That's a tooltip!!">adipiscing elit</strong>. Aliquam accumsan nunc at
+                viverra suscipit. <a href="#">Morbi elementum non</a> arcu a viverra. Fusce auctor ornare
+                augue ut egestas. Pellentesque nec velit augue. Aenean ac bibendum lacus. Aenean
+                fringilla nec metus sed suscipit.
+            </p>
+            <p class="sm">
+                Small paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam accumsan
+                nunc at viverra suscipit. Morbi elementum non arcu a viverra. Fusce auctor ornare augue ut
+                egestas.
+            </p>
+            <ul>
+                <li>First item</li>
+                <li>Second item</li>
+                <li>Third item</li>
+            </ul>
+            <ol>
+                <li>Fee</li>
+                <li>Fi</li>
+                <li>Fo</li>
+                <li>Fum</li>
+            </ol>
+            <hr />
+        </section>
+
+        <!-- Accordion -->
+        <section>
+            <h3>Accordion</h3>
+            <p class="sm">
+                Accordions are plain <code>&lt;details&gt;</code> elements sharing a
+                <code>name</code>, so only one panel stays open at a time. Height and opacity animate
+                with <code>@starting-style</code>.
+            </p>
+            <div class="accordion" style="width: 66%; margin-left: 34%">
+                <details name="accordion1" open>
+                    <summary class="heading-6">First panel<span></span></summary>
+                    <div class="content">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam accumsan nunc at
+                            viverra suscipit. Morbi elementum non arcu a viverra. Fusce auctor ornare augue ut
+                            egestas.
+                        </p>
+                    </div>
+                </details>
+                <details name="accordion1">
+                    <summary class="heading-6">Second panel<span></span></summary>
+                    <div class="content">
+                        <p>
+                            Pellentesque nec velit augue. Aenean ac bibendum lacus. Aenean fringilla nec metus
+                            sed suscipit. Nam pretium ullamcorper dolor nec dignissim.
+                        </p>
+                    </div>
+                </details>
+            </div>
+        </section>
+        <div class="accordion" style="width: 100%; margin-top: 1rem">
+            <details>
+                <summary class="heading-6">Show source code<span></span></summary>
+                <div class="content">
+                    <pre><code>&lt;!-- Accordions share a name: only one panel stays open --&gt;
+&lt;div class="accordion"&gt;
+  &lt;details name="accordion1" open&gt;
+    &lt;summary class="heading-6"&gt;First panel&lt;span&gt;&lt;/span&gt;&lt;/summary&gt;
+    &lt;div class="content"&gt;
+      &lt;p&gt;Panel content…&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/details&gt;
+  &lt;details name="accordion1"&gt;
+    &lt;summary class="heading-6"&gt;Second panel&lt;span&gt;&lt;/span&gt;&lt;/summary&gt;
+    &lt;div class="content"&gt;…&lt;/div&gt;
+  &lt;/details&gt;
+&lt;/div&gt;
+
+&lt;!-- The open/close animation (in your CSS) --&gt;
+&lt;style&gt;
+details .content { opacity: 0; height: 0; overflow: hidden;
+  transition: opacity .5s, height .5s, content-visibility .5s allow-discrete; }
+details[open] .content { opacity: 1; height: auto;
+  @starting-style { opacity: 0; height: 0; } }
+&lt;/style&gt;</code></pre>
+                </div>
+            </details>
+        </div>
+        <hr />
+
+        <!-- Tab navigation -->
+        <section>
+            <h3>Tab navigation</h3>
+            <p class="sm">
+                Tabs are a group of radio inputs and labels — the sibling selectors do the rest. Fully
+                keyboard accessible, zero JavaScript.
+            </p>
+            <div class="tabs" style="margin-bottom: 5em">
+                <!-- Separator line -->
+                <div class="separator"></div>
+                <!-- Tab 1 -->
+                <input type="radio" name="tab-group" id="tab-1" checked />
+                <label for="tab-1">Design</label>
+                <div class="tab-panel">
+                    <h4>Design</h4>
+                    <p>This panel shows visual and UX aspects of the framework.</p>
+                </div>
+
+                <!-- Tab 2 -->
+                <input type="radio" name="tab-group" id="tab-2" />
+                <label for="tab-2">Development</label>
+                <div class="tab-panel">
+                    <h4>Development</h4>
+                    <p>This panel shows code logic and architecture.</p>
+                </div>
+
+                <!-- Tab 3 -->
+                <input type="radio" name="tab-group" id="tab-3" />
+                <label for="tab-3">Performance</label>
+                <div class="tab-panel">
+                    <h4>Performance</h4>
+                    <p>Optimization, Green IT and loading metrics.</p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam accumsan nunc at
+                        viverra suscipit. Morbi elementum non arcu a viverra. Fusce auctor ornare augue ut
+                        egestas. Pellentesque nec velit augue.
+                    </p>
+                </div>
+            </div>
+            <hr />
+        </section>
+        <div class="accordion" style="width: 100%; margin-top: 1rem">
+            <details>
+                <summary class="heading-6">Show source code<span></span></summary>
+                <div class="content">
+                    <pre><code>&lt;!-- Tabs: radio inputs + labels, no JavaScript --&gt;
+&lt;div class="tabs"&gt;
+  &lt;div class="separator"&gt;&lt;/div&gt;
+
+  &lt;input type="radio" name="tab-group" id="tab-1" checked&gt;
+  &lt;label for="tab-1"&gt;Design&lt;/label&gt;
+  &lt;div class="tab-panel"&gt;
+    &lt;h4&gt;Design&lt;/h4&gt;
+    &lt;p&gt;This panel shows visual and UX aspects.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;input type="radio" name="tab-group" id="tab-2"&gt;
+  &lt;label for="tab-2"&gt;Development&lt;/label&gt;
+  &lt;div class="tab-panel"&gt;…&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </details>
+        </div>
+
+        <!-- Dropdowns -->
+        <section>
+            <h3>Dropdowns</h3>
+            <p class="sm">
+                Dropdowns combine <code>&lt;details&gt;</code> with utility classes:
+                <code>.dropup</code>, <code>.dropright</code> and <code>.dropdown-align-right</code>
+                control the direction and alignment.
+            </p>
+        </section>
+        <section class="flex-row" style="align-items: center">
+            <details class="dropdown">
+                <summary class="btn lg btn-secondary">
+                    Drop down
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-chevron-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+                    </svg>
+                </summary>
+                <ul>
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                </ul>
+            </details>
+            <details class="dropdown dropup">
+                <summary class="btn btn-secondary">
+                    Drop up
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-chevron-up" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z" />
+                    </svg>
+                </summary>
+                <ul>
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                </ul>
+            </details>
+            <details class="dropdown dropdown-align-right">
+                <summary class="btn">
+                    Drop down
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-chevron-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+                    </svg>
+                </summary>
+                <ul>
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                </ul>
+            </details>
+            <details class="dropdown">
+                <summary class="btn">
+                    Multiple menu
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down"
+                        viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+                    </svg>
+                </summary>
+                <ul>
+                    <li><a href="#">Action</a></li>
+                    <li>
+                        <details class="dropdown dropright">
+                            <summary>
+                                Multiple menu
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right"
+                                    viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+                                </svg>
+                            </summary>
+                            <ul>
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><hr></li>
+                                <li><a href="#">Something else here</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                </ul>
+            </details>
+            <details class="dropdown dropup dropdown-align-right">
+                <summary class="btn btn-round" aria-label="Open menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                        <path
+                            d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
+                    </svg>
+                </summary>
+                <ul>
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                </ul>
+            </details>
+        </section>
+        <div class="accordion" style="width: 100%; margin-top: 1rem">
+            <details>
+                <summary class="heading-6">Show source code<span></span></summary>
+                <div class="content">
+                    <pre><code>&lt;!-- Dropdown: details + summary, with direction classes --&gt;
+&lt;details class="dropdown"&gt;
+  &lt;summary class="btn"&gt;Drop down&lt;/summary&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Action&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Another action&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/details&gt;
+
+&lt;!-- Variations --&gt;
+&lt;details class="dropdown dropup"&gt;…&lt;/details&gt;
+&lt;details class="dropdown dropright"&gt;…&lt;/details&gt;
+&lt;details class="dropdown dropdown-align-right"&gt;…&lt;/details&gt;
+&lt;details class="dropdown dropup dropdown-align-right"&gt;…&lt;/details&gt;</code></pre>
+                </div>
+            </details>
+        </div>
+        <hr />
+
+        <!-- Buttons -->
+        <section>
+            <h3>Buttons</h3>
+            <p class="sm">
+                Buttons work on <code>&lt;button&gt;</code>, <code>&lt;a&gt;</code> and
+                <code>&lt;input&gt;</code>. Variants: standard, secondary and contrast, each with an
+                outline flavour, plus the universal <code>.sm</code> / <code>.lg</code> size classes and
+                <code>.btn-round</code> for icon buttons.
+            </p>
+        </section>
+        <section class="flex-row" style="align-items: center">
+            <a class="btn" href="#">Button</a>
+            <a class="btn btn-outline" href="#">Button outline</a>
+            <a class="btn btn-secondary" href="#">Button secondary</a>
+            <a class="btn btn-outline-secondary" href="#">Button outline secondary</a>
+            <a class="btn btn-contrast" href="#">Button contrast</a>
+            <a class="btn btn-outline-contrast" href="#">Button outline contrast</a>
+            <a class="btn sm" href="#">Button small</a>
+            <a class="btn sm btn-outline" href="#">Button small outline</a>
+            <a class="btn sm btn-secondary" href="#">Button small secondary</a>
+            <a class="btn sm btn-outline-secondary" href="#">Button small outline secondary</a>
+        </section>
+        <section class="flex-row" style="margin-top: 0.5rem; align-items: center">
+            <a class="btn" href="#">Button</a>
+            <a class="btn" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
+                </svg>
+                Icon button</a>
+            <a class="btn" href="#">
+                Icon button
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
+                </svg>
+            </a>
+            <a class="btn sm" href="#">Button small</a>
+            <a class="btn sm" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
+                </svg>
+                Icon button small</a>
+        </section>
+        <section class="flex-row" style="margin-top: 0.5rem; align-items: center">
+            Large buttons
+            <a class="btn lg" href="#">Button large</a>
+            <a class="btn lg" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
+                </svg>
+                Icon button</a>
+        </section>
+        <section class="flex-row" style="margin-top: 0.5rem; align-items: center">
+            Round buttons
+            <a class="btn lg btn-round" href="#" aria-label="Go">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
+                </svg>
+            </a>
+            <a class="btn btn-round" href="#" aria-label="Go">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
+                </svg>
+            </a>
+            <a class="btn sm btn-round" href="#" aria-label="Go">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
+                </svg>
+            </a>
+            <a class="btn lg btn-round btn-secondary" href="#" aria-label="Go">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
+                </svg>
+            </a>
+            <a class="btn btn-round btn-secondary" href="#" aria-label="Go">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
+                </svg>
+            </a>
+            <a class="btn sm btn-round btn-secondary" href="#" aria-label="Go">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
+                </svg>
+            </a>
+        </section>
+
+        <!-- Button groups -->
+        <section>
+            <h4>Button group</h4>
+            <p class="sm">Group related buttons — including dropdowns — into a single toolbar.</p>
+        </section>
+        <section class="flex-row display"
+            style="--display: none; --display-md: flex; align-items: center; margin-top: 1rem; margin-bottom: 1rem">
+            <div class="btn-group">
+                <a href="#" class="btn">Element 1</a>
+                <a href="#" class="btn">Element longer</a>
+                <button class="btn">Element 3</button>
+                <details class="dropdown">
+                    <summary class="btn">
+                        Drop down
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+                        </svg>
+                    </summary>
+                    <ul>
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                    </ul>
+                </details>
+                <a href="#" class="btn">Element 4</a>
+                <details class="dropdown">
+                    <summary class="btn">
+                        Drop down
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+                        </svg>
+                    </summary>
+                    <ul>
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                    </ul>
+                </details>
+            </div>
+        </section>
+        <section>
+            <h5>Vertical variation</h5>
+        </section>
+        <section class="flex-row" style="margin-top: 1rem; margin-bottom: 1rem">
+            <div class="btn-group-vertical">
+                <a href="#" class="btn">Element 1</a>
+                <a href="#" class="btn">Element longer</a>
+                <a href="#" class="btn">Element 3</a>
+                <a href="#" class="btn">Element 4</a>
+                <details class="dropdown dropup dropright">
+                    <summary class="btn">
+                        Drop right
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+                        </svg>
+                    </summary>
+                    <ul>
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li>
+                            <hr />
+                        </li>
+                        <li><a href="#">Something else here</a></li>
+                    </ul>
+                </details>
+            </div>
+        </section>
+        <div class="accordion" style="width: 100%; margin-top: 1rem">
+            <details>
+                <summary class="heading-6">Show source code<span></span></summary>
+                <div class="content">
+                    <pre><code>&lt;!-- Variants: standard, outline, secondary, contrast, + .sm/.lg sizes --&gt;
+&lt;a class="btn" href="#"&gt;Button&lt;/a&gt;
+&lt;a class="btn btn-outline" href="#"&gt;Button outline&lt;/a&gt;
+&lt;a class="btn btn-secondary" href="#"&gt;Button secondary&lt;/a&gt;
+&lt;a class="btn btn-outline-secondary" href="#"&gt;Button outline secondary&lt;/a&gt;
+&lt;a class="btn btn-contrast" href="#"&gt;Button contrast&lt;/a&gt;
+&lt;a class="btn btn-outline-contrast" href="#"&gt;Button outline contrast&lt;/a&gt;
+&lt;a class="btn sm" href="#"&gt;Button small&lt;/a&gt;
+&lt;a class="btn lg" href="#"&gt;Button large&lt;/a&gt;
+
+&lt;!-- Icon buttons --&gt;
+&lt;a class="btn btn-round" href="#" aria-label="Go"&gt;
+  &lt;svg viewBox="0 0 16 16"&gt;…&lt;/svg&gt;
+&lt;/a&gt;
+
+&lt;!-- Button group --&gt;
+&lt;div class="btn-group"&gt;
+  &lt;a href="#" class="btn"&gt;Element 1&lt;/a&gt;
+  &lt;details class="dropdown"&gt;
+    &lt;summary class="btn"&gt;Drop down&lt;/summary&gt;
+    &lt;ul&gt;…&lt;/ul&gt;
+  &lt;/details&gt;
+&lt;/div&gt;
+
+&lt;!-- Vertical variation --&gt;
+&lt;div class="btn-group-vertical"&gt;…&lt;/div&gt;</code></pre>
+                </div>
+            </details>
+        </div>
+        <hr />
+
+        <!-- Cards -->
+        <section>
+            <h3>Cards</h3>
+            <p class="sm">
+                Cards are plain <code>&lt;article&gt;</code> elements inside a
+                <code>.grid</code> container. Add <code>.card-horizontal</code> for a side-by-side
+                layout.
+            </p>
+        </section>
+        <aside class="grid"
+            style="--grid-columns: 1; --grid-md-columns: 3; --grid-lg-columns: 4; --grid-xxl-columns: 5; margin-bottom: 4em">
+            <article>
+                <div>
+                    <h4>Card title</h4>
+                    <p>Short description of the card content.</p>
+                </div>
+                <footer>
+                    <a href="#" class="btn sm">Call to action</a>
+                </footer>
+            </article>
+            <article>
+                <div>
+                    <figure>
+                        <img loading="lazy" src="web/img/matteo-del-piano-DGqnrmdQimo-unsplash.avif"
+                            alt="Card image description" />
+                    </figure>
+                    <h4>Card with image</h4>
+                    <p>Short description of the card content.</p>
+                </div>
+                <footer>
+                    <a href="#" class="btn sm">Call to action</a>
+                </footer>
+            </article>
+            <article>
+                <div>
+                    <h4>Card with longer content</h4>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam accumsan nunc at
+                        viverra suscipit. Morbi elementum non arcu a viverra. Fusce auctor ornare augue ut
+                        egestas.
+                    </p>
+                </div>
+                <footer>
+                    <a href="#" class="btn sm">Call to action</a>
+                </footer>
+            </article>
+            <article>
+                <div>
+                    <h4>Card title</h4>
+                    <p>Short description of the card content.</p>
+                </div>
+                <footer>
+                    <a href="#" class="btn sm">Call to action</a>
+                </footer>
+            </article>
+            <article>
+                <div>
+                    <h4>Card with actions</h4>
+                    <p>Short description of the card content.</p>
+                </div>
+                <footer style="justify-content: end">
+                    <a href="#" class="btn sm btn-contrast">Call to action</a>
+                    <details class="dropdown dropup dropdown-align-right">
+                        <summary class="btn btn-round sm btn-contrast" aria-label="Open card menu">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                <path
+                                    d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
+                            </svg>
+                        </summary>
+                        <ul>
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                        </ul>
+                    </details>
+                </footer>
+            </article>
+        </aside>
+
+        <section>
+            <h4>Horizontal cards</h4>
+        </section>
+        <aside class="grid" style="--grid-columns: 1; --grid-lg-columns: 2; --grid-xxl-columns: 3; margin-bottom: 4em">
+            <article class="card-horizontal">
+                <figure>
+                    <img loading="lazy" src="web/img/matteo-del-piano-DGqnrmdQimo-unsplash.avif"
+                        alt="Card image description" />
+                </figure>
+                <div>
+                    <h4>Card with image</h4>
+                    <p>Short description of the card content.</p>
+                </div>
+                <footer>
+                    <a href="#" class="btn sm">Call to action</a>
+                </footer>
+            </article>
+            <article class="card-horizontal">
+                <figure>
+                    <img loading="lazy" src="web/img/matteo-del-piano-DGqnrmdQimo-unsplash.avif"
+                        alt="Card image description" />
+                </figure>
+                <div>
+                    <h4>Card with image</h4>
+                    <p>Short description of the card content.</p>
+                </div>
+                <footer>
+                    <a href="#" class="btn sm">Call to action</a>
+                </footer>
+            </article>
+            <article class="card-horizontal">
+                <figure>
+                    <img loading="lazy" src="web/img/matteo-del-piano-DGqnrmdQimo-unsplash.avif"
+                        alt="Card image description" />
+                </figure>
+                <div>
+                    <h4>Card title</h4>
+                    <p>Short description of the card content.</p>
+                </div>
+                <footer>
+                    <a href="#" class="btn sm">Call to action</a>
+                </footer>
+            </article>
+        </aside>
+        <div class="accordion" style="width: 100%; margin-top: 1rem">
+            <details>
+                <summary class="heading-6">Show source code<span></span></summary>
+                <div class="content">
+                    <pre><code>&lt;!-- Cards: semantic articles inside a .grid container --&gt;
+&lt;aside class="grid" style="--grid-columns:1; --grid-lg-columns:4"&gt;
+  &lt;article&gt;
+    &lt;div&gt;
+      &lt;h4&gt;Card title&lt;/h4&gt;
+      &lt;p&gt;Short description of the card content.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;footer&gt;
+      &lt;a href="#" class="btn sm"&gt;Call to action&lt;/a&gt;
+    &lt;/footer&gt;
+  &lt;/article&gt;
+
+  &lt;!-- Card with image --&gt;
+  &lt;article&gt;
+    &lt;div&gt;
+      &lt;figure&gt;
+        &lt;img loading="lazy" src="…" alt="Card image description"&gt;
+      &lt;/figure&gt;
+      &lt;h4&gt;Card with image&lt;/h4&gt;
+      &lt;p&gt;Short description…&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/article&gt;
+&lt;/aside&gt;
+
+&lt;!-- Horizontal card --&gt;
+&lt;article class="card-horizontal"&gt;
+  &lt;figure&gt;&lt;img loading="lazy" src="…" alt="…"&gt;&lt;/figure&gt;
+  &lt;div&gt;…&lt;/div&gt;
+&lt;/article&gt;</code></pre>
+                </div>
+            </details>
+        </div>
+
+        <!-- Figure -->
+        <section>
+            <hr />
+            <h3>Figure</h3>
+            <p class="sm">Images with an optional caption, using semantic <code>&lt;figure&gt;</code>.</p>
+            <figure>
+                <img loading="lazy" src="web/img/matteo-del-piano-DGqnrmdQimo-unsplash.avif" alt="Image description" />
+                <figcaption>Image caption describing the picture above.</figcaption>
+            </figure>
+        </section>
+        <div class="accordion" style="width: 100%; margin-top: 1rem">
+            <details>
+                <summary class="heading-6">Show source code<span></span></summary>
+                <div class="content">
+                    <pre><code>&lt;!-- Semantic figure with caption --&gt;
+&lt;figure&gt;
+  &lt;img loading="lazy" src="…" alt="Image description"&gt;
+  &lt;figcaption&gt;Image caption describing the picture above.&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+                </div>
+            </details>
+        </div>
+
+        <!-- Forms -->
+        <section id="forms">
+            <form>
+                <h3>Form elements</h3>
+                <p class="sm">
+                    All native input types are styled automatically — no classes needed. States are driven
+                    by <code>aria-invalid</code>, <code>disabled</code> and <code>:checked</code>.
+                </p>
+
+                <!-- Search -->
+                <label for="search">
+                    Search
+                    <input type="search" id="search" name="search" placeholder="Search" />
+                </label>
+
+                <!-- Text -->
+                <label for="text">
+                    Text
+                    <input type="text" id="text" name="text" placeholder="Text" />
+                    <small>Helper text with an inline hint for this field.</small>
+                </label>
+
+                <!-- Select -->
+                <label for="select">
+                    Select
+                    <select id="select" name="select" required>
+                        <option value="" selected>Select…</option>
+                        <option>Option 1</option>
+                        <option>Option 2</option>
+                        <option>Option 3</option>
+                    </select>
+                </label>
+
+                <!-- File browser -->
+                <label for="file">
+                    File browser
+                    <input type="file" id="file" name="file" />
+                </label>
+
+                <!-- Range slider control -->
+                <label for="range">
+                    Range slider
+                    <input type="range" min="0" max="100" value="50" id="range" name="range" />
+                </label>
+
+                <!-- States -->
+                <div class="grid" style="--grid-columns: 1; --grid-lg-columns: 3">
+                    <label for="valid">
+                        Valid
+                        <input type="text" id="valid" name="valid" placeholder="Valid" aria-invalid="false" />
+                    </label>
+                    <label for="invalid">
+                        Invalid
+                        <input type="text" id="invalid" name="invalid" placeholder="Invalid" aria-invalid="true" />
+                    </label>
+                    <label for="disabled">
+                        Disabled
+                        <input type="text" id="disabled" name="disabled" placeholder="Disabled" disabled />
+                    </label>
+                </div>
+
+                <div class="grid" style="--grid-columns: 1; --grid-lg-columns: 3">
+                    <!-- Date -->
+                    <label for="date">
+                        Date
+                        <input type="date" id="date" name="date" />
+                    </label>
+
+                    <!-- Time -->
+                    <label for="time">
+                        Time
+                        <input type="time" id="time" name="time" />
+                    </label>
+
+                    <!-- Color -->
+                    <label for="color">
+                        Color
+                        <input type="color" id="color" name="color" value="#0eaaaa" />
+                    </label>
+                </div>
+
+                <div class="grid" style="--grid-columns: 1; --grid-md-columns: 3">
+                    <!-- Checkboxes -->
+                    <article>
+                        <div>
+                            <h5>Checkboxes</h5>
+                            <label for="checkbox-1">
+                                <input type="checkbox" id="checkbox-1" name="checkbox-1" checked />
+                                Checkbox
+                            </label>
+                            <label for="checkbox-2">
+                                <input type="checkbox" id="checkbox-2" name="checkbox-2" />
+                                Checkbox
+                            </label>
+                        </div>
+                    </article>
+
+                    <!-- Radio buttons -->
+                    <article>
+                        <div>
+                            <h5>Radio buttons</h5>
+                            <label for="radio-1">
+                                <input type="radio" id="radio-1" name="radio" value="radio-1" checked />
+                                Radio button
+                            </label>
+                            <label for="radio-2">
+                                <input type="radio" id="radio-2" name="radio" value="radio-2" />
+                                Radio button
+                            </label>
+                        </div>
+                    </article>
+
+                    <!-- Switch -->
+                    <article>
+                        <div>
+                            <h5>Switches</h5>
+                            <label for="switch-1">
+                                <input type="checkbox" id="switch-1" name="switch-1" role="switch" checked />
+                                Switch
+                            </label>
+                            <label for="switch-2">
+                                <input type="checkbox" id="switch-2" name="switch-2" role="switch" />
+                                Switch
+                            </label>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Buttons -->
+                <div class="flex-row" style="margin-top: 1rem">
+                    <input type="reset" value="Reset" onclick="event.preventDefault()" />
+                    <input type="submit" value="Submit" onclick="event.preventDefault()" />
+                </div>
+            </form>
+        </section>
+        <div class="accordion" style="width: 100%; margin-top: 1rem">
+            <details>
+                <summary class="heading-6">Show source code<span></span></summary>
+                <div class="content">
+                    <pre><code>&lt;!-- Labels wrap their input: no classes needed --&gt;
+&lt;label for="text"&gt;
+  Text
+  &lt;input type="text" id="text" name="text" placeholder="Text"&gt;
+  &lt;small&gt;Helper text with an inline hint.&lt;/small&gt;
+&lt;/label&gt;
+
+&lt;label for="select"&gt;
+  Select
+  &lt;select id="select" name="select" required&gt;
+    &lt;option value="" selected&gt;Select…&lt;/option&gt;
+    &lt;option&gt;Option 1&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/label&gt;
+
+&lt;!-- States driven by aria-invalid and disabled --&gt;
+&lt;input type="text" aria-invalid="false" placeholder="Valid"&gt;
+&lt;input type="text" aria-invalid="true" placeholder="Invalid"&gt;
+&lt;input type="text" disabled placeholder="Disabled"&gt;
+
+&lt;!-- Switch: a checkbox with role="switch" --&gt;
+&lt;label for="switch-1"&gt;
+  &lt;input type="checkbox" id="switch-1" role="switch" checked&gt;
+  Switch
+&lt;/label&gt;</code></pre>
+                </div>
+            </details>
+        </div>
+
+        <!-- Tables -->
+        <section>
+            <h3>Tables</h3>
+            <p class="sm">
+                Plain <code>&lt;table&gt;</code> elements with optional styling: wrap them in
+                <code>.overflow</code> for horizontal scrolling or add <code>.stripped</code> for zebra
+                rows.
+            </p>
+            <div class="overflow">
+                <table style="margin-bottom: 2rem">
+                    <thead>
+                        <tr>
+                            <th scope="col">Expense item</th>
+                            <th scope="col">Cost (USD)</th>
+                            <th scope="col">GST/VAT (USD)</th>
+                            <th scope="col">Total (USD)</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <!-- Use colspan to span across multiple columns -->
+                            <td colspan="3">Total expenses</td>
+                            <td>$5,108.50</td>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr>
+                            <th>Office rent</th>
+                            <td>$2,500.00</td>
+                            <td>$250.00</td>
+                            <td>$2,750.00</td>
+                        </tr>
+                        <tr>
+                            <th>Software subscriptions</th>
+                            <td>$850.00</td>
+                            <td>$85.00</td>
+                            <td>$935.00</td>
+                        </tr>
+                        <tr>
+                            <th>Utilities (power/internet)</th>
+                            <td>$425.00</td>
+                            <td>$42.50</td>
+                            <td>$467.50</td>
+                        </tr>
+                        <tr>
+                            <th>Office supplies</th>
+                            <td>$860.00</td>
+                            <td>$95.00</td>
+                            <td>$955.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="overflow">
+                <table class="stripped" style="margin-bottom: 2rem">
+                    <thead>
+                        <tr>
+                            <th scope="col">Expense item</th>
+                            <th scope="col">Cost (USD)</th>
+                            <th scope="col">GST/VAT (USD)</th>
+                            <th scope="col">Total (USD)</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <!-- Use colspan to span across multiple columns -->
+                            <td colspan="3">Total expenses</td>
+                            <td>$5,108.50</td>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr>
+                            <th>Office rent</th>
+                            <td>$2,500.00</td>
+                            <td>$250.00</td>
+                            <td>$2,750.00</td>
+                        </tr>
+                        <tr>
+                            <th>Software subscriptions</th>
+                            <td>$850.00</td>
+                            <td>$85.00</td>
+                            <td>$935.00</td>
+                        </tr>
+                        <tr>
+                            <th>Utilities (power/internet)</th>
+                            <td>$425.00</td>
+                            <td>$42.50</td>
+                            <td>$467.50</td>
+                        </tr>
+                        <tr>
+                            <th>Office supplies</th>
+                            <td>$860.00</td>
+                            <td>$95.00</td>
+                            <td>$955.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <div class="accordion" style="width: 100%; margin-top: 1rem">
+            <details>
+                <summary class="heading-6">Show source code<span></span></summary>
+                <div class="content">
+                    <pre><code>&lt;!-- Wrap tables in .overflow for horizontal scrolling --&gt;
+&lt;div class="overflow"&gt;
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;&lt;th scope="col"&gt;Expense item&lt;/th&gt;&lt;th scope="col"&gt;Total (USD)&lt;/th&gt;&lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;&lt;th&gt;Office rent&lt;/th&gt;&lt;td&gt;$2,750.00&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+    &lt;tfoot&gt;
+      &lt;tr&gt;&lt;td colspan="2"&gt;Total expenses&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tfoot&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;!-- Zebra rows --&gt;
+&lt;table class="stripped"&gt;…&lt;/table&gt;</code></pre>
+                </div>
+            </details>
+        </div>
+
+        <!-- Blockquote -->
+        <section style="margin-bottom: 2rem">
+            <h3>Blockquote</h3>
+            <blockquote>
+                “Design is a funny word. Some people think design means how it looks. But of course, if
+                you dig deeper, it's really how it works.”
+                <footer><cite>Steve Jobs</cite></footer>
+            </blockquote>
+        </section>
+        <div class="accordion" style="width: 100%; margin-top: 1rem">
+            <details>
+                <summary class="heading-6">Show source code<span></span></summary>
+                <div class="content">
+                    <pre><code>&lt;!-- Semantic blockquote with attribution --&gt;
+&lt;blockquote&gt;
+  “Design is a funny word. Some people think design means how it looks.
+  But of course, if you dig deeper, it's really how it works.”
+  &lt;footer&gt;
+    &lt;cite&gt;Steve Jobs&lt;/cite&gt;
+  &lt;/footer&gt;
+&lt;/blockquote&gt;</code></pre>
+                </div>
+            </details>
+        </div>
+    </main>
+</body>
+
+</html>
