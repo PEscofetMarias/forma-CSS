@@ -4,7 +4,13 @@
 
 Its goal: style **semantic** HTML elements with little or no utility classes, with automatic light/dark mode support and full customization through **CSS variables**. Interaction states (hover, active) and color variants are derived with **relative color syntax in `oklch`**, so the variants stay perceptually consistent for any color you choose.
 
-> forma-css was born to **fill the gap left by the discontinued [Pico CSS](https://github.com/picocss/pico)**: it carries on the classless-framework philosophy, but built on modern CSS features (layers, Popover API, `light-dark()`, relative color syntax…).
+## Why forma-css?
+
+forma-css was born out of a real need, not a trend. After years of building with **Bootstrap** (v3 to v5), its author — like the framework's creator — became increasingly concerned with **energy efficiency in web development** and started working to drive the carbon footprint of websites as low as possible.
+
+That search led to **[Pico CSS](https://github.com/picocss/pico)**: classless, semantic HTML meant less CSS *and* less markup to ship. But Pico (~80 kB) was still more than the job required — and its development was discontinued.
+
+So forma-css was created to **fill the gap left by Pico CSS**: it carries on the classless-framework philosophy, but pushes efficiency further with modern CSS features (layers, the Popover API, `light-dark()`, relative color syntax…). The result: websites built with forma-css consistently achieve **A+ ratings on [Ecograder](https://ecograder.com)**.
 
 ## Features
 
