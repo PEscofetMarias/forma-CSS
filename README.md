@@ -178,7 +178,8 @@ the `$text-sizes` map (editable in `_config.scss`). Default sizes:
 | `p`, `li` | 1em | — |
 
 
-**Per-element customization.** Every property of every element can be overridden through its own variable: `--forma-heading1-font-size`, `--forma-heading1-line-height`, `--forma-heading1-margin`, `--forma-heading1-font-family`… (same pattern for `heading2`–`heading6`, `paragraph`, `hr`, etc.). You can define them at `:root` or on any container:
+**Per-element customization.** Every property of every element can be overridden through its own variable: `--forma-heading1-font-size`, `--forma-heading1-line-height`, `--forma-heading1-margin`, `--forma-heading1-font-family`… (same pattern for `heading2`–`heading6`,
+ `paragraph`, `hr`, etc.). You can define them at `:root` or on any container:
 
 ```css
 :root {
@@ -282,6 +283,7 @@ Opening animation via `::details-content`; the `<span>` inside `summary` draws t
     <li><hr /></li>
     <li><a href="#">Action 2</a></li>
   </ul>
+
 </details>
 ```
 
@@ -349,7 +351,8 @@ Notes:
 
 ```html
 <button popovertarget="m">Open</button>
-<div id="m" popover class="modal-window">
+<div id="m" popover class="mod
+al-window">
   <h2>Title</h2>
   <button popovertarget="m" popovertargetaction="hide">Close</button>
 </div>
@@ -412,7 +415,8 @@ Tab system built on **hidden radio inputs**: no JavaScript. Each `label` is a ta
 </div>
 ```
 
-Notes: the `.separator` (a `div` with a top border) divides the tabs from the panels; with the `.full-width` modifier class, the tabs split the container's full width evenly.
+Notes: the `
+.separator` (a `div` with a top border) divides the tabs from the panels; with the `.full-width` modifier class, the tabs split the container's full width evenly.
 
 ## Forms
 
@@ -453,7 +457,8 @@ Defined in `scss/mixins/_mixins.scss`:
 
 The remaining modules are enabled by default. Disable them via `$modules` in `_config.scss`:
 
-`content/buttons`, `content/figure`, `content/typography`, `content/mark`, `content/table`, `content/blockquote`, `components/nav`, `components/accordion`, `components/tab-nav`, `components/dropdown`, `components/burger-menu`, `components/toast`, `components/off-canvas`, `components/modal`, `components/card`, `components/tooltip`, `forms/basics`, `forms/hidden-search`, `forms/radio-checkbox`, `forms/switch`, `layout/helpers`.
+`content/buttons`, `content/figure`, `content/typography`, `content/mark`, `content/table`, `content
+/blockquote`, `components/nav`, `components/accordion`, `components/tab-nav`, `components/dropdown`, `components/burger-menu`, `components/toast`, `components/off-canvas`, `components/modal`, `components/card`, `components/tooltip`, `forms/basics`, `forms/hidden-search`, `forms/radio-checkbox`, `forms/switch`, `layout/helpers`.
 
 ## Browser support
 
