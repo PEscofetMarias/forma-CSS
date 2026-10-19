@@ -20,6 +20,7 @@ So forma-css was created to **fill the gap left by Pico CSS**: it carries on the
 - **Optional modules**: enable or disable each module from `scss/_config.scss` (`$modules`).
 - **Ordered layers**: `forma.reset`, `forma.base`,
 
+
  `forma.components`, `forma.utilities`, so your own CSS always wins.
 - **Responsive layout** with configurable breakpoints and variable-driven grids (`.grid`, `.display`).
 
@@ -31,13 +32,13 @@ Install from [npm](https://www.npmjs.com/package/forma-css):
 npm install forma-css
 ```
 
-Or use it directly from a CDN (no build step required):
+Or link the minified CSS directly from a CDN — no installation required:
 
 ```html
-<link href="https://cdn.jsdelivr.net/npm/forma-css@1/css/forma-css.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/forma-css@1/css/forma-css.min.css" />
 ```
 
-Compile the entry point:
+Or compile your own build from the SCSS source:
 
 ```bash
 sass scss/forma-css.scss dist/forma-css.css
@@ -72,7 +73,8 @@ The whole visual identity is controlled from the root (`:root`). Prefix: `--form
 | ------------------------------------------------------------------------------------------------------------ | ----------------------------- | ----------------------------------------------------------- |
 | `--forma-font-family`                                                                                        | `Arial`                       | General font                                                |
 | `--forma-font-family-headings`                                                                               | `Arial`                       | Heading font (h1–h6, tooltip…)                              |
-| `--forma-font-family-buttons`                                                                                | `Arial`                       | Font for buttons and dropdowns                              |
+| `--forma-font-family-buttons`                                                    
+                            | `Arial`                       | Font for buttons and dropdowns                              |
 | `--forma-font-weight`                     
                                       
                              | `normal`                      | Base font weight                                            |
@@ -84,7 +86,8 @@ The whole visual identity is controlled from the root (`:root`). Prefix: `--form
 | `--forma-color-secondary-dark`                                                                               | —                             | Secondary color in dark mode (defaults to the light value)  |
 | `--forma-color-text`                                                                                         | `#222`                        | Text color (light mode)                                     |
 | `--forma-color-text-dark`                                                                                    | `white`                       | Text color (dark mode)                                      |
-| `--forma-color-background`                                                                                   | `white`                       | Page background (light mode)        
+| `--forma-
+color-background`                                                                                   | `white`                       | Page background (light mode)        
                         |
 | `--forma-
 color-background-dark`                                                                              | `#2a2a2a`                     | Page background (dark mode)                                 |
@@ -95,7 +98,8 @@ color-background-dark`                                                          
 | `--forma-color-border-panel`                                                                                 | `#e0e0e0`                     | Panel border                                                |
 | `--forma-color-border-panel-dark`                                                                            | `#2a2a2a`                     | Panel border (dark mode)                                    |
 | `--forma-color-gray-highlight`                                                                               | `#cccccc`                     | General-purpose gray (input borders, table rows)            |
-| `--forma-font-size-base`                                                                                     | per breakpoint                | Document base size; updates itself at each breakpoint       |
+| `--forma-font-size-base`                                                                                     | per breakpoint                | D
+ocument base size; updates itself at each breakpoint       |
 | `--forma-scale-sm`                                                                                           
 | `0.7`                         | Sc
 aling factor for the `.sm` class                          |
@@ -107,7 +111,8 @@ aling factor for the `.sm` class                          |
 | `--forma-border-radius-panel`                                                                                | `0.5rem`                      | Panel and image border radius                               |
 | `--forma-border-radius-button`                                                                               | `0.25rem`                     | Button and input border radius                              |
 | `--forma-filter-backdrop`                                                                                    | `none`                        | `backdrop-filter` for modal backdrops                       |
-| `--forma-filter-panel`                                                                                       | `none`                        | `backdrop-filter` for elevated panels                       |
+| `--forma-filter-panel`                                                  
+                                     | `none`                        | `backdrop-filter` for elevated panels                       |
 | `--forma-elevation-1/2/3`              
                                    
                                    | predefined shadows            | Shadows (elevation levels)                                  |
@@ -173,15 +178,14 @@ Changes an element's `display` per breakpoint:
 
 ### Typography
 
-Based on the `$text-sizes` map (editable in `_config.scss`). Default sizes:
+Based on the `
+$text-sizes` map (editable in `_config.scss`). Default sizes:
 
 
 | Selector           | Size   | Weight |
 | ------------------ | ------ | ------ |
-| `h1`, `.heading-1` | 5rem   
-| 300    |
-| `h2`, `.heading-2` | 
-4rem   | 300    |
+| `h1`, `.heading-1` | 5rem   | 300    |
+| `h2`, `.heading-2` | 4rem   | 300    |
 | `h3`, `.heading-3` | 3rem   | 300    |
 | `h4`, `.heading-4` | 2rem   | 300    |
 | `h5`, `.heading-5` | 1.5rem | 300    |
@@ -253,7 +257,8 @@ Every `<button>`, `.btn` and `input[type=button|submit|reset]` is styled out of 
 
 To make a button bigger or smaller, use the universal size classes (`.sm`, `.lg`, `.xl`) — they work on buttons because all their metrics are in relative units.
 
-**Button customization.** Every button metric has its own variable: `--forma-button-font-size` (default `1em`), `--forma-button-font-weight` (`300`), `--forma-button-line-height` (`1em`), `--forma-button-padding` (`0.5em 0.75em`), `--forma-button-gap` (`0.5em`) and `--forma-font-family-buttons` (font).
+**Button customization.** Every button metric has its own variable: `--forma-button-font-size` (default `1em`), `--forma-bu
+tton-font-weight` (`300`), `--forma-button-line-height` (`1em`), `--forma-button-padding` (`0.5em 0.75em`), `--forma-button-gap` (`0.5em`) and `--forma-font-family-buttons` (font).
  Define them at `:root` or on an
 y container to tune all the buttons of a section.
 
@@ -313,7 +318,8 @@ Position variants: `.dropup`, `.dropright`, `.dropleft` (combinable: `dropup dro
         <summary>More…</summary>
         <ul>
           <li><a href="#">Sub-action 1</a></li>
-          <li><a href="#">Sub-action 2</a></li>
+          <li>
+<a href="#">Sub-action 2</a></li>
         </ul>
       </details>
     </li>
@@ -385,7 +391,8 @@ A full-height `popover` anchored to the right edge of the screen (extends `.toas
 
 ### Card — `.card` / `<article>`
 
-Every `<article>` (or `.card` element) gets card styling: padding (`--card-padding`), radius, shadow and edge-to-edge `figure`. Use `.card-horizontal` for a horizontal card (image on the left with `object-fit: cover`).
+Every `<article>` (or `.card` element) gets card styling: padding (`--card-padding`), radius
+, shadow and edge-to-edge `figure`. Use `.card-horizontal` for a horizontal card (image on the left with `object-fit: cover`).
 
 ### Tooltip — `[data-text]`
 
@@ -432,7 +439,8 @@ Notes: the `.separator` (a `div` with a top border) divides the tabs from the pa
 ## Forms
 
 - **Base (`forms/basics`)**: `label`, `input` and `select` styled out of the box (2px border, focus with `panel-elevation-2` shadow, `disabled` state). `input[type=search|date|time]` show an icon (`--forma-icon-*`); `select` uses `--forma-icon-expand`; `input[type=color]` and `input[type=file]` have specific handling.
-- **`.hidden-search`**: expanding search based on `<details>` — the form expands via `::details-content` when opened. Includes a `summary` with a search icon and a `span.close-icon` for the close icon.
+- **`.hidden-search`**: expanding search based on `<details>` — the form expands via `::details-content` when opened. Includes a `summary` with a search icon and a `span.close-icon` for the 
+close icon.
 - **Checkbox / radio**: `:checked` states drawn with pure CSS (`--forma-icon-check` icon for checkboxes, ring for radios).
 - **Switch**: `<input type="checkbox" role="switch"
 >` becomes an animated toggle
