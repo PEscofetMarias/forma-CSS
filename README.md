@@ -19,6 +19,7 @@ So forma-css was created to **fill the gap left by Pico CSS**: it carries on the
 - **CSS variable customization** with the `--forma-` prefix and sensible defaults.
 - **Optional modules**: enable or disable each module from `scss/_config.scss` (`$modules`).
 - **Ordered layers**: `forma.reset`, `forma.base`,
+
  `forma.components`, `forma.utilities`, so your own CSS always wins.
 - **Responsive layout** with configurable breakpoints and variable-driven grids (`.grid`, `.display`).
 
@@ -30,7 +31,13 @@ Install from [npm](https://www.npmjs.com/package/forma-css):
 npm install forma-css
 ```
 
-Compile the entry point:
+Or link the minified CSS directly from a CDN — no installation required:
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/forma-css@1/css/forma-css.min.css" />
+```
+
+Or compile your own build from the SCSS source:
 
 ```bash
 sass scss/forma-css.scss dist/forma-css.css
@@ -67,7 +74,8 @@ The whole visual identity is controlled from the root (`:root`). Prefix: `--form
 | `--forma-font-family-headings`                                                                               | `Arial`                       | Heading font (h1–h6, tooltip…)                              |
 | `--forma-font-family-buttons`                                                                                | `Arial`                       | Font for buttons and dropdowns                              |
 | `--forma-font-weight`                     
-                                                                   | `normal`                      | Base font weight                                            |
+                                      
+                             | `normal`                      | Base font weight                                            |
 | `--forma-font-size`                                                                                          | `16px`                        | Base size (scales across breakpoints)                       |
 | `--forma-line-height`                                                                                        | `120%`                        | Base line height                                            |
 | `--forma-color-primary`                                                                                      | `#083cc0`                     | Primary color (buttons, links, checks)                      |
@@ -78,7 +86,8 @@ The whole visual identity is controlled from the root (`:root`). Prefix: `--form
 | `--forma-color-text-dark`                                                                                    | `white`                       | Text color (dark mode)                                      |
 | `--forma-color-background`                                                                                   | `white`                       | Page background (light mode)        
                         |
-| `--forma-color-background-dark`                                                                              | `#2a2a2a`                     | Page background (dark mode)                                 |
+| `--forma-
+color-background-dark`                                                                              | `#2a2a2a`                     | Page background (dark mode)                                 |
 | `--forma-color-backdrop`                                                                                     | `rgb(from white r g b / 0.4)` | Backdrop background (modals, light mode)                    |
 | `--forma-color-backdrop-dark`                                                                                | `rgb(from black r g b / 0.2)` | Backdrop background (dark mode)                             |
 | `--forma-color-panel`                                                                                        | `white`                       | Panel background (modals, toasts, dropdowns)                |
@@ -88,7 +97,8 @@ The whole visual identity is controlled from the root (`:root`). Prefix: `--form
 | `--forma-color-gray-highlight`                                                                               | `#cccccc`                     | General-purpose gray (input borders, table rows)            |
 | `--forma-font-size-base`                                                                                     | per breakpoint                | Document base size; updates itself at each breakpoint       |
 | `--forma-scale-sm`                                                                                           
-| `0.7`                         | Scaling factor for the `.sm` class                          |
+| `0.7`                         | Sc
+aling factor for the `.sm` class                          |
 | `--forma-scale-lg`                                                                                           | `1.3`                         | Scaling factor for the `.lg` class                          |
 | `--forma-scale-xl`                                                                                           | `1.5`                         | Scaling factor for the `.xl` class                          |
 | `--forma-gutter`                                                                                             | `1rem`                        | Spacing unit                                                |
@@ -99,7 +109,8 @@ The whole visual identity is controlled from the root (`:root`). Prefix: `--form
 | `--forma-filter-backdrop`                                                                                    | `none`                        | `backdrop-filter` for modal backdrops                       |
 | `--forma-filter-panel`                                                                                       | `none`                        | `backdrop-filter` for elevated panels                       |
 | `--forma-elevation-1/2/3`              
-                                                                      | predefined shadows            | Shadows (elevation levels)                                  |
+                                   
+                                   | predefined shadows            | Shadows (elevation levels)                                  |
 | `--forma-icon-search`, `--forma-icon-date`, `--forma-icon-time`, `--forma-icon-expand`, `--forma-icon-check` | —                             | Icon images for search/date/time inputs, selects and checks |
 
 
@@ -169,7 +180,8 @@ Based on the `$text-sizes` map (editable in `_config.scss`). Default sizes:
 | ------------------ | ------ | ------ |
 | `h1`, `.heading-1` | 5rem   
 | 300    |
-| `h2`, `.heading-2` | 4rem   | 300    |
+| `h2`, `.heading-2` | 
+4rem   | 300    |
 | `h3`, `.heading-3` | 3rem   | 300    |
 | `h4`, `.heading-4` | 2rem   | 300    |
 | `h5`, `.heading-5` | 1.5rem | 300    |
@@ -218,7 +230,8 @@ Scale any element by multiplying its base size (`--forma-font-size-base`, the el
 <h1>Contained title</h1>
 <h1 class="lg
 ">Large title</h1>
-<button class="btn xl">Large button</button>
+<button class=
+"btn xl">Large button</button>
 ```
 
 The factors are adjustable from `:root` via `--forma-scale-sm`, `--forma-scale-lg` and `--forma-scale-xl`. Since button padding, gaps and icons use relative units, the size classes scale **the whole element**, not just the text.
@@ -241,7 +254,8 @@ Every `<button>`, `.btn` and `input[type=button|submit|reset]` is styled out of 
 To make a button bigger or smaller, use the universal size classes (`.sm`, `.lg`, `.xl`) — they work on buttons because all their metrics are in relative units.
 
 **Button customization.** Every button metric has its own variable: `--forma-button-font-size` (default `1em`), `--forma-button-font-weight` (`300`), `--forma-button-line-height` (`1em`), `--forma-button-padding` (`0.5em 0.75em`), `--forma-button-gap` (`0.5em`) and `--forma-font-family-buttons` (font).
- Define them at `:root` or on any container to tune all the buttons of a section.
+ Define them at `:root` or on an
+y container to tune all the buttons of a section.
 
 ### Tables
 
@@ -313,7 +327,8 @@ Position variants: `.dropup`, `.dropright`, `.dropleft` (combinable: `dropup dro
 r-menu`
 
 ```html
-<details class="burger-menu">
+<details class
+="burger-menu">
   <summary><i><span></span></i></summary>
   <ul>
     <li><a href="#">Home</a></li>
@@ -377,7 +392,8 @@ Every `<article>` (or `.card` element) gets card styling: padding (`--card-paddi
 ```html
 <button data-text="
 Contextual help">?</button>
-```
+``
+`
 
 Shows a tooltip (with arrow) on `:hover`/`:focus`, built from the `data-text` attribute.
 
@@ -419,7 +435,8 @@ Notes: the `.separator` (a `div` with a top border) divides the tabs from the pa
 - **`.hidden-search`**: expanding search based on `<details>` — the form expands via `::details-content` when opened. Includes a `summary` with a search icon and a `span.close-icon` for the close icon.
 - **Checkbox / radio**: `:checked` states drawn with pure CSS (`--forma-icon-check` icon for checkboxes, ring for radios).
 - **Switch**: `<input type="checkbox" role="switch"
->` becomes an animated toggle.
+>` becomes an animated toggle
+.
 
 ```html
 <label>
