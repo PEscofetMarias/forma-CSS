@@ -80,8 +80,8 @@ The whole visual identity is controlled from the root (`:root`). Prefix: `--form
 | `--forma-color-secondary-dark` | — | Secondary color in dark mode (defaults to the light value) |
 | `--forma-color-text` | `#222` | Text color (light mode) |
 | `--forma-color-text-dark` | `white` | Text color (dark mode) |
-| `--form a- color-background` | `white` | Page background (light mode) |
-| `--forma- color-background-dark` | `#2a2a2a` | Page background (dark mode) |
+| `--forma-color-background` | `white` | Page background (light mode) |
+| `--forma-color-background-dark` | `#2a2a2a` | Page background (dark mode) |
 | `--forma-color-backdrop` | `rgb(from white r g b / 0.4)` | Backdrop background (modals, light mode) |
 | `--forma-color-backdrop-dark` | `rgb(from black r g b / 0.2)` | Backdrop background (dark mode) |
 | `--forma-color-panel` | `white` | Panel background (modals, toasts, dropdowns) |
@@ -89,8 +89,8 @@ The whole visual identity is controlled from the root (`:root`). Prefix: `--form
 | `--forma-color-border-panel` | `#e0e0e0` | Panel border |
 | `--forma-color-border-panel-dark` | `#2a2a2a` | Panel border (dark mode) |
 | `--forma-color-gray-highlight` | `#cccccc` | General-purpose gray (input borders, table rows) |
-| `--forma-font-size-base` | per breakpoint | D ocument base size; updates itself at each breakpoint |
-| `--forma-scale-sm` | `0.7` | Sc aling factor for the `.sm` class |
+| `--forma-font-size-base` | per breakpoint | Document base size; updates itself at each breakpoint |
+| `--forma-scale-sm` | `0.7` | Scaling factor for the `.sm` class |
 | `--forma-scale-lg` | `1.3` | Scaling factor for the `.lg` class |
 | `--forma-scale-xl` | `1.5` | Scaling factor for the `.xl` class |
 | `--forma-gutter` | `1rem` | Spacing unit |
@@ -163,8 +163,7 @@ Changes an element's `display` per breakpoint:
 
 ### Typography
 
-Based on 
-the `$text-sizes` map (editable in `_config.scss`). Default sizes:
+Based on the `$text-sizes` map (editable in `_config.scss`). Default sizes:
 
 
 | Selector | Size | Weight |
@@ -179,6 +178,7 @@ the `$text-sizes` map (editable in `_config.scss`). Default sizes:
 
 
 **Per-element customization.** Every property of every element can be overridden through its own variable: `--forma-heading1-font-size`, `--forma-heading1-line-height`, `--forma-heading1-margin`, `--forma-heading1-font-family`… (same pattern for `heading2`–`heading6`,
+
  `paragraph`, `hr`, etc.). You can define them at `:root` or on any container:
 
 ```css
@@ -211,7 +211,7 @@ Scale any element by multiplying its base size (`--forma-font-size-base`, the el
 
 | Class | Factor | Description |
 | ----- | ------ | ----------------------------------------- |
-| `.sm` | 0.7× | Smaller version (equivalent to `<sma ll>`) |
+| `.sm` | 0.7× | Smaller version (equivalent to `<small>`) |
 | `.lg` | 1.3× | Larger version |
 | `.xl` | 1.5× | Really large version |
 
@@ -282,7 +282,8 @@ Opening animation via `::details-content`; the `<span>` inside `summary` draws t
     <li><a href="#">Action 1</a></li>
     <li><hr /></li>
     <li><a href="#">Action 2</a></li>
-  </ul>
+  </ul
+>
 
 </details>
 ```
@@ -302,8 +303,7 @@ Position variants: `.dropup`, `.dropright`, `.dropleft` (combinable: `dropup dro
         <ul>
           <li><a href="#">Sub-action 1</a></li>
          
- <li>
-<a href="#">Sub-action 2</a></li>
+ <li><a href="#">Sub-action 2</a></li>
         </ul>
       </details>
     </li>
@@ -351,7 +351,8 @@ Notes:
 
 ```html
 <button popovertarget="m">Open</button>
-<div id="m" popover class="mod
+<div id="m" popover class="m
+od
 al-window">
   <h2>Title</h2>
   <button popovertarget="m" popovertargetaction="hide">Close</button>
@@ -380,8 +381,7 @@ Every `<article>` (or `.card` element) gets card styling: padding (`--card-paddi
 
 ```html
 <button data-text="Contextual help">?</button>
-``
-`
+```
 
 Shows a tooltip (with arrow) on `:hover`/`:focus`, built from the `data-text` attribute.
 
@@ -415,17 +415,16 @@ Tab system built on **hidden radio inputs**: no JavaScript. Each `label` is a ta
 </div>
 ```
 
-Notes: the `
+Notes: th
+e `
 .separator` (a `div` with a top border) divides the tabs from the panels; with the `.full-width` modifier class, the tabs split the container's full width evenly.
 
 ## Forms
 
 - **Base (`forms/basics`)**: `label`, `input` and `select` styled out of the box (2px border, focus with `panel-elevation-2` shadow, `disabled` state). `input[type=search|date|time]` show an icon (`--forma-icon-*`); `select` uses `--forma-icon-expand`; `input[type=color]` and `input[type=file]` have specific handling.
-- **`.hidden-search`**: expanding search based on `<details>` — the form expands via `::details-content` when opened. Includes a `summary` with a search icon and a `span.close-icon` f
-or the close icon.
+- **`.hidden-search`**: expanding search based on `<details>` — the form expands via `::details-content` when opened. Includes a `summary` with a search icon and a `span.close-icon` for the close icon.
 - **Checkbox / radio**: `:checked` states drawn with pure CSS (`--forma-icon-check` icon for checkboxes, ring for radios).
-- **Switch**: `<input type="checkbox" role="switch">` becomes an animated toggle
-.
+- **Switch**: `<input type="checkbox" role="switch">` becomes an animated toggle.
 
 ```html
 <label>
@@ -457,7 +456,8 @@ Defined in `scss/mixins/_mixins.scss`:
 
 The remaining modules are enabled by default. Disable them via `$modules` in `_config.scss`:
 
-`content/buttons`, `content/figure`, `content/typography`, `content/mark`, `content/table`, `content
+`content/buttons`, `content/figure`, `content/typography`, `content/mark`, `content/table`, `con
+tent
 /blockquote`, `components/nav`, `components/accordion`, `components/tab-nav`, `components/dropdown`, `components/burger-menu`, `components/toast`, `components/off-canvas`, `components/modal`, `components/card`, `components/tooltip`, `forms/basics`, `forms/hidden-search`, `forms/radio-checkbox`, `forms/switch`, `layout/helpers`.
 
 ## Browser support
