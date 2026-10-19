@@ -1,0 +1,52 @@
+{
+  "name": "forma-css",
+  "version": "1.0.0",
+  "description": "A low-footprint, classless SCSS microframework for semantic HTML. Zero JavaScript. Born as the successor of Pico CSS.",
+  "license": "MIT",
+  "homepage": "https://github.com/PEscofetMarias/forma-CSS#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PEscofetMarias/forma-CSS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/PEscofetMarias/forma-CSS/issues"
+  },
+  "keywords": [
+    "css",
+    "scss",
+    "sass",
+    "framework",
+    "classless",
+    "semantic-html",
+    "pico",
+    "light-dark",
+    "oklch",
+    "eco-friendly",
+    "no-javascript"
+  ],
+  "author": "Pau Escofet <pau@pixelimperfect.ch>",
+  "style": "css/forma-css.min.css",
+  "sass": "scss/forma-css.scss",
+  "main": "css/forma-css.min.css",
+  "files": [
+    "css/",
+    "scss/",
+    "LICENSE",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "style": "./css/forma-css.min.css",
+      "sass": "./scss/forma-css.scss",
+      "import": "./css/forma-css.min.css",
+      "default": "./css/forma-css.min.css"
+    },
+    "./css/*.css": "./css/*.css",
+    "./scss": "./scss/forma-css.scss",
+    "./scss/*": "./scss/*",
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
