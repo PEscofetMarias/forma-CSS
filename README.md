@@ -14,7 +14,7 @@ So forma-css was created to **fill the gap left by Pico CSS**: it carries on the
 
 ## Features
 
-- **Zero JS**: all components (accordion, dropdown, modal, toast, off-canvas, burger menu…) work with native HTML (`<details>`, `<summary>`, `popover`).
+- **Zero JS**: all components (accordion, dropdown, modal, toast, burger menu…) work with native HTML (`<details>`, `<summary>`, `popover`).
 - **Automatic light/dark mode** via `light-dark()` and `color-scheme: light dark`.
 - **CSS variable customization** with the `--forma-` prefix and sensible defaults.
 - **Optional modules**: enable or disable each module from `scss/_config.scss` (`$modules`).
@@ -65,9 +65,8 @@ To include only part of the framework, `@use` the modules you need and disable t
 
 The whole visual identity is controlled from the root (`:root`). Prefix: `--forma-`.
 
-
 | Variable | Default | Description |
-| ------------------------------------------------------------------------------------------------------------ | ----------------------------- | ----------------------------------------------------------- |
+| -------- | ------- | ----------- |
 | `--forma-font-family` | `Arial` | General font |
 | `--forma-font-family-headings` | `Arial` | Heading font (h1–h6, tooltip…) |
 | `--forma-font-family-buttons` | `Arial` | Font for buttons and dropdowns |
@@ -103,7 +102,6 @@ The whole visual identity is controlled from the root (`:root`). Prefix: `--form
 | `--forma-elevation-1/2/3` | predefined shadows | Shadows (elevation levels) |
 | `--forma-icon-search`, `--forma-icon-date`, `--forma-icon-time`, `--forma-icon-expand`, `--forma-icon-check` | — | Icon images for search/date/time inputs, selects and checks |
 
-
 Example:
 
 ```css
@@ -118,15 +116,13 @@ Example:
 
 Defined in `$breakpoints` (editable in `_config.scss`):
 
-
 | Key | Breakpoint | Max `main` viewport width |
-| ----- | ---------- | ------------------------- |
+| --- | --------- | ------------------------- |
 | `sm` | 600px | 540px |
 | `md` | 768px | 720px |
 | `lg` | 1024px | 960px |
 | `xl` | 1450px | 1200px |
 | `xxl` | 1536px | 1400px |
-
 
 ## Layout
 
@@ -165,9 +161,8 @@ Changes an element's `display` per breakpoint:
 
 Based on the `$text-sizes` map (editable in `_config.scss`). Default sizes:
 
-
 | Selector | Size | Weight |
-| ------------------ | ------ | ------ |
+| -------- | ---- | ------ |
 | `h1`, `.heading-1` | 5rem | 300 |
 | `h2`, `.heading-2` | 4rem | 300 |
 | `h3`, `.heading-3` | 3rem | 300 |
@@ -176,10 +171,7 @@ Based on the `$text-sizes` map (editable in `_config.scss`). Default sizes:
 | `h6`, `.heading-6` | 1.2rem | 300 |
 | `p`, `li` | 1em | — |
 
-
-**Per-element customization.** Every property of every element can be overridden through its own variable: `--forma-heading1-font-size`, `--forma-heading1-line-height`, `--forma-heading1-margin`, `--forma-heading1-font-family`… (same pattern for `heading2`–`heading6`,
-
- `paragraph`, `hr`, etc.). You can define them at `:root` or on any container:
+**Per-element customization.** Every property of every element can be overridden through its own variable: `--forma-heading1-font-size`, `--forma-heading1-line-height`, `--forma-heading1-margin`, `--forma-heading1-font-family`… (same pattern for `heading2`–`heading6`, `paragraph`, `hr`, etc.). You can define them at `:root` or on any container:
 
 ```css
 :root {
@@ -208,13 +200,11 @@ Details:
 
 Scale any element by multiplying its base size (`--forma-font-size-base`, the element's local one or the document's global) by a configurable factor:
 
-
 | Class | Factor | Description |
-| ----- | ------ | ----------------------------------------- |
+| ----- | ------ | ----------- |
 | `.sm` | 0.7× | Smaller version (equivalent to `<small>`) |
 | `.lg` | 1.3× | Larger version |
 | `.xl` | 1.5× | Really large version |
-
 
 ```html
 <h1>Contained title</h1>
@@ -228,9 +218,8 @@ The factors are adjustable from `:root` via `--forma-scale-sm`, `--forma-scale-l
 
 Every `<button>`, `.btn` and `input[type=button|submit|reset]` is styled out of the box. Variants:
 
-
 | Class | Description |
-| ----------------------------------------------------------------- | ------------------------------------------------------------------- |
+| ----- | ----------- |
 | `.btn` | Base button (primary color background) |
 | `.btn-secondary` | Secondary color background |
 | `.btn-contrast` | Color contrasted against the page background |
@@ -238,11 +227,9 @@ Every `<button>`, `.btn` and `input[type=button|submit|reset]` is styled out of 
 | `.btn-round` | Circular button |
 | `.btn-group`, `.btn-group-vertical` | Groups adjacent buttons (`<a>`, `<button>` or `<details><summary>`) |
 
-
 To make a button bigger or smaller, use the universal size classes (`.sm`, `.lg`, `.xl`) — they work on buttons because all their metrics are in relative units.
 
-**Button customization.** Every button metric has its own variable: `--forma-button-font-size` (default `1em`), `--forma-button-font-weight` (`300`), `--forma-button-line-height` (`1em`), `--forma-button-padding` (`0.5em 0.75em`), `--forma-button-gap` (`0.5em`) and `--forma-font-family-buttons` (font).
- Define them at `:root` or on any container to tune all the buttons of a section.
+**Button customization.** Every button metric has its own variable: `--forma-button-font-size` (default `1em`), `--forma-button-font-weight` (`300`), `--forma-button-line-height` (`1em`), `--forma-button-padding` (`0.5em 0.75em`), `--forma-button-gap` (`0.5em`) and `--forma-font-family-buttons` (font). Define them at `:root` or on any container to tune all the buttons of a section.
 
 ### Tables
 
@@ -282,9 +269,7 @@ Opening animation via `::details-content`; the `<span>` inside `summary` draws t
     <li><a href="#">Action 1</a></li>
     <li><hr /></li>
     <li><a href="#">Action 2</a></li>
-  </ul
->
-
+  </ul>
 </details>
 ```
 
@@ -302,8 +287,7 @@ Position variants: `.dropup`, `.dropright`, `.dropleft` (combinable: `dropup dro
         <summary>More…</summary>
         <ul>
           <li><a href="#">Sub-action 1</a></li>
-         
- <li><a href="#">Sub-action 2</a></li>
+          <li><a href="#">Sub-action 2</a></li>
         </ul>
       </details>
     </li>
@@ -351,9 +335,7 @@ Notes:
 
 ```html
 <button popovertarget="m">Open</button>
-<div id="m" popover class="m
-od
-al-window">
+<div id="m" popover class="modal-window">
   <h2>Title</h2>
   <button popovertarget="m" popovertargetaction="hide">Close</button>
 </div>
@@ -415,9 +397,7 @@ Tab system built on **hidden radio inputs**: no JavaScript. Each `label` is a ta
 </div>
 ```
 
-Notes: th
-e `
-.separator` (a `div` with a top border) divides the tabs from the panels; with the `.full-width` modifier class, the tabs split the container's full width evenly.
+Notes: the `.separator` (a `div` with a top border) divides the tabs from the panels; with the `.full-width` modifier class, the tabs split the container's full width evenly.
 
 ## Forms
 
@@ -456,9 +436,7 @@ Defined in `scss/mixins/_mixins.scss`:
 
 The remaining modules are enabled by default. Disable them via `$modules` in `_config.scss`:
 
-`content/buttons`, `content/figure`, `content/typography`, `content/mark`, `content/table`, `con
-tent
-/blockquote`, `components/nav`, `components/accordion`, `components/tab-nav`, `components/dropdown`, `components/burger-menu`, `components/toast`, `components/off-canvas`, `components/modal`, `components/card`, `components/tooltip`, `forms/basics`, `forms/hidden-search`, `forms/radio-checkbox`, `forms/switch`, `layout/helpers`.
+`content/buttons`, `content/figure`, `content/typography`, `content/mark`, `content/table`, `content/blockquote`, `components/nav`, `components/accordion`, `components/tab-nav`, `components/dropdown`, `components/burger-menu`, `components/toast`, `components/off-canvas`, `components/modal`, `components/card`, `components/tooltip`, `forms/basics`, `forms/hidden-search`, `forms/radio-checkbox`, `forms/switch`, `layout/helpers`.
 
 ## Browser support
 
