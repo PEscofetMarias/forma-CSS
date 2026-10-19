@@ -74,6 +74,8 @@
             --forma-icon-time: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='rgb(136, 145, 164)' class='bi bi-clock' viewBox='0 0 16 16'%3E%3Cpath d='M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z'/%3E%3Cpath d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0'/%3E%3C/svg%3E");
             --forma-icon-expand: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='rgb(136, 145, 164)' class='bi bi-chevron-expand' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M3.646 9.146a.5.5 0 0 1 .708 0L8 12.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708m0-2.292a.5.5 0 0 0 .708 0L8 3.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708'/%3E%3C/svg%3E");
             --forma-icon-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='rgb(255, 255, 255)' class='bi bi-check-lg' viewBox='0 0 16 16'%3E%3Cpath d='M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z'/%3E%3C/svg%3E");
+            --forma-icon-invalid-false: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='green' class='bi bi-check-lg' viewBox='0 0 16 16'%3E%3Cpath d='M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z'/%3E%3C/svg%3E");
+            --forma-icon-invalid-true: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='red' class='bi bi-exclamation-circle' viewBox='0 0 16 16'%3E%3Cpath d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16'/%3E%3Cpath d='M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z'/%3E%3C/svg%3E");
         }
 
         details .content {
@@ -103,21 +105,29 @@
         html:not(:has(.theme-switch:checked)) {
             color-scheme: light;
         }
+        .forma-logo-dark, html:has(.theme-switch:checked) .forma-logo{
+            display: none;
+        }
+        html:has(.theme-switch:checked) .forma-logo-dark{
+            display: block;
+        }
+        
     </style>
 </head>
 
 <body>
     <header class="fluid flex-row" style="margin-top: 1rem; justify-content: end; align-items: center">
-        <span class="heading-4" style="margin: 0 auto 0 0">Forma CSS</span>
-        <div>
+        <img src="web/img/forma-css-logo.svg" alt="formacss logo" style="height:2em" class="forma-logo">
+        <img src="web/img/forma-css-logo-negative.svg" alt="formacss logo" style="height:2em" class="forma-logo-dark">
+        <div style="margin-left: auto;">
             <label class="sm" for="theme-switch" style="margin-bottom: 0; margin-right: 1rem">
                 <input type="checkbox" class="theme-switch" id="theme-switch" role="switch" />
                 Dark theme
             </label>
         </div>
 
-        <details class="burger-menu dropdown dropdown-align-right lg">
-            <summary class="btn btn-round">
+        <details class="burger-menu dropdown dropdown-align-right">
+            <summary class="btn btn-round lg">
                 <i><span></span></i>
             </summary>
             <nav>
@@ -998,6 +1008,12 @@ details[open] .content { opacity: 1; height: auto;
                     Text
                     <input type="text" id="text" name="text" placeholder="Text" />
                     <small>Helper text with an inline hint for this field.</small>
+                </label>
+
+                <!-- Text -->
+                <label for="textarea">
+                    Text area
+                    <textarea name="textarea" id="textarea" rows="8" placeholder="Your text here..."></textarea>
                 </label>
 
                 <!-- Select -->

@@ -21,7 +21,7 @@
       }
     }
 
-    :is(input, select) {
+    :is(input, select, textarea) {
       #{$css-var-prefix}font-size-base: 1rem;
       font-size: inherit;
       appearance: none;

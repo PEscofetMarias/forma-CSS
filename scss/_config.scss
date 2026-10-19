@@ -26,6 +26,7 @@ $modules: map.merge(
 
     //// Forms modules
     "forms/basics": true,
+    "forms/validation": true,
     "forms/hidden-search": true,
     "forms/radio-checkbox": true,
     "forms/switch": true,
@@ -120,6 +121,8 @@ $icon-date: var(#{$css-var-prefix}icon-date);
 $icon-time: var(#{$css-var-prefix}icon-time);
 $icon-expand: var(#{$css-var-prefix}icon-expand);
 $icon-check: var(#{$css-var-prefix}icon-check);
+$icon-invalid-true: var(#{$css-var-prefix}icon-invalid-true);
+$icon-invalid-false: var(#{$css-var-prefix}icon-invalid-false);
 
 $breakpoints: (
   sm: (

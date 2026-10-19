@@ -1,0 +1,36 @@
+@use "sass:map";
+@use "../config" as *;
+
+@if map.get($modules, "forms/validation") {
+  @layer forma.components {
+    input {
+      &[aria-invalid="false"] {
+        #{$css-var-prefix}border-color: var(
+          #{$css-var-prefix}color-sucess,
+          green
+        );
+        #{$icon}: $icon-invalid-false;
+      }
+      &[aria-invalid="true"] {
+        #{$css-var-prefix}border-color: var(
+          #{$css-var-prefix}color-danger,
+          red
+        );
+        #{$icon}: $icon-invalid-true;
+      }
+      &[aria-invalid] {
+        border-color: var(#{$css-var-prefix}border-color);
+        background-image: var($icon);
+        background-size: calc(1em * 0.85) auto;
+        background-repeat: no-repeat;
+        background-position: center right calc($gutter * 0.75);
+        padding-right: calc($gutter * 2);
+        &:focus {
+          border-color: oklch(
+            from var(#{$css-var-prefix}border-color) calc(l * 1.3) c h
+          );
+        }
+      }
+    }
+  }
+}
