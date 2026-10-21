@@ -20,7 +20,7 @@
     display: var(--display-defined) !important;
   }
 
-  /// responsive-container i combinatio with responsive-widthcan create responsive layouts in seconds
+  /// responsive-container i combination with responsive-column can create responsive layouts in seconds
   .responsive-container {
     display: flex;
     flex-wrap: wrap;
@@ -36,8 +36,8 @@
   }
 
   ///// to define a grid, use de .grid class and set the --grid-columns variable to the number of columns you want.
-  /// You can also set the --grid-md-columns, --grid-lg-columns, --grid-xl-columns and --grid-xxl-columns variables to define the number of columns for each breakpoint.
-  /// Example: <div class="grid" style="--grid-columns: 3; --grid-md-columns: 4; --grid-lg-columns: 5;"> </div>
+  /// You can also set the --grid-columns-md, --grid-columns-lg, --grid-columns-xl and --grid-columns-xxl variables to define the number of columns for each breakpoint.
+  /// Example: <div class="grid" style="--grid-columns: 3; --grid-columns-md: 4; --grid-columns-lg: 5;"> </div>
   .grid {
     --grid-columns-defined: var(--grid-columns, 1);
     display: grid;
@@ -83,7 +83,7 @@
       --display-defined: var(--display-md, var(--display, block));
     }
     .grid {
-      --grid-columns-defined: var(--grid-md-columns, var(--grid-columns, 3));
+      --grid-columns-defined: var(--grid-columns-md, var(--grid-columns, 3));
     }
     .responsive-column {
       --columns-defined: var(--columns-md, var(--columns, 1));
@@ -113,8 +113,8 @@
     }
     .grid {
       --grid-columns-defined: var(
-        --grid-lg-columns,
-        var(--grid-md-columns, var(--grid-columns, 4))
+        --grid-columns-lg,
+        var(--grid-columns-md, var(--grid-columns, 4))
       );
     }
     .responsive-column {
@@ -148,8 +148,8 @@
     }
     .grid {
       --grid-columns-defined: var(
-        --grid-xl-columns,
-        var(--grid-lg-columns, var(--grid-md-columns, var(--grid-columns, 4)))
+        --grid-columns-xl,
+        var(--grid-columns-lg, var(--grid-columns-md, var(--grid-columns, 4)))
       );
     }
     .responsive-column {
@@ -186,10 +186,10 @@
     }
     .grid {
       --grid-columns-defined: var(
-        --grid-xxl-columns,
+        --grid-columns-xxl,
         var(
-          --grid-xl-columns,
-          var(--grid-lg-columns, var(--grid-md-columns, var(--grid-columns, 4)))
+          --grid-columns-xl,
+          var(--grid-columns-lg, var(--grid-columns-md, var(--grid-columns, 4)))
         )
       );
     }
