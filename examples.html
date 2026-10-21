@@ -978,6 +978,13 @@ details[open] .content { opacity: 1; height: auto;
         <!-- Responsive widths-->
         <section>
             <h4>Responsive column layout</h4>
+            <p class="sm">
+                A flex-based column system: <code>.responsive-container</code> wraps
+                <code>.responsive-column</code> elements, each declaring its own width with the
+                <code>--columns</code> variable (and per-breakpoint <code>--columns-md</code>,
+                <code>--columns-lg</code>…). The gutter is distributed proportionally and mixed
+                widths wrap naturally, without spans.
+            </p>
         </section>
         <aside class="responsive-container">
             <article class="card-horizontal responsive-column " style="--columns-md:2;--columns-lg:4">
@@ -1029,6 +1036,28 @@ details[open] .content { opacity: 1; height: auto;
                 </footer>
             </article>
         </aside>
+        <div class="accordion" style="width: 100%; margin-top: 1rem">
+            <details>
+                <summary class="heading-6">Show source code<span></span></summary>
+                <div class="content">
+                    <pre><code>&lt;!-- Responsive columns: each column declares its own width --&gt;
+&lt;aside class="responsive-container"&gt;
+  &lt;article class="card-horizontal responsive-column" style="--columns-md:2;--columns-lg:4"&gt;
+    …
+  &lt;/article&gt;
+  &lt;article class="card-horizontal responsive-column" style="--columns-md:2;--columns-lg:2"&gt;
+    …
+  &lt;/article&gt;
+  &lt;article class="card-horizontal responsive-column" style="--columns-md:2;--columns-lg:1"&gt;
+    …
+  &lt;/article&gt;
+&lt;/aside&gt;
+
+&lt;!-- --columns: number of columns the element occupies in a row.
+     Per breakpoint: --columns-md, --columns-lg, --columns-xl, --columns-xxl --&gt;</code></pre>
+                </div>
+            </details>
+        </div>
 
         <!-- Figure -->
         <section>
