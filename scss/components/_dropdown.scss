@@ -68,7 +68,9 @@
           .dropdown summary {
             #{$button-color}: $color-primary;
             font-size: 0.75em;
-            display: block;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
             font-weight: normal;
             color: $color-text;
             padding: 0.4em 0.6em;
@@ -80,6 +82,11 @@
             &:hover {
               background: var($button-color);
               color: contrast-color(var($button-color));
+            }
+            i,
+            svg {
+              height: 1em;
+              width: auto;
             }
           }
           .dropdown summary {
