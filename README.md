@@ -19,7 +19,7 @@ So forma-css was created to **fill the gap left by Pico CSS**: it carries on the
 - **CSS variable customization** with the `--forma-` prefix and sensible defaults.
 - **Optional modules**: enable or disable each module from `scss/_config.scss` (`$modules`).
 - **Ordered layers**: `forma.reset`, `forma.base`, `forma.components`, `forma.utilities`, so your own CSS always wins.
-- **Responsive layout** with configurable breakpoints and variable-driven grids (`.grid`, `.display`).
+- **Responsive layout** with configurable breakpoints and variable-driven grids (`.grid`, `.responsive-container`, `.display`).
 
 ## Installation
 
@@ -135,10 +135,23 @@ Defined in `$breakpoints` (editable in `_config.scss`):
 Equal-column grid controlled by CSS variables, with per-breakpoint values:
 
 ```html
-<div class="grid" style="--grid-columns: 1; --grid-md-columns: 2; --grid-lg-columns: 3; --grid-xxl-columns: 5">
+<div class="grid" style="--grid-columns: 1; --grid-columns-md: 2; --grid-columns-lg: 3; --grid-columns-xxl: 5">
   ...
 </div>
 ```
+
+### `.responsive-container` / `.responsive-column`
+
+Flex-based column layout where each column declares its own width through the `--columns` variable — the number of columns it should occupy — with per-breakpoint values. The width is computed automatically, distributing the gutter proportionally between the columns of the row:
+
+```html
+<div class="responsive-container">
+  <article class="responsive-column" style="--columns: 1; --columns-md: 2; --columns-lg: 4">…</article>
+  <article class="responsive-column" style="--columns-md: 2; --columns-lg: 1">…</article>
+</div>
+```
+
+Unlike `.grid`, every column sets its width independently, so mixed widths per element wrap naturally without spans: a column that does not fit moves to the next line. Values cascade across breakpoints (`--columns` → `--columns-md` → `--columns-lg` → `--columns-xl` → `--columns-xxl`).
 
 ### `.display`
 
