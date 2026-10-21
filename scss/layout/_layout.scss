@@ -20,6 +20,17 @@
     display: var(--display-defined) !important;
   }
 
+  /// responsive-container i combinatio with responsive-widthcan create responsive layouts in seconds
+  .responsive-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $gutter;
+  }
+  .responsive-width {
+    --width-defined: var(--width, 100%);
+    width: var(--width-defined);
+  }
+
   ///// to define a grid, use de .grid class and set the --grid-columns variable to the number of columns you want.
   /// You can also set the --grid-md-columns, --grid-lg-columns, --grid-xl-columns and --grid-xxl-columns variables to define the number of columns for each breakpoint.
   /// Example: <div class="grid" style="--grid-columns: 3; --grid-md-columns: 4; --grid-lg-columns: 5;"> </div>
@@ -70,6 +81,9 @@
     .grid {
       --grid-columns-defined: var(--grid-md-columns, var(--grid-columns, 3));
     }
+    .responsive-width {
+      --width-defined: var(--width-md, var(--width, 100%));
+    }
   }
 
   /// LG till XL /////
@@ -99,6 +113,9 @@
         var(--grid-md-columns, var(--grid-columns, 4))
       );
     }
+    .responsive-width {
+      --width-defined: var(--width-lg, var(--width-md, var(--width, 100%)));
+    }
   }
 
   /// XL till XXL /////
@@ -126,6 +143,12 @@
       --grid-columns-defined: var(
         --grid-xl-columns,
         var(--grid-lg-columns, var(--grid-md-columns, var(--grid-columns, 4)))
+      );
+    }
+    .responsive-width {
+      --width-defined: var(
+        --width-xl,
+        var(--width-lg, var(--width-md, var(--width, 100%)))
       );
     }
   }
@@ -161,6 +184,12 @@
           --grid-xl-columns,
           var(--grid-lg-columns, var(--grid-md-columns, var(--grid-columns, 4)))
         )
+      );
+    }
+    .responsive-width {
+      --width-defined: var(
+        --width-xxl,
+        var(--width-xl, var(--width-lg, var(--width-md, var(--width, 100%))))
       );
     }
   }
