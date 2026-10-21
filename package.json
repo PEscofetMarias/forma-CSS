@@ -1,6 +1,6 @@
 {
   "name": "forma-css",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A low-footprint, classless SCSS microframework for semantic HTML. Zero JavaScript. Born as the successor of Pico CSS.",
   "license": "MIT",
   "homepage": "https://github.com/PEscofetMarias/forma-CSS#readme",
