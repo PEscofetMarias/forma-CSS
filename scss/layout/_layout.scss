@@ -26,9 +26,13 @@
     flex-wrap: wrap;
     gap: $gutter;
   }
-  .responsive-width {
-    --width-defined: var(--width, 100%);
-    width: var(--width-defined);
+  .responsive-column {
+    // 2 colones: 50% − gutter/2 · 1 | 4 colones: 25% − gutter/4 · 3
+    --cols-defined: var(--cols, 1);
+    flex: 0 0
+      calc(
+        (100% - (var(--cols-defined) - 1) * #{$gutter}) / var(--cols-defined)
+      );
   }
 
   ///// to define a grid, use de .grid class and set the --grid-columns variable to the number of columns you want.
@@ -81,8 +85,8 @@
     .grid {
       --grid-columns-defined: var(--grid-md-columns, var(--grid-columns, 3));
     }
-    .responsive-width {
-      --width-defined: var(--width-md, var(--width, 100%));
+    .responsive-column {
+      --cols-defined: var(--cols-md, var(--cols, 1));
     }
   }
 
@@ -113,8 +117,8 @@
         var(--grid-md-columns, var(--grid-columns, 4))
       );
     }
-    .responsive-width {
-      --width-defined: var(--width-lg, var(--width-md, var(--width, 100%)));
+    .responsive-column {
+      --cols-defined: var(--cols-lg, var(--cols-md, var(--cols, 1)));
     }
   }
 
@@ -145,10 +149,10 @@
         var(--grid-lg-columns, var(--grid-md-columns, var(--grid-columns, 4)))
       );
     }
-    .responsive-width {
-      --width-defined: var(
-        --width-xl,
-        var(--width-lg, var(--width-md, var(--width, 100%)))
+    .responsive-column {
+      --cols-defined: var(
+        --cols-xl,
+        var(--cols-lg, var(--cols-md, var(--cols, 1)))
       );
     }
   }
@@ -186,10 +190,10 @@
         )
       );
     }
-    .responsive-width {
-      --width-defined: var(
-        --width-xxl,
-        var(--width-xl, var(--width-lg, var(--width-md, var(--width, 100%))))
+    .responsive-column {
+      --cols-defined: var(
+        --cols-xxl,
+        var(--cols-xl, var(--cols-lg, var(--cols-md, var(--cols, 1))))
       );
     }
   }
