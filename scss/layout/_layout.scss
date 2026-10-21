@@ -27,11 +27,11 @@
     gap: $gutter;
   }
   .responsive-column {
-    // 2 colones: 50% − gutter/2 · 1 | 4 colones: 25% − gutter/4 · 3
-    --cols-defined: var(--cols, 1);
+    --columns-defined: var(--columns, 1);
     flex: 0 0
       calc(
-        (100% - (var(--cols-defined) - 1) * #{$gutter}) / var(--cols-defined)
+        (100% - (var(--columns-defined) - 1) * #{$gutter}) /
+          var(--columns-defined)
       );
   }
 
@@ -86,7 +86,7 @@
       --grid-columns-defined: var(--grid-md-columns, var(--grid-columns, 3));
     }
     .responsive-column {
-      --cols-defined: var(--cols-md, var(--cols, 1));
+      --columns-defined: var(--columns-md, var(--columns, 1));
     }
   }
 
@@ -118,7 +118,10 @@
       );
     }
     .responsive-column {
-      --cols-defined: var(--cols-lg, var(--cols-md, var(--cols, 1)));
+      --columns-defined: var(
+        --columns-lg,
+        var(--columns-md, var(--columns, 1))
+      );
     }
   }
 
@@ -150,9 +153,9 @@
       );
     }
     .responsive-column {
-      --cols-defined: var(
-        --cols-xl,
-        var(--cols-lg, var(--cols-md, var(--cols, 1)))
+      --columns-defined: var(
+        --columns-xl,
+        var(--columns-lg, var(--columns-md, var(--columns, 1)))
       );
     }
   }
@@ -191,9 +194,12 @@
       );
     }
     .responsive-column {
-      --cols-defined: var(
-        --cols-xxl,
-        var(--cols-xl, var(--cols-lg, var(--cols-md, var(--cols, 1))))
+      --columns-defined: var(
+        --columns-xxl,
+        var(
+          --columns-xl,
+          var(--columns-lg, var(--columns-md, var(--columns, 1)))
+        )
       );
     }
   }
