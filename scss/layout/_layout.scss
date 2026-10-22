@@ -25,13 +25,15 @@
     display: flex;
     flex-wrap: wrap;
     gap: $gutter;
+    --grid: 12; // graella base, configurable
   }
   .responsive-column {
-    --columns-defined: var(--columns, 1);
+    --span-defined: var(--span, var(--grid, 12));
     flex: 0 0
       calc(
-        (100% - (var(--columns-defined) - 1) * #{$gutter}) /
-          var(--columns-defined)
+        var(--span-defined) *
+          ((100% - (var(--grid, 12) - 1) * #{$gutter}) / var(--grid, 12)) +
+          (var(--span-defined) - 1) * #{$gutter}
       );
   }
 
@@ -86,7 +88,7 @@
       --grid-columns-defined: var(--grid-columns-md, var(--grid-columns, 3));
     }
     .responsive-column {
-      --columns-defined: var(--columns-md, var(--columns, 1));
+      --span-defined: var(--span-md, var(--span, var(--grid)));
     }
   }
 
@@ -118,10 +120,7 @@
       );
     }
     .responsive-column {
-      --columns-defined: var(
-        --columns-lg,
-        var(--columns-md, var(--columns, 1))
-      );
+      --span-defined: var(--span-lg, var(--span-md, var(--span, var(--grid))));
     }
   }
 
@@ -153,9 +152,9 @@
       );
     }
     .responsive-column {
-      --columns-defined: var(
-        --columns-xl,
-        var(--columns-lg, var(--columns-md, var(--columns, 1)))
+      --span-defined: var(
+        --span-xl,
+        var(--span-lg, var(--span-md, var(--span, var(--grid))))
       );
     }
   }
@@ -195,11 +194,8 @@
     }
     .responsive-column {
       --columns-defined: var(
-        --columns-xxl,
-        var(
-          --columns-xl,
-          var(--columns-lg, var(--columns-md, var(--columns, 1)))
-        )
+        --span-xxl,
+        var(--span-xl, var(--span-lg, var(--span-md, var(--span, var(--grid)))))
       );
     }
   }
