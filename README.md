@@ -4,6 +4,8 @@
 
 Its goal: style **semantic** HTML elements with little or no utility classes, with automatic light/dark mode support and full customization through **CSS variables**. Interaction states (hover, active) and color variants are derived with **relative color syntax in `oklch`**, so the variants stay perceptually consistent for any color you choose.
 
+Layout follows the same idea. Grids can be defined **massively** with `.grid` plus responsive custom properties — no need to repeat classnames when the modules are identical — or **selectively** with `.responsive-container` (which sets the grid size via `--grid`) and `.responsive-column` (which sets its exact width via `--span`). Unlike Bootstrap or Pico, forma-css combines CSS styles with custom properties written in the markup itself, which considerably reduces the weight of the generated CSS.
+
 ## Why forma-css?
 
 forma-css was born out of a real need, not a trend. After years of building with **Bootstrap** (v3 to v5), its author — like the framework's creator — became increasingly concerned with **energy efficiency in web development** and started working to drive the carbon footprint of websites as low as possible.
@@ -19,7 +21,7 @@ So forma-css was created to **fill the gap left by Pico CSS**: it carries on the
 - **CSS variable customization** with the `--forma-` prefix and sensible defaults.
 - **Optional modules**: enable or disable each module from `scss/_config.scss` (`$modules`).
 - **Ordered layers**: `forma.reset`, `forma.base`, `forma.components`, `forma.utilities`, so your own CSS always wins.
-- **Responsive layout** with configurable breakpoints and variable-driven grids (`.grid`, `.responsive-container`, `.display`).
+- **Responsive layout** with configurable breakpoints and variable-driven grids (`.grid`, `.responsive-container`/`.responsive-column` with `--grid`/`--span`, `.display`).
 
 ## Installation
 
@@ -142,16 +144,16 @@ Equal-column grid controlled by CSS variables, with per-breakpoint values:
 
 ### `.responsive-container` / `.responsive-column`
 
-Flex-based column layout where each column declares its own width through the `--columns` variable — the number of columns it should occupy — with per-breakpoint values. The width is computed automatically, distributing the gutter proportionally between the columns of the row:
+Flex-based column layout over a 12-column base grid. The container declares the grid size with `--grid` (default `12`); each column declares how many grid columns it occupies with the `--span` variable, with per-breakpoint values. The width is computed automatically, including the gutters between the spanned columns:
 
 ```html
-<div class="responsive-container">
-  <article class="responsive-column" style="--columns: 1; --columns-md: 2; --columns-lg: 4">…</article>
-  <article class="responsive-column" style="--columns-md: 2; --columns-lg: 1">…</article>
+<div class="responsive-container" style="--grid: 12">
+  <article class="responsive-column" style="--span: 6; --span-lg: 8">…</article>
+  <article class="responsive-column" style="--span: 6; --span-lg: 4">…</article>
 </div>
 ```
 
-Unlike `.grid`, every column sets its width independently, so mixed widths per element wrap naturally without spans: a column that does not fit moves to the next line. Values cascade across breakpoints (`--columns` → `--columns-md` → `--columns-lg` → `--columns-xl` → `--columns-xxl`).
+A column without `--span` takes the whole grid (`--span` defaults to `--grid`). Unlike `.grid`, every column sets its width independently, so mixed widths per element wrap naturally: a column that does not fit moves to the next line. Values cascade across breakpoints (`--span` → `--span-md` → `--span-lg` → `--span-xl` → `--span-xxl`).
 
 ### `.display`
 
