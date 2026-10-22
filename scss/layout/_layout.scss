@@ -193,7 +193,7 @@
       );
     }
     .responsive-column {
-      --columns-defined: var(
+      --span-defined: var(
         --span-xxl,
         var(--span-xl, var(--span-lg, var(--span-md, var(--span, var(--grid)))))
       );
