@@ -943,7 +943,7 @@ details[open] .content { opacity: 1; height: auto;
                 <summary class="heading-6">Show source code<span></span></summary>
                 <div class="content">
                     <pre><code>&lt;!-- Cards: semantic articles inside a .grid container --&gt;
-&lt;aside class="grid" style="--grid-columns:1; --grid-lg-columns:4"&gt;
+&lt;aside class="grid" style="--grid-columns: 1; --grid-columns-lg: 4"&gt;
   &lt;article&gt;
     &lt;div&gt;
       &lt;h4&gt;Card title&lt;/h4&gt;
@@ -979,11 +979,12 @@ details[open] .content { opacity: 1; height: auto;
         <section>
             <h4>Responsive column layout</h4>
             <p class="sm">
-                A flex-based column system: <code>.responsive-container</code> wraps
-                <code>.responsive-column</code> elements, each declaring its own width with the
-                <code>--columns</code> variable (and per-breakpoint <code>--columns-md</code>,
-                <code>--columns-lg</code>…). The gutter is distributed proportionally and mixed
-                widths wrap naturally, without spans.
+                A flex-based column system: <code>.responsive-container</code> sets the grid size
+                with <code>--grid</code> (default 12) and wraps <code>.responsive-column</code>
+                elements, each declaring how many grid columns it occupies with the
+                <code>--span</code> variable (and per-breakpoint <code>--span-md</code>,
+                <code>--span-lg</code>…). The width is computed automatically, gutters included,
+                and mixed widths wrap naturally.
             </p>
         </section>
         <aside class="responsive-container" style="--grid: 12">
@@ -1040,21 +1041,22 @@ details[open] .content { opacity: 1; height: auto;
             <details>
                 <summary class="heading-6">Show source code<span></span></summary>
                 <div class="content">
-                    <pre><code>&lt;!-- Responsive columns: each column declares its own width --&gt;
-&lt;aside class="responsive-container"&gt;
-  &lt;article class="card-horizontal responsive-column" style="--columns-md:2;--columns-lg:4"&gt;
+                    <pre><code>&lt;!-- Responsive columns: the container sets the grid size, each column its span --&gt;
+&lt;aside class="responsive-container" style="--grid: 12"&gt;
+  &lt;article class="card-horizontal responsive-column" style="--span:6;--span-lg:8"&gt;
     …
   &lt;/article&gt;
-  &lt;article class="card-horizontal responsive-column" style="--columns-md:2;--columns-lg:2"&gt;
+  &lt;article class="card-horizontal responsive-column" style="--span:6;--span-lg:4"&gt;
     …
   &lt;/article&gt;
-  &lt;article class="card-horizontal responsive-column" style="--columns-md:2;--columns-lg:1"&gt;
+  &lt;article class="card-horizontal responsive-column" style="--span:6"&gt;
     …
   &lt;/article&gt;
 &lt;/aside&gt;
 
-&lt;!-- --columns: number of columns the element occupies in a row.
-     Per breakpoint: --columns-md, --columns-lg, --columns-xl, --columns-xxl --&gt;</code></pre>
+&lt;!-- --grid: number of columns of the base grid (default 12).
+     --span: grid columns the element occupies; defaults to the whole grid.
+     Per breakpoint: --span-md, --span-lg, --span-xl, --span-xxl --&gt;</code></pre>
                 </div>
             </details>
         </div>
