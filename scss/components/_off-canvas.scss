@@ -16,7 +16,7 @@
       border-top: none;
       border-right: none;
       border-bottom: none;
-      transition: transform $transition-fast ease-in-out allow-discrete;
+      transition: transform $transition-slow ease-in-out allow-discrete;
       &:popover-open {
         transform: translateX(0);
         @starting-style {

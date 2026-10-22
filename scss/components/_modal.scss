@@ -20,7 +20,18 @@
       .btn-contrast {
         #{$color-contrast}: contrast-color($color-panel);
       }
-      width: 100vw;
+      width: calc(100vw - 1em);
+      @include m.media(sm, down) {
+        bottom: 0.5em;
+        top: auto;
+        transition: transform $transition-slow ease-in-out allow-discrete;
+        &:popover-open {
+          transform: translatey(0);
+          @starting-style {
+            transform: translatey(120%);
+          }
+        }
+      }
       @include m.media(sm, up) {
         width: 80vw;
       }
