@@ -10,7 +10,9 @@
       gap: calc($gutter * 0.5);
       flex-wrap: wrap;
     }
-
+    .align-center {
+      align-items: center;
+    }
     .flex-full {
       justify-content: space-between;
     }

@@ -20,6 +20,16 @@
       .btn-contrast {
         #{$color-contrast}: contrast-color($color-panel);
       }
+      width: 100vw;
+      @include m.media(sm, up) {
+        width: 80vw;
+      }
+      @include m.media(lg, up) {
+        width: 60vw;
+      }
+      @include m.media(xl, up) {
+        width: 40vw;
+      }
     }
   }
 }
