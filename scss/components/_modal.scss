@@ -20,9 +20,9 @@
       .btn-contrast {
         #{$color-contrast}: contrast-color($color-panel);
       }
-      width: calc(100vw - 1em);
+      width: calc(100vw - #{$mobile-modal-margin});
       @include m.media(sm, down) {
-        bottom: 0.5em;
+        bottom: calc(#{$mobile-modal-margin} / 2);
         top: auto;
         transition: transform $transition-slow ease-in-out allow-discrete;
         &:popover-open {
