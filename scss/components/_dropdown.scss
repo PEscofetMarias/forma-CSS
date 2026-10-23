@@ -65,6 +65,7 @@
           line-height: 100%;
           font-size: inherit;
           a,
+          button,
           .dropdown summary {
             #{$button-color}: $color-primary;
             font-size: 0.75em;
@@ -77,6 +78,9 @@
             border-radius: calc($border-radius-button * 0.5);
             text-wrap: nowrap;
             transition: none;
+            background: transparent;
+            border: none;
+            margin: 0;
             //justify-content: space-between;
             cursor: pointer;
             &:hover {

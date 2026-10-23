@@ -5,17 +5,11 @@
   @layer forma.components {
     input {
       &[aria-invalid="false"] {
-        #{$css-var-prefix}border-color: var(
-          #{$css-var-prefix}color-sucess,
-          green
-        );
+        #{$css-var-prefix}border-color: $color-success;
         #{$icon}: $icon-invalid-false;
       }
       &[aria-invalid="true"] {
-        #{$css-var-prefix}border-color: var(
-          #{$css-var-prefix}color-danger,
-          red
-        );
+        #{$css-var-prefix}border-color: $color-danger;
         #{$icon}: $icon-invalid-true;
       }
       &[aria-invalid] {

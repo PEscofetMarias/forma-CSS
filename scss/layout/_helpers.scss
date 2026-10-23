@@ -48,5 +48,17 @@
     s {
       background-position: left;
     }
+    .text-success {
+      color: $color-success;
+    }
+    .text-danger {
+      color: $color-danger;
+    }
+    .text-info {
+      color: $color-info;
+    }
+    .text-warning {
+      color: $color-warning;
+    }
   }
 }

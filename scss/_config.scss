@@ -91,6 +91,11 @@ $color-gray-highlight: light-dark(
   var(#{$css-var-prefix}color-gray-highlight-dark, #505050)
 );
 
+$color-success: var(#{$css-var-prefix}color-sucess, green);
+$color-danger: var(#{$css-var-prefix}color-danger, #ff4800);
+$color-info: var(#{$css-var-prefix}color-info, #0059ff);
+$color-warning: var(#{$css-var-prefix}color-warning, #fef600);
+
 $font-size-base: var(#{$css-var-prefix}font-size-base, 16px);
 $font-size: var(#{$css-var-prefix}font-size, 16px);
 $gutter: var(#{$css-var-prefix}gutter, 1em);
