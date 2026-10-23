@@ -1,0 +1,15 @@
+@use "sass:map";
+@use "../config" as *;
+
+@if map.get($modules, "content/badge") {
+  @layer forma.components {
+    .badge {
+      font-size: 0.7em;
+      line-height: 1em;
+      padding: 0.4em 0.6em;
+      color: contrast-color(contrast-color($color-background));
+      background: contrast-color($color-background);
+      border-radius: $border-radius-button;
+    }
+  }
+}
