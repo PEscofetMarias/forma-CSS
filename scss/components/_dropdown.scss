@@ -81,7 +81,8 @@
             background: transparent;
             border: none;
             margin: 0;
-            //justify-content: space-between;
+            justify-content: start;
+            width: 100%;
             cursor: pointer;
             &:hover {
               background: var($button-color);
