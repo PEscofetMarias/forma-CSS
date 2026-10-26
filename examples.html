@@ -814,6 +814,47 @@ details[open] .content { opacity: 1; height: auto;
         </div>
         <hr />
 
+        <!-- Badges & state colors -->
+        <section>
+            <h3>Badges & state colors</h3>
+            <p class="sm">
+                Badges are small inline labels that invert themselves against the page background with
+                <code>contrast-color()</code>, so they stay legible in light and dark mode. State text
+                colors are available as utility classes: <code>.text-success</code>,
+                <code>.text-danger</code>, <code>.text-info</code> and <code>.text-warning</code>,
+                each with an automatic dark-mode variant.
+            </p>
+        </section>
+        <section class="flex-row" style="align-items: center; margin-bottom: 1rem">
+            <p style="margin: 0">Unread messages <span class="badge">12</span></p>
+            <span class="badge">New</span>
+            <span class="badge sm">Small badge</span>
+            <span class="badge text-danger">Deprecated</span>
+            <p style="margin: 0" class="text-success">✔ Saved successfully.</p>
+            <p style="margin: 0" class="text-danger">⚠ Something went wrong.</p>
+            <p style="margin: 0" class="text-info">ℹ For your information.</p>
+            <p style="margin: 0" class="text-warning">⚑ This is a warning.</p>
+        </section>
+        <div class="accordion" style="width: 100%; margin-top: 1rem">
+            <details>
+                <summary class="heading-6">Show source code<span></span></summary>
+                <div class="content">
+                    <pre><code>&lt;!-- Badge: inverts itself against the page background --&gt;
+&lt;p&gt;Unread messages &lt;span class="badge"&gt;12&lt;/span&gt;&lt;/p&gt;
+&lt;span class="badge"&gt;New&lt;/span&gt;
+&lt;span class="badge sm"&gt;Small badge&lt;/span&gt;
+&lt;span class="badge text-danger"&gt;Deprecated&lt;/span&gt;
+
+&lt;!-- State text colors (with automatic dark-mode variants) --&gt;
+&lt;p class="text-success"&gt;✔ Saved successfully.&lt;/p&gt;
+&lt;p class="text-danger"&gt;⚠ Something went wrong.&lt;/p&gt;
+&lt;p class="text-info"&gt;ℹ For your information.&lt;/p&gt;
+&lt;p class="text-warning"&gt;⚑ This is a warning.&lt;/p&gt;</code></pre>
+                </div>
+            </details>
+        </div>
+        <hr />
+
         <!-- Cards -->
         <section>
             <h3>Cards</h3>

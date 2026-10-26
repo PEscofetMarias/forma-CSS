@@ -90,6 +90,14 @@ The whole visual identity is controlled from the root (`:root`). Prefix: `--form
 | `--forma-color-border-panel` | `#e0e0e0` | Panel border |
 | `--forma-color-border-panel-dark` | `#2a2a2a` | Panel border (dark mode) |
 | `--forma-color-gray-highlight` | `#cccccc` | General-purpose gray (input borders, table rows) |
+| `--forma-color-success` | `green` | Success color (form validation, `.text-success`) |
+| `--forma-color-success-dark` | `#4caf50` | Success color in dark mode (defaults to the light value) |
+| `--forma-color-danger` | `#ff4800` | Danger color (form validation, `.text-danger`) |
+| `--forma-color-danger-dark` | `#ff7043` | Danger color in dark mode (defaults to the light value) |
+| `--forma-color-info` | `#0059ff` | Info color (`.text-info`) |
+| `--forma-color-info-dark` | `#5b8cff` | Info color in dark mode (defaults to the light value) |
+| `--forma-color-warning` | `#fef600` | Warning color (`.text-warning`) |
+| `--forma-color-warning-dark` | `#ffe014` | Warning color in dark mode (defaults to the light value) |
 | `--forma-font-size-base` | per breakpoint | Document base size; updates itself at each breakpoint |
 | `--forma-scale-sm` | `0.7` | Scaling factor for the `.sm` class |
 | `--forma-scale-lg` | `1.3` | Scaling factor for the `.lg` class |
@@ -169,6 +177,7 @@ Changes an element's `display` per breakpoint:
 - `.flex-full` — `justify-content: space-between`.
 - `.overflow` — full width with `overflow: auto`.
 - `.sm`, `.lg`, `.xl` — universal size classes (see [Typography](#size-classes-sm-lg-xl)).
+- `.text-success`, `.text-danger`, `.text-info`, `.text-warning` — state text colors, driven by the state color variables (with automatic dark-mode variants).
 
 ## Content
 
@@ -245,6 +254,15 @@ Every `<button>`, `.btn` and `input[type=button|submit|reset]` is styled out of 
 To make a button bigger or smaller, use the universal size classes (`.sm`, `.lg`, `.xl`) — they work on buttons because all their metrics are in relative units.
 
 **Button customization.** Every button metric has its own variable: `--forma-button-font-size` (default `1em`), `--forma-button-font-weight` (`300`), `--forma-button-line-height` (`1em`), `--forma-button-padding` (`0.5em 0.75em`), `--forma-button-gap` (`0.5em`) and `--forma-font-family-buttons` (font). Define them at `:root` or on any container to tune all the buttons of a section.
+
+### Badges — `.badge`
+
+Small inline label for counts, statuses or tags. The badge inverts itself against the page background with `contrast-color()`, so it stays legible in light and dark mode without any extra class. Combine it with the state text colors (`.text-*`) or the universal size classes (`.sm`, `.lg`) for variants:
+
+```html
+<p>Unread messages <span class="badge">12</span></p>
+<span class="badge text-danger">Deprecated</span>
+```
 
 ### Tables
 
@@ -452,7 +470,7 @@ Defined in `scss/mixins/_mixins.scss`:
 
 The remaining modules are enabled by default. Disable them via `$modules` in `_config.scss`:
 
-`content/buttons`, `content/figure`, `content/typography`, `content/mark`, `content/table`, `content/blockquote`, `components/nav`, `components/accordion`, `components/tab-nav`, `components/dropdown`, `components/burger-menu`, `components/toast`, `components/off-canvas`, `components/modal`, `components/card`, `components/tooltip`, `forms/basics`, `forms/hidden-search`, `forms/radio-checkbox`, `forms/switch`, `layout/helpers`.
+`content/buttons`, `content/badge`, `content/figure`, `content/typography`, `content/mark`, `content/table`, `content/blockquote`, `components/nav`, `components/accordion`, `components/tab-nav`, `components/dropdown`, `components/burger-menu`, `components/toast`, `components/off-canvas`, `components/modal`, `components/card`, `components/tooltip`, `forms/basics`, `forms/hidden-search`, `forms/radio-checkbox`, `forms/switch`, `layout/helpers`.
 
 ## Browser support
 
