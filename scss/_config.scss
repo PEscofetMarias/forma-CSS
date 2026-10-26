@@ -92,10 +92,22 @@ $color-gray-highlight: light-dark(
   var(#{$css-var-prefix}color-gray-highlight-dark, #505050)
 );
 
-$color-success: var(#{$css-var-prefix}color-sucess, green);
-$color-danger: var(#{$css-var-prefix}color-danger, #ff4800);
-$color-info: var(#{$css-var-prefix}color-info, #0059ff);
-$color-warning: var(#{$css-var-prefix}color-warning, #fef600);
+$color-success: light-dark(
+  var(#{$css-var-prefix}color-success, var(#{$css-var-prefix}color-sucess, green)),
+  var(#{$css-var-prefix}color-success-dark, var(#{$css-var-prefix}color-success, #4caf50))
+);
+$color-danger: light-dark(
+  var(#{$css-var-prefix}color-danger, #ff4800),
+  var(#{$css-var-prefix}color-danger-dark, var(#{$css-var-prefix}color-danger, #ff7043))
+);
+$color-info: light-dark(
+  var(#{$css-var-prefix}color-info, #0059ff),
+  var(#{$css-var-prefix}color-info-dark, var(#{$css-var-prefix}color-info, #5b8cff))
+);
+$color-warning: light-dark(
+  var(#{$css-var-prefix}color-warning, #fef600),
+  var(#{$css-var-prefix}color-warning-dark, var(#{$css-var-prefix}color-warning, #ffe014))
+);
 
 $font-size-base: var(#{$css-var-prefix}font-size-base, 16px);
 $font-size: var(#{$css-var-prefix}font-size, 16px);
