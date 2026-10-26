@@ -9,8 +9,12 @@
       border-radius: $border-radius-panel;
       transition: opacity $transition-slow ease-in-out;
       z-index: 9999;
+      width: calc(100vw - #{$mobile-modal-margin});
       @include m.panel-elevation-3;
       @include m.initialize-fading;
+      &:not(:has(.scrollable)) {
+        max-height: 90vh;
+      }
       &::backdrop {
         background: $color-backdrop;
         backdrop-filter: $filter-backdrop;
@@ -20,7 +24,6 @@
       .btn-contrast {
         #{$color-contrast}: contrast-color($color-panel);
       }
-      width: calc(100vw - #{$mobile-modal-margin});
       @include m.media(sm, down) {
         bottom: calc(#{$mobile-modal-margin} / 2);
         top: auto;
@@ -41,6 +44,10 @@
       @include m.media(xl, up) {
         width: 40vw;
       }
+    }
+    .modal-body.scrollable {
+      overflow: auto;
+      max-height: 80vh;
     }
   }
 }
