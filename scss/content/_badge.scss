@@ -4,7 +4,7 @@
 @if map.get($modules, "content/badge") {
   @layer forma.components {
     .badge {
-      font-size: 0.7em;
+      font-size: calc(var(#{$css-var-prefix}font-size-base) * $scale-sm);
       line-height: 1em;
       padding: 0.4em 0.6em;
       color: contrast-color(contrast-color($color-background));
