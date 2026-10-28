@@ -37,12 +37,21 @@
       }
       @include m.media(sm, up) {
         width: 80vw;
+        &.modal-window-lg {
+          width: 90vw;
+        }
       }
       @include m.media(lg, up) {
         width: 60vw;
+        &.modal-window-lg {
+          width: 80vw;
+        }
       }
       @include m.media(xl, up) {
         width: 40vw;
+        &.modal-window-lg {
+          width: 70vw;
+        }
       }
     }
     .modal-body.scrollable {
