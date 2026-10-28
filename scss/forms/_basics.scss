@@ -82,6 +82,7 @@
         border-radius: 50px;
         background-position: center left calc($gutter * 0.75);
         padding-left: calc($gutter * 2);
+        padding-right: 0.6em;
       }
       &[type="time"] {
         #{$icon}: $icon-time;
