@@ -7,6 +7,7 @@
       &[role="switch"] {
         padding: 0;
         width: calc(1em * 2.6);
+        min-width: calc(1em * 2.6);
         height: calc(1em * 1.4);
         border-radius: 50px;
         background-color: $color-gray-highlight;
