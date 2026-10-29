@@ -37,20 +37,29 @@
       }
       @include m.media(sm, up) {
         width: 80vw;
-        &.modal-window-lg {
+        &.modal-lg {
           width: 90vw;
+        }
+        &.modal-sm {
+          width: 60vw;
         }
       }
       @include m.media(lg, up) {
         width: 60vw;
-        &.modal-window-lg {
+        &.modal-lg {
           width: 80vw;
+        }
+        &.modal-sm {
+          width: 40vw;
         }
       }
       @include m.media(xl, up) {
         width: 40vw;
-        &.modal-window-lg {
+        &.modal-lg {
           width: 70vw;
+        }
+        &.modal-sm {
+          width: 30vw;
         }
       }
     }
