@@ -38,7 +38,7 @@
         //// needed to separate tabs from panels
         order: 2;
         width: 100%;
-        border-top: 1px solid oklch(from $color-text calc(l * 0.5 + 0.4) c h);
+        border-top: 1px solid rgb(from $color-text r g b / 0.3);
       }
       .tab-panel {
         order: 3;
