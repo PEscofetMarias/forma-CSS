@@ -30,7 +30,7 @@
       line-height: 120%;
       border: 2px solid $color-gray-highlight;
       padding: 0.6em;
-      background-color: rgb(from $color-panel r g b / 0.4);
+      background-color: rgb(from $color-panel r g b / 0.7);
       transition: all $transition-fast ease-in-out;
       &:not([type="checkbox"], [type="radio"]):focus {
         outline: 0;
