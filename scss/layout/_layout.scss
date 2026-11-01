@@ -5,7 +5,7 @@
 @layer forma.base {
   ////// Responsive specific styles //////////
   /// Global styles ////
-  :is(body > header, body > main, body > footer) {
+  :is(body > header, body > main, body > footer, .main-container) {
     &.fluid {
       margin: 0;
       padding: 0 calc($gutter * 0.5);
@@ -57,7 +57,7 @@
       );
       font-size: $font-size-base;
     }
-    :is(body > header, body > main, body > footer) {
+    :is(body > header, body > main, body > footer, .main-container) {
       &:not(.fluid) {
         margin: 0 calc($gutter * 0.5);
       }
@@ -75,7 +75,7 @@
       );
       font-size: $font-size-base;
     }
-    :is(body > header, body > main, body > footer) {
+    :is(body > header, body > main, body > footer, .main-container) {
       &:not(.fluid) {
         margin: 0 auto;
         max-width: map.get($breakpoints, md, viewport);
@@ -102,7 +102,7 @@
       );
       font-size: $font-size-base;
     }
-    :is(body > header, body > main, body > footer) {
+    :is(body > header, body > main, body > footer, .main-container) {
       &:not(.fluid) {
         max-width: map.get($breakpoints, lg, viewport);
       }
@@ -134,7 +134,7 @@
       );
       font-size: $font-size-base;
     }
-    :is(body > header, body > main, body > footer) {
+    :is(body > header, body > main, body > footer, .main-container) {
       &:not(.fluid) {
         max-width: map.get($breakpoints, xl, viewport);
       }
@@ -169,7 +169,7 @@
       );
       font-size: $font-size-base;
     }
-    :is(body > header, body > main, body > footer) {
+    :is(body > header, body > main, body > footer, .main-container) {
       &:not(.fluid) {
         max-width: map.get($breakpoints, xxl, viewport);
       }
