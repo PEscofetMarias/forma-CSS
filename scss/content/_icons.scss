@@ -3,16 +3,20 @@
 
 @if map.get($modules, "content/icons") {
   @layer forma.base {
+    i,
+    .bi {
+      height: 1em;
+      width: auto;
+    }
     h1,
     h2,
     h3,
     h4,
     h5,
     h6 {
-      svg,
+      .bi,
       i {
         height: calc(var(#{$css-var-prefix}font-size-base) * 0.5);
-        width: auto;
       }
     }
   }

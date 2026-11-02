@@ -68,7 +68,7 @@
           margin-bottom: 0;
         }
       }
-      &:is([type="search"], [type="time"], [type="date"]) {
+      &:is([type="search"], [type="time"], [type="date"], [list]) {
         background-image: var($icon);
         background-size: calc(1em * 0.85) auto;
         background-repeat: no-repeat;
@@ -90,6 +90,12 @@
       }
       &[type="date"] {
         #{$icon}: $icon-date;
+      }
+      &[list] {
+        #{$icon}: $icon-search;
+        background-position: center left calc($gutter * 0.75);
+        padding-left: calc($gutter * 2);
+        padding-right: 0.6em;
       }
     }
   }
