@@ -1,0 +1,19 @@
+@use "sass:map";
+@use "../config" as *;
+
+@if map.get($modules, "content/icons") {
+  @layer forma.base {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      svg,
+      i {
+        height: calc(var(#{$css-var-prefix}font-size-base) * 0.5);
+        width: auto;
+      }
+    }
+  }
+}

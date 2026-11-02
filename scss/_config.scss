@@ -7,6 +7,7 @@ $modules: map.merge(
     "content/buttons": true,
     "content/badge": true,
     "content/figure": true,
+    "content/icons": true,
     "content/typography": true,
     "content/mark": true,
     "content/table": true,
@@ -93,20 +94,35 @@ $color-gray-highlight: light-dark(
 );
 
 $color-success: light-dark(
-  var(#{$css-var-prefix}color-success, var(#{$css-var-prefix}color-sucess, green)),
-  var(#{$css-var-prefix}color-success-dark, var(#{$css-var-prefix}color-success, #4caf50))
+  var(
+    #{$css-var-prefix}color-success,
+    var(#{$css-var-prefix}color-sucess, green)
+  ),
+  var(
+    #{$css-var-prefix}color-success-dark,
+    var(#{$css-var-prefix}color-success, #4caf50)
+  )
 );
 $color-danger: light-dark(
   var(#{$css-var-prefix}color-danger, #ff4800),
-  var(#{$css-var-prefix}color-danger-dark, var(#{$css-var-prefix}color-danger, #ff7043))
+  var(
+    #{$css-var-prefix}color-danger-dark,
+    var(#{$css-var-prefix}color-danger, #ff7043)
+  )
 );
 $color-info: light-dark(
   var(#{$css-var-prefix}color-info, #0059ff),
-  var(#{$css-var-prefix}color-info-dark, var(#{$css-var-prefix}color-info, #5b8cff))
+  var(
+    #{$css-var-prefix}color-info-dark,
+    var(#{$css-var-prefix}color-info, #5b8cff)
+  )
 );
 $color-warning: light-dark(
   var(#{$css-var-prefix}color-warning, #fef600),
-  var(#{$css-var-prefix}color-warning-dark, var(#{$css-var-prefix}color-warning, #ffe014))
+  var(
+    #{$css-var-prefix}color-warning-dark,
+    var(#{$css-var-prefix}color-warning, #ffe014)
+  )
 );
 
 $font-size-base: var(#{$css-var-prefix}font-size-base, 16px);
