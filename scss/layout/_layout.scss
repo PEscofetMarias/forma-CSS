@@ -78,7 +78,7 @@
     :is(body > header, body > main, body > footer, .main-container) {
       &:not(.fluid) {
         margin: 0 auto;
-        max-width: map.get($breakpoints, md, viewport);
+        width: map.get($breakpoints, md, viewport);
       }
     }
     .display {
@@ -104,7 +104,7 @@
     }
     :is(body > header, body > main, body > footer, .main-container) {
       &:not(.fluid) {
-        max-width: map.get($breakpoints, lg, viewport);
+        width: map.get($breakpoints, lg, viewport);
       }
     }
     .display {
@@ -136,7 +136,7 @@
     }
     :is(body > header, body > main, body > footer, .main-container) {
       &:not(.fluid) {
-        max-width: map.get($breakpoints, xl, viewport);
+        width: map.get($breakpoints, xl, viewport);
       }
     }
     .display {
@@ -171,7 +171,7 @@
     }
     :is(body > header, body > main, body > footer, .main-container) {
       &:not(.fluid) {
-        max-width: map.get($breakpoints, xxl, viewport);
+        width: map.get($breakpoints, xxl, viewport);
       }
     }
     .display {
