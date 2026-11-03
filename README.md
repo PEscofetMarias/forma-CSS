@@ -75,9 +75,9 @@ The whole visual identity is controlled from the root (`:root`). Prefix: `--form
 | `--forma-font-weight` | `normal` | Base font weight |
 | `--forma-font-size` | `16px` | Base size (scales across breakpoints) |
 | `--forma-line-height` | `120%` | Base line height |
-| `--forma-color-primary` | `#083cc0` | Primary color (buttons, links, checks) |
+| `--forma-color-primary` | `#083cc0` | Primary color (buttons, links, checks, `.color-primary`) |
 | `--forma-color-primary-dark` | — | Primary color in dark mode (defaults to the light value) |
-| `--forma-color-secondary` | `#05a5d1` | Secondary color (`.btn-secondary`) |
+| `--forma-color-secondary` | `#05a5d1` | Secondary color (`.btn-secondary`, `.color-secondary`) |
 | `--forma-color-secondary-dark` | — | Secondary color in dark mode (defaults to the light value) |
 | `--forma-color-text` | `#222` | Text color (light mode) |
 | `--forma-color-text-dark` | `white` | Text color (dark mode) |
@@ -90,13 +90,13 @@ The whole visual identity is controlled from the root (`:root`). Prefix: `--form
 | `--forma-color-border-panel` | `#e0e0e0` | Panel border |
 | `--forma-color-border-panel-dark` | `#2a2a2a` | Panel border (dark mode) |
 | `--forma-color-gray-highlight` | `#cccccc` | General-purpose gray (input borders, table rows) |
-| `--forma-color-success` | `green` | Success color (form validation, `.text-success`) |
+| `--forma-color-success` | `green` | Success color (form validation, `.color-success`) |
 | `--forma-color-success-dark` | `#4caf50` | Success color in dark mode (defaults to the light value) |
-| `--forma-color-danger` | `#ff4800` | Danger color (form validation, `.text-danger`) |
+| `--forma-color-danger` | `#ff4800` | Danger color (form validation, `.color-danger`) |
 | `--forma-color-danger-dark` | `#ff7043` | Danger color in dark mode (defaults to the light value) |
-| `--forma-color-info` | `#0059ff` | Info color (`.text-info`) |
+| `--forma-color-info` | `#0059ff` | Info color (`.color-info`) |
 | `--forma-color-info-dark` | `#5b8cff` | Info color in dark mode (defaults to the light value) |
-| `--forma-color-warning` | `#fef600` | Warning color (`.text-warning`) |
+| `--forma-color-warning` | `#fef600` | Warning color (`.color-warning`) |
 | `--forma-color-warning-dark` | `#ffe014` | Warning color in dark mode (defaults to the light value) |
 | `--forma-font-size-base` | per breakpoint | Document base size; updates itself at each breakpoint |
 | `--forma-scale-sm` | `0.7` | Scaling factor for the `.sm` class |
@@ -126,7 +126,7 @@ Example:
 
 Defined in `$breakpoints` (editable in `_config.scss`):
 
-| Key | Breakpoint | Max `main` viewport width |
+| Key | Breakpoint | Fixed `main` viewport width |
 | --- | --------- | ------------------------- |
 | `sm` | 600px | 540px |
 | `md` | 768px | 720px |
@@ -138,7 +138,7 @@ Defined in `$breakpoints` (editable in `_config.scss`):
 
 ### Containers
 
-`body > header`, `body > main` and `body > footer` are centered and width-limited according to the active breakpoint. Add `class="fluid"` to make them full width.
+`body > header`, `body > main` and `body > footer` are centered with a **fixed width** according to the active breakpoint (`width`, not `max-width`): each breakpoint sets an exact container width, so the layout stays constant while the viewport grows within a breakpoint. Add `class="fluid"` to make them full width.
 
 ### `.grid`
 
@@ -177,7 +177,8 @@ Changes an element's `display` per breakpoint:
 - `.flex-full` — `justify-content: space-between`.
 - `.overflow` — full width with `overflow: auto`.
 - `.sm`, `.lg`, `.xl` — universal size classes (see [Typography](#size-classes-sm-lg-xl)).
-- `.text-success`, `.text-danger`, `.text-info`, `.text-warning` — state text colors, driven by the state color variables (with automatic dark-mode variants).
+- `.color-primary`, `.color-secondary` — brand text colors (driven by the primary/secondary color variables, with automatic dark-mode variants).
+- `.color-success`, `.color-danger`, `.color-info`, `.color-warning` — state text colors, driven by the state color variables (with automatic dark-mode variants).
 
 ## Content
 
@@ -257,12 +258,16 @@ To make a button bigger or smaller, use the universal size classes (`.sm`, `.lg`
 
 ### Badges — `.badge`
 
-Small inline label for counts, statuses or tags. The badge inverts itself against the page background with `contrast-color()`, so it stays legible in light and dark mode without any extra class. Combine it with the state text colors (`.text-*`) or the universal size classes (`.sm`, `.lg`) for variants:
+Small inline label for counts, statuses or tags. The badge inverts itself against the page background with `contrast-color()`, so it stays legible in light and dark mode without any extra class. Combine it with the utility color classes (`.color-*`) or the universal size classes (`.sm`, `.lg`) for variants:
 
 ```html
 <p>Unread messages <span class="badge">12</span></p>
-<span class="badge text-danger">Deprecated</span>
+<span class="badge color-danger">Deprecated</span>
 ```
+
+### Icons — `<i>`, `.bi`
+
+Icons (`<i>` or any element with the `.bi` class, e.g. Bootstrap Icons SVGs) keep a `1em` height with automatic width. Inside `h1`–`h6` **and the `.heading-1`–`.heading-6` classes**, icons scale with the heading: their height becomes half the heading font size (`--forma-font-size-base * 0.5`).
 
 ### Tables
 

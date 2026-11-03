@@ -23,7 +23,8 @@
     .xl {
       font-size: calc(var(#{$css-var-prefix}font-size-base) * $scale-xl);
     }
-    .lg {
+    .lg,
+    .lead {
       font-size: calc(var(#{$css-var-prefix}font-size-base) * $scale-lg);
     }
     .sm,
@@ -65,6 +66,9 @@
     }
     .color-warning {
       color: $color-warning;
+    }
+    .color-contrast {
+      color: contrast-color($color-background);
     }
   }
 }

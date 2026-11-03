@@ -278,6 +278,9 @@
             <h4>h4. Forma heading</h4>
             <h5>h5. Forma heading</h5>
             <h6>h6. Forma heading</h6>
+            <h3>h3. Forma heading with icon <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16"><path d="M2.866 14.85c-.078.444.36.791.746.593l4.716-2.9 4.716 2.9c.386.198.824-.149.746-.593l-.955-4.945 3.5-3.418c.287-.28.155-.786-.22-.852l-4.824-.698-2.212-4.534a.5.5 0 0 0-.902 0L6.599 5.242l-4.824.698c-.375.066-.507.572-.22.852l3.5 3.418-.955 4.945Z"/></svg></h3>
+            <p class="sm">Icons inside headings and <code>.heading-1</code>–<code>.heading-6</code>
+                classes scale automatically (half the heading font size).</p>
             <p>You can use the mark tag to <mark>highlight</mark> text.</p>
             <p><del>This line of text is meant to be treated as deleted text.</del></p>
             <p><s>This line of text is meant to be treated as no longer accurate.</s></p>
@@ -294,6 +297,9 @@
                     <pre><code>&lt;!-- Headings, with the universal .lg size class --&gt;
 &lt;h1&gt;h1. Forma heading&lt;/h1&gt;
 &lt;h1 class="lg"&gt;h1. Forma heading (lead)&lt;/h1&gt;
+
+&lt;!-- Icons inside headings (and .heading-1...6) scale to half the heading size --&gt;
+&lt;h3&gt;h3. Forma heading with icon &lt;svg class="bi bi-star"&gt;...&lt;/svg&gt;&lt;/h3&gt;
 
 &lt;!-- Inline text elements --&gt;
 &lt;p&gt;Use the mark tag to &lt;mark&gt;highlight&lt;/mark&gt; text.&lt;/p&gt;
@@ -819,9 +825,10 @@ details[open] .content { opacity: 1; height: auto;
             <h3>Badges & state colors</h3>
             <p class="sm">
                 Badges are small inline labels that invert themselves against the page background with
-                <code>contrast-color()</code>, so they stay legible in light and dark mode. State text
-                colors are available as utility classes: <code>.text-success</code>,
-                <code>.text-danger</code>, <code>.text-info</code> and <code>.text-warning</code>,
+                <code>contrast-color()</code>, so they stay legible in light and dark mode. Utility
+                color classes are available for the brand colors (<code>.color-primary</code>,
+                <code>.color-secondary</code>) and for state colors (<code>.color-success</code>,
+                <code>.color-danger</code>, <code>.color-info</code> and <code>.color-warning</code>),
                 each with an automatic dark-mode variant.
             </p>
         </section>
@@ -829,11 +836,13 @@ details[open] .content { opacity: 1; height: auto;
             <p style="margin: 0">Unread messages <span class="badge">12</span></p>
             <span class="badge">New</span>
             <span class="badge sm">Small badge</span>
-            <span class="badge text-danger">Deprecated</span>
-            <p style="margin: 0" class="text-success">✔ Saved successfully.</p>
-            <p style="margin: 0" class="text-danger">⚠ Something went wrong.</p>
-            <p style="margin: 0" class="text-info">ℹ For your information.</p>
-            <p style="margin: 0" class="text-warning">⚑ This is a warning.</p>
+            <span class="badge color-danger">Deprecated</span>
+            <p style="margin: 0" class="color-primary">◆ Primary brand color text.</p>
+            <p style="margin: 0" class="color-secondary">◆ Secondary brand color text.</p>
+            <p style="margin: 0" class="color-success">✔ Saved successfully.</p>
+            <p style="margin: 0" class="color-danger">⚠ Something went wrong.</p>
+            <p style="margin: 0" class="color-info">ℹ For your information.</p>
+            <p style="margin: 0" class="color-warning">⚑ This is a warning.</p>
         </section>
         <div class="accordion" style="width: 100%; margin-top: 1rem">
             <details>
@@ -843,13 +852,15 @@ details[open] .content { opacity: 1; height: auto;
 &lt;p&gt;Unread messages &lt;span class="badge"&gt;12&lt;/span&gt;&lt;/p&gt;
 &lt;span class="badge"&gt;New&lt;/span&gt;
 &lt;span class="badge sm"&gt;Small badge&lt;/span&gt;
-&lt;span class="badge text-danger"&gt;Deprecated&lt;/span&gt;
+&lt;span class="badge color-danger"&gt;Deprecated&lt;/span&gt;
 
-&lt;!-- State text colors (with automatic dark-mode variants) --&gt;
-&lt;p class="text-success"&gt;✔ Saved successfully.&lt;/p&gt;
-&lt;p class="text-danger"&gt;⚠ Something went wrong.&lt;/p&gt;
-&lt;p class="text-info"&gt;ℹ For your information.&lt;/p&gt;
-&lt;p class="text-warning"&gt;⚑ This is a warning.&lt;/p&gt;</code></pre>
+&lt;!-- Brand and state color utilities (with automatic dark-mode variants) --&gt;
+&lt;p class="color-primary"&gt;◆ Primary brand color text.&lt;/p&gt;
+&lt;p class="color-secondary"&gt;◆ Secondary brand color text.&lt;/p&gt;
+&lt;p class="color-success"&gt;✔ Saved successfully.&lt;/p&gt;
+&lt;p class="color-danger"&gt;⚠ Something went wrong.&lt;/p&gt;
+&lt;p class="color-info"&gt;ℹ For your information.&lt;/p&gt;
+&lt;p class="color-warning"&gt;⚑ This is a warning.&lt;/p&gt;</code></pre>
                 </div>
             </details>
         </div>
