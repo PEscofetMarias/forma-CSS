@@ -48,16 +48,22 @@
     s {
       background-position: left;
     }
-    .text-success {
+    .color-primary {
+      color: $color-primary;
+    }
+    .color-secondary {
+      color: $color-secondary;
+    }
+    .color-success {
       color: $color-success;
     }
-    .text-danger {
+    .color-danger {
       color: $color-danger;
     }
-    .text-info {
+    .color-info {
       color: $color-info;
     }
-    .text-warning {
+    .color-warning {
       color: $color-warning;
     }
   }
