@@ -23,6 +23,9 @@
         padding: 0.25em;
         margin: 0;
         list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.1em;
         border-radius: calc($border-radius-button * 0.75);
         z-index: 999;
         //overflow: hidden;
@@ -87,6 +90,12 @@
             &:hover {
               background: var($button-color);
               color: contrast-color(var($button-color));
+            }
+            &.active {
+              background: oklch(from var($button-color) calc(l * 0.7) c h);
+              color: contrast-color(
+                oklch(from var($button-color) calc(l * 0.7) c h)
+              );
             }
             i,
             svg {
