@@ -63,6 +63,18 @@
       }
     }
   }
+  /// SM till MD/////
+  @include m.media(sm, up) {
+    .display {
+      --display-defined: var(--display-sm, var(--display, block));
+    }
+    .grid {
+      --grid-columns-defined: var(--grid-columns-sm, var(--grid-columns, 3));
+    }
+    .responsive-column {
+      --span-defined: var(--span-sm, var(--span, var(--grid)));
+    }
+  }
 
   /// MD till LG /////
   @include m.media(md, up) {
@@ -85,10 +97,13 @@
       --display-defined: var(--display-md, var(--display, block));
     }
     .grid {
-      --grid-columns-defined: var(--grid-columns-md, var(--grid-columns, 3));
+      --grid-columns-defined: var(
+        --grid-columns-md,
+        var(--grid-columns-sm, var(--grid-columns, 3))
+      );
     }
     .responsive-column {
-      --span-defined: var(--span-md, var(--span, var(--grid)));
+      --span-defined: var(--span-md, var(--span-sm, var(--span, var(--grid))));
     }
   }
 
