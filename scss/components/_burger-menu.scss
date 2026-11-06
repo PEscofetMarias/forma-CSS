@@ -42,11 +42,11 @@
           }
         }
       }
-      ul {
+      > nav > ul {
         padding: 0;
         margin: 0;
         border-radius: $border-radius-panel;
-        li {
+        > li {
           margin: 1rem;
           text-wrap: nowrap;
         }
