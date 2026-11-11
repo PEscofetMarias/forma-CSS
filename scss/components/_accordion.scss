@@ -33,7 +33,7 @@
       }
 
       details[open] {
-        summary span {
+        > summary > span {
           transform: rotate(405deg);
         }
       }
