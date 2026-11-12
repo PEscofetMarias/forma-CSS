@@ -126,6 +126,7 @@
       --border-radius-last: 0 0 #{$border-radius-button}
         #{$border-radius-button};
       flex-direction: column;
+      button,
       .btn,
       .dropdown,
       summary {
