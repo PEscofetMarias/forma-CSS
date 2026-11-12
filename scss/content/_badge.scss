@@ -4,12 +4,17 @@
 @if map.get($modules, "content/badge") {
   @layer forma.components {
     .badge {
-      font-size: calc(var(#{$css-var-prefix}font-size-base) * $scale-sm);
+      font-size: 0.65em;
       line-height: 1em;
-      padding: 0.4em 0.6em;
+      padding: 0.4em 0.5em;
       color: contrast-color(contrast-color($color-background));
       background: contrast-color($color-background);
       border-radius: $border-radius-button;
+    }
+    * :has(> .badge) {
+      display: flex;
+      align-items: center;
+      gap: 0.25em;
     }
   }
 }
