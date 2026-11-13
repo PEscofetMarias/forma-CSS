@@ -7,4 +7,15 @@ pre {
   padding: 2em;
   border-radius: $border-radius-panel;
   overflow: auto;
+  code {
+    background-color: transparent;
+    padding: 0;
+    font-size: 1em;
+  }
+}
+code {
+  background-color: $color-gray-highlight;
+  border-radius: $border-radius-button;
+  font-size: 0.75em;
+  padding: 0.25em;
 }
