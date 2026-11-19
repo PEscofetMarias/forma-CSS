@@ -20,6 +20,12 @@ jobs:
           node-version: 22
           registry-url: https://registry.npmjs.org
 
+      - name: Compile CSS from SCSS
+        run: |
+          npm install --no-save sass
+          npx sass --style=compressed scss/forma-css.scss css/forma-css.min.css
+          npx sass --style=compressed scss/forma-css-core.scss css/forma-css-core.min.css
+
       - name: Verify package version matches release tag
         run: |
           PKG_VERSION=$(node -p "require('./package.json').version")
