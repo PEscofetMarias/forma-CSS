@@ -63,6 +63,10 @@ To include only part of the framework, `@use` the modules you need and disable t
 @use "index";
 ```
 
+## Documentation
+
+The full documentation lives at **[css.formasystem.org](https://css.formasystem.org)** — the framework's first real project, built with forma-css itself. It covers getting started, customization (runtime custom properties and build-time SCSS), layout, content, forms and every component, plus a Philosophy section with the numbers behind the framework and migration guides if you come from Pico CSS, Bootstrap or Tailwind.
+
 ## Customization with CSS variables
 
 The whole visual identity is controlled from the root (`:root`). Prefix: `--forma-`.
@@ -145,10 +149,12 @@ Defined in `$breakpoints` (editable in `_config.scss`):
 Equal-column grid controlled by CSS variables, with per-breakpoint values:
 
 ```html
-<div class="grid" style="--grid-columns: 1; --grid-columns-md: 2; --grid-columns-lg: 3; --grid-columns-xxl: 5">
+<div class="grid" style="--grid-columns: 1; --grid-columns-sm: 2; --grid-columns-lg: 3; --grid-columns-xxl: 5">
   ...
 </div>
 ```
+
+Values cascade across breakpoints (`--grid-columns` → `--grid-columns-sm` → `--grid-columns-md` → `--grid-columns-lg` → `--grid-columns-xl` → `--grid-columns-xxl`).
 
 ### `.responsive-container` / `.responsive-column`
 
@@ -161,24 +167,26 @@ Flex-based column layout over a 12-column base grid. The container declares the 
 </div>
 ```
 
-A column without `--span` takes the whole grid (`--span` defaults to `--grid`). Unlike `.grid`, every column sets its width independently, so mixed widths per element wrap naturally: a column that does not fit moves to the next line. Values cascade across breakpoints (`--span` → `--span-md` → `--span-lg` → `--span-xl` → `--span-xxl`).
+A column without `--span` takes the whole grid (`--span` defaults to `--grid`). Unlike `.grid`, every column sets its width independently, so mixed widths per element wrap naturally: a column that does not fit moves to the next line. Values cascade across the full breakpoint chain (`--span` → `--span-sm` → `--span-md` → `--span-lg` → `--span-xl` → `--span-xxl`), each falling back to the previous one. Spans admit **decimal values** (e.g. `--span-lg: 2.5`), which class-based grid systems cannot express.
 
 ### `.display`
 
 Changes an element's `display` per breakpoint:
 
 ```html
-<div class="display" style="--display: flex; --display-lg: grid"></div>
+<div class="display" style="--display: flex; --display-sm: block; --display-lg: grid"></div>
 ```
 
 ### Utilities (`layout/helpers`)
 
 - `.flex-row` — flex row with `flex-wrap`.
+- `.align-center` — `align-items: center`.
 - `.flex-full` — `justify-content: space-between`.
 - `.overflow` — full width with `overflow: auto`.
-- `.sm`, `.lg`, `.xl` — universal size classes (see [Typography](#size-classes-sm-lg-xl)).
+- `.sm`, `.lg`/`.lead`, `.xl` — universal size classes (`.lead` is an alias of `.lg`; see [Typography](#size-classes-sm-lg-xl)).
 - `.color-primary`, `.color-secondary` — brand text colors (driven by the primary/secondary color variables, with automatic dark-mode variants).
 - `.color-success`, `.color-danger`, `.color-info`, `.color-warning` — state text colors, driven by the state color variables (with automatic dark-mode variants).
+- `.color-contrast` — the text color inverted against the page background (`contrast-color()`).
 
 ## Content
 
@@ -258,7 +266,7 @@ To make a button bigger or smaller, use the universal size classes (`.sm`, `.lg`
 
 ### Badges — `.badge`
 
-Small inline label for counts, statuses or tags. The badge inverts itself against the page background with `contrast-color()`, so it stays legible in light and dark mode without any extra class. Combine it with the utility color classes (`.color-*`) or the universal size classes (`.sm`, `.lg`) for variants:
+Small inline label for counts, statuses or tags. The badge inverts itself against the page background with `contrast-color()`, so it stays legible in light and dark mode without any extra class. Badges are sized relatively (`0.65em`) and the parent of any direct `.badge` child automatically becomes a centered flex row with a small gap, so a badge always sits aligned with its label. Combine with the utility color classes (`.color-*`) or the universal size classes (`.sm`, `.lg`) for variants:
 
 ```html
 <p>Unread messages <span class="badge">12</span></p>
@@ -269,9 +277,22 @@ Small inline label for counts, statuses or tags. The badge inverts itself agains
 
 Icons (`<i>` or any element with the `.bi` class, e.g. Bootstrap Icons SVGs) keep a `1em` height with automatic width. Inside `h1`–`h6` **and the `.heading-1`–`.heading-6` classes**, icons scale with the heading: their height becomes half the heading font size (`--forma-font-size-base * 0.5`).
 
+### Text with emphasis
+
+`<u>`, `<ins>`, `<del>`, `<s>` get a gradient underline instead of `text-decoration` (on `del`/`s` the line sits in the middle), and `<mark>` uses a secondary→primary gradient as text color.
+
 ### Tables
 
 Base styling for `table`; add `.stripped` for alternating row colors.
+
+### Code
+
+Inline `code` gets a subtle gray-highlight background, rounded corners and a smaller size (`0.75em`). `pre` blocks get panel padding, a rounded border and horizontal scroll; a `code` inside `pre` is reset (transparent background, no padding, `1em`) so markup to display inside code blocks needs no extra class.
+
+```html
+<p>Edit <code>scss/_config.scss</code> to change breakpoints.</p>
+<pre><code>body { margin: 0; }</code></pre>
+```
 
 ### Other
 
@@ -311,6 +332,8 @@ Opening animation via `::details-content`; the `<span>` inside `summary` draws t
 </details>
 ```
 
+Menu items stack with a small gap between them. Give an item the `.active` class (e.g. the current page) and it gets a pressed background derived with relative color syntax.
+
 Position variants: `.dropup`, `.dropright`, `.dropleft` (combinable: `dropup dropright`). Alignment: `.dropdown-align-right`. Closes on outside click (overlay generated with `summary::before`).
 
 **Multi-level menus.** A `.dropdown` can contain other `.dropdown`s nested inside its `li`s — each level works independently and without JavaScript. Combine with `.dropright` to create lateral submenus:
@@ -338,16 +361,17 @@ Position variants: `.dropup`, `.dropright`, `.dropleft` (combinable: `dropup dro
 ### Burger menu — `.burger-menu`
 
 ```html
-<details class
-="burger-menu">
+<details class="burger-menu">
   <summary><i><span></span></i></summary>
-  <ul>
-    <li><a href="#">Home</a></li>
-  </ul>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+    </ul>
+  </nav>
 </details>
 ```
 
-The `<span>` draws the three bars that turn into a cross when opened.
+The `<span>` draws the three bars that turn into a cross when opened. The list is wrapped in a `<nav>`, and other `.dropdown`s (e.g. a language switcher) can be nested inside its `li`s without conflicts.
 
 ### Expanding search — `.hidden-search`
 
@@ -382,6 +406,8 @@ Notes:
 
 Uses the Popover API; backdrop via `::backdrop` and enter/exit fade via `@starting-style`.
 
+Size variants: `.modal-sm` (60/40/30vw per breakpoint) and `.modal-lg` (90/80/70vw); the default is 80/60/40vw. With `popover="manual"` the modal only closes through its own buttons; a plain `popover` also closes on outside click or Esc. Add `.modal-body.scrollable` for a body area that scrolls independently (`overflow: auto`, `max-height: 80vh`).
+
 ### Toast — `.toast`
 
 A fixed `popover` element in the top-right corner, with breakpoint-adaptive width (30vw → 40vw → 60vw → 80vw).
@@ -404,7 +430,7 @@ Every `<article>` (or `.card` element) gets card styling: padding (`--card-paddi
 <button data-text="Contextual help">?</button>
 ```
 
-Shows a tooltip (with arrow) on `:hover`/`:focus`, built from the `data-text` attribute.
+Shows a tooltip (with arrow) on `:hover`/`:focus`, built from the `data-text` attribute. Pseudo-element based, so it does not render on void elements (`<input>`, `<img>`…).
 
 ### Nav
 
