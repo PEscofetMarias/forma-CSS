@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>forma-css — Checkout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/forma-css.min.css" />
+</head>
+
+<body>
+    <!-- Demo cart as a server would render it: every total is plain HTML, zero JavaScript anywhere. -->
+    <header>
+        <h1>Checkout</h1>
+        <p>A complete purchase flow: cart, delivery, payment and summary.
+            Semantic forms, native inputs, no framework, no JavaScript.</p>
+    </header>
+
+    <main class="grid" style="--grid-columns: 1; --grid-columns-lg: 2">
+        <div>
+            <!-- Cart -->
+            <section>
+                <h2>Your cart</h2>
+                <div class="overflow">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Product</th>
+                                <th scope="col">Qty</th>
+                                <th scope="col">Price</th>
+                                <th scope="col"><span class="sm">Total</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <span class="flex-row" style="align-items: center; gap: .75em">
+                                        <svg viewBox="0 0 96 96" width="64" height="64" aria-hidden="true" style="border-radius: var(--forma-border-radius-button, .5rem); flex: none"><rect width="96" height="96" fill="#7c3aed"/><path d="M20 62 L38 34 L54 52 L64 42 L76 62 Z" fill="rgba(255,255,255,.75)"/><circle cx="66" cy="26" r="7" fill="rgba(255,255,255,.9)"/></svg><!-- Print -->
+                                        <span>
+                                            Forma Print — poster A2<br />
+                                            <span class="sm">Rolled, 170 g/m²</span>
+                                        </span>
+                                    </span>
+                                </th>
+                                <td><label><input type="number" value="1" min="1" max="9" style="max-width: 4em" /> <span class="sm">pcs.</span></label></td>
+                                <td>$24.00</td>
+                                <td>$24.00</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <span class="flex-row" style="align-items: center; gap: .75em">
+                                        <svg viewBox="0 0 96 96" width="64" height="64" aria-hidden="true" style="border-radius: var(--forma-border-radius-button, .5rem); flex: none"><rect width="96" height="96" fill="#c05621"/><path d="M20 62 L38 34 L54 52 L64 42 L76 62 Z" fill="rgba(255,255,255,.75)"/><circle cx="66" cy="26" r="7" fill="rgba(255,255,255,.9)"/></svg><!-- Mug -->
+                                        <span>
+                                            Forma Mug — 350 ml<br />
+                                            <span class="sm">Matte black</span>
+                                        </span>
+                                    </span>
+                                </th>
+                                <td><label><input type="number" value="2" min="1" max="9" style="max-width: 4em" /> <span class="sm">pcs.</span></label></td>
+                                <td>$14.50</td>
+                                <td>$29.00</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <span class="flex-row" style="align-items: center; gap: .75em">
+                                        <svg viewBox="0 0 96 96" width="64" height="64" aria-hidden="true" style="border-radius: var(--forma-border-radius-button, .5rem); flex: none"><rect width="96" height="96" fill="#2f855a"/><path d="M20 62 L38 34 L54 52 L64 42 L76 62 Z" fill="rgba(255,255,255,.75)"/><circle cx="66" cy="26" r="7" fill="rgba(255,255,255,.9)"/></svg><!-- Stickers -->
+                                        <span>
+                                            Forma Stickers — pack of 12<br />
+                                            <span class="sm">Weatherproof</span>
+                                        </span>
+                                    </span>
+                                </th>
+                                <td><label><input type="number" value="1" min="1" max="9" style="max-width: 4em" /> <span class="sm">pcs.</span></label></td>
+                                <td>$6.00</td>
+                                <td>$6.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Delivery -->
+            <section>
+                <h2>Delivery</h2>
+                <div class="grid" style="--grid-columns: 2; gap: 1em">
+                    <label>First name
+                        <input type="text" autocomplete="given-name" />
+                    </label>
+                    <label>Last name
+                        <input type="text" autocomplete="family-name" />
+                    </label>
+                </div>
+                <label>Street and number
+                    <input type="text" autocomplete="street-address" />
+                </label>
+                <div class="grid" style="--grid-columns: 2; gap: 1em">
+                    <label>Postal code
+                        <input type="text" inputmode="numeric" autocomplete="postal-code" />
+                    </label>
+                    <label>City
+                        <input type="text" autocomplete="address-level2" />
+                    </label>
+                </div>
+                <label>Country
+                    <select autocomplete="country">
+                        <option value="de" selected>Germany</option>
+                        <option value="ch">Switzerland</option>
+                        <option value="es">Spain</option>
+                        <option value="uk">United Kingdom</option>
+                    </select>
+                </label>
+                <label>E-mail
+                    <input type="email" autocomplete="email" placeholder="you@example.com" />
+                </label>
+                <label>
+                    <input type="radio" name="shipping" checked />
+                    Standard delivery — 3–5 working days ($4.50)
+                </label>
+                <label>
+                    <input type="radio" name="shipping" />
+                    Express delivery — 1–2 working days ($12.00)
+                </label>
+            </section>
+
+            <!-- Payment -->
+            <section>
+                <h2>Payment</h2>
+                <label>
+                    <input type="radio" name="payment" checked />
+                    Credit card
+                </label>
+                <label>Card number
+                    <input type="text" inputmode="numeric" autocomplete="cc-number" placeholder="1234 5678 9012 3456" />
+                </label>
+                <div class="grid" style="--grid-columns: 2; gap: 1em">
+                    <label>Expiry
+                        <input type="month" autocomplete="cc-exp" />
+                    </label>
+                    <label>CVC
+                        <input type="text" inputmode="numeric" autocomplete="cc-csc" placeholder="123" style="max-width: 6em" />
+                    </label>
+                </div>
+                <label>
+                    <input type="radio" name="payment" />
+                    PayPal — you will be redirected after placing the order
+                </label>
+                <label>
+                    <input type="checkbox" checked />
+                    Billing address is the same as the delivery address
+                </label>
+                <label>
+                    <input type="checkbox" checked />
+                    Save these details for next time
+                </label>
+            </section>
+        </div>
+
+        <!-- Summary -->
+        <aside>
+            <article style="position: sticky; top: 1em">
+                <div>
+                    <h2 style="margin-top: 0">Order summary</h2>
+                    <p class="flex-row sm" style="justify-content: space-between; margin-bottom: 0">
+                        <span>Forma Print — poster A2 ×1</span><span>$24.00</span>
+                    </p>
+                    <p class="flex-row sm" style="justify-content: space-between; margin-bottom: 0">
+                        <span>Forma Mug ×2</span><span>$29.00</span>
+                    </p>
+                    <p class="flex-row sm" style="justify-content: space-between; margin-bottom: 0">
+                        <span>Forma Stickers ×1</span><span>$6.00</span>
+                    </p>
+                    <!-- Totals: a server renders this once; no script recalculates anything -->
+                    <p class="flex-row" style="justify-content: space-between; margin-bottom: 0">
+                        <strong>Subtotal</strong><span>$59.00</span>
+                    </p>
+                    <p class="flex-row sm" style="justify-content: space-between; margin-bottom: 0">
+                        <span>Shipping (standard)</span><span>$4.50</span>
+                    </p>
+                    <p class="flex-row sm" style="justify-content: space-between; margin-bottom: 0">
+                        <span>VAT (19%)</span><span>$12.07</span>
+                    </p>
+                    <hr />
+                    <p class="flex-row lg" style="justify-content: space-between; margin-bottom: 0">
+                        <strong>Total</strong><strong>$75.57</strong>
+                    </p>
+                    <p><label>Voucher code
+                        <span class="flex-row" style="align-items: center; gap: .5em">
+                            <input type="text" placeholder="FORMA10" />
+                            <button class="btn-outline sm">Apply</button>
+                        </span>
+                    </label></p>
+                    <div class="flex-row" style="align-items: center; flex-wrap: wrap; gap: .75em">
+                        <button class="lg">Place order</button>
+                        <button class="btn-outline">Continue shopping</button>
+                    </div>
+                    <p class="sm">By placing the order you accept the terms and conditions.
+                        This is a static demonstration: the order is not sent anywhere.</p>
+                </div>
+                <footer>
+                    <span class="badge">Secure checkout</span>
+                    <span class="sm">SSL · PCI DSS · 0 g of JavaScript</span>
+                </footer>
+            </article>
+        </aside>
+    </main>
+</body>
+
+</html>
