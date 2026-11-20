@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>forma-css — Theme playground</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/forma-css.min.css" />
+    <style>
+        /* Playground tweaks only: the components below are pure forma-html5 semantic markup.
+           No token is predefined here: every control writes a --forma-* custom property on :root. */
+        #controls {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        #controls .panel {
+            background-color: light-dark(var(--forma-color-panel, white), var(--forma-color-panel-dark, black));
+        }
+
+        .controls-grid {
+            display: grid;
+            gap: 1em;
+            grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+        }
+
+        fieldset {
+            border: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: .4em;
+        }
+
+        fieldset > label {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type="color"] {
+            width: 3em;
+            height: 2em;
+            padding: 0;
+        }
+
+        #presets {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .6em;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Theme playground</h1>
+        <p class="lead">Reskin forma-css without compiling a single line of Sass.</p>
+        <p>Every control on this page writes a <code>--forma-*</code> custom property onto
+            <code>:root</code>, inline, at runtime. The stylesheet is the stock
+            <code>forma-css.min.css</code> build: what changes is the token set, not the CSS.
+            Scroll through the components and watch them all follow.</p>
+
+        <div id="controls" class="card">
+            <div class="panel" style="padding: 1em; margin-bottom: 1em;">
+                <h4 style="margin-top: 0">Tokens</h4>
+                <div class="controls-grid">
+                    <fieldset>
+                        <label>Primary color <input type="color" data-token="--forma-color-primary" /></label>
+                        <label>Secondary color <input type="color" data-token="--forma-color-secondary" /></label>
+                    </fieldset>
+                    <fieldset>
+                        <label>Background <input type="color" data-token="--forma-color-background" /></label>
+                        <label>Text <input type="color" data-token="--forma-color-text" /></label>
+                    </fieldset>
+                    <fieldset>
+                        <label>Button radius <input type="range" min="0" max="48" step="1" data-radius="--forma-border-radius-button" /></label>
+                        <label>Panel radius <input type="range" min="0" max="48" step="1" data-radius="--forma-border-radius-panel" /></label>
+                    </fieldset>
+                </div>
+                <h4 style="margin-bottom: 0">Presets</h4>
+                <div id="presets">
+                    <button class="btn" data-preset="reset">Reset</button>
+                    <button class="btn" data-preset="violet">Violet</button>
+                    <button class="btn" data-preset="forest">Forest</button>
+                    <button class="btn" data-preset="sunset">Sunset</button>
+                    <button class="btn" data-preset="mono">Mono</button>
+                </div>
+            </div>
+        </div>
+
+        <section>
+            <h2>Typography</h2>
+            <p>This paragraph carries a <a href="#" onclick="return false">link</a>, <strong>strong emphasis</strong>
+                and <code>inline code</code>. Headings above use the heading tokens, which respect the same
+                <code>--forma-font-size-*</code> scale.</p>
+            <blockquote>
+                "No build step, no pipeline: the cascade is the theming API."
+                <footer><cite>forma-css</cite></footer>
+            </blockquote>
+        </section>
+
+        <section>
+            <h2>Buttons</h2>
+            <div class="flex-row" style="align-items: center; flex-wrap: wrap">
+                <button>Default</button>
+                <button class="btn-secondary">Secondary</button>
+                <button class="btn-outline">Outline</button>
+                <button class="btn-contrast">Contrast</button>
+                <button class="btn-round">Round</button>
+            </div>
+        </section>
+
+        <section>
+            <h2>Forms</h2>
+            <label>Text input
+                <input type="text" placeholder="Type something" />
+            </label>
+            <label>Search
+                <input type="search" placeholder="Search…" />
+            </label>
+            <label>Switch
+                <input type="checkbox" role="switch" checked />
+            </label>
+            <label>Checkbox
+                <input type="checkbox" checked />
+            </label>
+            <label>Radio
+                <input type="radio" name="playground-radio" checked />
+            </label>
+        </section>
+
+        <section>
+            <h2>Badges</h2>
+            <p>
+                <span class="badge" style="--forma-color-primary: var(--forma-color-primary)">Badge</span>
+                <span class="badge color-success">Success</span>
+                <span class="badge color-danger">Danger</span>
+                <span class="badge color-info">Info</span>
+                <span class="badge color-warning">Warning</span>
+            </p>
+            <p class="color-primary">Primary text utility · <span class="color-secondary">secondary</span> ·
+                <span class="color-contrast">contrast</span></p>
+        </section>
+
+        <section>
+            <h2>Card</h2>
+            <article class="card" style="--card-padding: 1.5em">
+                <div>
+                    <h3>Cards follow automatically</h3>
+                    <p>Radius, panel, borders and elevation are tokens too. This card only overrides its padding,
+                        also inline.</p>
+                </div>
+                <footer>
+                    <button class="btn-outline">Share</button>
+                    <button>Read more</button>
+                </footer>
+            </article>
+        </section>
+
+        <section>
+            <h2>Accordion &amp; table</h2>
+            <details>
+                <summary><h5>Does this work in dark mode?</h5><span></span></summary>
+                <div class="content">
+                    <p>Yes. Tokens declared with <code>light-dark()</code> pick their <code>-dark</code> twin
+                        automatically; if you only set the light token, dark mode falls back to it.</p>
+                </div>
+            </details>
+            <div class="overflow">
+                <table class="stripped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Token</th>
+                            <th scope="col">Affects</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>--forma-color-primary</th>
+                            <td>Buttons, links, focus, checked states</td>
+                        </tr>
+                        <tr>
+                            <th>--forma-border-radius-button</th>
+                            <td>Buttons, inputs, badges</td>
+                        </tr>
+                        <tr>
+                            <th>--forma-border-radius-panel</th>
+                            <td>Cards, modals, dropdown menus</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        (function () {
+            "use strict";
+
+            var root = document.documentElement;
+
+            function toHex(rgb) {
+                if (!rgb) return "#000000";
+                if (rgb[0] === "#") return rgb;
+                var m = rgb.match(/\d+/g);
+                if (!m) return "#000000";
+                return "#" + m.slice(0, 3).map(function (n) {
+                    return ("0" + parseInt(n, 10).toString(16)).slice(-2);
+                }).join("");
+            }
+
+            function probe(element, property) {
+                return getComputedStyle(element).getPropertyValue(property).trim();
+            }
+
+            setRangeValueFrom("button", "--forma-border-radius-button", "--forma-border-radius-button");
+            setRangeValueFrom("[class]", "--forma-border-radius-panel", "--forma-border-radius-panel");
+
+            function setRangeValueFrom(selector, elProp, token) {
+                var el = document.querySelector(selector) || document.documentElement;
+                var value = parseFloat(probe(el, elProp)) || 0;
+                var input = document.querySelector('[data-radius="' + token + '"]');
+                if (input) input.value = Math.round((value / (parseFloat(probe(document.documentElement, "font-size")) || 16)) * 16);
+            }
+
+            var buttons = {
+                default: { backgroundColor: probe(root, "background-color"), color: probe(root, "color") }
+            };
+
+            function initColor(token, probeSelector, probeProp) {
+                var input = document.querySelector('[data-token="' + token + '"]');
+                if (!input) return;
+                var el = probeSelector ? document.querySelector(probeSelector) : root;
+                input.value = toHex(probe(el, probeProp || "backgroundColor"));
+                input.addEventListener("input", function () {
+                    root.style.setProperty(token, input.value);
+                });
+            }
+
+            initColor("--forma-color-primary", "button");
+            initColor("--forma-color-secondary", ".btn-secondary");
+            initColor("--forma-color-background", null, "background-color");
+            initColor("--forma-color-text", null, "color");
+
+            var radiusInputs = Array.prototype.slice.call(document.querySelectorAll("[data-radius]"));
+            radiusInputs.forEach(function (input) {
+                input.addEventListener("input", function () {
+                    root.style.setProperty(input.getAttribute("data-radius"), (input.value / 16) + "rem");
+                });
+            });
+
+            var presets = {
+                violet: { primary: "#7c3aed", secondary: "#f472b6", dark: { primary: "#a78bfa" } },
+                forest: { primary: "#2f855a", secondary: "#68d391", dark: { primary: "#68d391" } },
+                sunset: { primary: "#e05d3a", secondary: "#f6c344", dark: { primary: "#f0856a" } },
+                mono: { primary: "#1a1a1a", secondary: "#7a7a7a", dark: { primary: "#ffffff" } }
+            };
+
+            document.querySelectorAll("[data-preset]").forEach(function (btn) {
+                btn.addEventListener("click", function () {
+                    var name = btn.getAttribute("data-preset");
+                    if (name === "reset") {
+                        root.removeAttribute("style");
+                    } else {
+                        var p = presets[name];
+                        root.style.setProperty("--forma-color-primary", p.primary);
+                        root.style.setProperty("--forma-color-secondary", p.secondary);
+                        if (p.dark) {
+                            root.style.setProperty("--forma-color-primary-dark", p.dark.primary);
+                            root.style.setProperty("--forma-color-secondary-dark", p.dark.primary);
+                        }
+                    }
+                    document.querySelectorAll("[data-token]").forEach(function (i) {
+                        i.dispatchEvent(new Event("input", { bubbles: false }));
+                    });
+                    // after reset/re-preset, re-read the computed values into the pickers
+                    if (name === "reset") {
+                        initColorValues();
+                    }
+                });
+            });
+
+            function initColorValues() {
+                var map = [
+                    ["--forma-color-primary", "button", "backgroundColor"],
+                    ["--forma-color-secondary", ".btn-secondary", "backgroundColor"],
+                    ["--forma-color-background", null, "background-color"],
+                    ["--forma-color-text", null, "color"]
+                ];
+                map.forEach(function (row) {
+                    var input = document.querySelector('[data-token="' + row[0] + '"]');
+                    if (!input) return;
+                    var el = row[1] ? document.querySelector(row[1]) : root;
+                    var v = probe(el, row[2]);
+                    if (v && !/^transparent$/.test(v)) input.value = toHex(v);
+                });
+            }
+        })();
+    </script>
+</body>
+
+</html>
