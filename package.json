@@ -48,8 +48,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "scripts": {
-    "start": "node server.js"
   }
 }
