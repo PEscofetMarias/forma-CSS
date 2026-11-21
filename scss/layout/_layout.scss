@@ -60,6 +60,7 @@
     :is(body > header, body > main, body > footer, .main-container) {
       &:not(.fluid) {
         margin: 0 calc($gutter * 0.5);
+        width: calc(100% - $gutter);
       }
     }
   }
