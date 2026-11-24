@@ -28,7 +28,7 @@
       appearance: none;
       border-radius: $border-radius-button;
       line-height: 120%;
-      border: 2px solid $color-gray-highlight;
+      border: 1px solid $color-gray-highlight;
       padding: 0.6em;
       background-color: rgb(from $color-panel r g b / 0.7);
       transition: all $transition-fast ease-in-out;
