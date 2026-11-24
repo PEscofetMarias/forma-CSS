@@ -36,10 +36,12 @@
         @media (forced-colors: active) {
           forced-color-adjust: none;
         }
-        //// Accessibility: explicit keyboard focus ring (outline reserved for focus)
+        //// Accessibility: explicit keyboard focus ring (outline reserved for
+        /// focus), transparent at rest so only the color changes on focus
+        outline: 2px solid transparent;
+        outline-offset: 2px;
         &:focus-visible {
-          outline: 2px solid $color-primary;
-          outline-offset: 2px;
+          outline-color: $color-primary;
         }
       }
     }

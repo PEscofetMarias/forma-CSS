@@ -22,6 +22,12 @@
         //// Accessibility: the invalid state never relies on border color alone
         /// (WCAG 1.4.1): the icon from _config.scss is the second channel; text
         /// error messages remain the author's responsibility (WCAG 3.3.1).
+        //// Accessibility: the focus ring matches the field state instead of the
+        /// primary color (WCAG 3.3.2). Same transparent-rest technique as the
+        /// text inputs (no resize/jitter with transition: all).
+        &:not([type="checkbox"], [type="radio"]):focus-visible {
+          outline-color: var(#{$css-var-prefix}border-color);
+        }
         &:focus {
           border-color: oklch(
             from var(#{$css-var-prefix}border-color) calc(l * 1.3) c h

@@ -31,7 +31,11 @@
       }
       //// Accessibility: forced-colors (Windows high contrast) strips backgrounds and
       /// shadows from appearance:none controls, which erased the checked state.
+      /// The focus ring occupies its 2px transparently at rest so entering
+      /// :focus-visible only changes its color (no dancing with transition: all).
       &:is([type="checkbox"], [type="radio"]) {
+        outline: 2px solid transparent;
+        outline-offset: 2px;
         @media (forced-colors: active) {
           forced-color-adjust: none;
         }
@@ -39,8 +43,7 @@
       //// Accessibility: explicit keyboard focus ring. The UA ring is unreliable on
       /// appearance:none controls, and outline is reserved exclusively for focus.
       &:is([type="checkbox"], [type="radio"]):focus-visible {
-        outline: 2px solid $color-primary;
-        outline-offset: 2px;
+        outline-color: $color-primary;
       }
     }
   }
