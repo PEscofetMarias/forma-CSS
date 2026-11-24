@@ -30,3 +30,17 @@
     ) //$css-var-prefix: --framework-name-
   );
 @use "index";
+
+//// Accessibility (WCAG 2.3.3): respect the OS "reduce motion" preference.
+/// These rules are intentionally UNLAYERED: unlayered styles beat everything
+/// inside @layer, so the framework stays true to "your CSS wins" (no !important)
+/// while motion preferences still win over the framework itself.
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms;
+    animation-duration: 0.01ms;
+    scroll-behavior: auto;
+  }
+}
