@@ -93,6 +93,17 @@
       }
     }
 
+    //// Accessibility (WCAG 1.4.1): links inside running text must be
+    /// distinguishable by more than color.
+    :is(p, li, td, figcaption) a {
+      text-decoration: underline;
+      text-decoration-thickness: 0.05em;
+      text-underline-offset: var(
+        #{$css-var-prefix}text-underline-offset,
+        0.2em
+      );
+    }
+
     .btn-group {
       --border-radius-first: #{$border-radius-button} 0 0
         #{$border-radius-button};

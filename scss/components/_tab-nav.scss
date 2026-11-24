@@ -34,14 +34,14 @@
         order: 1;
         padding: 0.75em 1.25em;
         border-bottom: 3px solid transparent;
-        color: oklch(from $color-text calc(l * 0.5 + 0.4) c h);
+        color: oklch(from $color-text calc(l * 0.5 + 0.3) c h);
         cursor: pointer;
         text-align: center;
         transition: all $transition-fast;
         user-select: none;
         margin: 0;
         &:hover {
-          border-color: oklch(from $color-text calc(l * 0.5 + 0.4) c h);
+          border-color: oklch(from $color-text calc(l * 0.5 + 0.3) c h);
           color: $color-text;
         }
       }

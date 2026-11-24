@@ -117,8 +117,13 @@ $color-info: light-dark(
     var(#{$css-var-prefix}color-info, #5b8cff)
   )
 );
+//// Accessibility (WCAG 1.4.3): the light default for state colors used as text
+/// ($color-warning) must reach 4.5:1 on the default background. The vivid
+/// yellow (#fef600) measured 1.14:1 and was unreadable as text; #8a7500 is the
+/// darkest amber that keeps the warning hue (4.54:1). For accents/backgrounds,
+/// override --forma-color-warning as usual.
 $color-warning: light-dark(
-  var(#{$css-var-prefix}color-warning, #fef600),
+  var(#{$css-var-prefix}color-warning, #8a7500),
   var(
     #{$css-var-prefix}color-warning-dark,
     var(#{$css-var-prefix}color-warning, #ffe014)
