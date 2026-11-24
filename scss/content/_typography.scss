@@ -20,7 +20,10 @@
             map.get($props, line-height)
           );
         }
-        @if map.get($props, letter-spacing) {
+        @if map.get($props, letter-spacing) and
+          map.get($props, letter-spacing)
+          !=0
+        {
           letter-spacing: var(
             #{$css-var-prefix}#{map.get($props, variable-name)}-letter-spacing,
             map.get($props, letter-spacing)
