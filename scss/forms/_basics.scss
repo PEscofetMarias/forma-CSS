@@ -39,7 +39,7 @@
       /// not reliably reach a 3:1 focus indicator (WCAG 2.4.11/2.4.13).
       &:not([type="checkbox"], [type="radio"]) {
         outline: 2px solid transparent;
-        outline-offset: 1px;
+        outline-offset: -2px;
       }
       &:not([type="checkbox"], [type="radio"]):focus-visible {
         outline-color: $color-primary;
