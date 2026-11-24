@@ -22,6 +22,8 @@ So forma-css was created to **fill the gap left by Pico CSS**: it carries on the
 - **Optional modules**: enable or disable each module from `scss/_config.scss` (`$modules`).
 - **Ordered layers**: `forma.reset`, `forma.base`, `forma.components`, `forma.utilities`, so your own CSS always wins.
 - **Responsive layout** with configurable breakpoints and variable-driven grids (`.grid`, `.responsive-container`/`.responsive-column` with `--grid`/`--span`, `.display`).
+- **Accessible by default (WCAG 2.2 AA)**: keyboard focus rings on every interactive control, tabs navigable with arrow keys, `prefers-reduced-motion` support, forced-colors (Windows high contrast) fallbacks, legible color defaults and underlined links inside running text.
+- **Not a single `!important`** in the whole codebase: ordered layers (plus the deliberately unlayered `.display` utility and motion preferences) mean your rules win by construction.
 
 ## Installation
 
@@ -96,11 +98,11 @@ The whole visual identity is controlled from the root (`:root`). Prefix: `--form
 | `--forma-color-gray-highlight` | `#cccccc` | General-purpose gray (input borders, table rows) |
 | `--forma-color-success` | `green` | Success color (form validation, `.color-success`) |
 | `--forma-color-success-dark` | `#4caf50` | Success color in dark mode (defaults to the light value) |
-| `--forma-color-danger` | `#ff4800` | Danger color (form validation, `.color-danger`) |
+| `--forma-color-danger` | `#d63c00` | Danger color (form validation, `.color-danger`) |
 | `--forma-color-danger-dark` | `#ff7043` | Danger color in dark mode (defaults to the light value) |
 | `--forma-color-info` | `#0059ff` | Info color (`.color-info`) |
 | `--forma-color-info-dark` | `#5b8cff` | Info color in dark mode (defaults to the light value) |
-| `--forma-color-warning` | `#fef600` | Warning color (`.color-warning`) |
+| `--forma-color-warning` | `#8a7500` | Warning color (`.color-warning`) |
 | `--forma-color-warning-dark` | `#ffe014` | Warning color in dark mode (defaults to the light value) |
 | `--forma-font-size-base` | per breakpoint | Document base size; updates itself at each breakpoint |
 | `--forma-scale-sm` | `0.7` | Scaling factor for the `.sm` class |
@@ -114,7 +116,7 @@ The whole visual identity is controlled from the root (`:root`). Prefix: `--form
 | `--forma-filter-backdrop` | `none` | `backdrop-filter` for modal backdrops |
 | `--forma-filter-panel` | `none` | `backdrop-filter` for elevated panels |
 | `--forma-elevation-1/2/3` | predefined shadows | Shadows (elevation levels) |
-| `--forma-icon-search`, `--forma-icon-date`, `--forma-icon-time`, `--forma-icon-expand`, `--forma-icon-check` | — | Icon images for search/date/time inputs, selects and checks |
+| `--forma-icon-search`, `--forma-icon-date`, `--forma-icon-time`, `--forma-icon-expand`, `--forma-icon-check`, `--forma-icon-invalid-true`, `--forma-icon-invalid-false` | built-in SVG | Icons for inputs (search/date/time, selects, checks) and validation states. Every icon falls back to a built-in inline SVG, so default controls are fully functional and readable even without configuration |
 
 Example:
 
@@ -247,6 +249,10 @@ Scale any element by multiplying its base size (`--forma-font-size-base`, the el
 
 The factors are adjustable from `:root` via `--forma-scale-sm`, `--forma-scale-lg` and `--forma-scale-xl`. Since button padding, gaps and icons use relative units, the size classes scale **the whole element**, not just the text.
 
+### Links
+
+Links are bold in the primary color. Inside running text (`p`, `li`, `td`, `figcaption`) they also carry an underline, so they never rely on color alone (WCAG 1.4.1). Button-like links (`.btn`) and navigation links are not underlined.
+
 ### Buttons
 
 Every `<button>`, `.btn` and `input[type=button|submit|reset]` is styled out of the box. Variants:
@@ -279,7 +285,7 @@ Icons (`<i>` or any element with the `.bi` class, e.g. Bootstrap Icons SVGs) kee
 
 ### Text with emphasis
 
-`<u>`, `<ins>`, `<del>`, `<s>` get a gradient underline instead of `text-decoration` (on `del`/`s` the line sits in the middle), and `<mark>` uses a secondary→primary gradient as text color.
+`<u>`, `<ins>`, `<del>`, `<s>` get a gradient underline instead of `text-decoration` (on `del`/`s` the line sits in the middle), and `<mark>` uses a secondary→primary gradient as text color. In forced-colors (Windows high contrast) mode the native decorations and the system `Highlight` colors are restored, so emphasis stays visible.
 
 ### Tables
 
@@ -446,7 +452,7 @@ Every link inside a `<nav>` is styled **without any class**: text color, `1.25em
 
 ### Tabs — `.tabs`
 
-Tab system built on **hidden radio inputs**: no JavaScript. Each `label` is a tab, and panels are toggled through adjacent selectors (`input:checked + label + .tab-panel`). Keyboard navigation works out of the box because the radio inputs are native.
+Tab system built on **radio inputs**: no JavaScript. Each `label` is a tab, and panels are toggled through adjacent selectors (`input:checked + label + .tab-panel`). The radios are visually hidden but remain focusable (WCAG 2.1.1): `Tab` enters the group, the arrow keys move between tabs (native radio behavior), and the focus ring is projected onto the active tab label.
 
 ```html
 <div class="tabs">
@@ -466,9 +472,10 @@ Notes: the `.separator` (a `div` with a top border) divides the tabs from the pa
 
 ## Forms
 
-- **Base (`forms/basics`)**: `label`, `input` and `select` styled out of the box (2px border, focus with `panel-elevation-2` shadow, `disabled` state). `input[type=search|date|time]` show an icon (`--forma-icon-*`); `select` uses `--forma-icon-expand`; `input[type=color]` and `input[type=file]` have specific handling.
+- **Base (`forms/basics`)**: `label`, `input` and `select` styled out of the box (2px border, focus with a 2px focus ring plus the `panel-elevation-2` shadow, `disabled` state). `input[type=search|date|time]` show an icon (`--forma-icon-*`); `select` uses `--forma-icon-expand`; `input[type=color]` and `input[type=file]` have specific handling.
+- **Validation (`forms/validation`)**: fields with `aria-invalid` get a state border plus a built-in status icon (`--forma-icon-invalid-*` with SVG fallback), and the focus ring takes the field state color (danger/success) instead of the primary.
 - **`.hidden-search`**: expanding search based on `<details>` — the form expands via `::details-content` when opened. Includes a `summary` with a search icon and a `span.close-icon` for the close icon.
-- **Checkbox / radio**: `:checked` states drawn with pure CSS (`--forma-icon-check` icon for checkboxes, ring for radios).
+- **Checkbox / radio**: `:checked` states drawn with pure CSS (`--forma-icon-check` icon for checkboxes, ring for radios). All control types get an explicit `:focus-visible` ring, and their checked state survives Windows high contrast mode (`forced-colors`).
 - **Switch**: `<input type="checkbox" role="switch">` becomes an animated toggle.
 
 ```html
