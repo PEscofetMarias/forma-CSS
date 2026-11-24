@@ -18,7 +18,6 @@
           position: absolute;
           top: 0;
           left: 0;
-          border: 0;
           width: calc(1em * 1.4);
           height: calc(1em * 1.4);
           border-radius: 50%;
@@ -32,6 +31,15 @@
             transform: translateX(calc(1em * 1.3));
             border-color: $color-primary;
           }
+        }
+        //// Accessibility: forced-colors erases the track/thumb colors; keep them
+        @media (forced-colors: active) {
+          forced-color-adjust: none;
+        }
+        //// Accessibility: explicit keyboard focus ring (outline reserved for focus)
+        &:focus-visible {
+          outline: 2px solid $color-primary;
+          outline-offset: 2px;
         }
       }
     }
