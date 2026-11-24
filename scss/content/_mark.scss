@@ -7,6 +7,7 @@
       background: linear-gradient(to right, $color-secondary, $color-primary);
       background-clip: text;
       color: transparent;
+      padding: 0 0.01em;
       //// Accessibility: color: transparent + background-clip: text renders
       /// invisible text in forced-colors mode (WCAG 1.4.1). Fall back to the
       /// system highlight colors, exactly what <mark> means.
