@@ -13,10 +13,7 @@
         &:checked {
           background-color: $color-primary;
           border-color: $color-primary;
-          background-image: var(
-            #{$css-var-prefix}icon-check,
-            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M12.7 4.7 6.5 11.3 3.3 8.1' fill='none' stroke='%23fff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
-          );
+          background-image: $icon-check;
           background-size: 1em auto;
           background-repeat: no-repeat;
           background-position: center center;
@@ -29,7 +26,7 @@
         border: 2px solid $color-gray-highlight;
         border-radius: 50%;
         &:checked {
-          box-shadow: inset 0 0 0 0.25em $color-primary;
+          box-shadow: inset 0 0 0 calc(1em * 0.35) $color-primary;
         }
       }
       //// Accessibility: forced-colors (Windows high contrast) strips backgrounds and
