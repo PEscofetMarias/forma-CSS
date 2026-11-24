@@ -8,9 +8,20 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0;
+      position: relative;
 
+      //// Accessibility: radios must stay focusable (WCAG 2.1.1). display:none
+      /// removed them from the tab order and the accessibility tree. The visually
+      /// hidden technique keeps native keyboard support: Tab enters the group,
+      /// arrow keys switch tabs for free (native radio group behavior).
       input[type="radio"] {
-        display: none;
+        position: absolute;
+        opacity: 0;
+        width: 1px;
+        height: 1px;
+        margin: 0;
+        clip-path: inset(50%);
+        pointer-events: none;
       }
       &.full-width {
         //// the tabs will use the container's full width
@@ -52,6 +63,14 @@
         transition:
           opacity $transition-slow ease,
           visibility $transition-slow ease;
+      }
+
+      //// Accessibility: the hidden radio cannot show a ring, so focus lands
+      /// visually on its label instead (WCAG 2.4.7/2.4.11).
+      input[type="radio"]:focus-visible + label {
+        outline: 2px solid $color-primary;
+        outline-offset: 2px;
+        border-radius: $border-radius-button;
       }
 
       input[type="radio"]:checked + label {
