@@ -37,14 +37,14 @@
       /// only changes its color: nothing resizes or animates (inputs use
       /// transition: all) and there is no "dancing" ring. The shadow alone did
       /// not reliably reach a 3:1 focus indicator (WCAG 2.4.11/2.4.13).
-      &:not([type="checkbox"], [type="radio"]) {
+      &:not([type="checkbox"], [type="radio"], [type="range"]) {
         outline: 2px solid transparent;
         outline-offset: -2px;
       }
-      &:not([type="checkbox"], [type="radio"]):focus-visible {
+      &:not([type="checkbox"], [type="radio"], [type="range"]):focus-visible {
         outline-color: $color-primary;
       }
-      &:not([type="checkbox"], [type="radio"]):focus {
+      &:not([type="checkbox"], [type="radio"], [type="range"]):focus {
         @include m.panel-elevation-2;
       }
       &[disabled] {
