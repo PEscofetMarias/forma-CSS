@@ -1,0 +1,94 @@
+// scss/forms/_range.scss
+@use "sass:map";
+@use "../config" as *;
+
+@if map.get($modules, "forms/range-slider") {
+  @layer forma.components {
+    input[type="range"] {
+      // Escala amb les mides universals .sm/.lg/.xl
+      #{$css-var-prefix}font-size-base: 1rem;
+      // Patró signature: la fill del track es resol amb una custom
+      // property definida com a style inline (0% = nenú de fill).
+      #{$css-var-prefix}range-fill: 0%;
+      padding: 0;
+      width: 100%;
+      height: calc(1em * 1.4);
+      appearance: none;
+      background: transparent;
+      border: none;
+
+      //// Pista única (Chromium/Safari)
+      &::-webkit-slider-runnable-track {
+        height: calc(1em * 0.4);
+        border-radius: 50px;
+        background:
+          linear-gradient($color-primary, $color-primary) no-repeat,
+          $color-gray-highlight;
+        background-size:
+          var($css-var-prefix + "range-fill") 100%,
+          100% 100%;
+      }
+
+      &::-webkit-slider-thumb {
+        appearance: none;
+        width: calc(1em * 1.4);
+        height: calc(1em * 1.4);
+        margin-top: calc(1em * -0.5); // centra el thumb al track
+        border-radius: 50%;
+        border: 3px solid $color-primary;
+        background-color: contrast-color($color-primary);
+        transition: all $transition-fast ease-in-out;
+      }
+
+      //// Firefox
+      &::-moz-range-track {
+        height: calc(1em * 0.4);
+        border-radius: 50px;
+        background: $color-gray-highlight;
+      }
+      &::-moz-range-progress {
+        height: calc(1em * 0.4);
+        border-radius: 50px;
+        background: $color-primary;
+      }
+      &::-moz-range-thumb {
+        width: calc(1em * 1.4);
+        height: calc(1em * 1.4);
+        border-radius: 50%;
+        border: 3px solid $color-primary;
+        background-color: contrast-color($color-primary);
+        transition: all $transition-fast ease-in-out;
+      }
+
+      //// Estats rel·latius oklch (hover x0.8, actiu x0.7)
+      &:hover:not([disabled]) {
+        &::-webkit-slider-thumb {
+          border-color: oklch(from $color-primary calc(l * 0.8) c h);
+        }
+        &::-moz-range-thumb {
+          border-color: oklch(from $color-primary calc(l * 0.8) c h);
+        }
+      }
+      &:active:not([disabled]) {
+        &::-webkit-slider-thumb {
+          border-color: oklch(from $color-primary calc(l * 0.7) c h);
+        }
+        &::-moz-range-thumb {
+          border-color: oklch(from $color-primary calc(l * 0.7) c h);
+        }
+      }
+
+      //// Accessibility: forced-colors esborra els colors del track/thumb
+      @media (forced-colors: active) {
+        forced-color-adjust: none;
+      }
+      //// Accessibility: anell de focus (outline reservat per al focus),
+      /// transparent en repòs, com la resta de forms
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+      &:focus-visible {
+        outline-color: $color-primary;
+      }
+    }
+  }
+}
