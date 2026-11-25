@@ -12,7 +12,7 @@ forma-css was born out of a real need, not a trend. After years of building with
 
 That search led to **[Pico CSS](https://github.com/picocss/pico)**: classless, semantic HTML meant less CSS *and* less markup to ship. But Pico (~80 kB) was still more than the job required — and its development was discontinued.
 
-So forma-css was created to **fill the gap left by Pico CSS**: it carries on the classless-framework philosophy, but pushes efficiency further with modern CSS features (layers, the Popover API, `light-dark()`, relative color syntax…). The result: websites built with forma-css consistently achieve **A+ ratings on [Ecograder](https://ecograder.com)**. Its own documentation site, [css.formasystem.org](https://css.formasystem.org), scores a perfect **100/100** — ~153 kB total page weight, 0.017 g CO₂ per pageview, zero JS libraries ([full report](https://ecograder.com/pro/report/cf7b2c8f-2dc9-4182-a804-7ab9bfb0501c)).
+So forma-css was created to **fill the gap left by Pico CSS**: it carries on the classless-framework philosophy, but pushes efficiency further with modern CSS features (layers, the Popover API, `light-dark()`, relative color syntax…). The result: websites built with forma-css consistently achieve **A+ ratings on [Ecograder](https://ecograder.com)**. Its own documentation site, [formacss.com](https://formacss.com), holds an **A+ Digital Carbon Rating** — around 150 kB of total page weight, under 0.02 g CO₂ per pageview, zero JS libraries.
 
 ## Features
 
@@ -67,7 +67,7 @@ To include only part of the framework, `@use` the modules you need and disable t
 
 ## Documentation
 
-The full documentation lives at **[css.formasystem.org](https://css.formasystem.org)** — the framework's first real project, built with forma-css itself. It covers getting started, customization (runtime custom properties and build-time SCSS), layout, content, forms and every component, plus a Philosophy section with the numbers behind the framework and migration guides if you come from Pico CSS, Bootstrap or Tailwind.
+The full documentation lives at **[formacss.com](https://formacss.com)** — the framework's first real project, built with forma-css itself. It covers getting started, customization (runtime custom properties and build-time SCSS), layout, content, forms and every component, plus a Philosophy section with the numbers behind the framework and migration guides if you come from Pico CSS, Bootstrap or Tailwind.
 
 ## Customization with CSS variables
 
