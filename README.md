@@ -12,7 +12,7 @@ forma-css was born out of a real need, not a trend. After years of building with
 
 That search led to **[Pico CSS](https://github.com/picocss/pico)**: classless, semantic HTML meant less CSS *and* less markup to ship. But Pico (~80 kB) was still more than the job required — and its development was discontinued.
 
-So forma-css was created to **fill the gap left by Pico CSS**: it carries on the classless-framework philosophy, but pushes efficiency further with modern CSS features (layers, the Popover API, `light-dark()`, relative color syntax…). The result: websites built with forma-css consistently achieve **A+ ratings on [Ecograder](https://ecograder.com)**. Its own documentation site, [formacss.com](https://formacss.com), holds an **A+ Digital Carbon Rating** — around 150 kB of total page weight, under 0.02 g CO₂ per pageview, zero JS libraries.
+So forma-css was created to **fill the gap left by Pico CSS**: it carries on the classless-framework philosophy, but pushes efficiency further with modern CSS features (layers, the Popover API, `light-dark()`, relative color syntax…). The result: websites built with forma-css consistently achieve **A+ ratings on [Ecograder](https://ecograder.com)**. Its own documentation site, [formacss.com](https://formacss.com), holds an **A+ Digital Carbon Rating** — under 10 kB of CSS, around 150 kB of total page weight, under 0.02 g CO₂ per pageview, zero JS libraries.
 
 ## Features
 
@@ -24,6 +24,7 @@ So forma-css was created to **fill the gap left by Pico CSS**: it carries on the
 - **Responsive layout** with configurable breakpoints and variable-driven grids (`.grid`, `.responsive-container`/`.responsive-column` with `--grid`/`--span`, `.display`).
 - **Accessible by default (WCAG 2.2 AA)**: keyboard focus rings on every interactive control, tabs navigable with arrow keys, `prefers-reduced-motion` support, forced-colors (Windows high contrast) fallbacks, legible color defaults and underlined links inside running text.
 - **Not a single `!important`** in the whole codebase: ordered layers (plus the deliberately unlayered `.display` utility and motion preferences) mean your rules win by construction.
+- **Graceful degradation, not silence**: rules that depend on the newest CSS (`contrast-color()`) carry grouped `@supports` fallbacks with precomputed `light-dark()` pairs, so buttons, badges and form controls stay legible while the feature is unsupported.
 
 ## Installation
 
@@ -255,7 +256,7 @@ Links are bold in the primary color. Inside running text (`p`, `li`, `td`, `figc
 
 ### Buttons
 
-Every `<button>`, `.btn` and `input[type=button|submit|reset]` is styled out of the box. Variants:
+Every `<button>`, `.btn` and `<input type=button|submit|reset>` is styled out of the box. Variants:
 
 | Class | Description |
 | ----- | ----------- |
@@ -302,7 +303,7 @@ Inline `code` gets a subtle gray-highlight background, rounded corners and a sma
 
 ### Other
 
-- `<blockquote>` — 4px left border, generous padding, and `cite` with an automatic em dash (`—` ) and smaller size.
+- `<blockquote>` — 4px left border, generous padding, and `cite` with an automatic em dash (—) and smaller size.
 - `<figure>` / `<figcaption>` — full width, rounded corners.
 - `<u>`, `<ins>`, `<del>`, `<s>` — gradient underline (thin line in the text color) instead of `text-decoration`; on `del`/`s` the line sits in the middle.
 - `<mark>` — secondary→primary gradient as text color.
@@ -512,7 +513,9 @@ The remaining modules are enabled by default. Disable them via `$modules` in `_c
 
 ## Browser support
 
-forma-css assumes modern browsers (Chrome/Edge 120+, Firefox 129+, Safari 17.4+). It relies on: `@layer`, `light-dark()`, `::details-content`, `@starting-style`, `popover`, `transition-behavior: allow-discrete`, relative color syntax and `contrast-color()`.
+forma-css targets modern browsers: **Chrome/Edge 120+, Firefox 129+ and Safari 18.4+**. It relies on: `@layer`, `light-dark()` (Safari 17.5+), `@starting-style` (17.5+), the Popover API (17+), `::details-content` (Safari 18.4+), `transition-behavior: allow-discrete`, relative color syntax (Safari 18+) and `contrast-color()`.
+
+`contrast-color()` is the newest piece (Chrome/Edge 147+, Firefox 146+, Safari 26+). Browsers without it do not just skip one declaration — the affected rules become invalid, colors fall back to inheritance, and filled buttons and badges turn unreadable. Those rules therefore carry grouped `@supports` fallbacks with precomputed `light-dark()` black/white pairs for the default tokens: buttons, badges, the range-slider thumb and `.color-contrast` stay legible on every browser listed above. Browsers with native support always resolve the exact runtime contrast, which matters if you override `--forma-button-color` (or the badge backgrounds) with colors of a very different luminance.
 
 ## License
 
