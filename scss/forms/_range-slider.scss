@@ -78,6 +78,17 @@
         }
       }
 
+      //// contrast-color() fallback (see _buttons.scss). The thumb fill is
+      /// drawn against the primary color, dark (#083cc0) in both color
+      /// schemes, so its contrast pair is plain white for the default
+      /// tokens.
+      @supports not (color: contrast-color(red)) {
+        &::-webkit-slider-thumb,
+        &::-moz-range-thumb {
+          background-color: #fff;
+        }
+      }
+
       //// Accessibility: forced-colors esborra els colors del track/thumb
       @media (forced-colors: active) {
         forced-color-adjust: none;

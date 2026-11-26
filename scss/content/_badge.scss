@@ -16,5 +16,17 @@
       align-items: center;
       gap: 0.25em;
     }
+
+    //// contrast-color() fallback (see _buttons.scss). The pill is drawn
+    /// against the page background, which flips with the color scheme
+    /// (light-dark() in _config.scss): light mode gets an ink pill with
+    /// white text, dark mode a paper pill with black text. Identical to the
+    /// nested contrast-color() for the default tokens.
+    @supports not (color: contrast-color(red)) {
+      .badge {
+        color: light-dark(#fff, #000);
+        background: light-dark(#000, #fff);
+      }
+    }
   }
 }

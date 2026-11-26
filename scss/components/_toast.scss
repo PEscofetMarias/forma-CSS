@@ -29,6 +29,16 @@
       .btn-contrast {
         #{$color-contrast}: contrast-color($color-panel);
       }
+
+      //// contrast-color() fallback (see _buttons.scss). The toast panel
+      /// is white in light mode and black in dark mode, so its contrast
+      /// pair flips with the color scheme: light-dark() reproduces
+      /// contrast-color($color-panel) exactly for the default tokens.
+      @supports not (color: contrast-color(red)) {
+        .btn-contrast {
+          #{$color-contrast}: light-dark(#000, #fff);
+        }
+      }
     }
   }
 }

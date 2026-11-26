@@ -123,5 +123,44 @@
         width: 100%;
       }
     }
+
+    //// contrast-color() fallback for browsers without it (all Safari up to
+    /// 25, Chrome < 147, Firefox < 146): there the declarations above are
+    /// invalid, labels inherit the page color and filled buttons become
+    /// unreadable. Grouped in a single @supports not block so the cost is a
+    /// few hundred bytes. The pairs are precomputed from the default tokens
+    /// in _config.scss: the default primary (#083cc0) is dark in both color
+    /// schemes, so its accessible pair is white at rest and in the oklch
+    /// hover/active states (l*0.8/l*0.7 never crosses 0.5). Runtime overrides
+    /// of --forma-button-color keep full accuracy in browsers with native
+    /// support.
+    @supports not (color: contrast-color(red)) {
+      :is(.btn, button),
+      input:is([type="button"], [type="submit"], [type="reset"]),
+      input[type="file"]::file-selector-button {
+        color: #fff;
+        &:hover,
+        &:active {
+          color: #fff;
+        }
+      }
+      :is(.btn-outline, .btn-outline-secondary, .btn-outline-contrast) {
+        &:hover,
+        &:active {
+          color: #fff;
+        }
+      }
+      .btn-contrast,
+      .btn-outline-contrast {
+        //// The --forma-color-contrast custom property carries an
+        /// unsupported contrast-color() as its value: the token survives
+        /// (custom properties never validate) but the var() substitution
+        /// fails, so the color falls back to inherited. Re-declare the
+        /// pair with light-dark(), supported by the same browsers
+        /// (Safari 17.5+): the page background flips with the color
+        /// scheme, so black/white flips with it.
+        #{$color-contrast}: light-dark(#000, #fff);
+      }
+    }
   }
 }

@@ -71,6 +71,16 @@
       color: contrast-color($color-background);
     }
 
+    //// contrast-color() fallback (see _buttons.scss). Text drawn against
+    /// the page background: the pair flips with the color scheme, so
+    /// light-dark() reproduces contrast-color($color-background) exactly
+    /// for the default tokens.
+    @supports not (color: contrast-color(red)) {
+      .color-contrast {
+        color: light-dark(#000, #fff);
+      }
+    }
+
     //// Accessibility: in forced-colors mode, background images are stripped,
     /// which erased the decorative underline/strike drawn for u/ins/del/s
     /// (WCAG 1.3.1). Restore the native decorations there.
