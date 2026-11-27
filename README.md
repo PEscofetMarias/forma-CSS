@@ -1,18 +1,18 @@
-# forma-css
+# forma CSS
 
-**forma-css** is a stylesheet microframework written in **SCSS**, built around modern CSS: `@layer`, `light-dark()`, the Popover API, `::details-content`, `@starting-style`, relative color syntax in **`oklch`** and functions like `contrast-color()`.
+**forma CSS** is a stylesheet microframework written in **SCSS**, built around modern CSS: `@layer`, `light-dark()`, the Popover API, `::details-content`, `@starting-style`, relative color syntax in **`oklch`** and functions like `contrast-color()`.
 
 Its goal: style **semantic** HTML elements with little or no utility classes, with automatic light/dark mode support and full customization through **CSS variables**. Interaction states (hover, active) and color variants are derived with **relative color syntax in `oklch`**, so the variants stay perceptually consistent for any color you choose.
 
-Layout follows the same idea. Grids can be defined **massively** with `.grid` plus responsive custom properties — no need to repeat classnames when the modules are identical — or **selectively** with `.responsive-container` (which sets the grid size via `--grid`) and `.responsive-column` (which sets its exact width via `--span`). Unlike Bootstrap or Pico, forma-css combines CSS styles with custom properties written in the markup itself, which considerably reduces the weight of the generated CSS.
+Layout follows the same idea. Grids can be defined **massively** with `.grid` plus responsive custom properties — no need to repeat classnames when the modules are identical — or **selectively** with `.responsive-container` (which sets the grid size via `--grid`) and `.responsive-column` (which sets its exact width via `--span`). Unlike Bootstrap or Pico, forma CSS combines CSS styles with custom properties written in the markup itself, which considerably reduces the weight of the generated CSS.
 
-## Why forma-css?
+## Why forma CSS?
 
-forma-css was born out of a real need, not a trend. After years of building with **Bootstrap** (v3 to v5), its author — like the framework's creator — became increasingly concerned with **energy efficiency in web development** and started working to drive the carbon footprint of websites as low as possible.
+forma CSS was born out of a real need, not a trend. After years of building with **Bootstrap** (v3 to v5), its author — like the framework's creator — became increasingly concerned with **energy efficiency in web development** and started working to drive the carbon footprint of websites as low as possible.
 
 That search led to **[Pico CSS](https://github.com/picocss/pico)**: classless, semantic HTML meant less CSS *and* less markup to ship. But Pico (~80 kB) was still more than the job required — and its development was discontinued.
 
-So forma-css was created to **fill the gap left by Pico CSS**: it carries on the classless-framework philosophy, but pushes efficiency further with modern CSS features (layers, the Popover API, `light-dark()`, relative color syntax…). The result: websites built with forma-css consistently achieve **A+ ratings on [Ecograder](https://ecograder.com)**. Its own documentation site, [formacss.com](https://formacss.com), holds an **A+ Digital Carbon Rating** — under 10 kB of CSS, around 150 kB of total page weight, under 0.02 g CO₂ per pageview, zero JS libraries.
+So forma CSS was created to **fill the gap left by Pico CSS**: it carries on the classless-framework philosophy, but pushes efficiency further with modern CSS features (layers, the Popover API, `light-dark()`, relative color syntax…). The result: websites built with forma CSS consistently achieve **A+ ratings on [Ecograder](https://ecograder.com)**. Its own documentation site, [formacss.com](https://formacss.com), holds an **A+ Digital Carbon Rating** — under 10 kB of CSS, around 150 kB of total page weight, under 0.02 g CO₂ per pageview, zero JS libraries.
 
 ## Features
 
@@ -68,7 +68,7 @@ To include only part of the framework, `@use` the modules you need and disable t
 
 ## Documentation
 
-The full documentation lives at **[formacss.com](https://formacss.com)** — the framework's first real project, built with forma-css itself. It covers getting started, customization (runtime custom properties and build-time SCSS), layout, content, forms and every component, plus a Philosophy section with the numbers behind the framework and migration guides if you come from Pico CSS, Bootstrap or Tailwind.
+The full documentation lives at **[formacss.com](https://formacss.com)** — the framework's first real project, built with forma CSS itself. It covers getting started, customization (runtime custom properties and build-time SCSS), layout, content, forms and every component, plus a Philosophy section with the numbers behind the framework and migration guides if you come from Pico CSS, Bootstrap or Tailwind.
 
 ## Customization with CSS variables
 
@@ -513,10 +513,10 @@ The remaining modules are enabled by default. Disable them via `$modules` in `_c
 
 ## Browser support
 
-forma-css targets modern browsers: **Chrome/Edge 120+, Firefox 129+ and Safari 18.4+**. It relies on: `@layer`, `light-dark()` (Safari 17.5+), `@starting-style` (17.5+), the Popover API (17+), `::details-content` (Safari 18.4+), `transition-behavior: allow-discrete`, relative color syntax (Safari 18+) and `contrast-color()`.
+forma CSS targets modern browsers: **Chrome/Edge 120+, Firefox 129+ and Safari 18.4+**. It relies on: `@layer`, `light-dark()` (Safari 17.5+), `@starting-style` (17.5+), the Popover API (17+), `::details-content` (Safari 18.4+), `transition-behavior: allow-discrete`, relative color syntax (Safari 18+) and `contrast-color()`.
 
 `contrast-color()` is the newest piece (Chrome/Edge 147+, Firefox 146+, Safari 26+). Browsers without it do not just skip one declaration — the affected rules become invalid, colors fall back to inheritance, and filled buttons and badges turn unreadable. Those rules therefore carry grouped `@supports` fallbacks with precomputed `light-dark()` black/white pairs for the default tokens: buttons, badges, the range-slider thumb and `.color-contrast` stay legible on every browser listed above. Browsers with native support always resolve the exact runtime contrast, which matters if you override `--forma-button-color` (or the badge backgrounds) with colors of a very different luminance.
 
 ## License
 
-[MIT](LICENSE) — forma-css is free and open-source software.
+[MIT](LICENSE) — forma CSS is free and open-source software.
